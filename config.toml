@@ -1,7 +1,7 @@
 ##########################################
 # 站点配置
 
-baseURL = "https://yuechuanx.top/blog"
+baseURL = "https://yuechuax.github.io/blog"
 hasCJKLanguage = true
 languageCode = "zh-CN"
 title = "过往皆为序章"
