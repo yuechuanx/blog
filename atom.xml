@@ -4,10 +4,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">过往皆为序章</title>
     <subtitle type="html">MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</subtitle>
-    <updated>2020-08-25T15:40:47&#43;08:00</updated>
-    <id>https://yuechuanx.top/</id>
-    <link rel="alternate" type="text/html" href="https://yuechuanx.top/" />
-    <link rel="self" type="application/atom&#43;xml" href="https://yuechuanx.top/atom.xml" />
+    <updated>2020-08-25T15:54:41&#43;08:00</updated>
+    <id>https://yuechuanx.top/blog/</id>
+    <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/" />
+    <link rel="self" type="application/atom&#43;xml" href="https://yuechuanx.top/blog/atom.xml" />
     <author>
             <name>YueChuan</name>
             <uri>https://yuechuanx.top/</uri>
@@ -18,8 +18,8 @@
     <generator uri="https://gohugo.io/" version="0.74.2">Hugo</generator>
         <entry>
             <title type="text">LeetCode 线性表相关题目与解决</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/algorithm/leetcode-linear-table-related-problems-and-solutions/" />
-            <id>https://yuechuanx.top/posts/algorithm/leetcode-linear-table-related-problems-and-solutions/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/algorithm/leetcode-linear-table-related-problems-and-solutions/" />
+            <id>https://yuechuanx.top/blog/posts/algorithm/leetcode-linear-table-related-problems-and-solutions/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2020-08-14T11:19:28&#43;00:00</published>
             <author>
@@ -574,7 +574,7 @@ Your function should return length = 2, and A is now [1,2].&lt;/p&gt;
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/algorithm/" term="Algorithm" label="Algorithm" />
+                                <category scheme="https://yuechuanx.top/blog/categories/algorithm/" term="Algorithm" label="Algorithm" />
                             
                         
                     
@@ -584,19 +584,19 @@ Your function should return length = 2, and A is now [1,2].&lt;/p&gt;
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/algorithm/" term="algorithm" label="algorithm" />
+                                <category scheme="https://yuechuanx.top/blog/tags/algorithm/" term="algorithm" label="algorithm" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/linear-list/" term="linear-list" label="linear-list" />
+                                <category scheme="https://yuechuanx.top/blog/tags/linear-list/" term="linear-list" label="linear-list" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/array/" term="array" label="array" />
+                                <category scheme="https://yuechuanx.top/blog/tags/array/" term="array" label="array" />
                             
                         
                     
@@ -606,8 +606,8 @@ Your function should return length = 2, and A is now [1,2].&lt;/p&gt;
     
         <entry>
             <title type="text">《Java核心技术》卷一 ：Chap14 并发</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/java/corejava-chap14-concurrency/" />
-            <id>https://yuechuanx.top/posts/java/corejava-chap14-concurrency/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/java/corejava-chap14-concurrency/" />
+            <id>https://yuechuanx.top/blog/posts/java/corejava-chap14-concurrency/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2020-08-14T11:18:31&#43;00:00</published>
             <author>
@@ -662,7 +662,7 @@ Your function should return length = 2, and A is now [1,2].&lt;/p&gt;
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/java/" term="Java" label="Java" />
+                                <category scheme="https://yuechuanx.top/blog/categories/java/" term="Java" label="Java" />
                             
                         
                     
@@ -672,7 +672,7 @@ Your function should return length = 2, and A is now [1,2].&lt;/p&gt;
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/java/" term="java" label="java" />
+                                <category scheme="https://yuechuanx.top/blog/tags/java/" term="java" label="java" />
                             
                         
                     
@@ -682,8 +682,8 @@ Your function should return length = 2, and A is now [1,2].&lt;/p&gt;
     
         <entry>
             <title type="text">《APUE》文件与目录</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/linux/apue-file-and-directory/" />
-            <id>https://yuechuanx.top/posts/linux/apue-file-and-directory/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/linux/apue-file-and-directory/" />
+            <id>https://yuechuanx.top/blog/posts/linux/apue-file-and-directory/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2020-08-14T11:16:11&#43;00:00</published>
             <author>
@@ -761,7 +761,7 @@ Your function should return length = 2, and A is now [1,2].&lt;/p&gt;
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/linux/" term="Linux" label="Linux" />
+                                <category scheme="https://yuechuanx.top/blog/categories/linux/" term="Linux" label="Linux" />
                             
                         
                     
@@ -771,7 +771,7 @@ Your function should return length = 2, and A is now [1,2].&lt;/p&gt;
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/apue/" term="apue" label="apue" />
+                                <category scheme="https://yuechuanx.top/blog/tags/apue/" term="apue" label="apue" />
                             
                         
                     
@@ -781,8 +781,8 @@ Your function should return length = 2, and A is now [1,2].&lt;/p&gt;
     
         <entry>
             <title type="text">《APUE》标准输入输出</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/linux/apue-stdio/" />
-            <id>https://yuechuanx.top/posts/linux/apue-stdio/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/linux/apue-stdio/" />
+            <id>https://yuechuanx.top/blog/posts/linux/apue-stdio/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2020-08-14T11:15:47&#43;00:00</published>
             <author>
@@ -839,7 +839,7 @@ Your function should return length = 2, and A is now [1,2].&lt;/p&gt;
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/linux/" term="Linux" label="Linux" />
+                                <category scheme="https://yuechuanx.top/blog/categories/linux/" term="Linux" label="Linux" />
                             
                         
                     
@@ -849,13 +849,13 @@ Your function should return length = 2, and A is now [1,2].&lt;/p&gt;
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/apue/" term="apue" label="apue" />
+                                <category scheme="https://yuechuanx.top/blog/tags/apue/" term="apue" label="apue" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/io/" term="io" label="io" />
+                                <category scheme="https://yuechuanx.top/blog/tags/io/" term="io" label="io" />
                             
                         
                     
@@ -865,8 +865,8 @@ Your function should return length = 2, and A is now [1,2].&lt;/p&gt;
     
         <entry>
             <title type="text">配置完全命令行环境指南</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/linux/summary-of-command-line-tools-under-linuxlinux/" />
-            <id>https://yuechuanx.top/posts/linux/summary-of-command-line-tools-under-linuxlinux/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/linux/summary-of-command-line-tools-under-linuxlinux/" />
+            <id>https://yuechuanx.top/blog/posts/linux/summary-of-command-line-tools-under-linuxlinux/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2020-08-14T11:15:01&#43;00:00</published>
             <author>
@@ -1033,7 +1033,7 @@ Your function should return length = 2, and A is now [1,2].&lt;/p&gt;
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/linux/" term="Linux" label="Linux" />
+                                <category scheme="https://yuechuanx.top/blog/categories/linux/" term="Linux" label="Linux" />
                             
                         
                     
@@ -1043,13 +1043,13 @@ Your function should return length = 2, and A is now [1,2].&lt;/p&gt;
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/cmdline-tool/" term="cmdline-tool" label="cmdline-tool" />
+                                <category scheme="https://yuechuanx.top/blog/tags/cmdline-tool/" term="cmdline-tool" label="cmdline-tool" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/terminal/" term="terminal" label="terminal" />
+                                <category scheme="https://yuechuanx.top/blog/tags/terminal/" term="terminal" label="terminal" />
                             
                         
                     
@@ -1059,8 +1059,8 @@ Your function should return length = 2, and A is now [1,2].&lt;/p&gt;
     
         <entry>
             <title type="text">Django 项目的容器化实践</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/web/django-project-containerization-practice/" />
-            <id>https://yuechuanx.top/posts/web/django-project-containerization-practice/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/web/django-project-containerization-practice/" />
+            <id>https://yuechuanx.top/blog/posts/web/django-project-containerization-practice/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2020-08-14T11:13:45&#43;00:00</published>
             <author>
@@ -1087,7 +1087,7 @@ Your function should return length = 2, and A is now [1,2].&lt;/p&gt;
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/web/" term="Web" label="Web" />
+                                <category scheme="https://yuechuanx.top/blog/categories/web/" term="Web" label="Web" />
                             
                         
                     
@@ -1097,13 +1097,13 @@ Your function should return length = 2, and A is now [1,2].&lt;/p&gt;
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/django/" term="django" label="django" />
+                                <category scheme="https://yuechuanx.top/blog/tags/django/" term="django" label="django" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/docker/" term="docker" label="docker" />
+                                <category scheme="https://yuechuanx.top/blog/tags/docker/" term="docker" label="docker" />
                             
                         
                     
@@ -1113,8 +1113,8 @@ Your function should return length = 2, and A is now [1,2].&lt;/p&gt;
     
         <entry>
             <title type="text">Jenkins Testlink Plugin 源码笔记</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/jenkins-testlink-plugin-source-notes/" />
-            <id>https://yuechuanx.top/posts/jenkins-testlink-plugin-source-notes/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/jenkins-testlink-plugin-source-notes/" />
+            <id>https://yuechuanx.top/blog/posts/jenkins-testlink-plugin-source-notes/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2020-08-14T11:12:59&#43;00:00</published>
             <author>
@@ -1414,8 +1414,8 @@ Your function should return length = 2, and A is now [1,2].&lt;/p&gt;
     
         <entry>
             <title type="text">Jenkins 服务无法启动排错指北</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/jenkins-service-cannot-be-started/" />
-            <id>https://yuechuanx.top/posts/jenkins-service-cannot-be-started/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/jenkins-service-cannot-be-started/" />
+            <id>https://yuechuanx.top/blog/posts/jenkins-service-cannot-be-started/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2020-08-14T11:12:59&#43;00:00</published>
             <author>
@@ -1467,8 +1467,8 @@ Your function should return length = 2, and A is now [1,2].&lt;/p&gt;
     
         <entry>
             <title type="text">k8s 环境搭建</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/k8s-environment-construction/" />
-            <id>https://yuechuanx.top/posts/k8s-environment-construction/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/k8s-environment-construction/" />
+            <id>https://yuechuanx.top/blog/posts/k8s-environment-construction/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2020-08-14T11:09:16&#43;00:00</published>
             <author>
@@ -1734,8 +1734,8 @@ apt-get install -y kubelet kubeadm kubectl
     
         <entry>
             <title type="text">关于 Jenkins 与 Python Unittest 集成的实践</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/practice-on-the-integration-of-jenkins-and-python-unittest/" />
-            <id>https://yuechuanx.top/posts/practice-on-the-integration-of-jenkins-and-python-unittest/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/practice-on-the-integration-of-jenkins-and-python-unittest/" />
+            <id>https://yuechuanx.top/blog/posts/practice-on-the-integration-of-jenkins-and-python-unittest/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2020-08-13T16:51:07&#43;00:00</published>
             <author>
@@ -1774,19 +1774,19 @@ apt-get install -y kubelet kubeadm kubectl
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/jenkins/" term="jenkins" label="jenkins" />
+                                <category scheme="https://yuechuanx.top/blog/tags/jenkins/" term="jenkins" label="jenkins" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/unittest/" term="unittest" label="unittest" />
+                                <category scheme="https://yuechuanx.top/blog/tags/unittest/" term="unittest" label="unittest" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/python/" term="python" label="python" />
+                                <category scheme="https://yuechuanx.top/blog/tags/python/" term="python" label="python" />
                             
                         
                     
@@ -1796,8 +1796,8 @@ apt-get install -y kubelet kubeadm kubectl
     
         <entry>
             <title type="text">阅读 Python 源码：collections.abc</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/python/pythonpython-source-code-collectionsabc/" />
-            <id>https://yuechuanx.top/posts/python/pythonpython-source-code-collectionsabc/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/python/pythonpython-source-code-collectionsabc/" />
+            <id>https://yuechuanx.top/blog/posts/python/pythonpython-source-code-collectionsabc/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2020-08-13T16:38:01&#43;00:00</published>
             <author>
@@ -1931,7 +1931,7 @@ apt-get install -y kubelet kubeadm kubectl
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/python/" term="Python" label="Python" />
+                                <category scheme="https://yuechuanx.top/blog/categories/python/" term="Python" label="Python" />
                             
                         
                     
@@ -1943,8 +1943,8 @@ apt-get install -y kubelet kubeadm kubectl
     
         <entry>
             <title type="text">用 Python 实现 LAN 扫描工具</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/python/use-python-to-implement-lan-scanning-tool/" />
-            <id>https://yuechuanx.top/posts/python/use-python-to-implement-lan-scanning-tool/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/python/use-python-to-implement-lan-scanning-tool/" />
+            <id>https://yuechuanx.top/blog/posts/python/use-python-to-implement-lan-scanning-tool/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2020-08-13T16:37:05&#43;00:00</published>
             <author>
@@ -2113,7 +2113,7 @@ apt-get install -y kubelet kubeadm kubectl
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/python/" term="Python" label="Python" />
+                                <category scheme="https://yuechuanx.top/blog/categories/python/" term="Python" label="Python" />
                             
                         
                     
@@ -2123,7 +2123,7 @@ apt-get install -y kubelet kubeadm kubectl
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/network/" term="network" label="network" />
+                                <category scheme="https://yuechuanx.top/blog/tags/network/" term="network" label="network" />
                             
                         
                     
@@ -2133,8 +2133,8 @@ apt-get install -y kubelet kubeadm kubectl
     
         <entry>
             <title type="text">如何让你的代码更 Pythonic</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/python/make-your-code-more-pythonic/" />
-            <id>https://yuechuanx.top/posts/python/make-your-code-more-pythonic/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/python/make-your-code-more-pythonic/" />
+            <id>https://yuechuanx.top/blog/posts/python/make-your-code-more-pythonic/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2020-08-13T16:35:34&#43;00:00</published>
             <author>
@@ -3161,7 +3161,7 @@ haystack -&amp;gt;  1  4  5  6  8 12 15 20 21 23 23 26 29 30
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/python/" term="Python" label="Python" />
+                                <category scheme="https://yuechuanx.top/blog/categories/python/" term="Python" label="Python" />
                             
                         
                     
@@ -3171,13 +3171,13 @@ haystack -&amp;gt;  1  4  5  6  8 12 15 20 21 23 23 26 29 30
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/python/" term="python" label="python" />
+                                <category scheme="https://yuechuanx.top/blog/tags/python/" term="python" label="python" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/codestyle/" term="codestyle" label="codestyle" />
+                                <category scheme="https://yuechuanx.top/blog/tags/codestyle/" term="codestyle" label="codestyle" />
                             
                         
                     
@@ -3187,8 +3187,8 @@ haystack -&amp;gt;  1  4  5  6  8 12 15 20 21 23 23 26 29 30
     
         <entry>
             <title type="text">使用 Unittest 组织 TestCase 的工程结构</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/python/organize-the-project-structure-of-testcase-in-unittest/" />
-            <id>https://yuechuanx.top/posts/python/organize-the-project-structure-of-testcase-in-unittest/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/python/organize-the-project-structure-of-testcase-in-unittest/" />
+            <id>https://yuechuanx.top/blog/posts/python/organize-the-project-structure-of-testcase-in-unittest/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2020-08-13T16:01:58&#43;00:00</published>
             <author>
@@ -3678,7 +3678,7 @@ haystack -&amp;gt;  1  4  5  6  8 12 15 20 21 23 23 26 29 30
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/python/" term="Python" label="Python" />
+                                <category scheme="https://yuechuanx.top/blog/categories/python/" term="Python" label="Python" />
                             
                         
                     
@@ -3688,7 +3688,7 @@ haystack -&amp;gt;  1  4  5  6  8 12 15 20 21 23 23 26 29 30
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/unitest/" term="unitest" label="unitest" />
+                                <category scheme="https://yuechuanx.top/blog/tags/unitest/" term="unitest" label="unitest" />
                             
                         
                     
@@ -3698,8 +3698,8 @@ haystack -&amp;gt;  1  4  5  6  8 12 15 20 21 23 23 26 29 30
     
         <entry>
             <title type="text">使用 Bash严格模式</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/use-bash-strict-mode/" />
-            <id>https://yuechuanx.top/posts/use-bash-strict-mode/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/use-bash-strict-mode/" />
+            <id>https://yuechuanx.top/blog/posts/use-bash-strict-mode/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2020-08-12T16:58:57&#43;00:00</published>
             <author>
@@ -4388,7 +4388,7 @@ _OLD_VIRTUAL_PYTHONHOME：未绑定变量
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/bash/" term="bash" label="bash" />
+                                <category scheme="https://yuechuanx.top/blog/tags/bash/" term="bash" label="bash" />
                             
                         
                     
@@ -4398,8 +4398,8 @@ _OLD_VIRTUAL_PYTHONHOME：未绑定变量
     
         <entry>
             <title type="text">关于串口测试自动化的解决方案</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/solutions-for-serial-port-test-automation/" />
-            <id>https://yuechuanx.top/posts/solutions-for-serial-port-test-automation/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/solutions-for-serial-port-test-automation/" />
+            <id>https://yuechuanx.top/blog/posts/solutions-for-serial-port-test-automation/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2020-08-11T11:31:04&#43;00:00</published>
             <author>
@@ -4673,19 +4673,19 @@ expect eof
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/automation/" term="automation" label="automation" />
+                                <category scheme="https://yuechuanx.top/blog/tags/automation/" term="automation" label="automation" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/serial/" term="serial" label="serial" />
+                                <category scheme="https://yuechuanx.top/blog/tags/serial/" term="serial" label="serial" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/expect/" term="expect" label="expect" />
+                                <category scheme="https://yuechuanx.top/blog/tags/expect/" term="expect" label="expect" />
                             
                         
                     
@@ -4695,8 +4695,8 @@ expect eof
     
         <entry>
             <title type="text">Linux如何查找大文件或目录总结</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/linux/how-to-find-files-under-linux/" />
-            <id>https://yuechuanx.top/posts/linux/how-to-find-files-under-linux/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/linux/how-to-find-files-under-linux/" />
+            <id>https://yuechuanx.top/blog/posts/linux/how-to-find-files-under-linux/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2020-08-11T10:40:00&#43;00:00</published>
             <author>
@@ -4810,7 +4810,7 @@ expect eof
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/linux/" term="Linux" label="Linux" />
+                                <category scheme="https://yuechuanx.top/blog/categories/linux/" term="Linux" label="Linux" />
                             
                         
                     
@@ -4820,7 +4820,7 @@ expect eof
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/linux/" term="linux" label="linux" />
+                                <category scheme="https://yuechuanx.top/blog/tags/linux/" term="linux" label="linux" />
                             
                         
                     
@@ -4830,8 +4830,8 @@ expect eof
     
         <entry>
             <title type="text">通过 pySerial 连接串口</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/python/connect-serial-port-via-pyserial/" />
-            <id>https://yuechuanx.top/posts/python/connect-serial-port-via-pyserial/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/python/connect-serial-port-via-pyserial/" />
+            <id>https://yuechuanx.top/blog/posts/python/connect-serial-port-via-pyserial/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2020-08-10T17:28:56&#43;00:00</published>
             <author>
@@ -5175,7 +5175,7 @@ diagnostics:
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/python/" term="Python" label="Python" />
+                                <category scheme="https://yuechuanx.top/blog/categories/python/" term="Python" label="Python" />
                             
                         
                     
@@ -5185,13 +5185,13 @@ diagnostics:
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/serial/" term="serial" label="serial" />
+                                <category scheme="https://yuechuanx.top/blog/tags/serial/" term="serial" label="serial" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/python/" term="python" label="python" />
+                                <category scheme="https://yuechuanx.top/blog/tags/python/" term="python" label="python" />
                             
                         
                     
@@ -5201,8 +5201,8 @@ diagnostics:
     
         <entry>
             <title type="text">基于 Pexpect 在开发板执行 TestCase</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/execute-testcase-on-the-development-board-based-pexpect/" />
-            <id>https://yuechuanx.top/posts/execute-testcase-on-the-development-board-based-pexpect/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/execute-testcase-on-the-development-board-based-pexpect/" />
+            <id>https://yuechuanx.top/blog/posts/execute-testcase-on-the-development-board-based-pexpect/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2020-08-03T16:47:26&#43;00:00</published>
             <author>
@@ -5237,19 +5237,19 @@ diagnostics:
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/python/" term="python" label="python" />
+                                <category scheme="https://yuechuanx.top/blog/tags/python/" term="python" label="python" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/expect/" term="expect" label="expect" />
+                                <category scheme="https://yuechuanx.top/blog/tags/expect/" term="expect" label="expect" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/jenkins/" term="jenkins" label="jenkins" />
+                                <category scheme="https://yuechuanx.top/blog/tags/jenkins/" term="jenkins" label="jenkins" />
                             
                         
                     
@@ -5259,8 +5259,8 @@ diagnostics:
     
         <entry>
             <title type="text">《流畅的Python》可迭代的对象、迭代器和生成器</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/python/fluent-python/fluent-python-iterable-objects-iterators-and-generators/" />
-            <id>https://yuechuanx.top/posts/python/fluent-python/fluent-python-iterable-objects-iterators-and-generators/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/python/fluent-python/fluent-python-iterable-objects-iterators-and-generators/" />
+            <id>https://yuechuanx.top/blog/posts/python/fluent-python/fluent-python-iterable-objects-iterators-and-generators/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2020-07-22T16:25:04&#43;00:00</published>
             <author>
@@ -5627,13 +5627,13 @@ diagnostics:
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/python/" term="Python" label="Python" />
+                                <category scheme="https://yuechuanx.top/blog/categories/python/" term="Python" label="Python" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/fluent-python/" term="Fluent-Python" label="Fluent-Python" />
+                                <category scheme="https://yuechuanx.top/blog/categories/fluent-python/" term="Fluent-Python" label="Fluent-Python" />
                             
                         
                     
@@ -5643,7 +5643,7 @@ diagnostics:
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/python/" term="python" label="python" />
+                                <category scheme="https://yuechuanx.top/blog/tags/python/" term="python" label="python" />
                             
                         
                     
@@ -5653,8 +5653,8 @@ diagnostics:
     
         <entry>
             <title type="text">Python 中的方法解析顺序(MRO)</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/python/method-resolution-order-mro-in-python/" />
-            <id>https://yuechuanx.top/posts/python/method-resolution-order-mro-in-python/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/python/method-resolution-order-mro-in-python/" />
+            <id>https://yuechuanx.top/blog/posts/python/method-resolution-order-mro-in-python/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2020-07-20T15:19:06&#43;00:00</published>
             <author>
@@ -5956,7 +5956,7 @@ L[A] = [A] + merge(L[B], L[C], [B], [C])
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/python/" term="Python" label="Python" />
+                                <category scheme="https://yuechuanx.top/blog/categories/python/" term="Python" label="Python" />
                             
                         
                     
@@ -5966,7 +5966,7 @@ L[A] = [A] + merge(L[B], L[C], [B], [C])
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/python/" term="python" label="python" />
+                                <category scheme="https://yuechuanx.top/blog/tags/python/" term="python" label="python" />
                             
                         
                     
@@ -5976,8 +5976,8 @@ L[A] = [A] + merge(L[B], L[C], [B], [C])
     
         <entry>
             <title type="text">用 Expect 处理命令行程序交互</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/linux/linuxuse-expect-to-handle-command-line-program-interaction/" />
-            <id>https://yuechuanx.top/posts/linux/linuxuse-expect-to-handle-command-line-program-interaction/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/linux/linuxuse-expect-to-handle-command-line-program-interaction/" />
+            <id>https://yuechuanx.top/blog/posts/linux/linuxuse-expect-to-handle-command-line-program-interaction/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2020-07-14T11:10:36&#43;00:00</published>
             <author>
@@ -6259,7 +6259,7 @@ interact
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/linux/" term="Linux" label="Linux" />
+                                <category scheme="https://yuechuanx.top/blog/categories/linux/" term="Linux" label="Linux" />
                             
                         
                     
@@ -6271,8 +6271,8 @@ interact
     
         <entry>
             <title type="text">《流畅的Python》接口之从协议到抽象基类</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/python/fluent-python/fluent-python-interface-from-protocol-to-abstract-base-class/" />
-            <id>https://yuechuanx.top/posts/python/fluent-python/fluent-python-interface-from-protocol-to-abstract-base-class/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/python/fluent-python/fluent-python-interface-from-protocol-to-abstract-base-class/" />
+            <id>https://yuechuanx.top/blog/posts/python/fluent-python/fluent-python-interface-from-protocol-to-abstract-base-class/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2020-07-09T16:24:11&#43;00:00</published>
             <author>
@@ -6608,13 +6608,13 @@ interact
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/python/" term="Python" label="Python" />
+                                <category scheme="https://yuechuanx.top/blog/categories/python/" term="Python" label="Python" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/fluent-python/" term="Fluent-Python" label="Fluent-Python" />
+                                <category scheme="https://yuechuanx.top/blog/categories/fluent-python/" term="Fluent-Python" label="Fluent-Python" />
                             
                         
                     
@@ -6624,7 +6624,7 @@ interact
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/python/" term="python" label="python" />
+                                <category scheme="https://yuechuanx.top/blog/tags/python/" term="python" label="python" />
                             
                         
                     
@@ -6634,8 +6634,8 @@ interact
     
         <entry>
             <title type="text">计算机科学自学指南</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/computer-science-selfstudy-guide/" />
-            <id>https://yuechuanx.top/posts/computer-science-selfstudy-guide/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/computer-science-selfstudy-guide/" />
+            <id>https://yuechuanx.top/blog/posts/computer-science-selfstudy-guide/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2020-06-24T10:48:36&#43;00:00</published>
             <author>
@@ -6647,8 +6647,8 @@ interact
             
                 <content type="html">&lt;h1 id=&#34;自学计算机科学&#34;&gt;自学计算机科学&lt;/h1&gt;
 &lt;blockquote&gt;
-&lt;p&gt;本文档是对&lt;a href=&#34;https://teachyourselfcs.com&#34;&gt;TeachYourselfCS&lt;/a&gt;内容的中文翻译，原作者为&lt;a href=&#34;https://twitter.com/oznova_&#34;&gt;Ozan Onay&lt;/a&gt;和&lt;a href=&#34;https://twitter.com/quackingduck&#34;&gt;Myles Byrne&lt;/a&gt;。如需了解翻译相关信息或帮助改进翻译，请参见&lt;a href=&#34;https://yuechuanx.top/posts/computer-science-selfstudy-guide/#%E8%BF%99%E4%BB%BD%E6%8C%87%E5%BC%95%E6%98%AF%E8%B0%81%E7%BF%BB%E8%AF%91%E7%9A%84&#34;&gt;本文档结尾&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;This document is a Chinese translation of &lt;a href=&#34;https://teachyourselfcs.com&#34;&gt;TeachYourselfCS&lt;/a&gt;, which is written by &lt;a href=&#34;https://twitter.com/oznova_&#34;&gt;Ozan Onay&lt;/a&gt; and &lt;a href=&#34;https://twitter.com/quackingduck&#34;&gt;Myles Byrne&lt;/a&gt;. For more information about this translation, please refer to &lt;a href=&#34;https://yuechuanx.top/posts/computer-science-selfstudy-guide/#%E8%BF%99%E4%BB%BD%E6%8C%87%E5%BC%95%E6%98%AF%E8%B0%81%E7%BF%BB%E8%AF%91%E7%9A%84&#34;&gt;the end of this document&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;本文档是对&lt;a href=&#34;https://teachyourselfcs.com&#34;&gt;TeachYourselfCS&lt;/a&gt;内容的中文翻译，原作者为&lt;a href=&#34;https://twitter.com/oznova_&#34;&gt;Ozan Onay&lt;/a&gt;和&lt;a href=&#34;https://twitter.com/quackingduck&#34;&gt;Myles Byrne&lt;/a&gt;。如需了解翻译相关信息或帮助改进翻译，请参见&lt;a href=&#34;https://yuechuanx.top/blog/posts/computer-science-selfstudy-guide/#%E8%BF%99%E4%BB%BD%E6%8C%87%E5%BC%95%E6%98%AF%E8%B0%81%E7%BF%BB%E8%AF%91%E7%9A%84&#34;&gt;本文档结尾&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;This document is a Chinese translation of &lt;a href=&#34;https://teachyourselfcs.com&#34;&gt;TeachYourselfCS&lt;/a&gt;, which is written by &lt;a href=&#34;https://twitter.com/oznova_&#34;&gt;Ozan Onay&lt;/a&gt; and &lt;a href=&#34;https://twitter.com/quackingduck&#34;&gt;Myles Byrne&lt;/a&gt;. For more information about this translation, please refer to &lt;a href=&#34;https://yuechuanx.top/blog/posts/computer-science-selfstudy-guide/#%E8%BF%99%E4%BB%BD%E6%8C%87%E5%BC%95%E6%98%AF%E8%B0%81%E7%BF%BB%E8%AF%91%E7%9A%84&#34;&gt;the end of this document&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;如果你是一个自学成才的工程师，或者从编程培训班毕业，那么你很有必要学习计算机科学。幸运的是，不必为此花上数年光阴和不菲费用去攻读一个学位：仅仅依靠自己，你就可以获得世界一流水平的教育💸。&lt;/p&gt;
 &lt;p&gt;互联网上，到处都有许多的学习资源，然而精华与糟粕并存。你所需要的，不是一个诸如“200+免费在线课程”的清单，而是以下问题的答案：&lt;/p&gt;
@@ -6672,55 +6672,55 @@ interact
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;&lt;a href=&#34;https://yuechuanx.top/posts/computer-science-selfstudy-guide/#%E7%BC%96%E7%A8%8B&#34;&gt;编程&lt;/a&gt;&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/computer-science-selfstudy-guide/#%E7%BC%96%E7%A8%8B&#34;&gt;编程&lt;/a&gt;&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;不要做一个“永远没彻底搞懂”诸如递归等概念的程序员。&lt;/td&gt;
 &lt;td&gt;&lt;em&gt;&lt;a href=&#34;https://book.douban.com/subject/1148282/&#34;&gt;《计算机程序的构造和解释》&lt;/a&gt;&lt;/em&gt;&lt;/td&gt;
 &lt;td&gt;Brian Harvey’s Berkeley CS 61A&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;&lt;a href=&#34;https://yuechuanx.top/posts/computer-science-selfstudy-guide/#%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%9E%B6%E6%9E%84&#34;&gt;计算机架构&lt;/a&gt;&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/computer-science-selfstudy-guide/#%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%9E%B6%E6%9E%84&#34;&gt;计算机架构&lt;/a&gt;&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;如果你对于计算机如何工作没有具体的概念，那么你所做出的所有高级抽象都是空中楼阁。&lt;/td&gt;
 &lt;td&gt;&lt;em&gt;&lt;a href=&#34;https://book.douban.com/subject/26912767/&#34;&gt;《深入理解计算机系统》&lt;/a&gt;&lt;/em&gt;&lt;/td&gt;
 &lt;td&gt;Berkeley CS 61C&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;&lt;a href=&#34;https://yuechuanx.top/posts/computer-science-selfstudy-guide/#%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84&#34;&gt;算法与数据结构&lt;/a&gt;&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/computer-science-selfstudy-guide/#%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84&#34;&gt;算法与数据结构&lt;/a&gt;&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;如果你不懂得如何使用栈、队列、树、图等常见数据结构，遇到有难度的问题时，你将束手无策。&lt;/td&gt;
 &lt;td&gt;&lt;em&gt;&lt;a href=&#34;https://book.douban.com/subject/4048566/&#34;&gt;《算法设计手册》&lt;/a&gt;&lt;/em&gt;&lt;/td&gt;
 &lt;td&gt;Steven Skiena’s lectures&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;&lt;a href=&#34;https://yuechuanx.top/posts/computer-science-selfstudy-guide/#%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86&#34;&gt;数学知识&lt;/a&gt;&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/computer-science-selfstudy-guide/#%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86&#34;&gt;数学知识&lt;/a&gt;&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;计算机科学基本上是应用数学的一个“跑偏的”分支，因此学习数学将会给你带来竞争优势。&lt;/td&gt;
 &lt;td&gt;&lt;em&gt;&lt;a href=&#34;https://book.douban.com/subject/33396340/&#34;&gt;《计算机科学中的数学》&lt;/a&gt;&lt;/em&gt;&lt;/td&gt;
 &lt;td&gt;Tom Leighton’s MIT 6.042J&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;&lt;a href=&#34;https://yuechuanx.top/posts/computer-science-selfstudy-guide/#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F&#34;&gt;操作系统&lt;/a&gt;&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/computer-science-selfstudy-guide/#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F&#34;&gt;操作系统&lt;/a&gt;&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;你所写的代码，基本上都由操作系统来运行，因此你应当了解其运作的原理。&lt;/td&gt;
 &lt;td&gt;&lt;em&gt;&lt;a href=&#34;https://book.douban.com/subject/33463930/&#34;&gt;《操作系统导论》&lt;/a&gt;&lt;/em&gt;&lt;/td&gt;
 &lt;td&gt;Berkeley CS 162&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;&lt;a href=&#34;https://yuechuanx.top/posts/computer-science-selfstudy-guide/#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C&#34;&gt;计算机网络&lt;/a&gt;&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/computer-science-selfstudy-guide/#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C&#34;&gt;计算机网络&lt;/a&gt;&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;互联网已然势不可挡：理解工作原理才能解锁全部潜力。&lt;/td&gt;
 &lt;td&gt;&lt;em&gt;&lt;a href=&#34;https://book.douban.com/subject/30280001/&#34;&gt;《计算机网络：自顶向下方法》&lt;/a&gt;&lt;/em&gt;&lt;/td&gt;
 &lt;td&gt;Stanford CS 144&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;&lt;a href=&#34;https://yuechuanx.top/posts/computer-science-selfstudy-guide/#%E6%95%B0%E6%8D%AE%E5%BA%93&#34;&gt;数据库&lt;/a&gt;&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/computer-science-selfstudy-guide/#%E6%95%B0%E6%8D%AE%E5%BA%93&#34;&gt;数据库&lt;/a&gt;&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;对于多数重要程序，数据是其核心，然而很少人理解数据库系统的工作原理。&lt;/td&gt;
 &lt;td&gt;&lt;em&gt;&lt;a href=&#34;https://book.douban.com/subject/2256069/&#34;&gt;《Readings in Database Systems》&lt;/a&gt; （暂无中译本）&lt;/em&gt;&lt;/td&gt;
 &lt;td&gt;Joe Hellerstein’s Berkeley CS 186&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;&lt;a href=&#34;https://yuechuanx.top/posts/computer-science-selfstudy-guide/#%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8&#34;&gt;编程语言与编译器&lt;/a&gt;&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/computer-science-selfstudy-guide/#%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8&#34;&gt;编程语言与编译器&lt;/a&gt;&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;若你懂得编程语言和编译器如何工作，你就能写出更好的代码，更轻松地学习新的编程语言。&lt;/td&gt;
 &lt;td&gt;&lt;em&gt;&lt;a href=&#34;https://craftinginterpreters.com/&#34;&gt;《Crafting Interpreters》&lt;/a&gt;&lt;/em&gt;&lt;/td&gt;
 &lt;td&gt;Alex Aiken’s course on Lagunita&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;&lt;a href=&#34;https://yuechuanx.top/posts/computer-science-selfstudy-guide/#%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F&#34;&gt;分布式系统&lt;/a&gt;&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/computer-science-selfstudy-guide/#%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F&#34;&gt;分布式系统&lt;/a&gt;&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;如今，&lt;em&gt;多数&lt;/em&gt; 系统都是分布式的。&lt;/td&gt;
 &lt;td&gt;&lt;em&gt;&lt;a href=&#34;https://book.douban.com/subject/30329536/&#34;&gt;《数据密集型应用系统设计》&lt;/a&gt;&lt;/em&gt;&lt;/td&gt;
 &lt;td&gt;MIT 6.824&lt;/td&gt;
@@ -6865,7 +6865,7 @@ interact
 &lt;p&gt;因此，我们所推荐的次序主要是为了帮助你 &lt;em&gt;起步&lt;/em&gt;……如果你出于某种强烈的原因而倾向以不同的顺序学习，那也没有关系，勇敢开始吧！不过在我们看来，最重要的“先决条件”是：先学计算机架构再学操作系统或数据库，先学计算机网络和操作系统再学分布式系统。&lt;/p&gt;
 &lt;h3 id=&#34;和open-source-societyfreecodecamp-curricula等比起来这份指引&#34;&gt;和Open Source Society、freeCodeCamp curricula等比起来，这份指引?&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/open-source-society/computer-science&#34;&gt;OSS指引&lt;/a&gt;涵盖太多主题，在许多主题中推荐劣质资源，没有就特定课程哪些方面有价值提供原因或指引。我们努力对这份指引中的课程加以限制，仅仅包括那些你作为软件工程师 &lt;em&gt;确实需要了解的&lt;/em&gt;，不论你的专业方向，并且对每门课程为何必要做出了解释以帮助你理解。&lt;/p&gt;
-&lt;p&gt;FreeCodeCamp主要关注编程，而不是计算机科学。至于你为什么要学习计算机科学，参见&lt;a href=&#34;https://yuechuanx.top/posts/computer-science-selfstudy-guide/#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%AD%A6%E4%B9%A0%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6&#34;&gt;上文&lt;/a&gt;。如果你是个新手，我们建议先学 freeCodeCamp 的课程，一两年后再回归本指南。&lt;/p&gt;
+&lt;p&gt;FreeCodeCamp主要关注编程，而不是计算机科学。至于你为什么要学习计算机科学，参见&lt;a href=&#34;https://yuechuanx.top/blog/posts/computer-science-selfstudy-guide/#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%AD%A6%E4%B9%A0%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6&#34;&gt;上文&lt;/a&gt;。如果你是个新手，我们建议先学 freeCodeCamp 的课程，一两年后再回归本指南。&lt;/p&gt;
 &lt;h3 id=&#34;xx编程语言怎么样&#34;&gt;XX编程语言怎么样?&lt;/h3&gt;
 &lt;p&gt;学习一门特定的编程语言和学习计算机科学的一个领域完全不在一个维度——相比之下，学习语言 &lt;em&gt;容易&lt;/em&gt; 且 &lt;em&gt;缺乏价值&lt;/em&gt;。如果你已经了解了一些语言，我们强烈建议遵照我们的指引，然后在学习的空当中习得语言，或者暂且不管以后再说。如果你已经把编程学得不错了（比如学完了 &lt;em&gt;《计算机程序的构造和解释》&lt;/em&gt;），尤其是如果你学习过编译器，那么面对一门新的语言，你只需要花一个周末稍多的时间即可基本掌握，之后你可以在工作中学习相关的类库/工具/生态。&lt;/p&gt;
 &lt;h3 id=&#34;xx流行技术怎么样&#34;&gt;XX流行技术怎么样?&lt;/h3&gt;
@@ -6896,7 +6896,7 @@ interact
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/methodology/" term="methodology" label="methodology" />
+                                <category scheme="https://yuechuanx.top/blog/tags/methodology/" term="methodology" label="methodology" />
                             
                         
                     
@@ -6906,8 +6906,8 @@ interact
     
         <entry>
             <title type="text">使用Graphviz创建图表</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/%E4%BD%BF%E7%94%A8graphviz%E5%88%9B%E5%BB%BA%E5%9B%BE%E8%A1%A8/" />
-            <id>https://yuechuanx.top/posts/%E4%BD%BF%E7%94%A8graphviz%E5%88%9B%E5%BB%BA%E5%9B%BE%E8%A1%A8/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/%E4%BD%BF%E7%94%A8graphviz%E5%88%9B%E5%BB%BA%E5%9B%BE%E8%A1%A8/" />
+            <id>https://yuechuanx.top/blog/posts/%E4%BD%BF%E7%94%A8graphviz%E5%88%9B%E5%BB%BA%E5%9B%BE%E8%A1%A8/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2020-06-15T14:53:31&#43;00:00</published>
             <author>
@@ -7343,13 +7343,13 @@ interact
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/graph/" term="graph" label="graph" />
+                                <category scheme="https://yuechuanx.top/blog/tags/graph/" term="graph" label="graph" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/tool/" term="tool" label="tool" />
+                                <category scheme="https://yuechuanx.top/blog/tags/tool/" term="tool" label="tool" />
                             
                         
                     
@@ -7359,8 +7359,8 @@ interact
     
         <entry>
             <title type="text">如何配置你的 VSCode</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/how-to-configure-your-vscode/" />
-            <id>https://yuechuanx.top/posts/how-to-configure-your-vscode/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/how-to-configure-your-vscode/" />
+            <id>https://yuechuanx.top/blog/posts/how-to-configure-your-vscode/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2020-06-13T16:46:23&#43;00:00</published>
             <author>
@@ -7544,7 +7544,7 @@ interact
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/vscode/" term="vscode" label="vscode" />
+                                <category scheme="https://yuechuanx.top/blog/tags/vscode/" term="vscode" label="vscode" />
                             
                         
                     
@@ -7554,8 +7554,8 @@ interact
     
         <entry>
             <title type="text">用 prettytable 在终端输出漂亮的表格</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/python/use-prettytable-to-output-a-pretty-table-in-the-terminal/" />
-            <id>https://yuechuanx.top/posts/python/use-prettytable-to-output-a-pretty-table-in-the-terminal/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/python/use-prettytable-to-output-a-pretty-table-in-the-terminal/" />
+            <id>https://yuechuanx.top/blog/posts/python/use-prettytable-to-output-a-pretty-table-in-the-terminal/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2020-06-05T15:07:28&#43;00:00</published>
             <author>
@@ -8221,7 +8221,7 @@ $++++++$++++++++++$++++++++++$++++++++++++$
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/python/" term="Python" label="Python" />
+                                <category scheme="https://yuechuanx.top/blog/categories/python/" term="Python" label="Python" />
                             
                         
                     
@@ -8231,13 +8231,13 @@ $++++++$++++++++++$++++++++++$++++++++++++$
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/python/" term="python" label="python" />
+                                <category scheme="https://yuechuanx.top/blog/tags/python/" term="python" label="python" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/linux/" term="linux" label="linux" />
+                                <category scheme="https://yuechuanx.top/blog/tags/linux/" term="linux" label="linux" />
                             
                         
                     
@@ -8247,8 +8247,8 @@ $++++++$++++++++++$++++++++++$++++++++++++$
     
         <entry>
             <title type="text">《流畅的Python》函数装饰器与闭包</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/python/fluent-python/fluent-python-function-decorators-and-closures/" />
-            <id>https://yuechuanx.top/posts/python/fluent-python/fluent-python-function-decorators-and-closures/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/python/fluent-python/fluent-python-function-decorators-and-closures/" />
+            <id>https://yuechuanx.top/blog/posts/python/fluent-python/fluent-python-function-decorators-and-closures/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2020-04-29T16:14:34&#43;00:00</published>
             <author>
@@ -9132,13 +9132,13 @@ $++++++$++++++++++$++++++++++$++++++++++++$
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/python/" term="Python" label="Python" />
+                                <category scheme="https://yuechuanx.top/blog/categories/python/" term="Python" label="Python" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/fluent-python/" term="Fluent-Python" label="Fluent-Python" />
+                                <category scheme="https://yuechuanx.top/blog/categories/fluent-python/" term="Fluent-Python" label="Fluent-Python" />
                             
                         
                     
@@ -9148,7 +9148,7 @@ $++++++$++++++++++$++++++++++$++++++++++++$
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/python/" term="python" label="python" />
+                                <category scheme="https://yuechuanx.top/blog/tags/python/" term="python" label="python" />
                             
                         
                     
@@ -9158,8 +9158,8 @@ $++++++$++++++++++$++++++++++$++++++++++++$
     
         <entry>
             <title type="text">《流畅的 Python》一等函数</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/python/fluent-python/fluent-python-first-class-function/" />
-            <id>https://yuechuanx.top/posts/python/fluent-python/fluent-python-first-class-function/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/python/fluent-python/fluent-python-first-class-function/" />
+            <id>https://yuechuanx.top/blog/posts/python/fluent-python/fluent-python-first-class-function/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2020-04-22T16:38:39&#43;00:00</published>
             <author>
@@ -9918,13 +9918,13 @@ $++++++$++++++++++$++++++++++$++++++++++++$
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/python/" term="Python" label="Python" />
+                                <category scheme="https://yuechuanx.top/blog/categories/python/" term="Python" label="Python" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/fluent-python/" term="Fluent-Python" label="Fluent-Python" />
+                                <category scheme="https://yuechuanx.top/blog/categories/fluent-python/" term="Fluent-Python" label="Fluent-Python" />
                             
                         
                     
@@ -9934,7 +9934,7 @@ $++++++$++++++++++$++++++++++$++++++++++++$
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/python/" term="python" label="python" />
+                                <category scheme="https://yuechuanx.top/blog/tags/python/" term="python" label="python" />
                             
                         
                     
@@ -9944,8 +9944,8 @@ $++++++$++++++++++$++++++++++$++++++++++++$
     
         <entry>
             <title type="text">Python 之禅</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/python/zen-of-python/" />
-            <id>https://yuechuanx.top/posts/python/zen-of-python/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/python/zen-of-python/" />
+            <id>https://yuechuanx.top/blog/posts/python/zen-of-python/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2020-04-15T16:54:29&#43;00:00</published>
             <author>
@@ -9986,7 +9986,7 @@ $++++++$++++++++++$++++++++++$++++++++++++$
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/python/" term="Python" label="Python" />
+                                <category scheme="https://yuechuanx.top/blog/categories/python/" term="Python" label="Python" />
                             
                         
                     
@@ -9996,7 +9996,7 @@ $++++++$++++++++++$++++++++++$++++++++++++$
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/python/" term="python" label="python" />
+                                <category scheme="https://yuechuanx.top/blog/tags/python/" term="python" label="python" />
                             
                         
                     
@@ -10006,8 +10006,8 @@ $++++++$++++++++++$++++++++++$++++++++++++$
     
         <entry>
             <title type="text">Django 导出和导入数据</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/web/django-export-and-import-data/" />
-            <id>https://yuechuanx.top/posts/web/django-export-and-import-data/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/web/django-export-and-import-data/" />
+            <id>https://yuechuanx.top/blog/posts/web/django-export-and-import-data/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2020-04-13T18:57:03&#43;00:00</published>
             <author>
@@ -10384,7 +10384,7 @@ Output the contents of the database as a fixture of the given format &lt;span cl
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/web/" term="Web" label="Web" />
+                                <category scheme="https://yuechuanx.top/blog/categories/web/" term="Web" label="Web" />
                             
                         
                     
@@ -10394,7 +10394,7 @@ Output the contents of the database as a fixture of the given format &lt;span cl
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/django/" term="django" label="django" />
+                                <category scheme="https://yuechuanx.top/blog/tags/django/" term="django" label="django" />
                             
                         
                     
@@ -10404,8 +10404,8 @@ Output the contents of the database as a fixture of the given format &lt;span cl
     
         <entry>
             <title type="text">Python 之代码规范</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/python/python-codestyle/" />
-            <id>https://yuechuanx.top/posts/python/python-codestyle/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/python/python-codestyle/" />
+            <id>https://yuechuanx.top/blog/posts/python/python-codestyle/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2020-04-01T14:12:38&#43;00:00</published>
             <author>
@@ -10724,7 +10724,7 @@ Output the contents of the database as a fixture of the given format &lt;span cl
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/python/" term="Python" label="Python" />
+                                <category scheme="https://yuechuanx.top/blog/categories/python/" term="Python" label="Python" />
                             
                         
                     
@@ -10734,13 +10734,13 @@ Output the contents of the database as a fixture of the given format &lt;span cl
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/python/" term="python" label="python" />
+                                <category scheme="https://yuechuanx.top/blog/tags/python/" term="python" label="python" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/codestyle/" term="codestyle" label="codestyle" />
+                                <category scheme="https://yuechuanx.top/blog/tags/codestyle/" term="codestyle" label="codestyle" />
                             
                         
                     
@@ -10750,8 +10750,8 @@ Output the contents of the database as a fixture of the given format &lt;span cl
     
         <entry>
             <title type="text">Django 项目后端模板</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/web/django-project-backend-template/" />
-            <id>https://yuechuanx.top/posts/web/django-project-backend-template/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/web/django-project-backend-template/" />
+            <id>https://yuechuanx.top/blog/posts/web/django-project-backend-template/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2020-02-16T14:55:49&#43;00:00</published>
             <author>
@@ -11013,7 +11013,7 @@ python manage.py startapp login apps/login
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/web/" term="Web" label="Web" />
+                                <category scheme="https://yuechuanx.top/blog/categories/web/" term="Web" label="Web" />
                             
                         
                     
@@ -11023,13 +11023,13 @@ python manage.py startapp login apps/login
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/web/" term="web" label="web" />
+                                <category scheme="https://yuechuanx.top/blog/tags/web/" term="web" label="web" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/django/" term="django" label="django" />
+                                <category scheme="https://yuechuanx.top/blog/tags/django/" term="django" label="django" />
                             
                         
                     
@@ -11039,8 +11039,8 @@ python manage.py startapp login apps/login
     
         <entry>
             <title type="text">理解递归的小故事</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/a-story-to-understand-the-recursion/" />
-            <id>https://yuechuanx.top/posts/a-story-to-understand-the-recursion/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/a-story-to-understand-the-recursion/" />
+            <id>https://yuechuanx.top/blog/posts/a-story-to-understand-the-recursion/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2019-12-25T14:19:03&#43;00:00</published>
             <author>
@@ -11107,7 +11107,7 @@ python manage.py startapp login apps/login
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/recursion/" term="recursion" label="recursion" />
+                                <category scheme="https://yuechuanx.top/blog/tags/recursion/" term="recursion" label="recursion" />
                             
                         
                     
@@ -11117,8 +11117,8 @@ python manage.py startapp login apps/login
     
         <entry>
             <title type="text">《流畅的Python》 字典和集合</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/python/fluent-python/fluent-python-dict-and-collections/" />
-            <id>https://yuechuanx.top/posts/python/fluent-python/fluent-python-dict-and-collections/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/python/fluent-python/fluent-python-dict-and-collections/" />
+            <id>https://yuechuanx.top/blog/posts/python/fluent-python/fluent-python-dict-and-collections/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2019-12-24T16:08:14&#43;00:00</published>
             <author>
@@ -11726,13 +11726,13 @@ Four
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/python/" term="Python" label="Python" />
+                                <category scheme="https://yuechuanx.top/blog/categories/python/" term="Python" label="Python" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/fluent-python/" term="Fluent-Python" label="Fluent-Python" />
+                                <category scheme="https://yuechuanx.top/blog/categories/fluent-python/" term="Fluent-Python" label="Fluent-Python" />
                             
                         
                     
@@ -11742,7 +11742,7 @@ Four
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/python/" term="python" label="python" />
+                                <category scheme="https://yuechuanx.top/blog/tags/python/" term="python" label="python" />
                             
                         
                     
@@ -11752,8 +11752,8 @@ Four
     
         <entry>
             <title type="text">《流畅的Python》 序列构成的数组</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/python/fluent-python/fluent-python-array-of-sequences/" />
-            <id>https://yuechuanx.top/posts/python/fluent-python/fluent-python-array-of-sequences/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/python/fluent-python/fluent-python-array-of-sequences/" />
+            <id>https://yuechuanx.top/blog/posts/python/fluent-python/fluent-python-array-of-sequences/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2019-12-16T20:27:00&#43;00:00</published>
             <author>
@@ -12612,13 +12612,13 @@ haystack -&amp;gt;  1  4  5  6  8 12 15 20 21 23 23 26 29 30
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/python/" term="Python" label="Python" />
+                                <category scheme="https://yuechuanx.top/blog/categories/python/" term="Python" label="Python" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/fluent-python/" term="Fluent-Python" label="Fluent-Python" />
+                                <category scheme="https://yuechuanx.top/blog/categories/fluent-python/" term="Fluent-Python" label="Fluent-Python" />
                             
                         
                     
@@ -12628,7 +12628,7 @@ haystack -&amp;gt;  1  4  5  6  8 12 15 20 21 23 23 26 29 30
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/python/" term="python" label="python" />
+                                <category scheme="https://yuechuanx.top/blog/tags/python/" term="python" label="python" />
                             
                         
                     
@@ -12638,8 +12638,8 @@ haystack -&amp;gt;  1  4  5  6  8 12 15 20 21 23 23 26 29 30
     
         <entry>
             <title type="text">Markdown 语法总结</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/markdown-syntax-summary/" />
-            <id>https://yuechuanx.top/posts/markdown-syntax-summary/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/markdown-syntax-summary/" />
+            <id>https://yuechuanx.top/blog/posts/markdown-syntax-summary/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2019-12-11T16:03:39&#43;00:00</published>
             <author>
@@ -13129,7 +13129,7 @@ Markdown 支持以比较简短的自动链接形式来处理网址和电子邮�
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;view&lt;/p&gt;
-&lt;p&gt;使用 Markdown&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;https://yuechuanx.top/posts/markdown-syntax-summary/#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;可以效率的书写文档, 直接转换成 HTML&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;https://yuechuanx.top/posts/markdown-syntax-summary/#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;, 你可以使用 Leanote&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;https://yuechuanx.top/posts/markdown-syntax-summary/#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt; 编辑器进行书写。&lt;/p&gt;
+&lt;p&gt;使用 Markdown&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/markdown-syntax-summary/#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;可以效率的书写文档, 直接转换成 HTML&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/markdown-syntax-summary/#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;, 你可以使用 Leanote&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/markdown-syntax-summary/#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt; 编辑器进行书写。&lt;/p&gt;
 &lt;p&gt;注：脚注自动被搬运到最后面，请到文章末尾查看，并且脚注后方的链接可以直接跳转回到加注的地方。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;latex-公式&#34;&gt;LaTeX 公式&lt;/h2&gt;
@@ -13463,13 +13463,13 @@ int main(void)
 &lt;hr&gt;
 &lt;ol&gt;
 &lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;Markdown是一种纯文本标记语言 &lt;a href=&#34;https://yuechuanx.top/posts/markdown-syntax-summary/#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Markdown是一种纯文本标记语言 &lt;a href=&#34;https://yuechuanx.top/blog/posts/markdown-syntax-summary/#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li id=&#34;fn:2&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;HyperText Markup Language 超文本标记语言 &lt;a href=&#34;https://yuechuanx.top/posts/markdown-syntax-summary/#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;HyperText Markup Language 超文本标记语言 &lt;a href=&#34;https://yuechuanx.top/blog/posts/markdown-syntax-summary/#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li id=&#34;fn:3&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;开源笔记平台，支持Markdown和笔记直接发为博文 &lt;a href=&#34;https://yuechuanx.top/posts/markdown-syntax-summary/#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;开源笔记平台，支持Markdown和笔记直接发为博文 &lt;a href=&#34;https://yuechuanx.top/blog/posts/markdown-syntax-summary/#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;
@@ -13487,7 +13487,7 @@ int main(void)
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/markdown/" term="markdown" label="markdown" />
+                                <category scheme="https://yuechuanx.top/blog/tags/markdown/" term="markdown" label="markdown" />
                             
                         
                     
@@ -13497,8 +13497,8 @@ int main(void)
     
         <entry>
             <title type="text">《流畅的Python》之数据类型</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/python/fluent-python/fluent-python-data-types/" />
-            <id>https://yuechuanx.top/posts/python/fluent-python/fluent-python-data-types/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/python/fluent-python/fluent-python-data-types/" />
+            <id>https://yuechuanx.top/blog/posts/python/fluent-python/fluent-python-data-types/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2019-12-11T14:21:56&#43;00:00</published>
             <author>
@@ -13850,13 +13850,13 @@ Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师&lt;/p&gt;
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/python/" term="Python" label="Python" />
+                                <category scheme="https://yuechuanx.top/blog/categories/python/" term="Python" label="Python" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/fluent-python/" term="Fluent-Python" label="Fluent-Python" />
+                                <category scheme="https://yuechuanx.top/blog/categories/fluent-python/" term="Fluent-Python" label="Fluent-Python" />
                             
                         
                     
@@ -13866,7 +13866,7 @@ Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师&lt;/p&gt;
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/python/" term="python" label="python" />
+                                <category scheme="https://yuechuanx.top/blog/tags/python/" term="python" label="python" />
                             
                         
                     
@@ -13876,8 +13876,8 @@ Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师&lt;/p&gt;
     
         <entry>
             <title type="text">列举一些好用的命令行工具</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/linux/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/" />
-            <id>https://yuechuanx.top/posts/linux/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/linux/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/" />
+            <id>https://yuechuanx.top/blog/posts/linux/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2019-11-28T10:58:43&#43;00:00</published>
             <author>
@@ -13999,7 +13999,7 @@ Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师&lt;/p&gt;
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/linux/" term="Linux" label="Linux" />
+                                <category scheme="https://yuechuanx.top/blog/categories/linux/" term="Linux" label="Linux" />
                             
                         
                     
@@ -14009,7 +14009,7 @@ Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师&lt;/p&gt;
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/command-line/" term="command-line" label="command-line" />
+                                <category scheme="https://yuechuanx.top/blog/tags/command-line/" term="command-line" label="command-line" />
                             
                         
                     
@@ -14019,8 +14019,8 @@ Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师&lt;/p&gt;
     
         <entry>
             <title type="text">命令行的艺术</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/linux/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E8%89%BA%E6%9C%AF/" />
-            <id>https://yuechuanx.top/posts/linux/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E8%89%BA%E6%9C%AF/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/linux/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E8%89%BA%E6%9C%AF/" />
+            <id>https://yuechuanx.top/blog/posts/linux/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E8%89%BA%E6%9C%AF/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2019-11-28T10:58:43&#43;00:00</published>
             <author>
@@ -14035,17 +14035,17 @@ Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师&lt;/p&gt;
 &lt;p&gt;熟练使用命令行是一种常常被忽视，或被认为难以掌握的技能，但实际上，它会提高你作为工程师的灵活性以及生产力。本文是一份我在 Linux 上工作时，发现的一些命令行使用技巧的摘要。有些技巧非常基础，而另一些则相当复杂，甚至晦涩难懂。这篇文章并不长，但当你能够熟练掌握这里列出的所有技巧时，你就学会了很多关于命令行的东西了。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/posts/linux/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E8%89%BA%E6%9C%AF/#%E5%89%8D%E8%A8%80&#34;&gt;前言&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/posts/linux/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E8%89%BA%E6%9C%AF/#%E5%9F%BA%E7%A1%80&#34;&gt;基础&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/posts/linux/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E8%89%BA%E6%9C%AF/#%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8&#34;&gt;日常使用&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/posts/linux/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E8%89%BA%E6%9C%AF/#%E6%96%87%E4%BB%B6%E5%8F%8A%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86&#34;&gt;文件及数据处理&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/posts/linux/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E8%89%BA%E6%9C%AF/#%E7%B3%BB%E7%BB%9F%E8%B0%83%E8%AF%95&#34;&gt;系统调试&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/posts/linux/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E8%89%BA%E6%9C%AF/#%E5%8D%95%E8%A1%8C%E8%84%9A%E6%9C%AC&#34;&gt;单行脚本&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/posts/linux/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E8%89%BA%E6%9C%AF/#%E5%86%B7%E9%97%A8%E4%BD%86%E6%9C%89%E7%94%A8&#34;&gt;冷门但有用&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/posts/linux/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E8%89%BA%E6%9C%AF/#%E4%BB%85%E9%99%90-os-x-%E7%B3%BB%E7%BB%9F&#34;&gt;仅限 OS X 系统&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/posts/linux/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E8%89%BA%E6%9C%AF/#%E4%BB%85%E9%99%90-windows-%E7%B3%BB%E7%BB%9F&#34;&gt;仅限 Windows 系统&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/posts/linux/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E8%89%BA%E6%9C%AF/#%E6%9B%B4%E5%A4%9A%E8%B5%84%E6%BA%90&#34;&gt;更多资源&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/posts/linux/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E8%89%BA%E6%9C%AF/#%E5%85%8D%E8%B4%A3%E5%A3%B0%E6%98%8E&#34;&gt;免责声明&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/linux/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E8%89%BA%E6%9C%AF/#%E5%89%8D%E8%A8%80&#34;&gt;前言&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/linux/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E8%89%BA%E6%9C%AF/#%E5%9F%BA%E7%A1%80&#34;&gt;基础&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/linux/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E8%89%BA%E6%9C%AF/#%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8&#34;&gt;日常使用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/linux/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E8%89%BA%E6%9C%AF/#%E6%96%87%E4%BB%B6%E5%8F%8A%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86&#34;&gt;文件及数据处理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/linux/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E8%89%BA%E6%9C%AF/#%E7%B3%BB%E7%BB%9F%E8%B0%83%E8%AF%95&#34;&gt;系统调试&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/linux/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E8%89%BA%E6%9C%AF/#%E5%8D%95%E8%A1%8C%E8%84%9A%E6%9C%AC&#34;&gt;单行脚本&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/linux/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E8%89%BA%E6%9C%AF/#%E5%86%B7%E9%97%A8%E4%BD%86%E6%9C%89%E7%94%A8&#34;&gt;冷门但有用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/linux/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E8%89%BA%E6%9C%AF/#%E4%BB%85%E9%99%90-os-x-%E7%B3%BB%E7%BB%9F&#34;&gt;仅限 OS X 系统&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/linux/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E8%89%BA%E6%9C%AF/#%E4%BB%85%E9%99%90-windows-%E7%B3%BB%E7%BB%9F&#34;&gt;仅限 Windows 系统&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/linux/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E8%89%BA%E6%9C%AF/#%E6%9B%B4%E5%A4%9A%E8%B5%84%E6%BA%90&#34;&gt;更多资源&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/linux/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E8%89%BA%E6%9C%AF/#%E5%85%8D%E8%B4%A3%E5%A3%B0%E6%98%8E&#34;&gt;免责声明&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;这篇文章是&lt;a href=&#34;AUTHORS.md&#34;&gt;许多作者和译者&lt;/a&gt;共同的成果。
 这里的部分内容
@@ -14058,7 +14058,7 @@ Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师&lt;/p&gt;
 &lt;p&gt;涵盖范围：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;这篇文章不仅能帮助刚接触命令行的新手，而且对具有经验的人也大有裨益。本文致力于做到&lt;em&gt;覆盖面广&lt;/em&gt;（涉及所有重要的内容），&lt;em&gt;具体&lt;/em&gt;（给出具体的最常用的例子），以及&lt;em&gt;简洁&lt;/em&gt;（避免冗余的内容，或是可以在其他地方轻松查到的细枝末节）。在特定应用场景下，本文的内容属于基本功或者能帮助您节约大量的时间。&lt;/li&gt;
-&lt;li&gt;本文主要为 Linux 所写，但在&lt;a href=&#34;https://yuechuanx.top/posts/linux/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E8%89%BA%E6%9C%AF/#%E4%BB%85%E9%99%90-os-x-%E7%B3%BB%E7%BB%9F&#34;&gt;仅限 OS X 系统&lt;/a&gt;章节和&lt;a href=&#34;https://yuechuanx.top/posts/linux/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E8%89%BA%E6%9C%AF/#%E4%BB%85%E9%99%90-windows-%E7%B3%BB%E7%BB%9F&#34;&gt;仅限 Windows 系统&lt;/a&gt;章节中也包含有对应操作系统的内容。除去这两个章节外，其它的内容大部分均可在其他类 Unix 系统或 OS X，甚至 Cygwin 中得到应用。&lt;/li&gt;
+&lt;li&gt;本文主要为 Linux 所写，但在&lt;a href=&#34;https://yuechuanx.top/blog/posts/linux/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E8%89%BA%E6%9C%AF/#%E4%BB%85%E9%99%90-os-x-%E7%B3%BB%E7%BB%9F&#34;&gt;仅限 OS X 系统&lt;/a&gt;章节和&lt;a href=&#34;https://yuechuanx.top/blog/posts/linux/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E8%89%BA%E6%9C%AF/#%E4%BB%85%E9%99%90-windows-%E7%B3%BB%E7%BB%9F&#34;&gt;仅限 Windows 系统&lt;/a&gt;章节中也包含有对应操作系统的内容。除去这两个章节外，其它的内容大部分均可在其他类 Unix 系统或 OS X，甚至 Cygwin 中得到应用。&lt;/li&gt;
 &lt;li&gt;本文主要关注于交互式 Bash，但也有很多技巧可以应用于其他 shell 和 Bash 脚本当中。&lt;/li&gt;
 &lt;li&gt;除去“标准的”Unix 命令，本文还包括了一些依赖于特定软件包的命令（前提是它们具有足够的价值）。&lt;/li&gt;
 &lt;/ul&gt;
@@ -14370,7 +14370,7 @@ Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师&lt;/p&gt;
 &lt;p&gt;你可以单独指定某一条命令的环境，只需在调用时把环境变量设定放在命令的前面，例如 &lt;code&gt;TZ=Pacific/Fiji date&lt;/code&gt; 可以获取斐济的时间。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;了解如何使用 &lt;code&gt;awk&lt;/code&gt; 和 &lt;code&gt;sed&lt;/code&gt; 来进行简单的数据处理。 参阅 &lt;a href=&#34;https://yuechuanx.top/posts/linux/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E8%89%BA%E6%9C%AF/#one-liners&#34;&gt;One-liners&lt;/a&gt; 获取示例。&lt;/p&gt;
+&lt;p&gt;了解如何使用 &lt;code&gt;awk&lt;/code&gt; 和 &lt;code&gt;sed&lt;/code&gt; 来进行简单的数据处理。 参阅 &lt;a href=&#34;https://yuechuanx.top/blog/posts/linux/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E8%89%BA%E6%9C%AF/#one-liners&#34;&gt;One-liners&lt;/a&gt; 获取示例。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;替换一个或多个文件中出现的字符串：&lt;/p&gt;
@@ -14964,7 +14964,7 @@ Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师&lt;/p&gt;
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/linux/" term="Linux" label="Linux" />
+                                <category scheme="https://yuechuanx.top/blog/categories/linux/" term="Linux" label="Linux" />
                             
                         
                     
@@ -14974,7 +14974,7 @@ Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师&lt;/p&gt;
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/command-line/" term="command-line" label="command-line" />
+                                <category scheme="https://yuechuanx.top/blog/tags/command-line/" term="command-line" label="command-line" />
                             
                         
                     
@@ -14984,8 +14984,8 @@ Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师&lt;/p&gt;
     
         <entry>
             <title type="text">HTTP 协议状态码分类及解释</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/classification-and-interpretation-of-http-protocol-status-codes/" />
-            <id>https://yuechuanx.top/posts/classification-and-interpretation-of-http-protocol-status-codes/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/classification-and-interpretation-of-http-protocol-status-codes/" />
+            <id>https://yuechuanx.top/blog/posts/classification-and-interpretation-of-http-protocol-status-codes/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2019-11-26T19:34:49&#43;00:00</published>
             <author>
@@ -15342,7 +15342,7 @@ Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师&lt;/p&gt;
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/http/" term="http" label="http" />
+                                <category scheme="https://yuechuanx.top/blog/tags/http/" term="http" label="http" />
                             
                         
                     
@@ -15352,8 +15352,8 @@ Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师&lt;/p&gt;
     
         <entry>
             <title type="text">VSCode 插件开发入门</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/getting-started-with-vscode-plugin-development/" />
-            <id>https://yuechuanx.top/posts/getting-started-with-vscode-plugin-development/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/getting-started-with-vscode-plugin-development/" />
+            <id>https://yuechuanx.top/blog/posts/getting-started-with-vscode-plugin-development/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2019-04-02T13:49:04&#43;00:00</published>
             <author>
@@ -15505,7 +15505,7 @@ Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师&lt;/p&gt;
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/vscode/" term="vscode" label="vscode" />
+                                <category scheme="https://yuechuanx.top/blog/tags/vscode/" term="vscode" label="vscode" />
                             
                         
                     
@@ -15515,8 +15515,8 @@ Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师&lt;/p&gt;
     
         <entry>
             <title type="text">&lt;Java容器&gt; ArrayList</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/java/arraylist/" />
-            <id>https://yuechuanx.top/posts/java/arraylist/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/java/arraylist/" />
+            <id>https://yuechuanx.top/blog/posts/java/arraylist/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2019-01-03T20:10:39&#43;00:00</published>
             <author>
@@ -16943,7 +16943,7 @@ Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师&lt;/p&gt;
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/java/" term="Java" label="Java" />
+                                <category scheme="https://yuechuanx.top/blog/categories/java/" term="Java" label="Java" />
                             
                         
                     
@@ -16953,7 +16953,7 @@ Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师&lt;/p&gt;
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/array-list/" term="array-list" label="array-list" />
+                                <category scheme="https://yuechuanx.top/blog/tags/array-list/" term="array-list" label="array-list" />
                             
                         
                     
@@ -16963,8 +16963,8 @@ Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师&lt;/p&gt;
     
         <entry>
             <title type="text">&lt;Java容器&gt; ArrayList扩容源码分析</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/java/arraylist-grow/" />
-            <id>https://yuechuanx.top/posts/java/arraylist-grow/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/java/arraylist-grow/" />
+            <id>https://yuechuanx.top/blog/posts/java/arraylist-grow/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2019-01-03T20:10:39&#43;00:00</published>
             <author>
@@ -17521,7 +17521,7 @@ Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师&lt;/p&gt;
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/java/" term="Java" label="Java" />
+                                <category scheme="https://yuechuanx.top/blog/categories/java/" term="Java" label="Java" />
                             
                         
                     
@@ -17531,7 +17531,7 @@ Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师&lt;/p&gt;
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/array-list/" term="array-list" label="array-list" />
+                                <category scheme="https://yuechuanx.top/blog/tags/array-list/" term="array-list" label="array-list" />
                             
                         
                     
@@ -17541,8 +17541,8 @@ Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师&lt;/p&gt;
     
         <entry>
             <title type="text">&lt;Java容器&gt; HashMap</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/java/hashmap/" />
-            <id>https://yuechuanx.top/posts/java/hashmap/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/java/hashmap/" />
+            <id>https://yuechuanx.top/blog/posts/java/hashmap/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2019-01-03T20:10:39&#43;00:00</published>
             <author>
@@ -17554,22 +17554,22 @@ Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师&lt;/p&gt;
             
                 <content type="html">&lt;!-- MarkdownTOC --&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/posts/java/hashmap/#hashmap-%E7%AE%80%E4%BB%8B&#34;&gt;HashMap 简介&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/posts/java/hashmap/#%E5%BA%95%E5%B1%82%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90&#34;&gt;底层数据结构分析&lt;/a&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/java/hashmap/#hashmap-%E7%AE%80%E4%BB%8B&#34;&gt;HashMap 简介&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/java/hashmap/#%E5%BA%95%E5%B1%82%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90&#34;&gt;底层数据结构分析&lt;/a&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/posts/java/hashmap/#jdk18%E4%B9%8B%E5%89%8D&#34;&gt;JDK1.8之前&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/posts/java/hashmap/#jdk18%E4%B9%8B%E5%90%8E&#34;&gt;JDK1.8之后&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/java/hashmap/#jdk18%E4%B9%8B%E5%89%8D&#34;&gt;JDK1.8之前&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/java/hashmap/#jdk18%E4%B9%8B%E5%90%8E&#34;&gt;JDK1.8之后&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/posts/java/hashmap/#hashmap%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90&#34;&gt;HashMap源码分析&lt;/a&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/java/hashmap/#hashmap%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90&#34;&gt;HashMap源码分析&lt;/a&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/posts/java/hashmap/#%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95&#34;&gt;构造方法&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/posts/java/hashmap/#put%E6%96%B9%E6%B3%95&#34;&gt;put方法&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/posts/java/hashmap/#get%E6%96%B9%E6%B3%95&#34;&gt;get方法&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/posts/java/hashmap/#resize%E6%96%B9%E6%B3%95&#34;&gt;resize方法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/java/hashmap/#%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95&#34;&gt;构造方法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/java/hashmap/#put%E6%96%B9%E6%B3%95&#34;&gt;put方法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/java/hashmap/#get%E6%96%B9%E6%B3%95&#34;&gt;get方法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/java/hashmap/#resize%E6%96%B9%E6%B3%95&#34;&gt;resize方法&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/posts/java/hashmap/#hashmap%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E6%B5%8B%E8%AF%95&#34;&gt;HashMap常用方法测试&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/java/hashmap/#hashmap%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E6%B5%8B%E8%AF%95&#34;&gt;HashMap常用方法测试&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;!-- /MarkdownTOC --&gt;
 &lt;blockquote&gt;
@@ -18554,7 +18554,7 @@ Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师&lt;/p&gt;
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/java/" term="Java" label="Java" />
+                                <category scheme="https://yuechuanx.top/blog/categories/java/" term="Java" label="Java" />
                             
                         
                     
@@ -18564,13 +18564,13 @@ Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师&lt;/p&gt;
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/map/" term="map" label="map" />
+                                <category scheme="https://yuechuanx.top/blog/tags/map/" term="map" label="map" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/hashmap/" term="hashmap" label="hashmap" />
+                                <category scheme="https://yuechuanx.top/blog/tags/hashmap/" term="hashmap" label="hashmap" />
                             
                         
                     
@@ -18580,8 +18580,8 @@ Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师&lt;/p&gt;
     
         <entry>
             <title type="text">&lt;Java容器&gt; LinkedList</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/java/linkedlist/" />
-            <id>https://yuechuanx.top/posts/java/linkedlist/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/java/linkedlist/" />
+            <id>https://yuechuanx.top/blog/posts/java/linkedlist/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2019-01-03T20:10:39&#43;00:00</published>
             <author>
@@ -18593,19 +18593,19 @@ Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师&lt;/p&gt;
             
                 <content type="html">&lt;!-- MarkdownTOC --&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/posts/java/linkedlist/#%E7%AE%80%E4%BB%8B&#34;&gt;简介&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/posts/java/linkedlist/#%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90&#34;&gt;内部结构分析&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/posts/java/linkedlist/#linkedlist%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90&#34;&gt;LinkedList源码分析&lt;/a&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/java/linkedlist/#%E7%AE%80%E4%BB%8B&#34;&gt;简介&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/java/linkedlist/#%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90&#34;&gt;内部结构分析&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/java/linkedlist/#linkedlist%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90&#34;&gt;LinkedList源码分析&lt;/a&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/posts/java/linkedlist/#%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95&#34;&gt;构造方法&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/posts/java/linkedlist/#add%E6%96%B9%E6%B3%95&#34;&gt;添加（add）方法&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/posts/java/linkedlist/#%E6%A0%B9%E6%8D%AE%E4%BD%8D%E7%BD%AE%E5%8F%96%E6%95%B0%E6%8D%AE%E7%9A%84%E6%96%B9%E6%B3%95&#34;&gt;根据位置取数据的方法&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/posts/java/linkedlist/#%E6%A0%B9%E6%8D%AE%E5%AF%B9%E8%B1%A1%E5%BE%97%E5%88%B0%E7%B4%A2%E5%BC%95%E7%9A%84%E6%96%B9%E6%B3%95&#34;&gt;根据对象得到索引的方法&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/posts/java/linkedlist/#%E6%A3%80%E6%9F%A5%E9%93%BE%E8%A1%A8%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E6%9F%90%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%9A&#34;&gt;检查链表是否包含某对象的方法：&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/posts/java/linkedlist/#%E5%88%A0%E9%99%A4%E6%96%B9%E6%B3%95&#34;&gt;删除（remove/pop）方法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/java/linkedlist/#%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95&#34;&gt;构造方法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/java/linkedlist/#add%E6%96%B9%E6%B3%95&#34;&gt;添加（add）方法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/java/linkedlist/#%E6%A0%B9%E6%8D%AE%E4%BD%8D%E7%BD%AE%E5%8F%96%E6%95%B0%E6%8D%AE%E7%9A%84%E6%96%B9%E6%B3%95&#34;&gt;根据位置取数据的方法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/java/linkedlist/#%E6%A0%B9%E6%8D%AE%E5%AF%B9%E8%B1%A1%E5%BE%97%E5%88%B0%E7%B4%A2%E5%BC%95%E7%9A%84%E6%96%B9%E6%B3%95&#34;&gt;根据对象得到索引的方法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/java/linkedlist/#%E6%A3%80%E6%9F%A5%E9%93%BE%E8%A1%A8%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E6%9F%90%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%9A&#34;&gt;检查链表是否包含某对象的方法：&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/java/linkedlist/#%E5%88%A0%E9%99%A4%E6%96%B9%E6%B3%95&#34;&gt;删除（remove/pop）方法&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/posts/java/linkedlist/#linkedlist%E7%B1%BB%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E6%B5%8B%E8%AF%95&#34;&gt;LinkedList类常用方法测试：&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.top/blog/posts/java/linkedlist/#linkedlist%E7%B1%BB%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E6%B5%8B%E8%AF%95&#34;&gt;LinkedList类常用方法测试：&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;!-- /MarkdownTOC --&gt;
 &lt;h2 id=&#34;font-face楷体-id1简介font&#34;&gt;&lt;font face=&#34;楷体&#34; id=&#34;1&#34;&gt;简介&lt;/font&gt;&lt;/h2&gt;
@@ -19582,7 +19582,7 @@ public E removeFirst() {
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/java/" term="Java" label="Java" />
+                                <category scheme="https://yuechuanx.top/blog/categories/java/" term="Java" label="Java" />
                             
                         
                     
@@ -19592,7 +19592,7 @@ public E removeFirst() {
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/linked-list/" term="linked-list" label="linked-list" />
+                                <category scheme="https://yuechuanx.top/blog/tags/linked-list/" term="linked-list" label="linked-list" />
                             
                         
                     
@@ -19602,8 +19602,8 @@ public E removeFirst() {
     
         <entry>
             <title type="text">Java常见问题汇总-1</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/java/common-questions/" />
-            <id>https://yuechuanx.top/posts/java/common-questions/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/java/common-questions/" />
+            <id>https://yuechuanx.top/blog/posts/java/common-questions/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2019-01-03T20:10:39&#43;00:00</published>
             <author>
@@ -19903,7 +19903,7 @@ s2:小李
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/java/" term="Java" label="Java" />
+                                <category scheme="https://yuechuanx.top/blog/categories/java/" term="Java" label="Java" />
                             
                         
                     
@@ -19913,7 +19913,7 @@ s2:小李
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/interview-questions/" term="interview-questions" label="interview-questions" />
+                                <category scheme="https://yuechuanx.top/blog/tags/interview-questions/" term="interview-questions" label="interview-questions" />
                             
                         
                     
@@ -19923,8 +19923,8 @@ s2:小李
     
         <entry>
             <title type="text">Java常见问题汇总-2</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/java/string/" />
-            <id>https://yuechuanx.top/posts/java/string/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/java/string/" />
+            <id>https://yuechuanx.top/blog/posts/java/string/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2019-01-03T20:10:39&#43;00:00</published>
             <author>
@@ -20145,7 +20145,7 @@ s = Hello_World
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/java/" term="Java" label="Java" />
+                                <category scheme="https://yuechuanx.top/blog/categories/java/" term="Java" label="Java" />
                             
                         
                     
@@ -20155,7 +20155,7 @@ s = Hello_World
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/interview-questions/" term="interview-questions" label="interview-questions" />
+                                <category scheme="https://yuechuanx.top/blog/tags/interview-questions/" term="interview-questions" label="interview-questions" />
                             
                         
                     
@@ -20165,8 +20165,8 @@ s = Hello_World
     
         <entry>
             <title type="text">问题梳理-Java多线程</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/java/questiones-multithread-in-java/" />
-            <id>https://yuechuanx.top/posts/java/questiones-multithread-in-java/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/java/questiones-multithread-in-java/" />
+            <id>https://yuechuanx.top/blog/posts/java/questiones-multithread-in-java/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2019-01-03T20:10:39&#43;00:00</published>
             <author>
@@ -20387,7 +20387,7 @@ start()会执行线程的相应准备工作，然后自动执行run()方法的�
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/java/" term="Java" label="Java" />
+                                <category scheme="https://yuechuanx.top/blog/categories/java/" term="Java" label="Java" />
                             
                         
                     
@@ -20397,13 +20397,13 @@ start()会执行线程的相应准备工作，然后自动执行run()方法的�
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/multithread/" term="multithread" label="multithread" />
+                                <category scheme="https://yuechuanx.top/blog/tags/multithread/" term="multithread" label="multithread" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/interview/" term="interview" label="interview" />
+                                <category scheme="https://yuechuanx.top/blog/tags/interview/" term="interview" label="interview" />
                             
                         
                     
@@ -20413,8 +20413,8 @@ start()会执行线程的相应准备工作，然后自动执行run()方法的�
     
         <entry>
             <title type="text">【剑指offer】二维数组中的查找</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/algorithm/sword-refers-to-offer-search-in-a-twodimensional-array/" />
-            <id>https://yuechuanx.top/posts/algorithm/sword-refers-to-offer-search-in-a-twodimensional-array/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/algorithm/sword-refers-to-offer-search-in-a-twodimensional-array/" />
+            <id>https://yuechuanx.top/blog/posts/algorithm/sword-refers-to-offer-search-in-a-twodimensional-array/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2018-12-03T20:03:11&#43;00:00</published>
             <author>
@@ -20529,7 +20529,7 @@ start()会执行线程的相应准备工作，然后自动执行run()方法的�
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/algorithm/" term="Algorithm" label="Algorithm" />
+                                <category scheme="https://yuechuanx.top/blog/categories/algorithm/" term="Algorithm" label="Algorithm" />
                             
                         
                     
@@ -20539,13 +20539,13 @@ start()会执行线程的相应准备工作，然后自动执行run()方法的�
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/algorithm/" term="algorithm" label="algorithm" />
+                                <category scheme="https://yuechuanx.top/blog/tags/algorithm/" term="algorithm" label="algorithm" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/array/" term="array" label="array" />
+                                <category scheme="https://yuechuanx.top/blog/tags/array/" term="array" label="array" />
                             
                         
                     
@@ -20555,8 +20555,8 @@ start()会执行线程的相应准备工作，然后自动执行run()方法的�
     
         <entry>
             <title type="text">【剑指offer】从尾到头打印链表</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/algorithm/sword-refers-to-offer-print-the-linked-list-from-end-beginning/" />
-            <id>https://yuechuanx.top/posts/algorithm/sword-refers-to-offer-print-the-linked-list-from-end-beginning/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/algorithm/sword-refers-to-offer-print-the-linked-list-from-end-beginning/" />
+            <id>https://yuechuanx.top/blog/posts/algorithm/sword-refers-to-offer-print-the-linked-list-from-end-beginning/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2018-12-03T20:03:11&#43;00:00</published>
             <author>
@@ -20700,7 +20700,7 @@ start()会执行线程的相应准备工作，然后自动执行run()方法的�
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/algorithm/" term="Algorithm" label="Algorithm" />
+                                <category scheme="https://yuechuanx.top/blog/categories/algorithm/" term="Algorithm" label="Algorithm" />
                             
                         
                     
@@ -20710,13 +20710,13 @@ start()会执行线程的相应准备工作，然后自动执行run()方法的�
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/algorithm/" term="algorithm" label="algorithm" />
+                                <category scheme="https://yuechuanx.top/blog/tags/algorithm/" term="algorithm" label="algorithm" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/linked-list/" term="linked-list" label="linked-list" />
+                                <category scheme="https://yuechuanx.top/blog/tags/linked-list/" term="linked-list" label="linked-list" />
                             
                         
                     
@@ -20726,8 +20726,8 @@ start()会执行线程的相应准备工作，然后自动执行run()方法的�
     
         <entry>
             <title type="text">【剑指offer】旋转数组的最小数字</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/algorithm/rotate-the-smallest-number-of-array/" />
-            <id>https://yuechuanx.top/posts/algorithm/rotate-the-smallest-number-of-array/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/algorithm/rotate-the-smallest-number-of-array/" />
+            <id>https://yuechuanx.top/blog/posts/algorithm/rotate-the-smallest-number-of-array/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2018-12-03T20:03:11&#43;00:00</published>
             <author>
@@ -20830,7 +20830,7 @@ start()会执行线程的相应准备工作，然后自动执行run()方法的�
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/algorithm/" term="Algorithm" label="Algorithm" />
+                                <category scheme="https://yuechuanx.top/blog/categories/algorithm/" term="Algorithm" label="Algorithm" />
                             
                         
                     
@@ -20840,13 +20840,13 @@ start()会执行线程的相应准备工作，然后自动执行run()方法的�
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/algorithm/" term="algorithm" label="algorithm" />
+                                <category scheme="https://yuechuanx.top/blog/tags/algorithm/" term="algorithm" label="algorithm" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/search/" term="search" label="search" />
+                                <category scheme="https://yuechuanx.top/blog/tags/search/" term="search" label="search" />
                             
                         
                     
@@ -20856,8 +20856,8 @@ start()会执行线程的相应准备工作，然后自动执行run()方法的�
     
         <entry>
             <title type="text">【剑指offer】替换空格</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/algorithm/replace-spaces/" />
-            <id>https://yuechuanx.top/posts/algorithm/replace-spaces/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/algorithm/replace-spaces/" />
+            <id>https://yuechuanx.top/blog/posts/algorithm/replace-spaces/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2018-12-03T20:03:11&#43;00:00</published>
             <author>
@@ -20948,7 +20948,7 @@ start()会执行线程的相应准备工作，然后自动执行run()方法的�
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/algorithm/" term="Algorithm" label="Algorithm" />
+                                <category scheme="https://yuechuanx.top/blog/categories/algorithm/" term="Algorithm" label="Algorithm" />
                             
                         
                     
@@ -20958,13 +20958,13 @@ start()会执行线程的相应准备工作，然后自动执行run()方法的�
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/algorithm/" term="algorithm" label="algorithm" />
+                                <category scheme="https://yuechuanx.top/blog/tags/algorithm/" term="algorithm" label="algorithm" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/string/" term="string" label="string" />
+                                <category scheme="https://yuechuanx.top/blog/tags/string/" term="string" label="string" />
                             
                         
                     
@@ -20974,8 +20974,8 @@ start()会执行线程的相应准备工作，然后自动执行run()方法的�
     
         <entry>
             <title type="text">【剑指offer】栈实现队列</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/algorithm/%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/" />
-            <id>https://yuechuanx.top/posts/algorithm/%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/algorithm/%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/" />
+            <id>https://yuechuanx.top/blog/posts/algorithm/%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2018-12-03T20:03:11&#43;00:00</published>
             <author>
@@ -21068,7 +21068,7 @@ start()会执行线程的相应准备工作，然后自动执行run()方法的�
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/algorithm/" term="Algorithm" label="Algorithm" />
+                                <category scheme="https://yuechuanx.top/blog/categories/algorithm/" term="Algorithm" label="Algorithm" />
                             
                         
                     
@@ -21078,19 +21078,19 @@ start()会执行线程的相应准备工作，然后自动执行run()方法的�
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/algorithm/" term="algorithm" label="algorithm" />
+                                <category scheme="https://yuechuanx.top/blog/tags/algorithm/" term="algorithm" label="algorithm" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/queue/" term="queue" label="queue" />
+                                <category scheme="https://yuechuanx.top/blog/tags/queue/" term="queue" label="queue" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/stack/" term="stack" label="stack" />
+                                <category scheme="https://yuechuanx.top/blog/tags/stack/" term="stack" label="stack" />
                             
                         
                     
@@ -21100,8 +21100,8 @@ start()会执行线程的相应准备工作，然后自动执行run()方法的�
     
         <entry>
             <title type="text">【剑指offer】重建二叉树</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/algorithm/sword-refers-to-offer-rebuild-the-binary-tree/" />
-            <id>https://yuechuanx.top/posts/algorithm/sword-refers-to-offer-rebuild-the-binary-tree/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/algorithm/sword-refers-to-offer-rebuild-the-binary-tree/" />
+            <id>https://yuechuanx.top/blog/posts/algorithm/sword-refers-to-offer-rebuild-the-binary-tree/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2018-12-03T20:03:11&#43;00:00</published>
             <author>
@@ -21204,7 +21204,7 @@ start()会执行线程的相应准备工作，然后自动执行run()方法的�
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/algorithm/" term="Algorithm" label="Algorithm" />
+                                <category scheme="https://yuechuanx.top/blog/categories/algorithm/" term="Algorithm" label="Algorithm" />
                             
                         
                     
@@ -21214,13 +21214,13 @@ start()会执行线程的相应准备工作，然后自动执行run()方法的�
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/algorithm/" term="algorithm" label="algorithm" />
+                                <category scheme="https://yuechuanx.top/blog/tags/algorithm/" term="algorithm" label="algorithm" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/binary-tree/" term="binary-tree" label="binary-tree" />
+                                <category scheme="https://yuechuanx.top/blog/tags/binary-tree/" term="binary-tree" label="binary-tree" />
                             
                         
                     
@@ -21230,8 +21230,8 @@ start()会执行线程的相应准备工作，然后自动执行run()方法的�
     
         <entry>
             <title type="text">&lt;深入理解JVM&gt; 函数调用机制</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/java/implement-function-call-in-c/" />
-            <id>https://yuechuanx.top/posts/java/implement-function-call-in-c/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/java/implement-function-call-in-c/" />
+            <id>https://yuechuanx.top/blog/posts/java/implement-function-call-in-c/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2018-11-27T19:48:56&#43;00:00</published>
             <author>
@@ -21615,7 +21615,7 @@ Linux平台，调用者函数向被调用者函数传递参数，采用逆向顺
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/java/" term="Java" label="Java" />
+                                <category scheme="https://yuechuanx.top/blog/categories/java/" term="Java" label="Java" />
                             
                         
                     
@@ -21625,7 +21625,7 @@ Linux平台，调用者函数向被调用者函数传递参数，采用逆向顺
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/jvm/" term="jvm" label="jvm" />
+                                <category scheme="https://yuechuanx.top/blog/tags/jvm/" term="jvm" label="jvm" />
                             
                         
                     
@@ -21635,8 +21635,8 @@ Linux平台，调用者函数向被调用者函数传递参数，采用逆向顺
     
         <entry>
             <title type="text">平衡二叉树封装&#43;模板实现</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/algorithm/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91%E5%B0%81%E8%A3%85%E4%B8%8E%E6%A8%A1%E6%9D%BF%E5%AE%9E%E7%8E%B0/" />
-            <id>https://yuechuanx.top/posts/algorithm/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91%E5%B0%81%E8%A3%85%E4%B8%8E%E6%A8%A1%E6%9D%BF%E5%AE%9E%E7%8E%B0/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/algorithm/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91%E5%B0%81%E8%A3%85%E4%B8%8E%E6%A8%A1%E6%9D%BF%E5%AE%9E%E7%8E%B0/" />
+            <id>https://yuechuanx.top/blog/posts/algorithm/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91%E5%B0%81%E8%A3%85%E4%B8%8E%E6%A8%A1%E6%9D%BF%E5%AE%9E%E7%8E%B0/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2018-05-27T11:36:49&#43;00:00</published>
             <author>
@@ -22205,7 +22205,7 @@ X的右孩子节点的左子树上**(right-left)**&lt;/p&gt;
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/algorithm/" term="Algorithm" label="Algorithm" />
+                                <category scheme="https://yuechuanx.top/blog/categories/algorithm/" term="Algorithm" label="Algorithm" />
                             
                         
                     
@@ -22215,13 +22215,13 @@ X的右孩子节点的左子树上**(right-left)**&lt;/p&gt;
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/algorithm/" term="algorithm" label="algorithm" />
+                                <category scheme="https://yuechuanx.top/blog/tags/algorithm/" term="algorithm" label="algorithm" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/tree/" term="tree" label="tree" />
+                                <category scheme="https://yuechuanx.top/blog/tags/tree/" term="tree" label="tree" />
                             
                         
                     
@@ -22231,8 +22231,8 @@ X的右孩子节点的左子树上**(right-left)**&lt;/p&gt;
     
         <entry>
             <title type="text">求有向图全部拓扑序列</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/algorithm/%E6%B1%82%E6%9C%89%E5%90%91%E5%9B%BE%E5%85%A8%E9%83%A8%E6%8B%93%E6%89%91%E5%BA%8F%E5%88%97/" />
-            <id>https://yuechuanx.top/posts/algorithm/%E6%B1%82%E6%9C%89%E5%90%91%E5%9B%BE%E5%85%A8%E9%83%A8%E6%8B%93%E6%89%91%E5%BA%8F%E5%88%97/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/algorithm/%E6%B1%82%E6%9C%89%E5%90%91%E5%9B%BE%E5%85%A8%E9%83%A8%E6%8B%93%E6%89%91%E5%BA%8F%E5%88%97/" />
+            <id>https://yuechuanx.top/blog/posts/algorithm/%E6%B1%82%E6%9C%89%E5%90%91%E5%9B%BE%E5%85%A8%E9%83%A8%E6%8B%93%E6%89%91%E5%BA%8F%E5%88%97/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2018-05-05T18:38:54&#43;00:00</published>
             <author>
@@ -22519,7 +22519,7 @@ X的右孩子节点的左子树上**(right-left)**&lt;/p&gt;
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/algorithm/" term="Algorithm" label="Algorithm" />
+                                <category scheme="https://yuechuanx.top/blog/categories/algorithm/" term="Algorithm" label="Algorithm" />
                             
                         
                     
@@ -22529,19 +22529,19 @@ X的右孩子节点的左子树上**(right-left)**&lt;/p&gt;
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/algorithm/" term="algorithm" label="algorithm" />
+                                <category scheme="https://yuechuanx.top/blog/tags/algorithm/" term="algorithm" label="algorithm" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/graph/" term="graph" label="graph" />
+                                <category scheme="https://yuechuanx.top/blog/tags/graph/" term="graph" label="graph" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/topological-sort/" term="topological-sort" label="topological-sort" />
+                                <category scheme="https://yuechuanx.top/blog/tags/topological-sort/" term="topological-sort" label="topological-sort" />
                             
                         
                     
@@ -22551,8 +22551,8 @@ X的右孩子节点的左子树上**(right-left)**&lt;/p&gt;
     
         <entry>
             <title type="text">求图的拓扑排序</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/algorithm/%E5%9B%BE%E7%9A%84%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" />
-            <id>https://yuechuanx.top/posts/algorithm/%E5%9B%BE%E7%9A%84%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/algorithm/%E5%9B%BE%E7%9A%84%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" />
+            <id>https://yuechuanx.top/blog/posts/algorithm/%E5%9B%BE%E7%9A%84%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2018-05-01T18:38:54&#43;00:00</published>
             <author>
@@ -22981,7 +22981,7 @@ X的右孩子节点的左子树上**(right-left)**&lt;/p&gt;
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/algorithm/" term="Algorithm" label="Algorithm" />
+                                <category scheme="https://yuechuanx.top/blog/categories/algorithm/" term="Algorithm" label="Algorithm" />
                             
                         
                     
@@ -22991,13 +22991,13 @@ X的右孩子节点的左子树上**(right-left)**&lt;/p&gt;
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/graph/" term="graph" label="graph" />
+                                <category scheme="https://yuechuanx.top/blog/tags/graph/" term="graph" label="graph" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/topological-sort/" term="topological-sort" label="topological-sort" />
+                                <category scheme="https://yuechuanx.top/blog/tags/topological-sort/" term="topological-sort" label="topological-sort" />
                             
                         
                     
@@ -23007,8 +23007,8 @@ X的右孩子节点的左子树上**(right-left)**&lt;/p&gt;
     
         <entry>
             <title type="text">【剑指offer】判断二叉搜索树（BST）</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/algorithm/%E5%88%A4%E6%96%AD%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/" />
-            <id>https://yuechuanx.top/posts/algorithm/%E5%88%A4%E6%96%AD%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/algorithm/%E5%88%A4%E6%96%AD%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/" />
+            <id>https://yuechuanx.top/blog/posts/algorithm/%E5%88%A4%E6%96%AD%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>2018-04-03T20:03:11&#43;00:00</published>
             <author>
@@ -23343,7 +23343,7 @@ X的右孩子节点的左子树上**(right-left)**&lt;/p&gt;
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/algorithm/" term="Algorithm" label="Algorithm" />
+                                <category scheme="https://yuechuanx.top/blog/categories/algorithm/" term="Algorithm" label="Algorithm" />
                             
                         
                     
@@ -23353,13 +23353,13 @@ X的右孩子节点的左子树上**(right-left)**&lt;/p&gt;
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/algorithm/" term="algorithm" label="algorithm" />
+                                <category scheme="https://yuechuanx.top/blog/tags/algorithm/" term="algorithm" label="algorithm" />
                             
                         
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/tags/tree/" term="tree" label="tree" />
+                                <category scheme="https://yuechuanx.top/blog/tags/tree/" term="tree" label="tree" />
                             
                         
                     
@@ -23369,8 +23369,8 @@ X的右孩子节点的左子树上**(right-left)**&lt;/p&gt;
     
         <entry>
             <title type="text"></title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.top/posts/algorithm/algorithm-chap1-notes/" />
-            <id>https://yuechuanx.top/posts/algorithm/algorithm-chap1-notes/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.top/blog/posts/algorithm/algorithm-chap1-notes/" />
+            <id>https://yuechuanx.top/blog/posts/algorithm/algorithm-chap1-notes/</id>
             <updated>2020-08-25T15:40:08&#43;08:00</updated>
             <published>0001-01-01T00:00:00&#43;00:00</published>
             <author>
@@ -23400,7 +23400,7 @@ X的右孩子节点的左子树上**(right-left)**&lt;/p&gt;
                             
                             
                             
-                                <category scheme="https://yuechuanx.top/categories/algorithm/" term="Algorithm" label="Algorithm" />
+                                <category scheme="https://yuechuanx.top/blog/categories/algorithm/" term="Algorithm" label="Algorithm" />
                             
                         
                     
