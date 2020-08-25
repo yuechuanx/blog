@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
+    <meta charset="UTF-8" />
+
+    <meta name="generator" content="Hugo 0.74.2" /><meta name="theme-color" content="#fff" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+    
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <title>使用 Bash严格模式 | 过往皆为序章</title>
+
+    <link rel="stylesheet" href="/css/meme.min.c7e7b4007825e5b705206925f8b9849b3b56a0c24f0303ed8c32ee22935f5d6d.css" integrity="sha256-x&#43;e0AHgl5bcFIGkl&#43;LmEmztWoMJPAwPtjDLuIpNfXW0=" />
+
+    
+    
+        <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js" defer></script><script src="/js/meme.min.e423e07f1c56171d7f6918b3c513f0589afa4bb343f8c730648bedc322204d56.js" integrity="sha256-5CPgfxxWFx1/aRizxRPwWJr6S7ND&#43;McwZIvtwyIgTVY="></script>
+
+    
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB&#43;Garamond:ital,wght@0,400;0,500;0,700;1,400;1,700&amp;family=Noto&#43;Serif&#43;SC:wght@400;500;700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" media="print" onload="this.media='all'" />
+        <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB&#43;Garamond:ital,wght@0,400;0,500;0,700;1,400;1,700&amp;family=Noto&#43;Serif&#43;SC:wght@400;500;700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" /></noscript>
+
+    <meta name="author" content="YueChuan" /><meta name="description" content="使用 Bash严格模式 原文链接：Use Bash Strict Mode (Unless You Love Debugging) 翻译：YueChuan 在 Unix/Linux 环境很难避免与 Bash 脚本打交道，一份高质量，可靠且可维护的 Bash 脚本应该……" />
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#2a6df4" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="过往皆为序章" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="过往皆为序章" />
+    <meta name="msapplication-starturl" content="../../" />
+    <meta name="msapplication-TileColor" content="#fff" />
+    <meta name="msapplication-TileImage" content="../../icons/mstile-150x150.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    
+    
+
+    
+    <link rel="canonical" href="https://yuechuanx.top/posts/use-bash-strict-mode/" />
+    
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "datePublished": "2020-08-12T16:58:57+00:00",
+        "dateModified": "2020-08-25T15:40:08+08:00",
+        "url": "https://yuechuanx.top/posts/use-bash-strict-mode/",
+        "headline": "使用 Bash严格模式",
+        "description": "使用 Bash严格模式 原文链接：Use Bash Strict Mode (Unless You Love Debugging) 翻译：YueChuan 在 Unix/Linux 环境很难避免与 Bash 脚本打交道，一份高质量，可靠且可维护的 Bash 脚本应该……",
+        "inLanguage" : "zh-CN",
+        "articleSection": "posts",
+        "wordCount":  6748 ,
+        "image": "https://yuechuanx.top/icons/apple-touch-icon.png",
+        "author": {
+            "@type": "Person",
+            "description": "C'est la vie",
+            "email": "xiaoyuechuan@gmail.com",
+            "image": "https://yuechuanx.top/icons/apple-touch-icon.png",
+            "url": "https://yuechuanx.top/",
+            "name": "YueChuan"
+        },
+        "license": "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)",
+        "publisher": {
+            "@type": "Organization",
+            "name": "过往皆为序章",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://yuechuanx.top/icons/apple-touch-icon.png"
+            },
+            "url": "https://yuechuanx.top/"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebSite",
+            "@id": "https://yuechuanx.top/"
+        }
+    }
+</script>
+
+    
+
+<meta name="twitter:card" content="summary" />
+
+
+    
+
+
+
+<meta property="og:title" content="使用 Bash严格模式" />
+<meta property="og:description" content="使用 Bash严格模式 原文链接：Use Bash Strict Mode (Unless You Love Debugging) 翻译：YueChuan 在 Unix/Linux 环境很难避免与 Bash 脚本打交道，一份高质量，可靠且可维护的 Bash 脚本应该……" />
+<meta property="og:url" content="https://yuechuanx.top/posts/use-bash-strict-mode/" />
+<meta property="og:site_name" content="过往皆为序章" />
+<meta property="og:locale" content="zh" /><meta property="og:image" content="https://yuechuanx.top/icons/apple-touch-icon.png" />
+    <meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2020-08-12T16:58:57&#43;00:00" />
+    <meta property="article:modified_time" content="2020-08-25T15:40:08&#43;08:00" />
+    
+    <meta property="article:section" content="posts" />
+
+
+        <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+
+        
+
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', '');
+    </script>
+
+
+
+
+    
+</head>
+
+    <body>
+        <div class="container">
+            
+    <header class="header">
+        
+            <div class="header-wrapper">
+                <div class="header-inner single">
+                    
+    <div class="site-brand">
+        
+            <a href="/" class="brand">过往皆为序章</a>
+        
+    </div>
+
+                    <nav class="nav">
+    <ul class="menu" id="menu">
+        
+            
+        
+        
+        
+        
+            
+                <li class="menu-item"><a href="/posts/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon archive"><path d="M32 448c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32V160H32v288zm160-212c0-6.6 5.4-12 12-12h104c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H204c-6.6 0-12-5.4-12-12v-8zM480 32H32C14.3 32 0 46.3 0 64v48c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16V64c0-17.7-14.3-32-32-32z"/></svg><span class="menu-item-name">文章</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="/categories/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon th"><path d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z"/></svg><span class="menu-item-name">分类</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="/tags/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="icon tags"><path d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z"/></svg><span class="menu-item-name">标签</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="/about/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="icon user-circle"><path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 96c48.6 0 88 39.4 88 88s-39.4 88-88 88-88-39.4-88-88 39.4-88 88-88zm0 344c-58.7 0-111.3-26.6-146.5-68.2 18.8-35.4 55.6-59.8 98.5-59.8 2.4 0 4.8.4 7.1 1.1 13 4.2 26.6 6.9 40.9 6.9 14.3 0 28-2.7 40.9-6.9 2.3-.7 4.7-1.1 7.1-1.1 42.9 0 79.7 24.4 98.5 59.8C359.3 421.4 306.7 448 248 448z"/></svg><span class="menu-item-name">关于</span></a>
+                </li>
+            
+        
+            
+                
+                    
+                    
+                        <li class="menu-item">
+                            <a id="theme-switcher" href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon theme-icon-light"><path d="M193.2 104.5l48.8-97.5a18 18 0 0128 0l48.8 97.5 103.4 -34.5a18 18 0 0119.8 19.8l-34.5 103.4l97.5 48.8a18 18 0 010 28l-97.5 48.8 34.5 103.4a18 18 0 01-19.8 19.8l-103.4-34.5-48.8 97.5a18 18 0 01-28 0l-48.8-97.5l-103.4 34.5a18 18 0 01-19.8-19.8l34.5-103.4-97.5-48.8a18 18 0 010-28l97.5-48.8-34.5-103.4a18 18 0 0119.8-19.8zM256 128a128 128 0 10.01 0M256 160a96 96 0 10.01 0"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon theme-icon-dark"><path d="M27 412a256 256 0 10154-407a11.5 11.5 0 00-5 20a201.5 201.5 0 01-134 374a11.5 11.5 0 00-15 13"/></svg></a>
+                        </li>
+                    
+                
+            
+        
+            
+                
+            
+        
+            
+                <li class="menu-item search-item">
+                        <form id="search" class="search" role="search">
+    <label for="search-input"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon search-icon"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg></label>
+    <input type="search" id="search-input" class="search-input">
+</form>
+
+<template id="search-result" hidden>
+    <article class="content post">
+        <h2 class="post-title"><a class="summary-title-link"></a></h2>
+        <summary class="summary"></summary>
+        <div class="read-more-container">
+            <a class="read-more-link">阅读更多 »</a>
+        </div>
+    </article>
+</template>
+
+                    </li>
+                
+            
+        
+    </ul>
+</nav>
+
+                    
+                </div>
+            </div>
+            
+    <input type="checkbox" id="nav-toggle" aria-hidden="true" />
+    <label for="nav-toggle" class="nav-toggle"></label>
+    <label for="nav-toggle" class="nav-curtain"></label>
+
+
+        
+    </header>
+
+
+
+
+            
+            
+    <main class="main single" id="main">
+    <div class="main-inner">
+
+        
+
+        <article class="content post" data-align="justify" data-type="posts" data-toc-num="true">
+
+            <h1 class="post-title">使用 Bash严格模式</h1>
+
+            
+
+            
+                
+            
+
+            
+                
+
+<div class="post-meta">
+    
+        
+        <time datetime="2020-08-12T16:58:57&#43;00:00" class="post-meta-item published"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon post-meta-icon"><path d="M148 288h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z"/></svg>&nbsp;2020.8.12</time>
+    
+    
+        
+        <time datetime="2020-08-25T15:40:08&#43;08:00" class="post-meta-item modified"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon post-meta-icon"><path d="M400 64h-48V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H160V12c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v52H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm-6 400H54a6 6 0 0 1-6-6V160h352v298a6 6 0 0 1-6 6zm-52.849-200.65L198.842 404.519c-4.705 4.667-12.303 4.637-16.971-.068l-75.091-75.699c-4.667-4.705-4.637-12.303.068-16.971l22.719-22.536c4.705-4.667 12.303-4.637 16.97.069l44.104 44.461 111.072-110.181c4.705-4.667 12.303-4.637 16.971.068l22.536 22.718c4.667 4.705 4.636 12.303-.069 16.97z"/></svg>&nbsp;2020.8.25</time>
+    
+    
+    
+        
+        
+        
+            
+        
+    
+    
+        
+        <span class="post-meta-item wordcount"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>&nbsp;6748</span>
+    
+    
+        
+        <span class="post-meta-item reading-time"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg>&nbsp;14&nbsp;分钟</span>
+    
+    
+    
+</div>
+
+            
+
+            <nav class="contents">
+  <h2 id="contents" class="contents-title">目录</h2><ol class="toc">
+    <li><a id="contents:set-语句" href="#set-语句">set 语句</a>
+      <ol>
+        <li><a id="contents:set--e" href="#set--e">set -e</a></li>
+        <li><a id="contents:set--u" href="#set--u">set -u</a></li>
+        <li><a id="contents:set--o-pipefail" href="#set--o-pipefail">set -o pipefail</a></li>
+      </ol>
+    </li>
+    <li><a id="contents:设置ifs" href="#设置ifs">设置IFS</a></li>
+    <li><a id="contents:问题与解决方案" href="#问题与解决方案">问题与解决方案</a>
+      <ol>
+        <li><a id="contents:采购不合格的文件" href="#采购不合格的文件">采购不合格的文件</a></li>
+        <li><a id="contents:位置参数" href="#位置参数">位置参数</a></li>
+        <li><a id="contents:故意未定义的变量" href="#故意未定义的变量">故意未定义的变量</a></li>
+        <li><a id="contents:您期望具有非零退出状态的命令" href="#您期望具有非零退出状态的命令">您期望具有非零退出状态的命令</a></li>
+        <li><a id="contents:基本清理" href="#基本清理">基本清理</a></li>
+        <li><a id="contents:短路注意事项" href="#短路注意事项">短路注意事项</a></li>
+      </ol>
+    </li>
+    <li><a id="contents:反馈如果卡住" href="#反馈如果卡住">反馈/如果卡住</a></li>
+    <li><a id="contents:脚注" href="#脚注">脚注</a></li>
+  </ol>
+</nav><div class="post-body">
+              <h1 id="使用-bash严格模式"><a href="#使用-bash严格模式" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:使用-bash严格模式" class="headings">使用 Bash严格模式</a></h1>
+<blockquote>
+<p>原文链接：<a href="http://redsymbol.net/articles/unofficial-bash-strict-mode/" target="_blank" rel="noopener">Use Bash Strict Mode (Unless You Love Debugging)</a></p>
+<p>翻译：YueChuan</p>
+<p>在 Unix/Linux 环境很难避免与 Bash 脚本打交道，一份高质量，可靠且可维护的 Bash 脚本应该怎么写？</p>
+<p>本文将提供一些技巧帮助你解决这些问题...</p>
+</blockquote>
+<p>让我们开门见山，直接上 <strong>PUNCHLINE</strong>。</p>
+<p>如果你的 Bash 脚本以这段代码开始，它们将变得更加健壮，可靠和可维护：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="nb">set</span> -euo pipefail
+<span class="nv">IFS</span><span class="o">=</span><span class="s1">$&#39;\n\t&#39;</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><!-- more -->
+<!--toc-->
+<p>[toc]</p>
+<p>我将此称为非官方的 <strong>bash严格模式</strong> 。</p>
+<p>这导致 bash 的执行过程中，许多种类的细微错误无法出现。您将花费更少的时间进行调试，并避免在生产环境中出现意想不到的复杂情况。</p>
+<p>这里有一个短期的弊端：这些设置使某些常见的 bash 习惯用法更难使用。大多数情况都有简单的解决方法，详细说明如下：跳至 <a href="http://redsymbol.net/articles/unofficial-bash-strict-mode/#issues-and-solutions" target="_blank" rel="noopener">Issues＆Solutions</a>。</p>
+<p>但首先，让我们看一下这些晦涩难懂的行的实际上做了什么。</p>
+<h2 id="set-语句"><a href="#set-语句" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:set-语句" class="headings">set 语句</a></h2>
+<p>这些行故意导致脚本失败。等等，发生了什么？相信我，这是一件好事。使用这些设置，某些常见错误将导致脚本 <strong>立即</strong> 明确且显然地失败。否则，您将收获在生产环境中爆炸后才发现的隐藏错误。</p>
+<p><code>set -euo pipefail</code> 的缩写：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">set</span> -e
+<span class="nb">set</span> -u
+<span class="nb">set</span> -o pipefail
+</code></pre></td></tr></table></div>
+</div>
+</div><p>让我们分别看一下。</p>
+<h3 id="set--e"><a href="#set--e" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:set--e" class="headings">set -e</a></h3>
+<p><code>set -e</code> 如果任何命令[<a href="http://redsymbol.net/articles/unofficial-bash-strict-mode/#footnote-1" target="_blank" rel="noopener">1]</a> 的退出状态为非零，则该选项指示 bash 立即退出。</p>
+<p>您不想为命令行shell设置它，但是在脚本中它很有帮助。在所有广泛使用的通用编程语言中，未处理的运行时错误（无论是Java中引发的异常，还是C中的分段错误，还是Python中的语法错误）都立即停止程序的执行；随后的行不执行。</p>
+<p>默认情况下，bash所做的<strong>没有</strong>做到这一点。如果您在命令行上使用bash，则此默认行为正是您想要的-您不希望输入错误将您注销！但是在脚本中，您真的想要相反。如果脚本中的一行失败，但最后一行成功，则整个脚本具有成功的退出代码。这样很容易错过该错误。</p>
+<p>同样，在将bash用作命令行shell并将其在脚本中使用时，您想要的与这里不一致。在脚本中容忍错误要好得多，这就是<code>set -e</code>给您带来的好处。</p>
+<h3 id="set--u"><a href="#set--u" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:set--u" class="headings">set -u</a></h3>
+<p><code>set -u </code> 影响变量。</p>
+<p>设置后，对您之前未定义的任何变量的引用( <code>$*</code>  和 <code>$@</code> 除外) 都会发生错误，并导致程序立即退出。出于各种缘由，Python，C，Java等语言都具有相同的行为方式。其中之一就是错别字没有意识到就不会创建新变量。例如：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="nv">firstName</span><span class="o">=</span><span class="s2">&#34;Aaron&#34;</span>
+<span class="nv">fullName</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$firstname</span><span class="s2"> Maxwell&#34;</span>
+<span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$fullName</span><span class="s2">&#34;</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><p>花一点时间看看。看到错误了吗？</p>
+<p>第三行的右侧显示“ firstname”（全部小写），而不用驼峰式的“ firstName”。如果没有-u选项，这将是一个无提示错误。但是，使用-u选项，脚本将以退出代码1退出该行，并将消息“ firstname：unbound variable”输出到stderr。</p>
+<p>这就是您想要的：让它明确且立即失败，而不是创建可能为时已晚的细微错误。</p>
+<h3 id="set--o-pipefail"><a href="#set--o-pipefail" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:set--o-pipefail" class="headings">set -o pipefail</a></h3>
+<p>此设置可防止掩盖管道中的错误。如果管道中的任何命令失败，则该返回码将用作整个管道的返回码。默认情况下，管道的返回码是最后一个命令的返回码-即使成功。想象一下在文件中找到匹配行的排序列表：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">% grep some-string /non/existent/file <span class="p">|</span> sort
+grep: /non/existent/file: No such file or directory
+<span class="nb">echo</span> <span class="nv">$?</span>
+<span class="m">0</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><blockquote>
+<p><code>%</code>是bash提示</p>
+</blockquote>
+<p>在这里，grep的退出代码为2，将错误消息写入stderr，将空字符串写入stdout。然后，此空字符串通过sort传递，该字符串愉快地接受它作为有效输入，并返回状态代码0。这对于命令行很好，但对shell脚本则不利：您几乎肯定希望脚本立即退出具有非零的退出代码...就像这样：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">1. % <span class="nb">set</span> -o pipefail
+2. % grep some-string /non/existent/file <span class="p">|</span> sort
+3. grep: /non/existent/file: No such file or directory
+4. % <span class="nb">echo</span> <span class="nv">$?</span>
+5. <span class="m">2</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><h2 id="设置ifs"><a href="#设置ifs" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:设置ifs" class="headings">设置IFS</a></h2>
+<p>IFS(Internal Field Separator) 设置 Bash 的<em>分隔符</em>。</p>
+<p>当设置为字符串时，Bash会考虑字符串中的每个字符以分隔单词。这决定了bash如何遍历序列。例如，此脚本：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">1. <span class="c1">#!/bin/bash</span>
+2. <span class="nv">IFS</span><span class="o">=</span><span class="s1">$&#39; &#39;</span>
+3. <span class="nv">items</span><span class="o">=</span><span class="s2">&#34;a b c&#34;</span>
+4. <span class="k">for</span> x in <span class="nv">$items</span><span class="p">;</span> <span class="k">do</span>
+5.     <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$x</span><span class="s2">&#34;</span>
+6. <span class="k">done</span>
+7. 
+8. <span class="nv">IFS</span><span class="o">=</span><span class="s1">$&#39;\n&#39;</span>
+9. <span class="k">for</span> y in <span class="nv">$items</span><span class="p">;</span> <span class="k">do</span>
+10.     <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$y</span><span class="s2">&#34;</span>
+11. <span class="k">done</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><p>...将打印出以下内容：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">a
+b
+c
+a b c
+</code></pre></td></tr></table></div>
+</div>
+</div><p>在第一个for循环中，IFS设置为<code>$' '</code>。（ <code>$'...'</code>语法创建一个字符串，用反斜杠转义的字符替换为特殊字符-例如，“ \ t”代表制表符，“ \ n”代表换行符。）</p>
+<p>在for循环中，x和y设置为bash认为是“单词”的任何值”以原始顺序显示。对于第一个循环，IFS是一个空格，这意味着单词由空格字符分隔。对于第二个循环，“单词”由 <em>换行符分隔</em>，这意味着bash将“ items”的整个值视为一个单词。如果IFS超过一个字符，则将对这些字符中的<em>任何</em>一个进行拆分。</p>
+<p>知道了吗？下一个问题是，为什么我们将IFS设置为由制表符和换行符组成的字符串？因为在循环中迭代时，它为我们提供了更好的行为。“更好”的意思是“引起意外和令人困惑的错误的可能性要小得多”。这在使用bash数组时很明显：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">1. <span class="c1">#!/bin/bash</span>
+2. <span class="nv">names</span><span class="o">=(</span>
+3.   <span class="s2">&#34;Aaron Maxwell&#34;</span>
+4.   <span class="s2">&#34;Wayne Gretzky&#34;</span>
+5.   <span class="s2">&#34;David Beckham&#34;</span>
+6.   <span class="s2">&#34;Anderson da Silva&#34;</span>
+7. <span class="o">)</span>
+8. 
+9. <span class="nb">echo</span> <span class="s2">&#34;With default IFS value...&#34;</span>
+10. <span class="k">for</span> name in <span class="si">${</span><span class="nv">names</span><span class="p">[@]</span><span class="si">}</span><span class="p">;</span> <span class="k">do</span>
+11.   <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$name</span><span class="s2">&#34;</span>
+12. <span class="k">done</span>
+13. 
+14. <span class="nb">echo</span> <span class="s2">&#34;&#34;</span>
+15. <span class="nb">echo</span> <span class="s2">&#34;With strict-mode IFS value...&#34;</span>
+16. <span class="nv">IFS</span><span class="o">=</span><span class="s1">$&#39;\n\t&#39;</span>
+17. <span class="k">for</span> name in <span class="si">${</span><span class="nv">names</span><span class="p">[@]</span><span class="si">}</span><span class="p">;</span> <span class="k">do</span>
+18.   <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$name</span><span class="s2">&#34;</span>
+19. <span class="k">done</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><p>（是的，我把我的名字列在了不起的运动员名单上。放飞自我~）</p>
+<p>这是输出：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">With default IFS value...
+Aaron
+Maxwell
+Wayne
+Gretzky
+David
+Beckham
+Anderson
+da
+Silva
+
+With strict-mode IFS value...
+Aaron Maxwell
+Wayne Gretzky
+David Beckham
+Anderson da Silva
+</code></pre></td></tr></table></div>
+</div>
+</div><p>或者考虑一个以文件名作为命令行参数的脚本：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">1. <span class="k">for</span> arg in <span class="nv">$@</span><span class="p">;</span> <span class="k">do</span>
+2.     <span class="nb">echo</span> <span class="s2">&#34;doing something with file: </span><span class="nv">$arg</span><span class="s2">&#34;</span>
+3. <span class="k">done</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><p>如果您将其调用为<code>myscript.sh notes todo-list 'My Resume.doc'</code>，则使用默认的IFS值，第三个参数将被误解析为两个单独的文件-名为“ My”和“ Resume.doc”。实际上，它是一个包含空格的文件，名为“ My Resume.doc”。</p>
+<p>哪种行为更普遍有用？当然，第二个-我们有能力不分割空格。如果我们有一个通常包含空格的字符串数组，通常我们希望逐项迭代它们，而不是将单个项拆分为多个。</p>
+<p>将IFS设置为<code>$'\n\t'</code>意味着仅在换行符和制表符上会发生单词拆分。这通常会产生有用的拆分行为。默认情况下，bash将此设置为<code>$' \n\t'</code>-空格，换行符，制表符-这太急了。[<a href="http://redsymbol.net/articles/unofficial-bash-strict-mode/#footnote-2" target="_blank" rel="noopener">2]</a></p>
+<h2 id="问题与解决方案"><a href="#问题与解决方案" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:问题与解决方案" class="headings">问题与解决方案</a></h2>
+<p>多年来，我一直在使用非官方的bash严格模式。在这一点上，它总是立即为我节省时间和调试麻烦。但是起初这是具有挑战性的，因为在这些情况下，我的许多惯常习惯和成语都不起作用。本文的其余部分列出了您可能遇到的一些问题，以及如何快速解决这些问题。</p>
+<p>（如果遇到问题，在这里看不到，请<a href="http://redsymbol.net/articles/unofficial-bash-strict-mode/#contact-for-help" target="_blank" rel="noopener">给我发电子邮件</a>，我会尽力提供帮助。）</p>
+<ul>
+<li><a href="http://redsymbol.net/articles/unofficial-bash-strict-mode/#sourcing-nonconforming-document" target="_blank" rel="noopener">采购不合格的文件</a></li>
+<li><a href="http://redsymbol.net/articles/unofficial-bash-strict-mode/#solution-positional-parameters" target="_blank" rel="noopener">位置参数</a></li>
+<li><a href="http://redsymbol.net/articles/unofficial-bash-strict-mode/#intentionally-undefined-variables" target="_blank" rel="noopener">故意未定义的变量</a></li>
+<li><a href="http://redsymbol.net/articles/unofficial-bash-strict-mode/#expect-nonzero-exit-status" target="_blank" rel="noopener">您期望具有非零退出状态的命令</a></li>
+<li><a href="http://redsymbol.net/articles/unofficial-bash-strict-mode/#essential-cleanup" target="_blank" rel="noopener">基本清理</a></li>
+<li><a href="http://redsymbol.net/articles/unofficial-bash-strict-mode/#short-circuiting" target="_blank" rel="noopener">短路注意事项</a></li>
+<li><a href="http://redsymbol.net/articles/unofficial-bash-strict-mode/#contact-for-help" target="_blank" rel="noopener">反馈/如果卡住</a></li>
+</ul>
+<h3 id="采购不合格的文件"><a href="#采购不合格的文件" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:采购不合格的文件" class="headings">采购不合格的文件</a></h3>
+<p>有时，您的脚本需要获取无法在严格模式下使用的文件。然后怎样呢？</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">source</span> some/bad/file.env
+＃您的严格模式脚本会立即退出此处，
+＃出现致命错误。
+</code></pre></td></tr></table></div>
+</div>
+</div><p>解决方案是（a）暂时禁用严格模式的该方面；（b）出示文件；然后（c）在下一行重新启用。</p>
+<p>您最需要的时间是文档引用未定义的变量。暂时允许以下行为<code>set +u</code>：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">1. <span class="nb">set</span> +u
+2. <span class="nb">source</span> some/bad/file.env
+3. <span class="nb">set</span> -u
+</code></pre></td></tr></table></div>
+</div>
+</div><blockquote>
+<p>请记住，<code>set +u</code> <em>禁用</em>此变量严格性并将其<code>set -u</code> <em>启用</em>。这有点违反直觉，因此在这里要小心。</p>
+</blockquote>
+<p>您过去在Python虚拟环境中需要这样做。如果您不熟悉Python：您可以设置一个自定义的隔离环境-称为virtualenv-存储在一个名为“ venv”的目录中。您通过在以下位置获取名为“ bin / activate”的文件来选择使用此文件：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">＃这将更新PATH并将PYTHONPATH设置为
+＃使用预配置的虚拟环境。
+<span class="nb">source</span> /path/to/venv/bin/activate
+
+＃现在所需的Python版本就在您的路径中，
+＃与您需要的一组特定库。
+python my_program.py
+</code></pre></td></tr></table></div>
+</div>
+</div><p>在现代版本的Python中，这在bash严格模式下非常有效。但是，较旧的虚拟环境（还很年轻，您可能仍然会遇到它们）<em>无法</em>与-u选项一起正常使用：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">1. <span class="nb">set</span> -u
+2. <span class="nb">source</span> /path/to/venv/bin/activate
+3. _OLD_VIRTUAL_PYTHONHOME: unbound variable
+_OLD_VIRTUAL_PYTHONHOME：未绑定变量
+
+＃这会使您的严格模式脚本退出并出现错误。
+</code></pre></td></tr></table></div>
+</div>
+</div><p>没问题，您只需使用上面的模式：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">1. <span class="nb">set</span> +u
+2. <span class="nb">source</span> /path/to/venv/bin/activate
+3. <span class="nb">set</span> -u
+</code></pre></td></tr></table></div>
+</div>
+</div><p>以我的经验，原始文档很少需要 <code>-e</code>或被<code>-o pipefail</code>禁用。但是，如果遇到这种情况，您将以相同的方式处理它。</p>
+<h3 id="位置参数"><a href="#位置参数" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:位置参数" class="headings">位置参数</a></h3>
+<p><code>-u</code>如果进行任何未定义的变量引用（<code>$*</code>或除外），则此设置将导致脚本立即退出 <code>$@</code>。但是，如果您的脚本采用位置参数- <code>$1</code>，<code>$2</code>等等-并且您想要验证是否提供了该怎么办？考虑以下脚本 <code>sayhello.sh</code>：</p>
+<p>如果您自己运行“ sayhello.sh”，则会发生以下情况：</p>
+<pre><code>％./sayhello.sh 
+./sayhello.sh：第3行：$ 1：未绑定变量
+</code></pre><p>最无用的错误消息。解决方案是使用<a href="http://www.gnu.org/software/bash/manual/bashref.html#Shell-Parameter-Expansion" target="_blank" rel="noopener">参数默认值</a>。这个想法是，如果<em>在运行时</em>引用了一个未定义的变量，则bash具有使用“：-”运算符声明默认值的语法：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">＃尚未设置变量 <span class="nv">$foo</span>，在严格模式下
+＃下一行触发错误。
+<span class="nv">bar</span><span class="o">=</span><span class="nv">$foo</span>
+
+<span class="c1"># 如果未定义VARNAME，则＃$ {VARNAME：-DEFAULT_VALUE}等于DEFAULT_VALUE。</span>
+＃ 因此，在这里，$ bar设置为“ alpha”：
+<span class="nv">bar</span><span class="o">=</span><span class="si">${</span><span class="nv">foo</span><span class="k">:-</span><span class="nv">alpha</span><span class="si">}</span>
+
+＃现在我们显式设置foo：
+<span class="nv">foo</span> <span class="o">=</span>“beta”
+
+＃...，默认值将被忽略。这里$ bar设置为“ beta”：
+<span class="nv">bar</span><span class="o">=</span><span class="si">${</span><span class="nv">foo</span><span class="k">:-</span><span class="nv">alpha</span><span class="si">}</span>
+
+＃要将默认值设置为空字符串，请使用$ <span class="o">{</span>VARNAME：-<span class="o">}</span>
+<span class="nv">empty_string</span><span class="o">=</span><span class="si">${</span><span class="nv">some_undefined_var</span><span class="k">:-</span><span class="si">}</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><p>在严格模式下，需要将其用于所有位置参数引用：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">1. <span class="c1">#!/bin/bash</span>
+2. <span class="nb">set</span> -u
+3. <span class="nv">name</span><span class="o">=</span><span class="si">${</span><span class="nv">1</span><span class="k">:-</span><span class="si">}</span>
+4. <span class="k">if</span> <span class="o">[[</span> -z <span class="s2">&#34;</span><span class="nv">$name</span><span class="s2">&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+5.     <span class="nb">echo</span> <span class="s2">&#34;usage: </span><span class="nv">$0</span><span class="s2"> NAME&#34;</span>
+6.     <span class="nb">exit</span> <span class="m">1</span>
+7. <span class="k">fi</span>
+8. <span class="nb">echo</span> <span class="s2">&#34;Hello, </span><span class="nv">$name</span><span class="s2">&#34;</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><h3 id="故意未定义的变量"><a href="#故意未定义的变量" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:故意未定义的变量" class="headings">故意未定义的变量</a></h3>
+<p>在默认模式下，对未定义变量的引用将得出一个空字符串-有时会依赖此行为。在严格模式下，这不是一个选择，并且有两种方法可以解决它。我认为最好的方法是在脚本的任何位置对其进行引用之前，将变量明确设置为空字符串：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">someVar</span> <span class="o">=</span> “”
+＃...
+＃可能设置或未设置someVar的代码行
+＃...
+<span class="k">if</span> <span class="o">[[</span> -z <span class="s2">&#34;</span><span class="nv">$someVar</span><span class="s2">&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+＃...
+</code></pre></td></tr></table></div>
+</div>
+</div><p>一种替代方法是使用<code>${someVar:-}</code>语法作为默认值，如<a href="http://redsymbol.net/articles/unofficial-bash-strict-mode/#solution-positional-parameters" target="_blank" rel="noopener">Positional Parameters</a>下所述。那里的问题是，有可能忘记而只是说 <code>$someVar</code>，而且输入更多。只需在脚本顶部显式设置默认值即可。那就没有办法咬你了。</p>
+<h3 id="您期望具有非零退出状态的命令"><a href="#您期望具有非零退出状态的命令" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:您期望具有非零退出状态的命令" class="headings">您期望具有非零退出状态的命令</a></h3>
+<p>当您<em>想</em>运行将失败的命令，或者您知道将拥有非零退出代码时，会发生什么？您不希望它停止脚本，因为这实际上是正确的行为。</p>
+<p>这里有两个选择。通常，您最想使用的最简单的方法是<code>|| true</code>在命令后附加“ ”：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">＃“ grep -c”报告匹配的行数。如果数字是0，
+＃然后grep的退出状态为1，但我们不在乎-我们只想
+＃知道匹配数目，即使该数目为零。
+
+＃在严格模式下，下一行因错误而中止：
+<span class="nv">count</span><span class="o">=</span><span class="k">$(</span>grep -c some-string some-file<span class="k">)</span>
+
+
+
+＃但是这一行为表现得更好：
+1. <span class="nv">count</span><span class="o">=</span><span class="k">$(</span>grep -c some-string some-file <span class="o">||</span> <span class="nb">true</span><span class="k">)</span>
+2. 
+3. <span class="nb">echo</span> <span class="s2">&#34;count: </span><span class="nv">$count</span><span class="s2">&#34;</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><p>布尔运算符的这种短路使内部表达式 <code>$( ... )</code>始终可以成功求值。</p>
+<p>您可能会发现这种技巧几乎总是可以解决您的问题。但是，如果您想知道命令的返回值，即使该返回值非零怎么办？然后，您可以暂时禁用立即退出选项：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">＃我们以set -e开始此脚本。然后...
+1. <span class="nb">set</span> +e
+2. <span class="nv">count</span><span class="o">=</span><span class="k">$(</span>grep -c some-string some-file<span class="k">)</span>
+3. <span class="nv">retval</span><span class="o">=</span><span class="nv">$?</span>
+4. <span class="nb">set</span> -e
+
+＃当一行或多行匹配时，grep的返回码为0；
+＃1，如果没有行匹配；和2错误。这个图案
+＃让我们区分它们。
+1. <span class="nb">echo</span> <span class="s2">&#34;return value: </span><span class="nv">$retval</span><span class="s2">&#34;</span>
+2. <span class="nb">echo</span> <span class="s2">&#34;count: </span><span class="nv">$count</span><span class="s2">&#34;</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><h3 id="基本清理"><a href="#基本清理" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:基本清理" class="headings">基本清理</a></h3>
+<p>假设您的脚本结构如下：</p>
+<ol>
+<li>筹集一些昂贵的资源</li>
+<li>用它做点什么</li>
+<li>释放该资源，使其不会持续运行并产生巨额账单</li>
+</ol>
+<p>对于“昂贵的资源”，这可能像EC2实例那样花费您的实际钱。或者，它可能是一些更小-就像一个临时目录-要创建脚本来使用，那么一定要删除一旦完成（所以它不会泄露存储等）的<code>set -e</code>选项，它错误可能会导致您的脚本在执行清理之前退出，这是不可接受的。</p>
+<p>解决方案：使用<a href="http://redsymbol.net/articles/bash-exit-traps/" target="_blank" rel="noopener">bash出口陷阱</a>。链接的文章详细解释了这一重要模式，我强烈建议您精通此技术-在工具箱中使用它会显着提高脚本的健壮性和可靠性。简而言之，您将定义一个bash函数来执行清理或释放资源，然后注册要在退出时自动调用的函数。这是使用它来稳健清除暂存目录的方法：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">1. <span class="nv">scratch</span><span class="o">=</span><span class="k">$(</span>mktemp -d -t tmp.XXXXXXXXXX<span class="k">)</span>
+2. <span class="k">function</span> finish <span class="o">{</span>
+3.   rm -rf <span class="s2">&#34;</span><span class="nv">$scratch</span><span class="s2">&#34;</span>
+4. <span class="o">}</span>
+5. <span class="nb">trap</span> finish EXIT
+6. 
+7. <span class="c1"># Now your script can write files in the directory &#34;$scratch&#34;.</span>
+8. <span class="c1"># It will automatically be deleted on exit, whether that&#39;s due</span>
+9. <span class="c1"># to an error, or normal completion.</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><h3 id="短路注意事项"><a href="#短路注意事项" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:短路注意事项" class="headings">短路注意事项</a></h3>
+<p>严格模式的全部目的是将许多隐藏的，间歇的或微妙的错误转换为直接的，显而易见的错误。但是，严格模式会引起一些特殊的短路问题。“短路”是指用<code>&amp;&amp;</code>或<code>||</code>- 将多个命令链接在一起，例如：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">1. <span class="c1"># Prints a message only if $somefile exists.</span>
+2. <span class="o">[[</span> -f <span class="s2">&#34;</span><span class="nv">$somefile</span><span class="s2">&#34;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">&#34;Found file: </span><span class="nv">$somefile</span><span class="s2">&#34;</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><p>当连续链接三个或更多命令时，可能会出现第一个短路问题：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">1. first_task <span class="o">&amp;&amp;</span> second_task <span class="o">&amp;&amp;</span> third_task
+2. <span class="c1"># And more lines of code following:</span>
+3. next_task
+</code></pre></td></tr></table></div>
+</div>
+</div><p>潜在的问题：如果<code>second_task</code>失败， <code>third_task</code>将无法运行，并且<code>next_task</code>在本示例中，执行将继续到下一行代码- 。这可能正是您想要的行为。或者，您可能打算如果<code>second_task</code>失败，则脚本应立即以错误代码退出。在这种情况下，最好的选择是使用一个块-即花括号：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">1. first_task <span class="o">&amp;&amp;</span> <span class="o">{</span>
+2.     second_task
+3.     third_task
+4. <span class="o">}</span>
+5. next_task
+</code></pre></td></tr></table></div>
+</div>
+</div><p>因为我们正在使用该<code>-e</code>选项，所以如果 <code>second_task</code>失败，脚本将立即退出。</p>
+<p>第二个问题确实存在。使用以下常见用法时，它可能会潜行：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">1. <span class="c1"># COND &amp;&amp; COMMAND</span>
+2. <span class="o">[[</span> -f <span class="s2">&#34;</span><span class="nv">$somefile</span><span class="s2">&#34;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">&#34;Found file: </span><span class="nv">$somefile</span><span class="s2">&#34;</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><p>人们写作时<code>COND &amp;&amp; COMMAND</code>，通常的意思是“如果COND成功（或布尔值为true），则执行COMMAND。无论如何，请继续执行脚本的下一行。” 对于完整的“ if / then / fi”子句来说，这是非常方便的简写。但是，当这样的构造是文件的<em>最后一行</em>时，严格模式可以为脚本提供令人惊讶的退出代码：</p>
+<pre><code>1. % cat short-circuit-last-line.sh
+2. #!/bin/bash
+3. set -euo pipefail
+4. # omitting some lines of code...
+5. 
+6. # Prints a message only if $somefile exists.
+7. # Note structure: COND &amp;&amp; COMMAND
+8. [[ -f &quot;$somefile&quot; ]] &amp;&amp; echo &quot;Found file: $somefile&quot;
+9. 
+10. % ./short-circuit-last-line.sh
+11. % echo $?
+12. 1
+</code></pre><p>当脚本到达最后一行时，<code>$somefile</code>实际上 <em>并不</em>存在。因此<code>COND</code>评估为假，并且<code>COMMAND</code>没有执行-这应该发生。但是该脚本以非零的退出代码退出，这是一个错误：该脚本实际上已正确执行，因此它实际上应该以0退出。实际上，如果最后一行代码是其他内容，那正是我们所得到的：</p>
+<pre><code>1. % cat short-circuit-before-last-line.sh
+2. #!/bin/bash
+3. set -euo pipefail
+4. # omitting some lines of code...
+5. 
+6. # Prints a message only if $somefile exists.
+7. # Structure: COND &amp;&amp; COMMAND
+8. # (When we run this, $somefile will again not exist,
+9. # so COMMAND will not run.)
+10. [[ -f &quot;$somefile&quot; ]] &amp;&amp; echo &quot;Found file: $somefile&quot;
+11. 
+12. echo &quot;Done.&quot;
+13. 
+14. % ./short-circuit-before-last-line.sh
+15. Done.
+16. % echo $?
+17. 0
+</code></pre><p>这是怎么回事？事实证明，该<code>-e</code>选项在这样的短路表达式中有一个特殊的例外：如果<code>COND</code> 计算结果为false，<code>COMMAND</code>将不会运行，并且执行流程将进行到下一行。但是，整行的结果-整个短路表达式-将为非零，因为<code>COND</code>是。作为脚本的最后一行，它成为程序的退出代码。</p>
+<p>这是我们不希望遇到的错误，因为它可能是微妙的，不明显的并且难以复制。而且它主要很难处理，因为<em>仅</em>当它是文件的最后一个命令时<em>才会</em>显示。在任何其他行上，它的行为都很好，不会造成任何问题。在正常的日常开发中，很容易忘记这一点，并使其从裂缝中溜走。例如，如果您从头删除看起来无害的echo语句，使短路线现在最后，该怎么办？</p>
+<p>在上面的特定示例中，我们可以在完整的“ if”子句中扩展表达式。这是完美的行为：</p>
+<div class="highlight"><div class="chroma">
+<div class="table-container"><table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">1. <span class="c1"># Prints a message only if $somefile exists.</span>
+2. <span class="k">if</span> <span class="o">[[</span> -f <span class="s2">&#34;</span><span class="nv">$somefile</span><span class="s2">&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+3.     <span class="nb">echo</span> <span class="s2">&#34;Found file: </span><span class="nv">$somefile</span><span class="s2">&#34;</span>
+4. <span class="k">fi</span>
+5. 
+6. <span class="c1"># If COND is a command or program, it works the same. This:</span>
+7. first_task <span class="o">&amp;&amp;</span> second_task
+8. 
+9. <span class="c1"># ... becomes this:</span>
+10. <span class="k">if</span> first_task<span class="p">;</span> <span class="k">then</span>
+11.      second_task
+12. <span class="k">fi</span>
+</code></pre></td></tr></table></div>
+</div>
+</div><p>最终的完整解决方案是什么？您可以决定信任自己和您的队友，以始终记住这一特殊情况。所有人都可以随意使用短路功能，但是对于实际部署的任何内容，都不允许短路表达式位于脚本的最后一行。对于您和您的团队来说，这可能100％可靠地起作用，但我认为对于我自己和许多其他开发人员而言并非如此。当然，某种类型的linter或commit钩子可能会有所帮助。</p>
+<p>也许更安全的选择是决定根本不使用短路，而始终使用完整的if语句。但是，这可能并不吸引人：短路很方便，人们出于某种原因喜欢这样做。目前，我仍在寻找更令人满意的解决方案。如果您有任何建议，请与我联系。</p>
+<h2 id="反馈如果卡住"><a href="#反馈如果卡住" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:反馈如果卡住" class="headings">反馈/如果卡住</a></h2>
+<p>如果您有任何反馈或改进建议，我很想听听。通过电子邮件与我（Aaron Maxwell）取得联系，网址为redsymbol dot net的最大值。</p>
+<p>相反，如果您发现严格模式会导致上述问题（我没有告诉您如何解决），我也想知道。给您发送电子邮件时，请在电子邮件正文（而不是附件）中包含一个<strong>最小的</strong> bash脚本，以演示该问题。还要非常清楚地说明所需的输出或效果，以及您得到的错误或失败。如果您的脚本不是某个标识符很钝的巨型怪兽，那么我很有可能会得到响应，而我将不得不在整个下午进行解析。</p>
+<h2 id="脚注"><a href="#脚注" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:脚注" class="headings">脚注</a></h2>
+<ul>
+<li>[1]具体来说，如果有管道；括号中的任何命令；或以大括号形式作为命令列表的一部分执行的命令以非零退出状态退出，脚本立即以相同状态退出。这还有其他一些细微之处。有关详细信息，请参见<a href="http://www.gnu.org/software/bash/manual/bashref.html#The-Set-Builtin" target="_blank" rel="noopener">内置bash“ set”的</a>文档。</li>
+<li>[2]另一种方法：不更改IFS，而是从循环开始<code>for arg in &quot;$@&quot;</code>-用双引号覆盖迭代变量。这将改变循环语义以产生更好的行为，甚至更好地处理一些边缘情况。最大的问题是可维护性。即使是经验丰富的开发人员，也很容易忘记加双引号。即使原始作者已经成功地根深蒂固了这个习惯，但期望所有未来的维护者都会愚蠢。简而言之，依靠引号很可能会引入细微的定时炸弹错误。设置IFS使其不可能。</li>
+</ul>
+
+            </div>
+
+        </article>
+
+        
+
+        
+    
+    
+        <ul class="post-copyright">
+            <li class="copyright-item author"><span class="copyright-item-text">作者</span>：<a href="https://yuechuanx.top/" target="_blank" rel="noopener">YueChuan</a></li>
+            
+                
+                
+                
+                
+                <li class="copyright-item link"><span class="copyright-item-text">链接</span>：<a href="/posts/use-bash-strict-mode/" target="_blank" rel="noopener">https://yuechuanx.top/posts/use-bash-strict-mode/</a></li>
+            
+            <li class="copyright-item license"><span class="copyright-item-text">许可</span>：<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></li>
+            
+        </ul>
+    
+
+
+
+        
+    <div class="updated-badge-container">
+        <span title="Updated @ 2020-08-25 15:40:08 CST" style="cursor:help">
+
+<svg xmlns="http://www.w3.org/2000/svg" width="130" height="20" class="updated-badge"><linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="a"><rect width="130" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#a)"><path class="updated-badge-left" d="M0 0h55v20H0z"/><path class="updated-badge-right" d="M55 0h75v20H55z"/><path fill="url(#b)" d="M0 0h130v20H0z"/></g><g fill="#fff" text-anchor="middle" font-size="110"><text x="285" y="150" fill="#010101" fill-opacity=".3" textLength="450" transform="scale(.1)">updated</text><text x="285" y="140" textLength="450" transform="scale(.1)">updated</text><text x="915" y="150" fill="#010101" fill-opacity=".3" textLength="650" transform="scale(.1)">2020-08-25</text><text x="915" y="140" textLength="650" transform="scale(.1)">2020-08-25</text></g></svg>
+        </span></div>
+
+
+
+        
+
+
+        <div class="post-share">
+
+        
+
+        <div class="share-items">
+
+            
+                <div class="share-item twitter">
+                    
+                    <a href="https://twitter.com/share?url=https://yuechuanx.top/posts/use-bash-strict-mode/&amp;text=%e4%bd%bf%e7%94%a8%20Bash%e4%b8%a5%e6%a0%bc%e6%a8%a1%e5%bc%8f&amp;hashtags=bash,&amp;via=" title="分享到「Twitter」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon twitter-icon"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg></a>
+                </div>
+            
+
+            
+                <div class="share-item facebook">
+                    
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://yuechuanx.top/posts/use-bash-strict-mode/&amp;hashtag=%23bash" title="分享到「Facebook」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon facebook-icon"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg></a>
+                </div>
+            
+
+            
+                <div class="share-item linkedin">
+                    
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://yuechuanx.top/posts/use-bash-strict-mode/&amp;title=%e4%bd%bf%e7%94%a8%20Bash%e4%b8%a5%e6%a0%bc%e6%a8%a1%e5%bc%8f&amp;summary=%e4%bd%bf%e7%94%a8%20Bash%e4%b8%a5%e6%a0%bc%e6%a8%a1%e5%bc%8f%20%e5%8e%9f%e6%96%87%e9%93%be%e6%8e%a5%ef%bc%9aUse%20Bash%20Strict%20Mode%20%28Unless%20You%20Love%20Debugging%29%20%e7%bf%bb%e8%af%91%ef%bc%9aYueChuan%20%e5%9c%a8%20Unix/Linux%20%e7%8e%af%e5%a2%83%e5%be%88%e9%9a%be%e9%81%bf%e5%85%8d%e4%b8%8e%20Bash%20%e8%84%9a%e6%9c%ac%e6%89%93%e4%ba%a4%e9%81%93%ef%bc%8c%e4%b8%80%e4%bb%bd%e9%ab%98%e8%b4%a8%e9%87%8f%ef%bc%8c%e5%8f%af%e9%9d%a0%e4%b8%94%e5%8f%af%e7%bb%b4%e6%8a%a4%e7%9a%84%20Bash%20%e8%84%9a%e6%9c%ac%e5%ba%94%e8%af%a5%e2%80%a6%e2%80%a6&amp;source=%e8%bf%87%e5%be%80%e7%9a%86%e4%b8%ba%e5%ba%8f%e7%ab%a0" title="分享到「LinkedIn」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon linkedin-icon"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+                </div>
+            
+
+            
+                <div class="share-item telegram">
+                    
+                    <a href="https://t.me/share/url?url=https://yuechuanx.top/posts/use-bash-strict-mode/&amp;text=%e4%bd%bf%e7%94%a8%20Bash%e4%b8%a5%e6%a0%bc%e6%a8%a1%e5%bc%8f" title="分享到「Telegram」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="icon telegram-icon"><path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm121.8 169.9l-40.7 191.8c-3 13.6-11.1 16.9-22.4 10.5l-62-45.7-29.9 28.8c-3.3 3.3-6.1 6.1-12.5 6.1l4.4-63.1 114.9-103.8c5-4.4-1.1-6.9-7.7-2.5l-142 89.4-61.2-19.1c-13.3-4.2-13.6-13.3 2.8-19.7l239.1-92.2c11.1-4 20.8 2.7 17.2 19.5z"/></svg></a>
+                </div>
+            
+
+            
+                <div class="share-item weibo">
+                    
+                    <a href="https://service.weibo.com/share/share.php?&amp;url=https://yuechuanx.top/posts/use-bash-strict-mode/&amp;title=%e4%bd%bf%e7%94%a8%20Bash%e4%b8%a5%e6%a0%bc%e6%a8%a1%e5%bc%8f&amp;pic=https://yuechuanx.top/icons/apple-touch-icon.png&amp;searchPic=false" title="分享到「新浪微博」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon weibo-icon"><path d="M407 177.6c7.6-24-13.4-46.8-37.4-41.7-22 4.8-28.8-28.1-7.1-32.8 50.1-10.9 92.3 37.1 76.5 84.8-6.8 21.2-38.8 10.8-32-10.3zM214.8 446.7C108.5 446.7 0 395.3 0 310.4c0-44.3 28-95.4 76.3-143.7C176 67 279.5 65.8 249.9 161c-4 13.1 12.3 5.7 12.3 6 79.5-33.6 140.5-16.8 114 51.4-3.7 9.4 1.1 10.9 8.3 13.1 135.7 42.3 34.8 215.2-169.7 215.2zm143.7-146.3c-5.4-55.7-78.5-94-163.4-85.7-84.8 8.6-148.8 60.3-143.4 116s78.5 94 163.4 85.7c84.8-8.6 148.8-60.3 143.4-116zM347.9 35.1c-25.9 5.6-16.8 43.7 8.3 38.3 72.3-15.2 134.8 52.8 111.7 124-7.4 24.2 29.1 37 37.4 12 31.9-99.8-55.1-195.9-157.4-174.3zm-78.5 311c-17.1 38.8-66.8 60-109.1 46.3-40.8-13.1-58-53.4-40.3-89.7 17.7-35.4 63.1-55.4 103.4-45.1 42 10.8 63.1 50.2 46 88.5zm-86.3-30c-12.9-5.4-30 .3-38 12.9-8.3 12.9-4.3 28 8.6 34 13.1 6 30.8.3 39.1-12.9 8-13.1 3.7-28.3-9.7-34zm32.6-13.4c-5.1-1.7-11.4.6-14.3 5.4-2.9 5.1-1.4 10.6 3.7 12.9 5.1 2 11.7-.3 14.6-5.4 2.8-5.2 1.1-10.9-4-12.9z"/></svg></a>
+                </div>
+            
+
+            
+                <div class="share-item douban">
+                    
+                    <a href="https://www.douban.com/share/service?href=https://yuechuanx.top/posts/use-bash-strict-mode/&amp;name=%e4%bd%bf%e7%94%a8%20Bash%e4%b8%a5%e6%a0%bc%e6%a8%a1%e5%bc%8f&amp;text=%e4%bd%bf%e7%94%a8%20Bash%e4%b8%a5%e6%a0%bc%e6%a8%a1%e5%bc%8f%20%e5%8e%9f%e6%96%87%e9%93%be%e6%8e%a5%ef%bc%9aUse%20Bash%20Strict%20Mode%20%28Unless%20You%20Love%20Debugging%29%20%e7%bf%bb%e8%af%91%ef%bc%9aYueChuan%20%e5%9c%a8%20Unix/Linux%20%e7%8e%af%e5%a2%83%e5%be%88%e9%9a%be%e9%81%bf%e5%85%8d%e4%b8%8e%20Bash%20%e8%84%9a%e6%9c%ac%e6%89%93%e4%ba%a4%e9%81%93%ef%bc%8c%e4%b8%80%e4%bb%bd%e9%ab%98%e8%b4%a8%e9%87%8f%ef%bc%8c%e5%8f%af%e9%9d%a0%e4%b8%94%e5%8f%af%e7%bb%b4%e6%8a%a4%e7%9a%84%20Bash%20%e8%84%9a%e6%9c%ac%e5%ba%94%e8%af%a5%e2%80%a6%e2%80%a6" title="分享到「豆瓣」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon douban-icon"><path d="M.643.92v2.412h22.714V.92H.643zm1.974 4.926v9.42h18.764v-9.42H2.617zm2.72 2.408H18.69v4.605H5.338V8.254zm1.657 7.412l-2.512.938c1.037 1.461 1.87 2.825 2.512 4.091H0v2.385h24v-2.385h-6.678c.818-1.176 1.589-2.543 2.303-4.091l-2.73-.938a29.952 29.952 0 01-2.479 5.03h-4.75c-.786-1.962-1.677-3.641-2.672-5.03Z"/></svg></a>
+                </div>
+            
+
+            
+                <div class="share-item qq">
+                    
+                    <a href="https://connect.qq.com/widget/shareqq/index.html?url=https://yuechuanx.top/posts/use-bash-strict-mode/&amp;title=%e4%bd%bf%e7%94%a8%20Bash%e4%b8%a5%e6%a0%bc%e6%a8%a1%e5%bc%8f&amp;summary=%e4%bd%bf%e7%94%a8%20Bash%e4%b8%a5%e6%a0%bc%e6%a8%a1%e5%bc%8f%20%e5%8e%9f%e6%96%87%e9%93%be%e6%8e%a5%ef%bc%9aUse%20Bash%20Strict%20Mode%20%28Unless%20You%20Love%20Debugging%29%20%e7%bf%bb%e8%af%91%ef%bc%9aYueChuan%20%e5%9c%a8%20Unix/Linux%20%e7%8e%af%e5%a2%83%e5%be%88%e9%9a%be%e9%81%bf%e5%85%8d%e4%b8%8e%20Bash%20%e8%84%9a%e6%9c%ac%e6%89%93%e4%ba%a4%e9%81%93%ef%bc%8c%e4%b8%80%e4%bb%bd%e9%ab%98%e8%b4%a8%e9%87%8f%ef%bc%8c%e5%8f%af%e9%9d%a0%e4%b8%94%e5%8f%af%e7%bb%b4%e6%8a%a4%e7%9a%84%20Bash%20%e8%84%9a%e6%9c%ac%e5%ba%94%e8%af%a5%e2%80%a6%e2%80%a6&amp;pics=https://yuechuanx.top/icons/apple-touch-icon.png&amp;site=%e8%bf%87%e5%be%80%e7%9a%86%e4%b8%ba%e5%ba%8f%e7%ab%a0" title="分享到「QQ」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon qq-icon"><path d="M433.754 420.445c-11.526 1.393-44.86-52.741-44.86-52.741 0 31.345-16.136 72.247-51.051 101.786 16.842 5.192 54.843 19.167 45.803 34.421-7.316 12.343-125.51 7.881-159.632 4.037-34.122 3.844-152.316 8.306-159.632-4.037-9.045-15.25 28.918-29.214 45.783-34.415-34.92-29.539-51.059-70.445-51.059-101.792 0 0-33.334 54.134-44.859 52.741-5.37-.65-12.424-29.644 9.347-99.704 10.261-33.024 21.995-60.478 40.144-105.779C60.683 98.063 108.982.006 224 0c113.737.006 163.156 96.133 160.264 214.963 18.118 45.223 29.912 72.85 40.144 105.778 21.768 70.06 14.716 99.053 9.346 99.704z"/></svg></a>
+                </div>
+            
+
+            
+                <div class="share-item qzone">
+                    
+                    <a href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://yuechuanx.top/posts/use-bash-strict-mode/&amp;title=%e4%bd%bf%e7%94%a8%20Bash%e4%b8%a5%e6%a0%bc%e6%a8%a1%e5%bc%8f&amp;summary=%e4%bd%bf%e7%94%a8%20Bash%e4%b8%a5%e6%a0%bc%e6%a8%a1%e5%bc%8f%20%e5%8e%9f%e6%96%87%e9%93%be%e6%8e%a5%ef%bc%9aUse%20Bash%20Strict%20Mode%20%28Unless%20You%20Love%20Debugging%29%20%e7%bf%bb%e8%af%91%ef%bc%9aYueChuan%20%e5%9c%a8%20Unix/Linux%20%e7%8e%af%e5%a2%83%e5%be%88%e9%9a%be%e9%81%bf%e5%85%8d%e4%b8%8e%20Bash%20%e8%84%9a%e6%9c%ac%e6%89%93%e4%ba%a4%e9%81%93%ef%bc%8c%e4%b8%80%e4%bb%bd%e9%ab%98%e8%b4%a8%e9%87%8f%ef%bc%8c%e5%8f%af%e9%9d%a0%e4%b8%94%e5%8f%af%e7%bb%b4%e6%8a%a4%e7%9a%84%20Bash%20%e8%84%9a%e6%9c%ac%e5%ba%94%e8%af%a5%e2%80%a6%e2%80%a6&amp;pics=https://yuechuanx.top/icons/apple-touch-icon.png&amp;site=%e8%bf%87%e5%be%80%e7%9a%86%e4%b8%ba%e5%ba%8f%e7%ab%a0" title="分享到「QQ 空间」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon qzone-icon"><path d="M23.985 9.202c-.032-.099-.127-.223-.334-.258-.207-.036-7.351-1.406-7.351-1.406s-.105-.022-.198-.07c-.092-.047-.127-.167-.127-.167S12.447.956 12.349.77C12.25.583 12.104.532 12 .532c-.104 0-.251.051-.349.238-.098.186-3.626 6.531-3.626 6.531s-.035.12-.128.167c-.092.047-.197.07-.197.07S.556 8.908.348 8.943c-.208.036-.302.16-.333.258a.477.477 0 0 0 .125.449l5.362 5.49s.072.08.119.172c.016.104.005.21.005.21s-1.189 7.242-1.22 7.45.075.369.159.43c.083.062.233.106.421.013.189-.093 6.812-3.261 6.812-3.261s.098-.044.201-.061c.103-.017.201.061.201.061s6.623 3.168 6.812 3.261c.188.094.338.049.421-.013a.463.463 0 0 0 .159-.43c-.021-.14-.93-5.677-.93-5.677.876-.54 1.425-1.039 1.849-1.747-2.594.969-6.006 1.717-9.415 1.866-.915.041-2.41.097-3.473-.015-.678-.071-1.17-.144-1.243-.438-.053-.215.054-.46.545-.831a2640.5 2640.5 0 0 1 2.861-2.155c1.285-.968 3.559-2.47 3.559-2.731 0-.285-2.144-.781-4.037-.781-1.945 0-2.275.132-2.811.168-.488.034-.769.005-.804-.138-.06-.248.183-.389.588-.568.709-.314 1.86-.594 1.984-.626.194-.052 3.082-.805 5.618-.535 1.318.14 3.244.668 3.244 1.276 0 .342-1.721 1.494-3.225 2.597-1.149.843-2.217 1.561-2.217 1.688 0 .342 3.533 1.241 6.689 1.01l.003-.022c.048-.092.119-.172.119-.172l5.362-5.49a.477.477 0 0 0 .127-.449z"/></svg></a>
+                </div>
+            
+
+            
+                <div class="share-item qrcode">
+                    <div class="qrcode-container" title="通过「二维码」"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon qrcode-icon"><path d="M0 224h192V32H0v192zM64 96h64v64H64V96zm192-64v192h192V32H256zm128 128h-64V96h64v64zM0 480h192V288H0v192zm64-128h64v64H64v-64zm352-64h32v128h-96v-32h-32v96h-64V288h96v32h64v-32zm0 160h32v32h-32v-32zm-64 0h32v32h-32v-32z"/></svg><div id="qrcode-img"></div>
+                    </div>
+                    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+
+<script>
+    var typeNumber = 0;
+    var errorCorrectionLevel = 'L';
+    var qr = qrcode(typeNumber, errorCorrectionLevel);
+    qr.addData('https:\/\/yuechuanx.top\/posts\/use-bash-strict-mode\/');
+    qr.make();
+    document.getElementById('qrcode-img').innerHTML = qr.createImgTag();
+</script>
+
+                </div>
+            
+
+        </div>
+
+    </div>
+
+
+
+
+        
+    
+    
+
+
+
+        
+    
+        <div class="post-tags">
+            
+                
+                
+                
+                
+                    
+                    <a href="/tags/bash/" rel="tag" class="post-tags-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon tag-icon"><path d="M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882L293.823 497.941c-18.745 18.745-49.137 18.745-67.882 0L14.059 286.059A48 48 0 0 1 0 252.118zM112 64c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"/></svg>bash</a>
+                
+            
+        </div>
+    
+
+
+
+        
+
+
+        
+
+
+        
+    
+        
+        
+    
+    
+    
+    
+        <ul class="post-nav">
+            
+                <li class="post-nav-prev">
+                    <a href="/posts/python/organize-the-project-structure-of-testcase-in-unittest/" rel="prev">&lt; 使用 Unittest 组织 TestCase 的工程结构</a>
+                </li>
+            
+            
+                <li class="post-nav-next">
+                    <a href="/posts/solutions-for-serial-port-test-automation/" rel="next">关于串口测试自动化的解决方案 &gt;</a>
+                </li>
+            
+        </ul>
+    
+
+
+
+        
+
+
+    </div>
+</main>
+
+
+            
+    <div id="back-to-top" class="back-to-top">
+        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon arrow-up"><path d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"/></svg></a>
+    </div>
+
+
+            
+    <footer id="footer" class="footer">
+        <div class="footer-inner">
+            <div class="site-info">©&nbsp;1969–2020&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon footer-icon"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>&nbsp;YueChuan</div><div class="powered-by">Powered by <a href="https://github.com/gohugoio/hugo" target="_blank" rel="noopener">Hugo</a> | Theme is <a href="https://github.com/reuixiy/hugo-theme-meme" target="_blank" rel="noopener">MemE</a></div><div class="site-copyright"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></div>
+                <div class="busuanzi-site-uv-and-pv">
+                    <span id="busuanzi_container_site_uv">本站访客数&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon busuanzi-site-uv"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"/></svg>&nbsp;<span id="busuanzi_value_site_uv"></span></span>&nbsp;|&nbsp;<span id="busuanzi_container_site_pv">本站访问量&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="icon busuanzi-site-pv"><path d="M288 144a110.94 110.94 0 0 0-31.24 5 55.4 55.4 0 0 1 7.24 27 56 56 0 0 1-56 56 55.4 55.4 0 0 1-27-7.24A111.71 111.71 0 1 0 288 144zm284.52 97.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400c-98.65 0-189.09-55-237.93-144C98.91 167 189.34 112 288 112s189.09 55 237.93 144C477.1 345 386.66 400 288 400z"/></svg>&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+                </div>
+
+            
+    
+        <ul class="socials"><li class="socials-item">
+                    <a href="/rss.xml" target="_blank" rel="external noopener" title="RSS"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon social-icon"><path d="M19.199 24C19.199 13.467 10.533 4.8 0 4.8V0c13.165 0 24 10.835 24 24h-4.801zM3.291 17.415c1.814 0 3.293 1.479 3.293 3.295 0 1.813-1.485 3.29-3.301 3.29C1.47 24 0 22.526 0 20.71s1.475-3.294 3.291-3.295zM15.909 24h-4.665c0-6.169-5.075-11.245-11.244-11.245V8.09c8.727 0 15.909 7.184 15.909 15.91z"/></svg></a>
+                </li><li class="socials-item">
+                    <a href="mailto:reuixiy@gmail.com" target="_blank" rel="external noopener" title="Email"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon social-icon"><path d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"/></svg></a>
+                </li><li class="socials-item">
+                    <a href="https://github.com/reuixiy" target="_blank" rel="external noopener" title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon social-icon"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+                </li><li class="socials-item">
+                    <a href="https://twitter.com/reuixiy" target="_blank" rel="external noopener" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon social-icon"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg></a>
+                </li><li class="socials-item">
+                    <a href="https://t.me/yixiuer" target="_blank" rel="external noopener" title="Telegram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="icon social-icon"><path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm121.8 169.9l-40.7 191.8c-3 13.6-11.1 16.9-22.4 10.5l-62-45.7-29.9 28.8c-3.3 3.3-6.1 6.1-12.5 6.1l4.4-63.1 114.9-103.8c5-4.4-1.1-6.9-7.7-2.5l-142 89.4-61.2-19.1c-13.3-4.2-13.6-13.3 2.8-19.7l239.1-92.2c11.1-4 20.8 2.7 17.2 19.5z"/></svg></a>
+                </li></ul>
+    
+
+
+
+            
+        </div>
+    </footer>
+
+
+        </div>
+        
+
+        
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/medium-zoom@latest/dist/medium-zoom.min.js"></script>
+
+<script>
+    mediumZoom(document.querySelectorAll('div.post-body img'), {
+        background: 'hsla(var(--color-bg-h), var(--color-bg-s), var(--color-bg-l), 0.95)'
+    })
+</script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@3.0.0/instantpage.min.js" type="module" defer></script>
+
+
+
+
+    
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+
+
+
+    </body>
+</html>
