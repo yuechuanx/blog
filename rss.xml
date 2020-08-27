@@ -23,10 +23,450 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
         
-        <lastBuildDate>Thu, 27 Aug 2020 16:06:54 &#43;0800</lastBuildDate>
+        <lastBuildDate>Thu, 27 Aug 2020 16:52:38 &#43;0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://yuechuanx.github.io/blog/rss.xml" />
         
+        
+            <item>
+                <title>迁移 Jenkins 到 Docker</title>
+                <link>https://yuechuanx.github.io/blog/posts/migrate-jenkins-on-docker/</link>
+                <guid isPermaLink="true">https://yuechuanx.github.io/blog/posts/migrate-jenkins-on-docker/</guid>
+                <pubDate>Tue, 18 Aug 2020 15:36:13 &#43;0800</pubDate>
+                
+                    <author>xiaoyuechuan@gmail.com (YueChuan)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                
+                    <description>&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/logo-jenkins.png&#34; alt=&#34;jenkins-logo&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Jenkins 天然程序和数据分离的属性，使得它能够容易的迁移与升级。&lt;/p&gt;
+&lt;p&gt;这次想把通过在 Host 上运行的 Jenkins 迁移到 docker 容器内。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;备份&#34;&gt;备份&lt;/h2&gt;
+&lt;h3 id=&#34;通过脚本打包&#34;&gt;通过脚本打包&lt;/h3&gt;
+&lt;p&gt;最简单的方式是将 Jenkins 的工作目录打包。一般为 &lt;code&gt;/var/jenkins_home&lt;/code&gt;，或者 &lt;code&gt;/var/lib/jenkins&lt;/code&gt;。如果你的数据量相当小，请直接用 &lt;code&gt;tar&lt;/code&gt; 打包。再直接迁移到需要重新部署的 Jenkins 工作目录即可。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本文中宿主机的 Jenkins 在 &lt;code&gt;/var/lib/jenkins&lt;/code&gt; 目录&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;然而由于当前的 &lt;code&gt;jenkins_home&lt;/code&gt;里面存放了一些临时文件，以及 &lt;code&gt;jobs&lt;/code&gt;, &lt;code&gt;workspace&lt;/code&gt; 目录数据量已经相当大，所以我们打包的时候需要排除一些文件。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;backup.sh&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#!/bin/bash
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;current_date&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;date &lt;span class=&#34;s2&#34;&gt;&amp;#34;+%Y%m%d%H%M&amp;#34;&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;jenkins_backup_path&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;/home/jks-master/jenkins/backups/backup_&amp;#39;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$current_date&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;.tar&amp;#39;&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;jenkins_home&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;/var/lib/jenkins&amp;#39;&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;#echo $jenkins_backup_path&lt;/span&gt;
+tar -zcvf &lt;span class=&#34;nv&#34;&gt;$jenkins_backup_path&lt;/span&gt; --exclude-from&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;exclude.txt &lt;span class=&#34;nv&#34;&gt;$jenkins_home&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;em&gt;exclude.txt&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;/var/lib/jenkins/jobs
+/var/lib/jenkins/workspace
+
+/var/lib/jenkins/backups
+/var/lib/jenkins/inbox
+/var/lib/jenkins/Anaconda3
+/var/lib/jenkins/anaconda3
+/var/lib/jenkins/caches
+/var/lib/jenkins/.cache
+/var/lib/jenkins/Pipeline_*
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;通过插件备份&#34;&gt;通过插件备份&lt;/h3&gt;
+&lt;p&gt;目前 Jenkins 中比较成熟的插件是 ThinBackup。里面提供了相对丰富的配置项&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/jenkins-plugin-thinbackup-settings.png&#34; alt=&#34;jenkins-plugin-thinbackup-settings&#34;&gt;得到的压缩文件为下一步迁移作准备。&lt;/p&gt;
+&lt;h2 id=&#34;迁移&#34;&gt;迁移&lt;/h2&gt;
+&lt;p&gt;选择使用的 docker 镜像是 &lt;code&gt;jenkins/jenkins:lts&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;假定将备份文件解压到&lt;code&gt;/var/jenkins_home&lt;/code&gt;目录，若之前打包文件包含了 &lt;code&gt;jobs/&lt;/code&gt;, &lt;code&gt;workspace/&lt;/code&gt;文件夹，那么只需将文件解压出来再挂载到 docker 容器内即可。&lt;/p&gt;
+&lt;p&gt;由于文中的实验环境没有将以上两个目录打包进来，所以在启动容器时会挂载多个目录。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;start_docker_jenkins.sh&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#!/bin/bash
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;
+docker run -d &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-u 1000:1000 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-v /var/jenkins_home:/var/jenkins_home &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-v /var/lib/jenkins/jobs:/var/jenkins_home/jobs &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-v /var/lib/jenkins/workspace:/var/jenkins_home/workspace &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-p 8081:8080 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-p 50001:50000 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;jenkins/jenkins:lts
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;启动后，获取到容器的 id，使用 &lt;code&gt;docker logs [ID]&lt;/code&gt; 查看是否有错误。&lt;/p&gt;
+&lt;h2 id=&#34;异常情况&#34;&gt;异常情况&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;jenkins.model.InvalidBuildsDir: ${ITEM_ROOTDIR}/builds does not exist and probably cannot be created&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;这个错误的原因是权限问题。需要检查启动 docker 的用户所挂载的目录是否有权限读写。如果没有的话可更改目录的持有者：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;chown -R [USER] [DIR] &lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;关于 docker容器的权限问题可以见参考一节前两篇文章&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/woshimrf/p/understand-docker-uid.html&#34;&gt;docker挂载volume的用户权限问题,理解docker容器的uid&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/sparkdev/p/9614164.html&#34;&gt;理解 docker 容器中的 uid 和 gid&lt;/a&gt;&lt;/p&gt;
+</description>
+                
+                
+                
+                
+                
+                    
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://yuechuanx.github.io/blog/tags/jenkins/">jenkins</category>
+                                
+                            
+                        
+                    
+                
+            </item>
+        
+            <item>
+                <title>通过 jcli 管理 Jenkins</title>
+                <link>https://yuechuanx.github.io/blog/posts/manage-jenkins-by-using-jcli/</link>
+                <guid isPermaLink="true">https://yuechuanx.github.io/blog/posts/manage-jenkins-by-using-jcli/</guid>
+                <pubDate>Tue, 18 Aug 2020 10:59:10 &#43;0800</pubDate>
+                
+                    <author>xiaoyuechuan@gmail.com (YueChuan)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                
+                    <description>&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/logo-jenkins.png&#34; alt=&#34;jenkins-logo&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Jenkins 是强大的自动化工具。&lt;/p&gt;
+&lt;p&gt;本文介绍如果通过 jcli（Jenkins Client）来管理 Jenkins 站点&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;环境&#34;&gt;环境&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;启动 Jenkins Service&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
+&lt;p&gt;Linux 下的用户，可通过一下命令安装 &lt;code&gt;jcli&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;curl -L https://github.com/jenkins-zh/jenkins-cli/releases/latest/download/jcli-linux-amd64.tar.gz&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;tar xzv
+
+&lt;span class=&#34;c1&#34;&gt;# 将 jcli 后添加进环境变量&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;PATH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;~:&lt;span class=&#34;nv&#34;&gt;$PATH&lt;/span&gt; &amp;gt;&amp;gt; ~/.bashrc &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;source&lt;/span&gt; ~/.bashrc
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;##使用&lt;/p&gt;
+&lt;p&gt;在使用 &lt;code&gt;jcli&lt;/code&gt; 工具之前，需要先生成一份配置文件。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;jcli config gen -i&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;false&lt;/span&gt; &amp;gt; ~/.jenkins-cli.yaml
+cat .jenkins-cli.yaml
+jenkins_servers:
+- name: yourServer
+  url: http://localhost:8080/jenkins
+  username: admin
+  token: admin
+  proxy: &lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
+  proxyAuth: &lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
+  insecureSkipVerify: &lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt;
+  description: &lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
+preHooks: &lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt;
+postHooks: &lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt;
+pluginSuites: &lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt;
+mirrors:
+- name: default
+  url: http://mirrors.jenkins.io/
+- name: tsinghua
+  url: https://mirrors.tuna.tsinghua.edu.cn/jenkins/
+- name: huawei
+  url: https://mirrors.huaweicloud.com/jenkins/
+- name: tencent
+  url: https://mirrors.cloud.tencent.com/jenkins/
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;可以登录到 jenkins 页面上去  User -&amp;gt; Configure -&amp;gt; API Token 生成一个 token 填入到上面对应字段。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;jcli -h&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;37
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;38
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;39
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;40
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;41
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;42
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;43
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;44
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;45
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;46
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;Jenkins CLI written by golang which could &lt;span class=&#34;nb&#34;&gt;help&lt;/span&gt; you with your multiple Jenkins,
+
+We&lt;span class=&#34;err&#34;&gt;&amp;#39;&lt;/span&gt;d love to hear your feedback at https://github.com/jenkins-zh/jenkins-cli/issues
+
+Usage:
+  jcli &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;command&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+
+Available Commands:
+  casc        Configuration as Code
+  center      Manage your update center
+  completion  Generate shell completion scripts
+  computer    Manage the computers of your Jenkins
+  config      Manage the config of jcli
+  credential  Manage the credentials of your Jenkins
+  crumb       Print crumbIssuer of Jenkins
+  cwp         Custom Jenkins WAR packager &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; Jenkins
+  doc         Generate document &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; all jcl commands
+  &lt;span class=&#34;nb&#34;&gt;help&lt;/span&gt;        Help about any &lt;span class=&#34;nb&#34;&gt;command&lt;/span&gt;
+  job         Manage the job of your Jenkins
+  open        Open your Jenkins with a browser
+  plugin      Manage the plugins of Jenkins
+  queue       Manage the queue of your Jenkins
+  restart     Restart your Jenkins
+  runner      The wrapper of jenkinsfile runner
+  shell       Create a sub shell so that changes to a specific Jenkins remain &lt;span class=&#34;nb&#34;&gt;local&lt;/span&gt; to the shell.
+  shutdown    Puts Jenkins into the quiet mode, &lt;span class=&#34;nb&#34;&gt;wait&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; existing builds to be completed, and &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt; shut down Jenkins
+  user        Print the user of your Jenkins
+  version     Print the version of Jenkins CLI
+
+Flags:
+      --config-load           If load a default config file &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;default &lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+      --configFile string     An alternative config file
+      --debug                 Print the output into debug.html
+      --doctor                Run the diagnose &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; current &lt;span class=&#34;nb&#34;&gt;command&lt;/span&gt;
+  -h, --help                  &lt;span class=&#34;nb&#34;&gt;help&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; jcli
+      --insecureSkipVerify    If skip insecure skip verify &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;default &lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+  -j, --jenkins string        Select a Jenkins server &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; this &lt;span class=&#34;nb&#34;&gt;time&lt;/span&gt;
+      --logger-level string   Logger level which could be: debug, info, warn, error &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;default &lt;span class=&#34;s2&#34;&gt;&amp;#34;warn&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+      --proxy string          The proxy of connection to Jenkins
+      --proxy-auth string     The auth of proxy of connection to Jenkins
+      --proxy-disable         Disable proxy setting
+      --token string          The token of Jenkins
+      --url string            The URL of Jenkins
+      --username string       The username of Jenkins
+
+Use &lt;span class=&#34;s2&#34;&gt;&amp;#34;jcli [command] --help&amp;#34;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; more information about a command.
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;可以看出 &lt;code&gt;jcli&lt;/code&gt; 里面涵盖了许多子命令，为了方便查询，&lt;code&gt;jcli&lt;/code&gt; 提供了生成命令文档的功能&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;jcli doc [PATH]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在导出目录下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/jcli-command-doc.png&#34; alt=&#34;jcli-command-doc&#34;&gt;&lt;/p&gt;
+&lt;p&gt;里面的内容为：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/jcli-command-doc-content.png&#34; alt=&#34;jcli-command-doc-content&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;常用命令&#34;&gt;常用命令&lt;/h2&gt;
+&lt;p&gt;由于命令繁多，这里列出一些比较常用的命令，更多的功能请参阅上面生成的文档。&lt;/p&gt;
+&lt;h3 id=&#34;center&#34;&gt;Center&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_center_download/&#34;&gt;jcli center download&lt;/a&gt;	 - Download jenkins.war&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_center_identity/&#34;&gt;jcli center identity&lt;/a&gt;	 - Print the identity of current Jenkins&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_center_mirror/&#34;&gt;jcli center mirror&lt;/a&gt;	 - Set the update center to a mirror address&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_center_start/&#34;&gt;jcli center start&lt;/a&gt;	 - Start Jenkins server from a cache directory&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_center_upgrade/&#34;&gt;jcli center upgrade&lt;/a&gt;	 - Upgrade your Jenkins&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_center_watch/&#34;&gt;jcli center watch&lt;/a&gt;	 - Watch your update center status&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;config&#34;&gt;Config&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_config_add/&#34;&gt;jcli config add&lt;/a&gt;	 - Add a Jenkins config item&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_config_clean/&#34;&gt;jcli config clean&lt;/a&gt;	 - Clean up some unavailable config items&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_config_edit/&#34;&gt;jcli config edit&lt;/a&gt;	 - Edit a Jenkins config&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_config_generate/&#34;&gt;jcli config generate&lt;/a&gt;	 - Generate a sample config file for you&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_config_list/&#34;&gt;jcli config list&lt;/a&gt;	 - List all Jenkins config items&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_config_plugin/&#34;&gt;jcli config plugin&lt;/a&gt;	 - Manage plugins for jcli&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_config_plugin/&#34;&gt;jcli config plugin&lt;/a&gt;	 - Manage plugins for jcli&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_config_remove/&#34;&gt;jcli config remove&lt;/a&gt;	 - Remove a Jenkins config&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_config_select/&#34;&gt;jcli config select&lt;/a&gt;	 - Select one config as current Jenkins&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;credential&#34;&gt;Credential&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_credential_create/&#34;&gt;jcli credential create&lt;/a&gt;	 - Create a credential from Jenkins&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_credential_delete/&#34;&gt;jcli credential delete&lt;/a&gt;	 - Delete a credential from Jenkins&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_credential_list/&#34;&gt;jcli credential list&lt;/a&gt;	 - List all credentials of Jenkins&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;job&#34;&gt;Job&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_job_artifact/&#34;&gt;jcli job artifact&lt;/a&gt;	 - Print the artifact list of target job&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_job_build/&#34;&gt;jcli job build&lt;/a&gt;	 - Build the job of your Jenkins&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_job_create/&#34;&gt;jcli job create&lt;/a&gt;	 - Create a job in your Jenkins&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_job_delete/&#34;&gt;jcli job delete&lt;/a&gt;	 - Delete a job in your Jenkins&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_job_disable/&#34;&gt;jcli job disable&lt;/a&gt;	 - Disable a job in your Jenkins&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_job_edit/&#34;&gt;jcli job edit&lt;/a&gt;	 - Edit the job of your Jenkins&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_job_enable/&#34;&gt;jcli job enable&lt;/a&gt;	 - Enable a job in your Jenkins&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_job_history/&#34;&gt;jcli job history&lt;/a&gt;	 - Print the history of job in your Jenkins&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_job_input/&#34;&gt;jcli job input&lt;/a&gt;	 - Input a job in your Jenkins&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_job_log/&#34;&gt;jcli job log&lt;/a&gt;	 - Print the job&#39;s log of your Jenkins&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_job_param/&#34;&gt;jcli job param&lt;/a&gt;	 - Get parameters of the job of your Jenkins&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_job_search/&#34;&gt;jcli job search&lt;/a&gt;	 - Print the job of your Jenkins&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_job_stop/&#34;&gt;jcli job stop&lt;/a&gt;	 - Stop a job build in your Jenkins&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_job_type/&#34;&gt;jcli job type&lt;/a&gt;	 - Print the types of job which in your Jenkins&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;plugin&#34;&gt;Plugin&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_plugin_build/&#34;&gt;jcli plugin build&lt;/a&gt;	 - Build the Jenkins plugin project&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_plugin_check/&#34;&gt;jcli plugin check&lt;/a&gt;	 - Check update center server&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_plugin_create/&#34;&gt;jcli plugin create&lt;/a&gt;	 - Create a plugin project from the archetypes&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_plugin_download/&#34;&gt;jcli plugin download&lt;/a&gt;	 - Download the plugins&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_plugin_install/&#34;&gt;jcli plugin install&lt;/a&gt;	 - Install the plugins&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_plugin_list/&#34;&gt;jcli plugin list&lt;/a&gt;	 - Print all the plugins which are installed&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_plugin_open/&#34;&gt;jcli plugin open&lt;/a&gt;	 - Open update center server in browser&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_plugin_release/&#34;&gt;jcli plugin release&lt;/a&gt;	 - Release current plugin project&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_plugin_search/&#34;&gt;jcli plugin search&lt;/a&gt;	 - Print the plugins of your Jenkins&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_plugin_trend/&#34;&gt;jcli plugin trend&lt;/a&gt;	 - Show the trend of the plugin&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_plugin_uninstall/&#34;&gt;jcli plugin uninstall&lt;/a&gt;	 - Uninstall the plugins&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_plugin_upgrade/&#34;&gt;jcli plugin upgrade&lt;/a&gt;	 - Upgrade the specific plugin&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_plugin_upload/&#34;&gt;jcli plugin upload&lt;/a&gt;	 - Upload a plugin  to your Jenkins&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;user&#34;&gt;User&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_user_create/&#34;&gt;jcli user create&lt;/a&gt;	 - Create a user for your Jenkins&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_user_delete/&#34;&gt;jcli user delete&lt;/a&gt;	 - Delete a user for your Jenkins&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_user_edit/&#34;&gt;jcli user edit&lt;/a&gt;	 - Edit the user of your Jenkins&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://yuechuanx.github.io/blog/commands/jcli_user_token/&#34;&gt;jcli user token&lt;/a&gt;	 - Token the user of your Jenkins&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;jenkins&#34;&gt;Jenkins&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;jcli restart&lt;/code&gt;  - Restart your Jenkins&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;jcli shutdown&lt;/code&gt; - Puts Jenkins into the quiet mode, wait for existing builds to be completed, and then shut down Jenkins&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;jcli runner&lt;/code&gt;  - The wrapper of jenkinsfile runner
+Get more about jenkinsfile runner from &lt;a href=&#34;https://github.com/jenkinsci/jenkinsfile-runner&#34;&gt;https://github.com/jenkinsci/jenkinsfile-runner&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;jcli shell&lt;/code&gt; - Create a sub shell so that changes to a specific Jenkins remain local to the shell.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://jenkins-zh.cn/tutorial/management/cli/jcli/&#34;&gt;Jenkins CLI Tutorial&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://jcli.jenkins-zh.cn/&#34;&gt;Jenkins CLI 文档&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;</description>
+                
+                
+                
+                
+                
+                    
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://yuechuanx.github.io/blog/tags/jenkins/">jenkins</category>
+                                
+                            
+                        
+                    
+                
+            </item>
         
             <item>
                 <title>LeetCode 线性表相关题目与解决</title>
