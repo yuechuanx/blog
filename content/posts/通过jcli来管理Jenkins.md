@@ -179,9 +179,9 @@ Use "jcli [command] --help" for more information about a command.
 
 ## 参考
 
-[Jenkins CLI](https://jenkins-zh.cn/tutorial/management/cli/jcli/)
+[Jenkins CLI Tutorial](https://jenkins-zh.cn/tutorial/management/cli/jcli/)
 
-
+[Jenkins CLI 文档](https://jcli.jenkins-zh.cn/)
 
 
 

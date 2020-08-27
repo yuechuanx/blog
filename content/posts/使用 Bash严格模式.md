@@ -1,5 +1,5 @@
 ---
-title: 使用 Bash严格模式
+title: 使用 Bash 严格模式
 slug: use-bash-strict-mode
 tags:
 - bash
