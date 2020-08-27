@@ -4,7 +4,6 @@ slug: migrate-jenkins-on-docker
 date: 2020-08-18T15:36:13+08:00
 tags: 
 - jenkins
-draft: true
 ---
 
 ![jenkins-logo](https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/logo-jenkins.png)
@@ -53,11 +52,9 @@ tar -zcvf $jenkins_backup_path --exclude-from=exclude.txt $jenkins_home
 
 ### 通过插件备份
 
-目前 Jenkins 中比较成熟的插件是 ThinBackup
+目前 Jenkins 中比较成熟的插件是 ThinBackup。里面提供了相对丰富的配置项
 
-
-
-得到的压缩文件为下一步迁移作准备。
+![jenkins-plugin-thinbackup-settings](https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/jenkins-plugin-thinbackup-settings.png)得到的压缩文件为下一步迁移作准备。
 
 ## 迁移
 

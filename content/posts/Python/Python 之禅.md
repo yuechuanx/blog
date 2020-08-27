@@ -9,8 +9,6 @@ date: 2020-04-15 16:54:29
 
 ---
 
-
-
 Beautiful is better than ugly. （优美比丑陋好）
 
 Explicit is better than implicit.（清晰比晦涩好）

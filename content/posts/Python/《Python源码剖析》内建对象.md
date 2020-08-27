@@ -1,5 +1,6 @@
 ---
 title: 《Python源码剖析》内建对象
+slug: python-source-code-analysis-built-in-objects
 date: 2020-08-27T15:09:03+08:00
 categories:
 - Python

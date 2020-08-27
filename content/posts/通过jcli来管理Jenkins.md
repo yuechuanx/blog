@@ -2,7 +2,6 @@
 title: 通过 jcli 管理 Jenkins
 slug: manage-jenkins-by-using-jcli
 date: 2020-08-18T10:59:10+08:00
-draft: true
 tags:
 - jenkins
 
@@ -20,7 +19,7 @@ tags:
 
 ## 环境
 
-- Jenkins Service
+- 启动 Jenkins Service 
 
 ## 安装
 
@@ -34,6 +33,36 @@ echo export PATH=~:$PATH >> ~/.bashrc && source ~/.bashrc
 ```
 
 ##使用
+
+在使用 `jcli` 工具之前，需要先生成一份配置文件。
+
+```bash
+jcli config gen -i=false > ~/.jenkins-cli.yaml
+cat .jenkins-cli.yaml
+jenkins_servers:
+- name: yourServer
+  url: http://localhost:8080/jenkins
+  username: admin
+  token: admin
+  proxy: ""
+  proxyAuth: ""
+  insecureSkipVerify: true
+  description: ""
+preHooks: []
+postHooks: []
+pluginSuites: []
+mirrors:
+- name: default
+  url: http://mirrors.jenkins.io/
+- name: tsinghua
+  url: https://mirrors.tuna.tsinghua.edu.cn/jenkins/
+- name: huawei
+  url: https://mirrors.huaweicloud.com/jenkins/
+- name: tencent
+  url: https://mirrors.cloud.tencent.com/jenkins/
+```
+
+可以登录到 jenkins 页面上去  User -> Configure -> API Token 生成一个 token 填入到上面对应字段。
 
 `jcli -h` 
 
