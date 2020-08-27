@@ -1,6 +1,10 @@
 ---
 title: 《Python源码剖析》内建对象
 date: 2020-08-27T15:09:03+08:00
+categories:
+- Python
+tags:
+- python
 draft: true
 ---
 
