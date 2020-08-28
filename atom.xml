@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">过往皆为序章</title>
     <subtitle type="html">MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</subtitle>
-    <updated>2020-08-28T16:24:19&#43;08:00</updated>
+    <updated>2020-08-28T16:46:48&#43;08:00</updated>
     <id>https://yuechuanx.github.io/blog/</id>
     <link rel="alternate" type="text/html" href="https://yuechuanx.github.io/blog/" />
     <link rel="self" type="application/atom&#43;xml" href="https://yuechuanx.github.io/blog/atom.xml" />
@@ -9158,16 +9158,32 @@ $++++++$++++++++++$++++++++++$++++++++++++$
             <title type="text">《流畅的Python》函数装饰器与闭包</title>
             <link rel="alternate" type="text/html" href="https://yuechuanx.github.io/blog/posts/python/fluent-python/fluent-python-function-decorators-and-closures/" />
             <id>https://yuechuanx.github.io/blog/posts/python/fluent-python/fluent-python-function-decorators-and-closures/</id>
-            <updated>2020-08-25T15:40:08&#43;08:00</updated>
+            <updated>2020-08-28T16:45:33&#43;08:00</updated>
             <published>2020-04-29T16:14:34&#43;00:00</published>
             <author>
                     <name>YueChuan</name>
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">有很多人抱怨，把这个特性命名为“装饰器”不好。主要原因是，这个名称与 GoF 书使用的不一致。装饰器这个名称可能更适合在编译器领域使用，因为它会遍历……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/fluent-python-logo.jpg&#34; alt=&#34;fluent-python-logo&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有很多人抱怨，把这个特性命名为“装饰器”不好。主要原因是，这个名称与 GoF 书使用的不一致。&lt;strong&gt;装饰器&lt;/strong&gt;这个名称可能更适合在编译器领域使用，因为它会遍历并注解语法书。
+—“PEP 318 — Decorators for Functions and Methods”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;本章的最终目标是解释清楚函数装饰器的工作原理，包括最简单的注册装饰器和较复杂的参数化装饰器。&lt;/p&gt;
+&lt;p&gt;讨论内容：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Python 如何计算装饰器语法&lt;/li&gt;
+&lt;li&gt;Python 如何判断变量是不是局部的&lt;/li&gt;
+&lt;li&gt;闭包存在的原因和工作原理&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;nonlocal&lt;/code&gt; 能解决什么问题&lt;/li&gt;
+&lt;li&gt;实现行为良好的装饰器&lt;/li&gt;
+&lt;li&gt;标准库中有用的装饰器&lt;/li&gt;
+&lt;li&gt;实现一个参数化的装饰器&lt;/li&gt;
+&lt;/ul&gt;……</summary>
             
-                <content type="html">&lt;blockquote&gt;
+                <content type="html">&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/fluent-python-logo.jpg&#34; alt=&#34;fluent-python-logo&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
 &lt;p&gt;有很多人抱怨，把这个特性命名为“装饰器”不好。主要原因是，这个名称与 GoF 书使用的不一致。&lt;strong&gt;装饰器&lt;/strong&gt;这个名称可能更适合在编译器领域使用，因为它会遍历并注解语法书。
 —“PEP 318 — Decorators for Functions and Methods”&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -11661,7 +11677,7 @@ Output the contents of the database as a fixture of the given format &lt;span cl
             <title type="text">Django 项目后端模板</title>
             <link rel="alternate" type="text/html" href="https://yuechuanx.github.io/blog/posts/web/django-project-backend-template/" />
             <id>https://yuechuanx.github.io/blog/posts/web/django-project-backend-template/</id>
-            <updated>2020-08-25T15:40:08&#43;08:00</updated>
+            <updated>2020-08-28T16:46:24&#43;08:00</updated>
             <published>2020-02-16T14:55:49&#43;00:00</published>
             <author>
                     <name>YueChuan</name>
@@ -11670,7 +11686,8 @@ Output the contents of the database as a fixture of the given format &lt;span cl
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Django 项目本身可以通过 django-admin 或者直接运行 python manage.py ARGS 来进行脚手架生成。但是生成的项目框架层次不算太好。 首先生成一个 Django 项目： 1 django-admin startproject backend 生成的项目框架如下： 1 2……</summary>
             
-                <content type="html">&lt;blockquote&gt;
+                <content type="html">&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/django-logo.png&#34; alt=&#34;django-logo&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
 &lt;p&gt;Django 项目本身可以通过 &lt;code&gt;django-admin&lt;/code&gt; 或者直接运行 &lt;code&gt;python manage.py ARGS&lt;/code&gt; 来进行脚手架生成。但是生成的项目框架层次不算太好。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;首先生成一个 Django 项目：&lt;/p&gt;
@@ -14405,10 +14422,10 @@ int main(void)
         </entry>
     
         <entry>
-            <title type="text">《流畅的Python》之数据类型</title>
+            <title type="text">《流畅的Python》数据类型</title>
             <link rel="alternate" type="text/html" href="https://yuechuanx.github.io/blog/posts/python/fluent-python/fluent-python-data-types/" />
             <id>https://yuechuanx.github.io/blog/posts/python/fluent-python/fluent-python-data-types/</id>
-            <updated>2020-08-25T15:40:08&#43;08:00</updated>
+            <updated>2020-08-28T16:46:23&#43;08:00</updated>
             <published>2019-12-11T14:21:56&#43;00:00</published>
             <author>
                     <name>YueChuan</name>
@@ -14417,7 +14434,8 @@ int main(void)
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Guido 对语言设计美学的深入理解让人震惊。我认识不少很不错的编程语言设计者，他们设计出来的东西确实很精彩，但是从来都不会有用户。Guido 知道如何……</summary>
             
-                <content type="html">&lt;blockquote&gt;
+                <content type="html">&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/fluent-python-logo.jpg&#34; alt=&#34;fluent-python-logo&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
 &lt;p&gt;Guido 对语言设计美学的深入理解让人震惊。我认识不少很不错的编程语言设计者，他们设计出来的东西确实很精彩，但是从来都不会有用户。Guido 知道如何在理论上做出一定妥协，设计出来的语言让使用者觉得如沐春风，这真是不可多得。&lt;br&gt;
 ——Jim Hugunin&lt;br&gt;
 Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师&lt;/p&gt;
