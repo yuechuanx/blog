@@ -9,7 +9,11 @@ categories:
   - Fluent-Python
 slug: fluent-python-function-decorators-and-closures
 date: 2020-04-29 16:14:34
+
 ---
+
+![fluent-python-logo](https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/fluent-python-logo.jpg)
+
 
 > 有很多人抱怨，把这个特性命名为“装饰器”不好。主要原因是，这个名称与 GoF 书使用的不一致。**装饰器**这个名称可能更适合在编译器领域使用，因为它会遍历并注解语法书。
 > —“PEP 318 — Decorators for Functions and Methods”
@@ -25,6 +29,8 @@ date: 2020-04-29 16:14:34
 * 实现行为良好的装饰器
 * 标准库中有用的装饰器
 * 实现一个参数化的装饰器
+
+<!--more-->
 
 ## 装饰器基础
 

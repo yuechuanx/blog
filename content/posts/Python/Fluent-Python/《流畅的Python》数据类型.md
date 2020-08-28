@@ -1,5 +1,5 @@
 ---
-title: 《流畅的Python》之数据类型
+title: 《流畅的Python》数据类型
 slug: fluent-python-data-types
 toc: true
 comments: true
@@ -9,7 +9,11 @@ categories:
   - Python
   - Fluent-Python
 date: 2019-12-11 14:21:56
+
 ---
+
+![fluent-python-logo](https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/fluent-python-logo.jpg)
+
 > Guido 对语言设计美学的深入理解让人震惊。我认识不少很不错的编程语言设计者，他们设计出来的东西确实很精彩，但是从来都不会有用户。Guido 知道如何在理论上做出一定妥协，设计出来的语言让使用者觉得如沐春风，这真是不可多得。  
 > ——Jim Hugunin  
 > Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师

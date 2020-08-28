@@ -11,7 +11,7 @@ categories:
 date: 2020-02-16 14:55:49
 ---
 
-
+![django-logo](https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/django-logo.png)
 
 > Django 项目本身可以通过 `django-admin` 或者直接运行 `python manage.py ARGS` 来进行脚手架生成。但是生成的项目框架层次不算太好。
 
