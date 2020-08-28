@@ -3,28 +3,53 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://yuechuanx.github.io/blog/tags/jenkins/</loc>
-    <lastmod>2020-08-27T16:51:42+08:00</lastmod>
+    <loc>https://yuechuanx.github.io/blog/categories/</loc>
+    <lastmod>2020-08-28T16:24:01+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuechuanx.github.io/blog/tags/docker/</loc>
+    <lastmod>2020-08-28T16:24:01+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://yuechuanx.github.io/blog/posts/</loc>
-    <lastmod>2020-08-27T16:51:42+08:00</lastmod>
+    <lastmod>2020-08-28T16:24:01+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuechuanx.github.io/blog/categories/python/</loc>
+    <lastmod>2020-08-28T16:24:01+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuechuanx.github.io/blog/tags/python/</loc>
+    <lastmod>2020-08-28T16:24:01+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://yuechuanx.github.io/blog/tags/</loc>
+    <lastmod>2020-08-28T16:24:01+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuechuanx.github.io/blog/posts/official-docker-python-image/</loc>
+    <lastmod>2020-08-28T16:24:01+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuechuanx.github.io/blog/</loc>
+    <lastmod>2020-08-28T16:24:01+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuechuanx.github.io/blog/tags/jenkins/</loc>
     <lastmod>2020-08-27T16:51:42+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://yuechuanx.github.io/blog/posts/migrate-jenkins-on-docker/</loc>
     <lastmod>2020-08-27T16:45:15+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://yuechuanx.github.io/blog/</loc>
-    <lastmod>2020-08-27T16:51:42+08:00</lastmod>
   </url>
   
   <url>
@@ -45,11 +70,6 @@
   <url>
     <loc>https://yuechuanx.github.io/blog/tags/array/</loc>
     <lastmod>2020-08-25T15:40:08+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://yuechuanx.github.io/blog/categories/</loc>
-    <lastmod>2020-08-27T16:41:05+08:00</lastmod>
   </url>
   
   <url>
@@ -128,11 +148,6 @@
   </url>
   
   <url>
-    <loc>https://yuechuanx.github.io/blog/tags/docker/</loc>
-    <lastmod>2020-08-25T15:40:08+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://yuechuanx.github.io/blog/categories/web/</loc>
     <lastmod>2020-08-25T15:40:08+08:00</lastmod>
   </url>
@@ -153,11 +168,6 @@
   </url>
   
   <url>
-    <loc>https://yuechuanx.github.io/blog/tags/python/</loc>
-    <lastmod>2020-08-27T16:41:05+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://yuechuanx.github.io/blog/tags/unittest/</loc>
     <lastmod>2020-08-25T15:40:08+08:00</lastmod>
   </url>
@@ -165,11 +175,6 @@
   <url>
     <loc>https://yuechuanx.github.io/blog/posts/practice-on-the-integration-of-jenkins-and-python-unittest/</loc>
     <lastmod>2020-08-25T15:40:08+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://yuechuanx.github.io/blog/categories/python/</loc>
-    <lastmod>2020-08-27T16:41:05+08:00</lastmod>
   </url>
   
   <url>
