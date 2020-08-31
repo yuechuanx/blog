@@ -56,7 +56,7 @@
         "@context": "https://schema.org",
         "@type": "WebSite",
         "datePublished": "1969-07-20T20:17:43+00:00",
-        "dateModified": "2020-08-28T16:46:24+08:00",
+        "dateModified": "2020-08-31T12:11:10+08:00",
         "url": "https://yuechuanx.github.io/",
         "description": "MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。",
         "image": "https://yuechuanx.github.io/icons/apple-touch-icon.png",
@@ -220,7 +220,7 @@
         
             <article class="content post home">
                 <h2 class="post-title">
-                    <a href="/blog/posts/official-docker-python-image/" class="summary-title-link">深入了解Python的官方Docker镜像</a>
+                    <a href="/blog/posts/python/official-docker-python-image/" class="summary-title-link">深入了解Python的官方Docker镜像</a>
                 </h2>
                 
                     
@@ -258,11 +258,11 @@
 
                 
                 <summary class="summary">
-                    翻译：A deep dive into the official Docker image for Python Docker的官方Python镜像非常流行，实际上，我建议将其变体之一作为基础镜像。但是许多人不太了解它的作用，这……
+                    翻译：A deep dive into the official Docker image for Python Docker的官方Python镜像非常流行，实际上，我建议将其变体之一作为基础镜像。但是许多人不太了解它的作用，这可能导致混乱和破裂。 因此，在这篇文章中，我将介绍它的构造方式，为什么有用，如何正确使用它以及它的局限性。特别是，我将通读截至2020年8月19日的python:……
                 </summary>
                 
                     <div class="read-more-container">
-                        <a href="/blog/posts/official-docker-python-image/" class="read-more-link">阅读更多 »</a>
+                        <a href="/blog/posts/python/official-docker-python-image/" class="read-more-link">阅读更多 »</a>
                     </div>
                 
             </article>
@@ -305,7 +305,7 @@
 
                 
                 <summary class="summary">
-                    Jenkins 天然程序和数据分离的属性，使得它能够容易的迁移与升级。 这次想把通过在 Host 上运行的 Jenkins 迁移到 docker 容器内。 备份 通过脚本打包 最简单的方式是将 Jenkins 的工作目……
+                    Jenkins 天然程序和数据分离的属性，使得它能够容易的迁移与升级。 这次想把通过在 Host 上运行的 Jenkins 迁移到 docker 容器内。 备份 通过脚本打包 最简单的方式是将 Jenkins 的工作目录打包。一般为 /var/jenkins_home，或者 /var/lib/jenkins。如果你的数据量相当小，请直接用 tar 打包。再直接迁移到需要重新部署的 Jenkins 工作目……
                 </summary>
                 
                     <div class="read-more-container">
@@ -405,7 +405,7 @@
 
                 
                 <summary class="summary">
-                    线性表相关 #Array LeetCode-p1 Two Sum Description: Given an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use the same element twice. Analysis: Brute-force HashMap Implements: Cpp 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15……
+                    线性表相关 #Array LeetCode-p1 Two Sum Description: Given an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use the same element twice. Analysis: Brute-force HashMap Implements: Cpp 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 // Brute-force Solution class Solution { public: vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) { vector&lt;int&gt; res; for(int i = 0; i &lt; nums.size(); ++i) { for(int j = i + 1; j &lt; nums.size(); ++j) { if(nums[j] == target - nums[i]) { res.push_back(i); res.push_back(j); return res; } } } return res; } }; Java 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24……
                 </summary>
                 
                     <div class="read-more-container">
@@ -454,7 +454,7 @@
 
                 
                 <summary class="summary">
-                    《Java核心技术》卷一 ：Chap14 并发 解释：多任务(Multitasking)，多线程(Multithreaded) 多进程和多线程区别？……
+                    《Java核心技术》卷一 ：Chap14 并发 解释：多任务(Multitasking)，多线程(Multithreaded) 多进程和多线程区别？ 线程执行一个任务的过程？ 如何定义一个线程？ 警告： 如何中断线程？ 线程有哪些状态？ 线程有哪些属性？ 为什么存在线程同步？ 因为存在竞争条件(race condition)……
                 </summary>
                 
                     <div class="read-more-container">
@@ -503,7 +503,7 @@
 
                 
                 <summary class="summary">
-                    APUE: File and Directory 文件类型 普通文件（regular file) 目录文件 块特殊文件 字符特殊文件 FIFO Socket 符号链接 用户 ID、组 ID 一般uid，gid 获取自登录项，并在登录会……
+                    APUE: File and Directory 文件类型 普通文件（regular file) 目录文件 块特殊文件 字符特殊文件 FIFO Socket 符号链接 用户 ID、组 ID 一般uid，gid 获取自登录项，并在登录会话期间不会改变。但超级用户进程可以改变它们 有效用户 ID，有效组 ID以及附属组 ID 决定了文件访问权限 每个文件有一个所有者和组所有者 文件访问权限 每个文件有 9 个访问权限……
                 </summary>
                 
                     <div class="read-more-container">
@@ -552,7 +552,7 @@
 
                 
                 <summary class="summary">
-                    APUE: STANDARD IO 流和 FILE 对象 标准 I/O 库操作围绕流（Stream ）进行。 标准输入、标准输出和标准错误 缓冲 STDIO 提供缓冲的目的是尽可能减少 read 和 write 调用次数，对每个 IO……
+                    APUE: STANDARD IO 流和 FILE 对象 标准 I/O 库操作围绕流（Stream ）进行。 标准输入、标准输出和标准错误 缓冲 STDIO 提供缓冲的目的是尽可能减少 read 和 write 调用次数，对每个 IO 流自动进行缓冲管理。 提供以下类型的缓冲： 全缓冲：填满缓冲区后再进行 IO 操作 行缓冲：输入和输出中遇到换行符执行 IO 操作 无缓冲：立即执行 ISO C 要求缓冲特征： 当且仅当标准输……
                 </summary>
                 
                     <div class="read-more-container">
@@ -601,7 +601,7 @@
 
                 
                 <summary class="summary">
-                    配置完全命令行环境指南 获取帮助信息 man man ascii man unicode|utf-8|latin1 help ##文件与目录 bat：更好的 cat cloc：计算代码行数，比 wc 更强大 file: 文件类型查看 find：强大的……
+                    配置完全命令行环境指南 获取帮助信息 man man ascii man unicode|utf-8|latin1 help ##文件与目录 bat：更好的 cat cloc：计算代码行数，比 wc 更强大 file: 文件类型查看 find：强大的查找工具 head/tail：查看文件首部/尾部，查看/etc 下的配置文件的利器 locate：文件查找，基于内置数据库 less：更强大的 more lsd：更好看的 ls ran……
                 </summary>
                 
                     <div class="read-more-container">
@@ -693,7 +693,7 @@
 
                 
                 <summary class="summary">
-                    Jenkins Testlink Plugin 源码笔记 需求 Testlink 的 testcase 可以通过 Jenkins 去执行，当 Jenkins job 执行完之后，可以将执行结果保存到 Testlink 中。 jenkins 中 testlink plugin 仅仅可以在 freestyle 项目类型中使用，但目前大多数的 job 已……
+                    Jenkins Testlink Plugin 源码笔记 需求 Testlink 的 testcase 可以通过 Jenkins 去执行，当 Jenkins job 执行完之后，可以将执行结果保存到 Testlink 中。 jenkins 中 testlink plugin 仅仅可以在 freestyle 项目类型中使用，但目前大多数的 job 已经转移到 pipeline 类型，所以 testlink plugin 支持 pipeline 是一个自然的需要。 思路 首先查到官方 Testlink-plugin 的 repo https://github.com/jenkinsci/testlink-plugin pull 到本地查看一下项目结构 1 2 3 4 5 6 7 8 9 10 ├── pom.xml ├── src │ ├── main │ │ ├── java │ │ ├……
                 </summary>
                 
                     <div class="read-more-container">

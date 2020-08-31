@@ -23,15 +23,15 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
         
-        <lastBuildDate>Fri, 28 Aug 2020 16:46:48 &#43;0800</lastBuildDate>
+        <lastBuildDate>Mon, 31 Aug 2020 12:19:11 &#43;0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://yuechuanx.github.io/blog/rss.xml" />
         
         
             <item>
                 <title>深入了解Python的官方Docker镜像</title>
-                <link>https://yuechuanx.github.io/blog/posts/official-docker-python-image/</link>
-                <guid isPermaLink="true">https://yuechuanx.github.io/blog/posts/official-docker-python-image/</guid>
+                <link>https://yuechuanx.github.io/blog/posts/python/official-docker-python-image/</link>
+                <guid isPermaLink="true">https://yuechuanx.github.io/blog/posts/python/official-docker-python-image/</guid>
                 <pubDate>Fri, 28 Aug 2020 15:56:07 &#43;0800</pubDate>
                 
                     <author>xiaoyuechuan@gmail.com (YueChuan)</author>
@@ -2682,7 +2682,7 @@ apt-get install -y kubelet kubeadm kubectl
                 
                 <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
                 
-                    <description>&lt;h1 id=&#34;阅读-python-源码collectionsabc&#34;&gt;阅读 Python 源码：collections.abc&lt;/h1&gt;
+                    <description>&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/python-logo.png&#34; alt=&#34;python-logo&#34;&gt;&lt;/p&gt;
 &lt;p&gt;ABC(Abstract Base Class) 抽象基类。&lt;/p&gt;
 &lt;p&gt;要了解为什么 Python 要设计这个，需要先了解到几个概念。&lt;/p&gt;
 &lt;ol&gt;
@@ -6118,7 +6118,8 @@ diagnostics:
                 
                 <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
                 
-                    <description>&lt;blockquote&gt;
+                    <description>&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/fluent-python-logo.jpg&#34; alt=&#34;fluent-python-logo&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
 &lt;p&gt;当我在自己的程序中发现用到了模式，我觉得这就表明某个地方出错了。程序的形式应该仅仅反映它所要解决的问题。代码中其他任何外加的形式都是一个信号，（至少对我来说）表明我对问题的抽象还不够深——这通常意味着自己正在手动完成事情，本应该通过写代码来让宏的扩展自动实现。&lt;/p&gt;
 &lt;p&gt;——Paul Graham, Lisp 黑客和风险投资人&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -7121,7 +7122,8 @@ interact
                 
                 <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
                 
-                    <description>&lt;blockquote&gt;
+                    <description>&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/fluent-python-logo.jpg&#34; alt=&#34;fluent-python-logo&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
 &lt;p&gt;抽象类表示接口。&lt;br&gt;
 ——Bjarne Stroustrup, C++ 之父&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -7494,7 +7496,6 @@ interact
 &lt;/ul&gt;
 &lt;p&gt;在这份指引中，我们尝试对这些问题做出确定的回答。&lt;/p&gt;
 &lt;!-- more --&gt;
-&lt;!-- toc --&gt;
 &lt;h2 id=&#34;简而言之&#34;&gt;简而言之&lt;/h2&gt;
 &lt;p&gt;大致按照列出的顺序，借助我们所建议的教材或者视频课程（但是最好二者兼用），学习如下的九门科目。目标是先花100到200个小时学习完每一个科目，然后在你职业生涯中，不时温习其中的精髓🚀。&lt;/p&gt;
 &lt;table&gt;
@@ -9991,7 +9992,8 @@ $++++++$++++++++++$++++++++++$++++++++++++$
                 
                 <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
                 
-                    <description>&lt;blockquote&gt;
+                    <description>&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/fluent-python-logo.jpg&#34; alt=&#34;fluent-python-logo&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
 &lt;p&gt;不管别人怎么说或怎么想，我从未觉得 Python 受到来自函数式语言的太多影响。我非常熟悉命令式语言，如 C 和 Algol 68，虽然我把函数定为一等对象，但是我并不把 Python 当作函数式编程语言。&lt;br&gt;
 —— Guido van Rossum: Python 仁慈的独裁者&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -10727,8 +10729,7 @@ $++++++$++++++++++$++++++++++$++++++++++++$
 &lt;p&gt;高阶函数是函数式编程的重要组成。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Python&lt;/code&gt; 的可调用对象: 7种&lt;/p&gt;
 &lt;p&gt;函数及其注解有丰富的特性。可通过 &lt;code&gt;inspect&lt;/code&gt; 模块读取&lt;/p&gt;
-&lt;p&gt;最后介绍了 &lt;code&gt;operator&lt;/code&gt; 模块中的一些函数，可以替换掉功能有限的 &lt;em&gt;lambda&lt;/em&gt; 表达式。&lt;/p&gt;
-</description>
+&lt;p&gt;最后介绍了 &lt;code&gt;operator&lt;/code&gt; 模块中的一些函数，可以替换掉功能有限的 &lt;em&gt;lambda&lt;/em&gt; 表达式。&lt;/p&gt;</description>
                 
                 
                 
@@ -10774,7 +10775,8 @@ $++++++$++++++++++$++++++++++$++++++++++++$
                 
                 <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
                 
-                    <description>&lt;p&gt;Beautiful is better than ugly. （优美比丑陋好）&lt;/p&gt;
+                    <description>&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/python-logo.png&#34; alt=&#34;python-logo&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Beautiful is better than ugly. （优美比丑陋好）&lt;/p&gt;
 &lt;p&gt;Explicit is better than implicit.（清晰比晦涩好）&lt;/p&gt;
 &lt;p&gt;Simple is better than complex.（简单比复杂好）&lt;/p&gt;
 &lt;p&gt;Complex is better than complicated.（复杂比错综复杂好）&lt;/p&gt;
@@ -11228,7 +11230,8 @@ Output the contents of the database as a fixture of the given format &lt;span cl
                 
                 <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
                 
-                    <description>&lt;p&gt;以下所有内容包含在官方 PEP(Python Enhancement Proposals) 链接为 [pep8][https://www.python.org/dev/peps/pep-0008/]&lt;/p&gt;
+                    <description>&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/python-logo.png&#34; alt=&#34;python-logo&#34;&gt;&lt;/p&gt;
+&lt;p&gt;以下所有内容包含在官方 PEP(Python Enhancement Proposals) 链接为 [pep8][https://www.python.org/dev/peps/pep-0008/]&lt;/p&gt;
 &lt;h2 id=&#34;简要版本&#34;&gt;简要版本&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;

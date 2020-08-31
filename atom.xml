@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">过往皆为序章</title>
     <subtitle type="html">MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</subtitle>
-    <updated>2020-08-28T16:46:48&#43;08:00</updated>
+    <updated>2020-08-31T12:19:11&#43;08:00</updated>
     <id>https://yuechuanx.github.io/blog/</id>
     <link rel="alternate" type="text/html" href="https://yuechuanx.github.io/blog/" />
     <link rel="self" type="application/atom&#43;xml" href="https://yuechuanx.github.io/blog/atom.xml" />
@@ -18,8 +18,8 @@
     <generator uri="https://gohugo.io/" version="0.74.2">Hugo</generator>
         <entry>
             <title type="text">深入了解Python的官方Docker镜像</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.github.io/blog/posts/official-docker-python-image/" />
-            <id>https://yuechuanx.github.io/blog/posts/official-docker-python-image/</id>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.github.io/blog/posts/python/official-docker-python-image/" />
+            <id>https://yuechuanx.github.io/blog/posts/python/official-docker-python-image/</id>
             <updated>2020-08-28T16:24:01&#43;08:00</updated>
             <published>2020-08-28T15:56:07&#43;08:00</published>
             <author>
@@ -27,7 +27,7 @@
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">翻译：A deep dive into the official Docker image for Python Docker的官方Python镜像非常流行，实际上，我建议将其变体之一作为基础镜像。但是许多人不太了解它的作用，这……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">翻译：A deep dive into the official Docker image for Python Docker的官方Python镜像非常流行，实际上，我建议将其变体之一作为基础镜像。但是许多人不太了解它的作用，这可能导致混乱和破裂。 因此，在这篇文章中，我将介绍它的构造方式，为什么有用，如何正确使用它以及它的局限性。特别是，我将通读截至2020年8月19日的python:……</summary>
             
                 <content type="html">&lt;blockquote&gt;
 &lt;p&gt;翻译：&lt;a href=&#34;https://pythonspeed.com/articles/official-python-docker-image/&#34;&gt;A deep dive into the official Docker image for Python&lt;/a&gt;&lt;/p&gt;
@@ -486,7 +486,7 @@ root@280c9b73e8f9:/#
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Jenkins 天然程序和数据分离的属性，使得它能够容易的迁移与升级。 这次想把通过在 Host 上运行的 Jenkins 迁移到 docker 容器内。 备份 通过脚本打包 最简单的方式是将 Jenkins 的工作目……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Jenkins 天然程序和数据分离的属性，使得它能够容易的迁移与升级。 这次想把通过在 Host 上运行的 Jenkins 迁移到 docker 容器内。 备份 通过脚本打包 最简单的方式是将 Jenkins 的工作目录打包。一般为 /var/jenkins_home，或者 /var/lib/jenkins。如果你的数据量相当小，请直接用 tar 打包。再直接迁移到需要重新部署的 Jenkins 工作目……</summary>
             
                 <content type="html">&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/logo-jenkins.png&#34; alt=&#34;jenkins-logo&#34;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
@@ -936,7 +936,7 @@ Get more about jenkinsfile runner from &lt;a href=&#34;https://github.com/jenkin
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">线性表相关 #Array LeetCode-p1 Two Sum Description: Given an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use the same element twice. Analysis: Brute-force HashMap Implements: Cpp 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">线性表相关 #Array LeetCode-p1 Two Sum Description: Given an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use the same element twice. Analysis: Brute-force HashMap Implements: Cpp 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 // Brute-force Solution class Solution { public: vector&amp;lt;int&amp;gt; twoSum(vector&amp;lt;int&amp;gt;&amp;amp; nums, int target) { vector&amp;lt;int&amp;gt; res; for(int i = 0; i &amp;lt; nums.size(); ++i) { for(int j = i + 1; j &amp;lt; nums.size(); ++j) { if(nums[j] == target - nums[i]) { res.push_back(i); res.push_back(j); return res; } } } return res; } }; Java 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24……</summary>
             
                 <content type="html">&lt;h1 id=&#34;线性表相关&#34;&gt;线性表相关&lt;/h1&gt;
 &lt;p&gt;#Array&lt;/p&gt;
@@ -1524,7 +1524,7 @@ Your function should return length = 2, and A is now [1,2].&lt;/p&gt;
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">《Java核心技术》卷一 ：Chap14 并发 解释：多任务(Multitasking)，多线程(Multithreaded) 多进程和多线程区别？……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">《Java核心技术》卷一 ：Chap14 并发 解释：多任务(Multitasking)，多线程(Multithreaded) 多进程和多线程区别？ 线程执行一个任务的过程？ 如何定义一个线程？ 警告： 如何中断线程？ 线程有哪些状态？ 线程有哪些属性？ 为什么存在线程同步？ 因为存在竞争条件(race condition)……</summary>
             
                 <content type="html">&lt;h1 id=&#34;java核心技术卷一-chap14-并发&#34;&gt;《Java核心技术》卷一 ：Chap14 并发&lt;/h1&gt;
 &lt;ol&gt;
@@ -1600,7 +1600,7 @@ Your function should return length = 2, and A is now [1,2].&lt;/p&gt;
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">APUE: File and Directory 文件类型 普通文件（regular file) 目录文件 块特殊文件 字符特殊文件 FIFO Socket 符号链接 用户 ID、组 ID 一般uid，gid 获取自登录项，并在登录会……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">APUE: File and Directory 文件类型 普通文件（regular file) 目录文件 块特殊文件 字符特殊文件 FIFO Socket 符号链接 用户 ID、组 ID 一般uid，gid 获取自登录项，并在登录会话期间不会改变。但超级用户进程可以改变它们 有效用户 ID，有效组 ID以及附属组 ID 决定了文件访问权限 每个文件有一个所有者和组所有者 文件访问权限 每个文件有 9 个访问权限……</summary>
             
                 <content type="html">&lt;h1 id=&#34;apue-file-and-directory&#34;&gt;APUE: File and Directory&lt;/h1&gt;
 &lt;h2 id=&#34;文件类型&#34;&gt;文件类型&lt;/h2&gt;
@@ -1699,7 +1699,7 @@ Your function should return length = 2, and A is now [1,2].&lt;/p&gt;
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">APUE: STANDARD IO 流和 FILE 对象 标准 I/O 库操作围绕流（Stream ）进行。 标准输入、标准输出和标准错误 缓冲 STDIO 提供缓冲的目的是尽可能减少 read 和 write 调用次数，对每个 IO……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">APUE: STANDARD IO 流和 FILE 对象 标准 I/O 库操作围绕流（Stream ）进行。 标准输入、标准输出和标准错误 缓冲 STDIO 提供缓冲的目的是尽可能减少 read 和 write 调用次数，对每个 IO 流自动进行缓冲管理。 提供以下类型的缓冲： 全缓冲：填满缓冲区后再进行 IO 操作 行缓冲：输入和输出中遇到换行符执行 IO 操作 无缓冲：立即执行 ISO C 要求缓冲特征： 当且仅当标准输……</summary>
             
                 <content type="html">&lt;h1 id=&#34;apue-standard-io&#34;&gt;APUE: STANDARD IO&lt;/h1&gt;
 &lt;h2 id=&#34;流和-file-对象&#34;&gt;流和 FILE 对象&lt;/h2&gt;
@@ -1783,7 +1783,7 @@ Your function should return length = 2, and A is now [1,2].&lt;/p&gt;
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">配置完全命令行环境指南 获取帮助信息 man man ascii man unicode|utf-8|latin1 help ##文件与目录 bat：更好的 cat cloc：计算代码行数，比 wc 更强大 file: 文件类型查看 find：强大的……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">配置完全命令行环境指南 获取帮助信息 man man ascii man unicode|utf-8|latin1 help ##文件与目录 bat：更好的 cat cloc：计算代码行数，比 wc 更强大 file: 文件类型查看 find：强大的查找工具 head/tail：查看文件首部/尾部，查看/etc 下的配置文件的利器 locate：文件查找，基于内置数据库 less：更强大的 more lsd：更好看的 ls ran……</summary>
             
                 <content type="html">&lt;h1 id=&#34;配置完全命令行环境指南&#34;&gt;配置完全命令行环境指南&lt;/h1&gt;
 &lt;h2 id=&#34;获取帮助信息&#34;&gt;获取帮助信息&lt;/h2&gt;
@@ -2031,7 +2031,7 @@ Your function should return length = 2, and A is now [1,2].&lt;/p&gt;
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Jenkins Testlink Plugin 源码笔记 需求 Testlink 的 testcase 可以通过 Jenkins 去执行，当 Jenkins job 执行完之后，可以将执行结果保存到 Testlink 中。 jenkins 中 testlink plugin 仅仅可以在 freestyle 项目类型中使用，但目前大多数的 job 已……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Jenkins Testlink Plugin 源码笔记 需求 Testlink 的 testcase 可以通过 Jenkins 去执行，当 Jenkins job 执行完之后，可以将执行结果保存到 Testlink 中。 jenkins 中 testlink plugin 仅仅可以在 freestyle 项目类型中使用，但目前大多数的 job 已经转移到 pipeline 类型，所以 testlink plugin 支持 pipeline 是一个自然的需要。 思路 首先查到官方 Testlink-plugin 的 repo https://github.com/jenkinsci/testlink-plugin pull 到本地查看一下项目结构 1 2 3 4 5 6 7 8 9 10 ├── pom.xml ├── src │ ├── main │ │ ├── java │ │ ├……</summary>
             
                 <content type="html">&lt;h1 id=&#34;jenkins-testlink-plugin-源码笔记&#34;&gt;Jenkins Testlink Plugin 源码笔记&lt;/h1&gt;
 &lt;h2 id=&#34;需求&#34;&gt;需求&lt;/h2&gt;
@@ -2332,7 +2332,7 @@ Your function should return length = 2, and A is now [1,2].&lt;/p&gt;
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Jenkins 服务无法启动排错指北 问题定位 start service: service jenkins start then check service status: service jenkins status for detail log info: journalctl -xe -u jenkins.service 常见原因 端口争用 如果 jenkins 服务端口在 8080，可以查看 8080 端口是否被其他服务……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Jenkins 服务无法启动排错指北 问题定位 start service: service jenkins start then check service status: service jenkins status for detail log info: journalctl -xe -u jenkins.service 常见原因 端口争用 如果 jenkins 服务端口在 8080，可以查看 8080 端口是否被其他服务所占用 sudo lsof -i:8080 假设是被一个叫 http-alt 的服务占用了，接下来把 8080 端口的服务 kill 掉 sudo htop 这里加 sudo 是为了为 htop 里面 kill 赋予 root 权限 /http-alt 查找到服务，可能有多行，摁下 F5 sort 下，找到父进程 再摁下 F9……</summary>
             
                 <content type="html">&lt;h1 id=&#34;jenkins-服务无法启动排错指北&#34;&gt;Jenkins 服务无法启动排错指北&lt;/h1&gt;
 &lt;h2 id=&#34;问题定位&#34;&gt;问题定位&lt;/h2&gt;
@@ -2385,7 +2385,7 @@ Your function should return length = 2, and A is now [1,2].&lt;/p&gt;
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">k8s 环境搭建 Intro 关于组织主题，活动相关介绍 前期准备 硬件要求 master节点 内存2核3G(最小2G) node节点 内存2核2G 其中可以 搭建过程 配置 etc/host……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">k8s 环境搭建 Intro 关于组织主题，活动相关介绍 前期准备 硬件要求 master节点 内存2核3G(最小2G) node节点 内存2核2G 其中可以 搭建过程 配置 etc/host 1 2 3 172.19.0.21 debian-21 172.19.0.22 debian-22 172.19.0.23 debian-23 配置 ssh apt install openssh-server vim /etc/ssh/sshd_config PermitRootLogin yes 开启 ipv4 的 forward机制 1 2 3 vim /etc/sysctl.conf net.ipv4.ip_forward=1 sysctl --system 关闭 swap swapoff -a 安装 runtime （每个节点都需要安装） 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 apt install……</summary>
             
                 <content type="html">&lt;h1 id=&#34;k8s-环境搭建&#34;&gt;k8s 环境搭建&lt;/h1&gt;
 &lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
@@ -2652,7 +2652,7 @@ apt-get install -y kubelet kubeadm kubectl
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">关于 Jenkins 与 Python Unittest 集成的实践 问题场景 unittest 在 python 中得到了很好的支持， Jenkins 作为自动化工具，可以根据 DSL 写出的 job 自动进行调度与执行。 这里将把两者结合起来，自动执……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">关于 Jenkins 与 Python Unittest 集成的实践 问题场景 unittest 在 python 中得到了很好的支持， Jenkins 作为自动化工具，可以根据 DSL 写出的 job 自动进行调度与执行。 这里将把两者结合起来，自动执行单元测试。 环境搭建 install jenkins by docker make jenkins node have python python lib: xmlrunnser jenkins plugins 构建过程 Pipeline Python TestCasae 测试结果与报告</summary>
             
                 <content type="html">&lt;h1 id=&#34;关于-jenkins-与-python-unittest-集成的实践&#34;&gt;关于 Jenkins 与 Python Unittest 集成的实践&lt;/h1&gt;
 &lt;h2 id=&#34;问题场景&#34;&gt;问题场景&lt;/h2&gt;
@@ -2707,16 +2707,16 @@ apt-get install -y kubelet kubeadm kubectl
             <title type="text">阅读 Python 源码：collections.abc</title>
             <link rel="alternate" type="text/html" href="https://yuechuanx.github.io/blog/posts/python/pythonpython-source-code-collectionsabc/" />
             <id>https://yuechuanx.github.io/blog/posts/python/pythonpython-source-code-collectionsabc/</id>
-            <updated>2020-08-25T15:40:08&#43;08:00</updated>
+            <updated>2020-08-31T12:08:04&#43;08:00</updated>
             <published>2020-08-13T16:38:01&#43;00:00</published>
             <author>
                     <name>YueChuan</name>
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">阅读 Python 源码：collections.abc ABC(Abstract Base Class) 抽象基类。 要了解为什么 Python 要设计这个，需要先了解到几个概念。 鸭子类型 接口协议 继承 与 collections.abc 相关的有两……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">ABC(Abstract Base Class) 抽象基类。 要了解为什么 Python 要设计这个，需要先了解到几个概念。 鸭子类型 接口协议 继承 与 collections.abc 相关的有两个文件： abc.py _collections_abc.py 其中 abc.py 定义了 ABCMeta 和 ABC 类，和一些装饰器： 函数装饰器：abstractmethod 装饰器类：abstractclassmethod，abstractstaticmethod，abstractpro……</summary>
             
-                <content type="html">&lt;h1 id=&#34;阅读-python-源码collectionsabc&#34;&gt;阅读 Python 源码：collections.abc&lt;/h1&gt;
+                <content type="html">&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/python-logo.png&#34; alt=&#34;python-logo&#34;&gt;&lt;/p&gt;
 &lt;p&gt;ABC(Abstract Base Class) 抽象基类。&lt;/p&gt;
 &lt;p&gt;要了解为什么 Python 要设计这个，需要先了解到几个概念。&lt;/p&gt;
 &lt;ol&gt;
@@ -2861,7 +2861,7 @@ apt-get install -y kubelet kubeadm kubectl
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">用 Python 实现 LAN 扫描工具 树莓派没装 GUI，插上网线后找不到 IP 当然有很多种方法可以解决这个场景 arp -a 可以查看所在局域网里所有的设备 IP 与 MAC nmap 如果在 Mac 情况……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">用 Python 实现 LAN 扫描工具 树莓派没装 GUI，插上网线后找不到 IP 当然有很多种方法可以解决这个场景 arp -a 可以查看所在局域网里所有的设备 IP 与 MAC nmap 如果在 Mac 情况下，可以通过 APPStore 下载 LANScan 这里写一个简单的 python 脚本来达到相似的效果。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50……</summary>
             
                 <content type="html">&lt;h1 id=&#34;用-python-实现-lan-扫描工具&#34;&gt;用 Python 实现 LAN 扫描工具&lt;/h1&gt;
 &lt;blockquote&gt;
@@ -3051,7 +3051,7 @@ apt-get install -y kubelet kubeadm kubectl
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">本次 share 介绍如何写出更 pythonic 的 python 代码。 从两个方面切入: 第一个方面是介绍 python 的代码风格规范，以目前实践中事实规范 pep8 为标准。 第二个方面是介绍 python 的一些语言……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">本次 share 介绍如何写出更 pythonic 的 python 代码。 从两个方面切入: 第一个方面是介绍 python 的代码风格规范，以目前实践中事实规范 pep8 为标准。 第二个方面是介绍 python 的一些语言特性，如何利用这些特写编写更优雅的 python 代码 [toc] 1. PEP 8: Style Guide for Python Code 以下所有内容包含在官方 PEP(Python Enhancement Proposals) 链接为 [pep8][https://www.python.org/dev/peps/pep-0008/] 简要版本 代码编排 缩进。4个空格的缩进（编辑器都可以完成此功能），不……</summary>
             
                 <content type="html">&lt;p&gt;本次 share 介绍如何写出更 pythonic 的 python 代码。&lt;/p&gt;
 &lt;p&gt;从两个方面切入:&lt;/p&gt;
@@ -4105,7 +4105,7 @@ haystack -&amp;gt;  1  4  5  6  8 12 15 20 21 23 23 26 29 30
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">使用 Unittest 组织 TestCase 的工程结构 单文件的 TestCase 很容易被执行，只需用执行命令 python test_xxx.py。 随着 TestCase 的增多，我们可能面对这样的情况： 执行多个 TestCase 作为一……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">使用 Unittest 组织 TestCase 的工程结构 单文件的 TestCase 很容易被执行，只需用执行命令 python test_xxx.py。 随着 TestCase 的增多，我们可能面对这样的情况： 执行多个 TestCase 作为一组被执行 指定某一些 TestCase 执行 此时我们需要把 TestCase 按照一定层次结构组织。 环境 Python 3+ TestLoader 在 import unittest 时，会自动导入 TestLoader 类，在类中封装了 5 中组织 TestCase 的方法。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16……</summary>
             
                 <content type="html">&lt;h1 id=&#34;使用-unittest-组织-testcase-的工程结构&#34;&gt;使用 Unittest 组织 TestCase 的工程结构&lt;/h1&gt;
 &lt;p&gt;单文件的 TestCase 很容易被执行，只需用执行命令 &lt;code&gt;python test_xxx.py&lt;/code&gt;。&lt;/p&gt;
@@ -4616,7 +4616,7 @@ haystack -&amp;gt;  1  4  5  6  8 12 15 20 21 23 23 26 29 30
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">使用 Bash严格模式 原文链接：Use Bash Strict Mode (Unless You Love Debugging) 翻译：YueChuan 在 Unix/Linux 环境很难避免与 Bash 脚本打交道，一份高质量，可靠且可维护的 Bash 脚本应该……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">使用 Bash严格模式 原文链接：Use Bash Strict Mode (Unless You Love Debugging) 翻译：YueChuan 在 Unix/Linux 环境很难避免与 Bash 脚本打交道，一份高质量，可靠且可维护的 Bash 脚本应该怎么写？ 本文将提供一些技巧帮助你解决这些问题... 让我们开门见山，直接上 PUNCHLINE。 如果你的 Bash 脚本以这段代码开始，它们将变得更加健壮，可靠和可维护： 1 2……</summary>
             
                 <content type="html">&lt;h1 id=&#34;使用-bash严格模式&#34;&gt;使用 Bash严格模式&lt;/h1&gt;
 &lt;blockquote&gt;
@@ -5316,7 +5316,7 @@ _OLD_VIRTUAL_PYTHONHOME：未绑定变量
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">之前介绍过 Expect 作为处理程序交互工具的使用。 结合串口命令以及 Expect 读取输入输出，针对一些具有固定流程而且能通过输出判断命令执行情况的测试用例，可以实……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">之前介绍过 Expect 作为处理程序交互工具的使用。 结合串口命令以及 Expect 读取输入输出，针对一些具有固定流程而且能通过输出判断命令执行情况的测试用例，可以实现基于串口的测试自动化。 问题 在使用串口调试过程中，需要手动输入执行命令，交互性输入，以及等待执行结果。基本所有的信息都在 tty 中串行的进行显示。痛点有下面几个 重复命……</summary>
             
                 <content type="html">&lt;blockquote&gt;
 &lt;p&gt;之前介绍过 Expect 作为处理程序交互工具的使用。&lt;/p&gt;
@@ -5613,7 +5613,7 @@ expect eof
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Linux如何查找大文件或目录总结 转载自: https://www.cnblogs.com/kerrycode/p/4391859.html 在Windows系统中，我们可以使用 TreeSize 工具查找一些大文件或文件夹，非常的方便高效. 在Linux系……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Linux如何查找大文件或目录总结 转载自: https://www.cnblogs.com/kerrycode/p/4391859.html 在Windows系统中，我们可以使用 TreeSize 工具查找一些大文件或文件夹，非常的方便高效. 在Linux系统中，如何去搜索一些比较大的文件呢？下面我整理了一下在Linux系统中如何查找大文件或文件夹的方法。 如何查找大文件？ 其实很多时候，你需要了解当前系统下有哪些大文……</summary>
             
                 <content type="html">&lt;h1 id=&#34;linux如何查找大文件或目录总结&#34;&gt;Linux如何查找大文件或目录总结&lt;/h1&gt;
 &lt;blockquote&gt;
@@ -5748,7 +5748,7 @@ expect eof
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">通过 pySerial 连接串口 pySerial 是一个 Python 模块。该模块封装了对串行端口的访问。 它提供了在Windows，OSX，Linux，BSD（可能是任何POSIX兼容系……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">通过 pySerial 连接串口 pySerial 是一个 Python 模块。该模块封装了对串行端口的访问。 它提供了在Windows，OSX，Linux，BSD（可能是任何POSIX兼容系统）和IronPython上运行的Python的后端。名为 “serial” 的模块会自动选择适当的后端。 简而言之，pySerial 提供了通过 Python 代码连接串口设备的功……</summary>
             
                 <content type="html">&lt;h1 id=&#34;通过-pyserial-连接串口&#34;&gt;通过 pySerial 连接串口&lt;/h1&gt;
 &lt;blockquote&gt;
@@ -6119,7 +6119,7 @@ diagnostics:
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">基于 Pexpect 在开发板执行 TestCase 问题场景 在大多数嵌入式工程环境下，我们通过串口或者网口连接开发板，进行测试或调试。 带有固定步骤，且可通过输出判断执行结果……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">基于 Pexpect 在开发板执行 TestCase 问题场景 在大多数嵌入式工程环境下，我们通过串口或者网口连接开发板，进行测试或调试。 带有固定步骤，且可通过输出判断执行结果的 TestCase，可以将其转为自动化测试。 通过 ssh 连接开发板，测试用例可以是 Expect 脚本，或者为了方便生成测试报告，使用 Python Unittest 框架。可以通过 Pexpect （Expect 的 Python 实现）来……</summary>
             
                 <content type="html">&lt;h1 id=&#34;基于-pexpect-在开发板执行-testcase&#34;&gt;基于 Pexpect 在开发板执行 TestCase&lt;/h1&gt;
 &lt;h2 id=&#34;问题场景&#34;&gt;问题场景&lt;/h2&gt;
@@ -6170,16 +6170,26 @@ diagnostics:
             <title type="text">《流畅的Python》可迭代的对象、迭代器和生成器</title>
             <link rel="alternate" type="text/html" href="https://yuechuanx.github.io/blog/posts/python/fluent-python/fluent-python-iterable-objects-iterators-and-generators/" />
             <id>https://yuechuanx.github.io/blog/posts/python/fluent-python/fluent-python-iterable-objects-iterators-and-generators/</id>
-            <updated>2020-08-25T15:40:08&#43;08:00</updated>
+            <updated>2020-08-31T12:05:15&#43;08:00</updated>
             <published>2020-07-22T16:25:04&#43;00:00</published>
             <author>
                     <name>YueChuan</name>
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">当我在自己的程序中发现用到了模式，我觉得这就表明某个地方出错了。程序的形式应该仅仅反映它所要解决的问题。代码中其他任何外加的形式都是一个信号……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/fluent-python-logo.jpg&#34; alt=&#34;fluent-python-logo&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;当我在自己的程序中发现用到了模式，我觉得这就表明某个地方出错了。程序的形式应该仅仅反映它所要解决的问题。代码中其他任何外加的形式都是一个信号，（至少对我来说）表明我对问题的抽象还不够深——这通常意味着自己正在手动完成事情，本应该通过写代码来让宏的扩展自动实现。&lt;/p&gt;
+&lt;p&gt;——Paul Graham, Lisp 黑客和风险投资人&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Python 内置了迭代器模式，用于进行&lt;strong&gt;惰性运算&lt;/strong&gt;，按需求一次获取一个数据项，避免不必要的提前计算。&lt;/p&gt;
+&lt;p&gt;迭代器在 Python 中并不是一个具体类型的对象，更多地使指一个具体&lt;strong&gt;协议&lt;/strong&gt;。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;所有的生成器都是迭代器。它们都实现了迭代器接口，区别于迭代器用于从集合中取出元素，生成器用来生成元素。&lt;/li&gt;
+&lt;/ul&gt;……</summary>
             
-                <content type="html">&lt;blockquote&gt;
+                <content type="html">&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/fluent-python-logo.jpg&#34; alt=&#34;fluent-python-logo&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
 &lt;p&gt;当我在自己的程序中发现用到了模式，我觉得这就表明某个地方出错了。程序的形式应该仅仅反映它所要解决的问题。代码中其他任何外加的形式都是一个信号，（至少对我来说）表明我对问题的抽象还不够深——这通常意味着自己正在手动完成事情，本应该通过写代码来让宏的扩展自动实现。&lt;/p&gt;
 &lt;p&gt;——Paul Graham, Lisp 黑客和风险投资人&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -6571,7 +6581,7 @@ diagnostics:
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">文章转载自： https://hanjianwei.com/2013/07/25/python-mro/ 什么是MRO 对于支持继承的编程语言来说，其方法（属性）可能定义在当前类，也可能来自于基类，所以在方法调用时就需要对当前类和基类……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">文章转载自： https://hanjianwei.com/2013/07/25/python-mro/ 什么是MRO 对于支持继承的编程语言来说，其方法（属性）可能定义在当前类，也可能来自于基类，所以在方法调用时就需要对当前类和基类进行搜索以确定方法所在的位置。 而搜索的顺序就是所谓的「方法解析顺序」（Method Resolution Order，或MRO）。对于只支持单继承的语言来说，MRO 一般比较简单；而对……</summary>
             
                 <content type="html">&lt;blockquote&gt;
 &lt;p&gt;文章转载自：&lt;/p&gt;
@@ -6894,7 +6904,7 @@ L[A] = [A] + merge(L[B], L[C], [B], [C])
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">用 Expect 处理命令行程序交互 shell 把程序交互的特性留给了用户，这意味着有些程序，不能脱离用户输入。比如 passwd 命令。 expect 能够调用其他 unix 程序，处理交互操作。 Expect 脚……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">用 Expect 处理命令行程序交互 shell 把程序交互的特性留给了用户，这意味着有些程序，不能脱离用户输入。比如 passwd 命令。 expect 能够调用其他 unix 程序，处理交互操作。 Expect 脚本登录 SSH 先看一个通过 expect 脚本 SSH 到远程主机的示例： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 #!/usr/bin/expect set host &amp;#34;192.168.199.231&amp;#34; set user &amp;#34;xiao&amp;#34; set password &amp;#34;xiao&amp;#34; spawn ssh &amp;#39;$user@$host&amp;#39; expect { &amp;#34;*(yes/no)?&amp;#34; { send &amp;#34;yes\r&amp;#34; exp_continue } &amp;#34;*password:&amp;#34; { send &amp;#34;$password\r&amp;#34; } timeout { puts &amp;#34;timed out&amp;#34;,exit } } interact 这……</summary>
             
                 <content type="html">&lt;h1 id=&#34;用-expect-处理命令行程序交互&#34;&gt;用 Expect 处理命令行程序交互&lt;/h1&gt;
 &lt;p&gt;shell 把程序交互的特性留给了用户，这意味着有些程序，不能脱离用户输入。比如 passwd 命令。&lt;/p&gt;
@@ -7182,16 +7192,44 @@ interact
             <title type="text">《流畅的Python》接口之从协议到抽象基类</title>
             <link rel="alternate" type="text/html" href="https://yuechuanx.github.io/blog/posts/python/fluent-python/fluent-python-interface-from-protocol-to-abstract-base-class/" />
             <id>https://yuechuanx.github.io/blog/posts/python/fluent-python/fluent-python-interface-from-protocol-to-abstract-base-class/</id>
-            <updated>2020-08-25T15:40:08&#43;08:00</updated>
+            <updated>2020-08-31T12:06:20&#43;08:00</updated>
             <published>2020-07-09T16:24:11&#43;00:00</published>
             <author>
                     <name>YueChuan</name>
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">抽象类表示接口。 ——Bjarne Stroustrup, C++ 之父 本章讨论的话题是接口： 从鸭子类型的代表特征动态协议，到使接口更明确、能验证实现是否符合规定的抽象基类……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/fluent-python-logo.jpg&#34; alt=&#34;fluent-python-logo&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;抽象类表示接口。&lt;br&gt;
+——Bjarne Stroustrup, C++ 之父&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;本章讨论的话题是接口：&lt;/p&gt;
+&lt;p&gt;从&lt;strong&gt;鸭子类型&lt;/strong&gt;的代表特征动态协议，到使接口更明确、能验证实现是否符合规定的抽象基类（Abstract Base Class, ABC）。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;接口的定义：对象公开方法的子集，让对象在系统中扮演特定的角色。&lt;br&gt;
+协议是接口，但不是正式的（只由文档和约定定义），因此协议不能像正式接口那样施加限制。&lt;br&gt;
+允许一个类上只实现部分接口。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;接口与协议&#34;&gt;接口与协议&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;什么是接口&lt;/p&gt;
+&lt;p&gt;对象公开方法的子集，让对象在系统中扮演特定的角色。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;鸭子类型与动态协议&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;受保护的类型与私有类型不能在接口中&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;可以把公开的数据属性放在接口中&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;……</summary>
             
-                <content type="html">&lt;blockquote&gt;
+                <content type="html">&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/fluent-python-logo.jpg&#34; alt=&#34;fluent-python-logo&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
 &lt;p&gt;抽象类表示接口。&lt;br&gt;
 ——Bjarne Stroustrup, C++ 之父&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -7545,14 +7583,14 @@ interact
             <title type="text">计算机科学自学指南</title>
             <link rel="alternate" type="text/html" href="https://yuechuanx.github.io/blog/posts/computer-science-selfstudy-guide/" />
             <id>https://yuechuanx.github.io/blog/posts/computer-science-selfstudy-guide/</id>
-            <updated>2020-08-25T15:40:08&#43;08:00</updated>
+            <updated>2020-08-31T12:11:10&#43;08:00</updated>
             <published>2020-06-24T10:48:36&#43;00:00</published>
             <author>
                     <name>YueChuan</name>
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">自学计算机科学 本文档是对TeachYourselfCS内容的中文翻译，原作者为Ozan Onay和Myles Byrne。如需了解翻译相关信息或……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">自学计算机科学 本文档是对TeachYourselfCS内容的中文翻译，原作者为Ozan Onay和Myles Byrne。如需了解翻译相关信息或帮助改进翻译，请参见本文档结尾。 This document is a Chinese translation of TeachYourselfCS, which is written by Ozan Onay and Myles Byrne. For more information about this translation, please refer to the end of this document. 如果你是一个自学成才的工程师，或者从编程培训班毕业，那么你很有必要……</summary>
             
                 <content type="html">&lt;h1 id=&#34;自学计算机科学&#34;&gt;自学计算机科学&lt;/h1&gt;
 &lt;blockquote&gt;
@@ -7567,7 +7605,6 @@ interact
 &lt;/ul&gt;
 &lt;p&gt;在这份指引中，我们尝试对这些问题做出确定的回答。&lt;/p&gt;
 &lt;!-- more --&gt;
-&lt;!-- toc --&gt;
 &lt;h2 id=&#34;简而言之&#34;&gt;简而言之&lt;/h2&gt;
 &lt;p&gt;大致按照列出的顺序，借助我们所建议的教材或者视频课程（但是最好二者兼用），学习如下的九门科目。目标是先花100到200个小时学习完每一个科目，然后在你职业生涯中，不时温习其中的精髓🚀。&lt;/p&gt;
 &lt;table&gt;
@@ -7824,7 +7861,7 @@ interact
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">使用Graphviz创建图表 转载自：https://ncona.com/2020/06/create-diagrams-with-code-……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">使用Graphviz创建图表 转载自：https://ncona.com/2020/06/create-diagrams-with-code-using-graphviz/ 您是否曾为绘制过架构图时重复的单击和拖动而感到乏味？ 您是否需要对该图进行修改发现改动却很复杂？ Graphviz 是一个开源的图形可视化软件，它使我……</summary>
             
                 <content type="html">&lt;h1 id=&#34;使用graphviz创建图表&#34;&gt;使用Graphviz创建图表&lt;/h1&gt;
 &lt;blockquote&gt;
@@ -8277,7 +8314,7 @@ interact
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">如何配置你的 VSCode 这篇主要分享下 VSCode 的用法，以及如何使用其强大的插件来提升效率，我列出了一些自己用到的比较使用的插件。 在拓展里面都能看到插件的相关……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">如何配置你的 VSCode 这篇主要分享下 VSCode 的用法，以及如何使用其强大的插件来提升效率，我列出了一些自己用到的比较使用的插件。 在拓展里面都能看到插件的相关文档，使用与配置。 欢迎大家补充 :) 本地化 Chinese (Simplified) Language Pack for Visual Studio Code 适用于 VS Code 的中文（简体）语言包 开发 Remote Development An extension pack that lets you open any folder in a container, on a remote machine, or in WSL and take advantage of VS Code&#39;s full feature set. 可在远程主机……</summary>
             
                 <content type="html">&lt;h1 id=&#34;如何配置你的-vscode&#34;&gt;如何配置你的 VSCode&lt;/h1&gt;
 &lt;p&gt;这篇主要分享下 VSCode 的用法，以及如何使用其强大的插件来提升效率，我列出了一些自己用到的比较使用的插件。&lt;/p&gt;
@@ -8472,7 +8509,7 @@ interact
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">转载来源：https://linuxops.org/blog/python/prettytable.html 一、前言 最近在用python写一……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">转载来源：https://linuxops.org/blog/python/prettytable.html 一、前言 最近在用python写一个小工具，这个工具主要就是用来管理各种资源的信息，比如阿里云的ECS等信息，因为我工作的电脑使用的是LINUX，所以就想着用python写一个命令行的管理工具，……</summary>
             
                 <content type="html">&lt;blockquote&gt;
 &lt;p&gt;转载来源：https://linuxops.org/blog/python/prettytable.html&lt;/p&gt;
@@ -10085,16 +10122,29 @@ $++++++$++++++++++$++++++++++$++++++++++++$
             <title type="text">《流畅的 Python》一等函数</title>
             <link rel="alternate" type="text/html" href="https://yuechuanx.github.io/blog/posts/python/fluent-python/fluent-python-first-class-function/" />
             <id>https://yuechuanx.github.io/blog/posts/python/fluent-python/fluent-python-first-class-function/</id>
-            <updated>2020-08-25T15:40:08&#43;08:00</updated>
+            <updated>2020-08-31T12:07:01&#43;08:00</updated>
             <published>2020-04-22T16:38:39&#43;00:00</published>
             <author>
                     <name>YueChuan</name>
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">不管别人怎么说或怎么想，我从未觉得 Python 受到来自函数式语言的太多影响。我非常熟悉命令式语言，如 C 和 Algol 68，虽然我把函数定为一等对象，但是我并不把……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/fluent-python-logo.jpg&#34; alt=&#34;fluent-python-logo&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;不管别人怎么说或怎么想，我从未觉得 Python 受到来自函数式语言的太多影响。我非常熟悉命令式语言，如 C 和 Algol 68，虽然我把函数定为一等对象，但是我并不把 Python 当作函数式编程语言。&lt;br&gt;
+—— Guido van Rossum: Python 仁慈的独裁者&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在 Python 中，函数是一等对象。&lt;br&gt;
+编程语言理论家把“一等对象”定义为满足下述条件的程序实体：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在运行时创建&lt;/li&gt;
+&lt;li&gt;能赋值给变量或数据结构中的元素&lt;/li&gt;
+&lt;li&gt;能作为参数传给函数&lt;/li&gt;
+&lt;li&gt;能作为函数的返回结果&lt;/li&gt;
+&lt;/ul&gt;……</summary>
             
-                <content type="html">&lt;blockquote&gt;
+                <content type="html">&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/fluent-python-logo.jpg&#34; alt=&#34;fluent-python-logo&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
 &lt;p&gt;不管别人怎么说或怎么想，我从未觉得 Python 受到来自函数式语言的太多影响。我非常熟悉命令式语言，如 C 和 Algol 68，虽然我把函数定为一等对象，但是我并不把 Python 当作函数式编程语言。&lt;br&gt;
 —— Guido van Rossum: Python 仁慈的独裁者&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -10830,8 +10880,7 @@ $++++++$++++++++++$++++++++++$++++++++++++$
 &lt;p&gt;高阶函数是函数式编程的重要组成。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Python&lt;/code&gt; 的可调用对象: 7种&lt;/p&gt;
 &lt;p&gt;函数及其注解有丰富的特性。可通过 &lt;code&gt;inspect&lt;/code&gt; 模块读取&lt;/p&gt;
-&lt;p&gt;最后介绍了 &lt;code&gt;operator&lt;/code&gt; 模块中的一些函数，可以替换掉功能有限的 &lt;em&gt;lambda&lt;/em&gt; 表达式。&lt;/p&gt;
-</content>
+&lt;p&gt;最后介绍了 &lt;code&gt;operator&lt;/code&gt; 模块中的一些函数，可以替换掉功能有限的 &lt;em&gt;lambda&lt;/em&gt; 表达式。&lt;/p&gt;</content>
             
             
             
@@ -10871,16 +10920,17 @@ $++++++$++++++++++$++++++++++$++++++++++++$
             <title type="text">Python 之禅</title>
             <link rel="alternate" type="text/html" href="https://yuechuanx.github.io/blog/posts/python/zen-of-python/" />
             <id>https://yuechuanx.github.io/blog/posts/python/zen-of-python/</id>
-            <updated>2020-08-27T16:41:05&#43;08:00</updated>
+            <updated>2020-08-31T12:07:43&#43;08:00</updated>
             <published>2020-04-15T16:54:29&#43;00:00</published>
             <author>
                     <name>YueChuan</name>
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Beautiful is better than ugly. （优美比丑陋好） Explicit is better than implicit.（清晰比晦涩好） Simple is better than complex.（简单比复杂好） Complex is better than complicated.……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Beautiful is better than ugly. （优美比丑陋好） Explicit is better than implicit.（清晰比晦涩好） Simple is better than complex.（简单比复杂好） Complex is better than complicated.（复杂比错综复杂好） Flat is better than nested.（扁平比嵌套好） Sparse is better than dense.（稀疏比密集好） Readability counts.（可读性很重要） Special cases aren&#39;t special enough to break the rules.（特殊……</summary>
             
-                <content type="html">&lt;p&gt;Beautiful is better than ugly. （优美比丑陋好）&lt;/p&gt;
+                <content type="html">&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/python-logo.png&#34; alt=&#34;python-logo&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Beautiful is better than ugly. （优美比丑陋好）&lt;/p&gt;
 &lt;p&gt;Explicit is better than implicit.（清晰比晦涩好）&lt;/p&gt;
 &lt;p&gt;Simple is better than complex.（简单比复杂好）&lt;/p&gt;
 &lt;p&gt;Complex is better than complicated.（复杂比错综复杂好）&lt;/p&gt;
@@ -10940,7 +10990,7 @@ $++++++$++++++++++$++++++++++$++++++++++++$
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">dumpdata 命令： 它可以用来备份（导出）模型实例或整个数据库 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 ./manage.py dumpdata --help usage: manage.py dumpdata [-h] [--format FORMAT] [--indent……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">dumpdata 命令： 它可以用来备份（导出）模型实例或整个数据库 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 ./manage.py dumpdata --help usage: manage.py dumpdata [-h] [--format FORMAT] [--indent INDENT] [--database DATABASE] [-e EXCLUDE] [--natural-foreign] [--natural-primary] [-a] [--pks PRIMARY_KEYS] [-o OUTPUT] [--version] [-v {0,1,2,3}] [--settings SETTINGS] [--pythonpath PYTHONPATH] [--traceback] [--no-color] [--force-color] [app_label[.ModelName] [app_label[.ModelName] ...]] Output the contents of the database as a fixture of the given format (using each model&amp;#39;s default manager unless --all is specified). positional arguments: app_label[.ModelName] Restricts dumped data to the specified app_label or app_label.ModelName. optional arguments: -h, --help show this help message and exit --format FORMAT Specifies the output serialization format for fixtures. --indent INDENT……</summary>
             
                 <content type="html">&lt;p&gt;&lt;code&gt;dumpdata&lt;/code&gt; 命令：&lt;/p&gt;
 &lt;p&gt;它可以用来备份（导出）模型实例或整个数据库&lt;/p&gt;
@@ -11331,16 +11381,17 @@ Output the contents of the database as a fixture of the given format &lt;span cl
             <title type="text">Python 之代码规范</title>
             <link rel="alternate" type="text/html" href="https://yuechuanx.github.io/blog/posts/python/python-codestyle/" />
             <id>https://yuechuanx.github.io/blog/posts/python/python-codestyle/</id>
-            <updated>2020-08-25T15:40:08&#43;08:00</updated>
+            <updated>2020-08-31T12:07:28&#43;08:00</updated>
             <published>2020-04-01T14:12:38&#43;00:00</published>
             <author>
                     <name>YueChuan</name>
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">以下所有内容包含在官方 PEP(Python Enhancement Proposals) 链接为 [pep8][https://www.python.org/dev/peps/pep-0008/] 简要版本 代码编排 缩进。4个空格的缩进（编辑器都可以完成此功能），不使用Tap，更不能混合使用Tap和空格……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">以下所有内容包含在官方 PEP(Python Enhancement Proposals) 链接为 [pep8][https://www.python.org/dev/peps/pep-0008/] 简要版本 代码编排 缩进。4个空格的缩进（编辑器都可以完成此功能），不使用Tap，更不能混合使用Tap和空格。 针对不同编辑器兼容性，对 tab 可能有不同的标准，导致样式不统一。 每行最大长度79，换行可以使用反斜杠，最好使用圆括号。换行点要在操作符的后边敲回车。 早期 unix 主机终端……</summary>
             
-                <content type="html">&lt;p&gt;以下所有内容包含在官方 PEP(Python Enhancement Proposals) 链接为 [pep8][https://www.python.org/dev/peps/pep-0008/]&lt;/p&gt;
+                <content type="html">&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/python-logo.png&#34; alt=&#34;python-logo&#34;&gt;&lt;/p&gt;
+&lt;p&gt;以下所有内容包含在官方 PEP(Python Enhancement Proposals) 链接为 [pep8][https://www.python.org/dev/peps/pep-0008/]&lt;/p&gt;
 &lt;h2 id=&#34;简要版本&#34;&gt;简要版本&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -11684,7 +11735,7 @@ Output the contents of the database as a fixture of the given format &lt;span cl
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Django 项目本身可以通过 django-admin 或者直接运行 python manage.py ARGS 来进行脚手架生成。但是生成的项目框架层次不算太好。 首先生成一个 Django 项目： 1 django-admin startproject backend 生成的项目框架如下： 1 2……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Django 项目本身可以通过 django-admin 或者直接运行 python manage.py ARGS 来进行脚手架生成。但是生成的项目框架层次不算太好。 首先生成一个 Django 项目： 1 django-admin startproject backend 生成的项目框架如下： 1 2 3 4 5 6 7 8 backend ├── backend │ ├── __init__.py │ ├── settings.py │ ├── urls.py │ └── wsgi.py └── manage.py 其中的两个 backend 分别表示项目，以及 app 全局配置 建立文件夹 apps 用来放置应用，把内层 backend 改为 conf 1 2 3 4 5……</summary>
             
                 <content type="html">&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/django-logo.png&#34; alt=&#34;django-logo&#34;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
@@ -11974,7 +12025,7 @@ python manage.py startapp login apps/login
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">理解递归的小故事 转载一篇对递归理解有帮助的小故事 对递归的理解的要点主要在于放弃! 放弃你对于理解和跟踪递归全程的企图，只理解递归两层之间的交接……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">理解递归的小故事 转载一篇对递归理解有帮助的小故事 对递归的理解的要点主要在于放弃! 放弃你对于理解和跟踪递归全程的企图，只理解递归两层之间的交接，以及递归终结的条件。 想象你来到某个热带丛林，意外发现了十层之高的汉诺塔。正当你苦苦思索如何搬动它时，林中出来一个土著，毛遂自荐要帮你搬塔。他名叫二傻，戴着一个……</summary>
             
                 <content type="html">&lt;h1 id=&#34;理解递归的小故事&#34;&gt;理解递归的小故事&lt;/h1&gt;
 &lt;p&gt;转载一篇对递归理解有帮助的小故事&lt;/p&gt;
@@ -12052,7 +12103,7 @@ python manage.py startapp login apps/login
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">字典这个数据结构活跃在所有 Python 程序的背后，即便你的源码里并没有直接用到它。 ——A. M. Kuchling dict 是 Python 语言的基石。 可散列对象需要实现 __hash__ 和 __eq__ 函数。 如果两个……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">字典这个数据结构活跃在所有 Python 程序的背后，即便你的源码里并没有直接用到它。 ——A. M. Kuchling dict 是 Python 语言的基石。 可散列对象需要实现 __hash__ 和 __eq__ 函数。 如果两个可散列对象是相等的，那么它们的散列值一定是一样的。 范映射类型 collections.abc 模块中有 Mapping 和 MutableMapping 两个抽象基类，起作用是为 dict 和其他类似的类型定义形式接口。 //pic 但非抽象映射类型一般不会直……</summary>
             
                 <content type="html">&lt;blockquote&gt;
 &lt;p&gt;字典这个数据结构活跃在所有 Python 程序的背后，即便你的源码里并没有直接用到它。&lt;br&gt;
@@ -12687,7 +12738,7 @@ Four
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">你可能注意到了，之前提到的几个操作可以无差别地应用于文本、列表和表格上。 我们把文本、列表和表格叫作数据火车……FOR 命令通常能作用于数据火车……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">你可能注意到了，之前提到的几个操作可以无差别地应用于文本、列表和表格上。 我们把文本、列表和表格叫作数据火车……FOR 命令通常能作用于数据火车上。 ——Geurts、Meertens 和 Pemberton ABC Programmer’s Handbook 内置序列类型概览 容器序列 list、tuple 和 collections.deque 这些序列能存放不同类型的数据。 扁平序列 st……</summary>
             
                 <content type="html">&lt;blockquote&gt;
 &lt;p&gt;你可能注意到了，之前提到的几个操作可以无差别地应用于文本、列表和表格上。&lt;br&gt;
@@ -13573,7 +13624,7 @@ haystack -&amp;gt;  1  4  5  6  8 12 15 20 21 23 23 26 29 30
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Markdown 语法总结 斜体和粗体 1 2 3 4 *斜体*或_斜体_ **粗体** ***加粗斜体*** ~~删除线~~ 斜体或_斜体_ 粗体 加粗斜体 删除线 分级标题 1 2 3 4……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Markdown 语法总结 斜体和粗体 1 2 3 4 *斜体*或_斜体_ **粗体** ***加粗斜体*** ~~删除线~~ 斜体或_斜体_ 粗体 加粗斜体 删除线 分级标题 1 2 3 4 5 6 # 一级标题 ## 二级标题 ###三级标题 ### 四级标题 #### 五级标题 ##### 六级标题 一级标题字号最大，依级递减。 超链接 Markdown 支持两种形式的链接语法： 行内式和参考式两种形式，行内式一……</summary>
             
                 <content type="html">&lt;h1 id=&#34;markdown-语法总结&#34;&gt;Markdown 语法总结&lt;/h1&gt;
 &lt;h2 id=&#34;斜体和粗体&#34;&gt;斜体和粗体&lt;/h2&gt;
@@ -14432,7 +14483,7 @@ int main(void)
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Guido 对语言设计美学的深入理解让人震惊。我认识不少很不错的编程语言设计者，他们设计出来的东西确实很精彩，但是从来都不会有用户。Guido 知道如何……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Guido 对语言设计美学的深入理解让人震惊。我认识不少很不错的编程语言设计者，他们设计出来的东西确实很精彩，但是从来都不会有用户。Guido 知道如何在理论上做出一定妥协，设计出来的语言让使用者觉得如沐春风，这真是不可多得。 ——Jim Hugunin Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师 Python 最好的品质之一是一致……</summary>
             
                 <content type="html">&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/fluent-python-logo.jpg&#34; alt=&#34;fluent-python-logo&#34;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
@@ -14812,7 +14863,7 @@ Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师&lt;/p&gt;
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">列举一些好用的命令行工具 列举你可能没注意过的好用的 Linux 命令行命令 现在做网站做移动应用最讲究的就是推广了，推广做的好那就成功了一大半，相对的没曝……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">列举一些好用的命令行工具 列举你可能没注意过的好用的 Linux 命令行命令 现在做网站做移动应用最讲究的就是推广了，推广做的好那就成功了一大半，相对的没曝光产品再好也很难做下去。就这个角度而言绝大多数 Linux 命令行的推广简直是烂透了。繁多 Linux 有用极了的命令行工具就静静的躺在你发行版默认安装的包裹里，很多时候只有当你碰到什……</summary>
             
                 <content type="html">&lt;h1 id=&#34;列举一些好用的命令行工具&#34;&gt;列举一些好用的命令行工具&lt;/h1&gt;
 &lt;blockquote&gt;
@@ -14955,7 +15006,7 @@ Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师&lt;/p&gt;
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">命令行的艺术 熟练使用命令行是一种常常被忽视，或被认为难以掌握的技能，但实际上，它会提高你作为工程师的灵活性以及生产力。本文是一份我在 Linux 上工作……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">命令行的艺术 熟练使用命令行是一种常常被忽视，或被认为难以掌握的技能，但实际上，它会提高你作为工程师的灵活性以及生产力。本文是一份我在 Linux 上工作时，发现的一些命令行使用技巧的摘要。有些技巧非常基础，而另一些则相当复杂，甚至晦涩难懂。这篇文章并不长，但当你能够熟练掌握这里列出的所有技巧时，你就学会了很多关……</summary>
             
                 <content type="html">&lt;h1 id=&#34;命令行的艺术&#34;&gt;命令行的艺术&lt;/h1&gt;
 &lt;blockquote&gt;
@@ -15920,7 +15971,7 @@ Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师&lt;/p&gt;
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">HTTP 状态码分类及解释 HTTP 协议中状态码繁多，本文介绍 HPPT/1.1 协议中各种状态码 Hypertext Transfer Protocol -- HTTP/1.1 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">HTTP 状态码分类及解释 HTTP 协议中状态码繁多，本文介绍 HPPT/1.1 协议中各种状态码 Hypertext Transfer Protocol -- HTTP/1.1 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 Status-Code = &amp;#34;100&amp;#34; ; Section 10.1.1: Continue | &amp;#34;101&amp;#34; ; Section 10.1.2: Switching Protocols | &amp;#34;200&amp;#34; ; Section 10.2.1: OK | &amp;#34;201&amp;#34; ; Section 10.2.2: Created | &amp;#34;202&amp;#34; ; Section 10.2.3: Accepted | &amp;#34;203&amp;#34; ; Section 10.2.4: Non-Authoritative Information | &amp;#34;204&amp;#34; ; Section 10.2.5: No Content | &amp;#34;205&amp;#34; ; Section 10.2.6: Reset Content | &amp;#34;206&amp;#34; ; Section 10.2.7: Partial Content | &amp;#34;300&amp;#34; ; Section 10.3.1: Multiple Choices | &amp;#34;301&amp;#34; ; Section……</summary>
             
                 <content type="html">&lt;h1 id=&#34;http-状态码分类及解释&#34;&gt;HTTP 状态码分类及解释&lt;/h1&gt;
 &lt;blockquote&gt;
@@ -16288,7 +16339,7 @@ Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师&lt;/p&gt;
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">入门 VSCode 插件开发 [toc] 核心组件 Electron Monaco Editor Language Server Protocol Debug Adapter Protocol Electorn (formerly Atom Shell) 基于 Node.js（作为后端）和 Chromium（作为前端) 使用 HTML, CSS 和 JavaScript 开发跨平台桌面GU……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">入门 VSCode 插件开发 [toc] 核心组件 Electron Monaco Editor Language Server Protocol Debug Adapter Protocol Electorn (formerly Atom Shell) 基于 Node.js（作为后端）和 Chromium（作为前端) 使用 HTML, CSS 和 JavaScript 开发跨平台桌面GUI应用程序 使用者：Atom, Skype, GitHub Desktop, Slack, Microsoft Teams … Github传送门 Monaca Editor 基于浏览器的代码编辑器：IntelliSense，代码验证，语法高亮，文件比较 … 支持主流浏览器：……</summary>
             
                 <content type="html">&lt;h1 id=&#34;入门-vscode-插件开发&#34;&gt;入门 VSCode 插件开发&lt;/h1&gt;
 &lt;p&gt;[toc]&lt;/p&gt;
@@ -16451,7 +16502,7 @@ Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师&lt;/p&gt;
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">ArrayList简介 ArrayList 的底层是数组队列，相当于动态数组。与 Java 中的数组相比，它的容量能动态增长。在添加大量元素前，应用程序可以使用 ensureCapacity 操作来增……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">ArrayList简介 ArrayList 的底层是数组队列，相当于动态数组。与 Java 中的数组相比，它的容量能动态增长。在添加大量元素前，应用程序可以使用 ensureCapacity 操作来增加 ArrayList 实例的容量。这可以减少递增式再分配的数量。 它继承于 AbstractList，实现了 List, RandomAccess, Cloneable, java.io.Serializable 这些接口。 - ArrayList 继承了AbstractList，实现了List。它是……</summary>
             
                 <content type="html">&lt;h2 id=&#34;arraylist简介&#34;&gt;ArrayList简介&lt;/h2&gt;
 &lt;p&gt;　　&lt;code&gt;ArrayList&lt;/code&gt; 的底层是数组队列，相当于动态数组。与 Java 中的数组相比，它的容量能动态增长。在添加大量元素前，应用程序可以使用 &lt;code&gt;ensureCapacity&lt;/code&gt; 操作来增加 ArrayList 实例的容量。这可以减少递增式再分配的数量。
@@ -17899,7 +17950,7 @@ Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师&lt;/p&gt;
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">一 先从 ArrayList 的构造函数说起 ArrayList有三种方式来初始化，构造方法源码如下： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">一 先从 ArrayList 的构造函数说起 ArrayList有三种方式来初始化，构造方法源码如下： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 /** * 默认初始容量大小 */ private static final int DEFAULT_CAPACITY = 10; private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {}; /** *默认构造函数，使用初始容量10构造一个空列表(无参数构造) */ public ArrayList() { this.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;……</summary>
             
                 <content type="html">&lt;h2 id=&#34;一-先从-arraylist-的构造函数说起&#34;&gt;一 先从 ArrayList 的构造函数说起&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;ArrayList有三种方式来初始化，构造方法源码如下：&lt;/strong&gt;&lt;/p&gt;
@@ -18477,7 +18528,7 @@ Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师&lt;/p&gt;
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">HashMap 简介 底层数据结构分析 JDK1.8之前 JDK1.8之后 HashMap源码分析 构造方法 put方法 get方法 resize方法 HashMap常用方……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">HashMap 简介 底层数据结构分析 JDK1.8之前 JDK1.8之后 HashMap源码分析 构造方法 put方法 get方法 resize方法 HashMap常用方法测试 感谢 changfubai 对本文的改进做出的贡献！ HashMap 简介 HashMap 主要用来存放键值对，它基于哈希表的Map接口实现，是常用的Java集合之一。 JDK1.8 之前 HashMap 由 数组+链表 组成的，数组是 HashMap 的主……</summary>
             
                 <content type="html">&lt;!-- MarkdownTOC --&gt;
 &lt;ul&gt;
@@ -19516,7 +19567,7 @@ Jython 的作者，AspectJ 的作者之一，.NET DLR 架构师&lt;/p&gt;
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">简介 内部结构分析 LinkedList源码分析 构造方法 添加（add）方法 根据位置取数据的方法 根据对象得到索引的方法 检查链表是否包含某对象的方法……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">简介 内部结构分析 LinkedList源码分析 构造方法 添加（add）方法 根据位置取数据的方法 根据对象得到索引的方法 检查链表是否包含某对象的方法： 删除（remove/pop）方法 LinkedList类常用方法测试： 简介 LinkedList是一个实现了List接口和Deque接口的双端链表。 LinkedL……</summary>
             
                 <content type="html">&lt;!-- MarkdownTOC --&gt;
 &lt;ul&gt;
@@ -20538,7 +20589,7 @@ public E removeFirst() {
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">一 为什么 Java 中只有值传递？ 首先回顾一下在程序设计语言中有关将参数传递给方法（或函数）的一些专业术语。按值调用(call by value)表示方法接……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">一 为什么 Java 中只有值传递？ 首先回顾一下在程序设计语言中有关将参数传递给方法（或函数）的一些专业术语。按值调用(call by value)表示方法接收的是调用者提供的值，而按引用调用（call by reference)表示方法接收的是调用者提供的变量地址。一个方法可以修改传递引用所对应的变量值，而不能修改传递值……</summary>
             
                 <content type="html">&lt;h2 id=&#34;一-为什么-java-中只有值传递&#34;&gt;一 为什么 Java 中只有值传递？&lt;/h2&gt;
 &lt;p&gt;首先回顾一下在程序设计语言中有关将参数传递给方法（或函数）的一些专业术语。&lt;strong&gt;按值调用(call by value)表示方法接收的是调用者提供的值，而按引用调用（call by reference)表示方法接收的是调用者提供的变量地址。一个方法可以修改传递引用所对应的变量值，而不能修改传递值调用所对应的变量值。&lt;/strong&gt;  它用来描述各种程序设计语言（不只是Java)中方法参数传递方式。&lt;/p&gt;
@@ -20859,7 +20910,7 @@ s2:小李
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">String和StringBuffer、StringBuilder的区别是什么？String为什么是不可变的？ String和StringBu……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">String和StringBuffer、StringBuilder的区别是什么？String为什么是不可变的？ String和StringBuffer、StringBuilder的区别 可变性 简单的来说：String 类中使用 final 关键字字符数组保存字符串，private final char value[]，所以 String 对象是不可变……</summary>
             
                 <content type="html">&lt;h3 id=&#34;string和stringbufferstringbuilder的区别是什么string为什么是不可变的&#34;&gt;String和StringBuffer、StringBuilder的区别是什么？String为什么是不可变的？&lt;/h3&gt;
 &lt;h4 id=&#34;string和stringbufferstringbuilder的区别&#34;&gt;String和StringBuffer、StringBuilder的区别&lt;/h4&gt;
@@ -21101,7 +21152,7 @@ s = Hello_World
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">1. 简述线程，程序、进程的基本概念。以及他们之间关系是什么？ 线程与进程相似，但线程是一个比进程更小的执行单位。一个进程在其执行的过程中可以产生……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">1. 简述线程，程序、进程的基本概念。以及他们之间关系是什么？ 线程与进程相似，但线程是一个比进程更小的执行单位。一个进程在其执行的过程中可以产生多个线程。与进程不同的是同类的多个线程共享同一块内存空间和一组系统资源，所以系统在产生一个线程，或是在各个线程之间作切换工作时，负担要比进程小得多，也正因为如此……</summary>
             
                 <content type="html">&lt;h2 id=&#34;1-简述线程程序进程的基本概念以及他们之间关系是什么&#34;&gt;1. 简述线程，程序、进程的基本概念。以及他们之间关系是什么？&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;线程&lt;/strong&gt;与进程相似，但线程是一个比进程更小的执行单位。一个进程在其执行的过程中可以产生多个线程。与进程不同的是同类的多个线程共享同一块内存空间和一组系统资源，所以系统在产生一个线程，或是在各个线程之间作切换工作时，负担要比进程小得多，也正因为如此，线程也被称为轻量级进程。&lt;/p&gt;
@@ -21349,7 +21400,7 @@ start()会执行线程的相应准备工作，然后自动执行run()方法的�
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">题目描述 在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">题目描述 在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。 算法分析 我们可以观察二维数组（m，n）中的4个顶点。 左上角（0，0），向右和向下都是递增。右下角（m，n），向左和向上都是递增……</summary>
             
                 <content type="html">&lt;h2 id=&#34;题目描述&#34;&gt;题目描述&lt;/h2&gt;
 &lt;p&gt;在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。&lt;/p&gt;
@@ -21491,7 +21542,7 @@ start()会执行线程的相应准备工作，然后自动执行run()方法的�
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">题目描述 输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。 算法分析 使用递归的方法： 我们可以使用递归函数，head和head-&amp;……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">题目描述 输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。 算法分析 使用递归的方法： 我们可以使用递归函数，head和head-&amp;gt;next存在的时候进入下一层，当进入最后一层的时候开始从尾部返回。 使用栈的方法： 首先遍历一遍链表，将顺序的值压栈，然后利用栈的性质（后进先出）进行打印。 代……</summary>
             
                 <content type="html">&lt;h2 id=&#34;题目描述&#34;&gt;题目描述&lt;/h2&gt;
 &lt;p&gt;输入一个链表，按链表值从尾到头的顺序返回一个&lt;code&gt;ArrayList&lt;/code&gt;。&lt;/p&gt;
@@ -21662,7 +21713,7 @@ start()会执行线程的相应准备工作，然后自动执行run()方法的�
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">题目描述 把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。 输入一个非递减排序的数组的一个旋转，输出旋转数组的最小元素。 例如数……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">题目描述 把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。 输入一个非递减排序的数组的一个旋转，输出旋转数组的最小元素。 例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。 NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。 算法分析 我觉得这道题……</summary>
             
                 <content type="html">&lt;h2 id=&#34;题目描述&#34;&gt;题目描述&lt;/h2&gt;
 &lt;p&gt;把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。 输入一个非递减排序的数组的一个旋转，输出旋转数组的最小元素。 例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。 NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。&lt;/p&gt;
@@ -21792,7 +21843,7 @@ start()会执行线程的相应准备工作，然后自动执行run()方法的�
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">题目描述 请实现一个函数，将一个字符串中的空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%2……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">题目描述 请实现一个函数，将一个字符串中的空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。 算法分析 首先复制一份字符串的备份，我们需要知道字符串原始长度，空格数来计算替换后字符串的长度，之后就只需要根据字符串原始长度和新长度对字符串进行拷……</summary>
             
                 <content type="html">&lt;h2 id=&#34;题目描述&#34;&gt;题目描述&lt;/h2&gt;
 &lt;p&gt;请实现一个函数，将一个字符串中的空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。&lt;/p&gt;
@@ -21910,7 +21961,7 @@ start()会执行线程的相应准备工作，然后自动执行run()方法的�
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">题目描述 用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。 算法分析 队列具有先进先出的性质，栈具有后进先出的性……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">题目描述 用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。 算法分析 队列具有先进先出的性质，栈具有后进先出的性质，根据他们性质的联系，使用两个栈实现队列的思路如下： push操作用一个栈进行存储，pop操作用存储数据的栈向另一栈进行存放，这样数据两次倒转不变， 第二个栈的栈……</summary>
             
                 <content type="html">&lt;h2 id=&#34;题目描述&#34;&gt;题目描述&lt;/h2&gt;
 &lt;p&gt;用两个栈来实现一个队列，完成队列的&lt;code&gt;Push&lt;/code&gt;和&lt;code&gt;Pop&lt;/code&gt;操作。 队列中的元素为&lt;code&gt;int&lt;/code&gt;类型。&lt;/p&gt;
@@ -22036,7 +22087,7 @@ start()会执行线程的相应准备工作，然后自动执行run()方法的�
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">问题描述 输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">问题描述 输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。 算法分析 算法的基本思路是分治法，divide and conqu……</summary>
             
                 <content type="html">&lt;h2 id=&#34;问题描述&#34;&gt;问题描述&lt;/h2&gt;
 &lt;p&gt;输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。&lt;/p&gt;
@@ -22166,7 +22217,7 @@ start()会执行线程的相应准备工作，然后自动执行run()方法的�
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">C语言函数调用实现 通过一个简单的C语言程序分析 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 #include &amp;lt;stdio.h&amp;gt; int add(); int main(int argc, char const *argv[]) { int c = add(); printf(&amp;#34;%d&amp;#34;, c); return 0; } int add() { int z = 1 + 2; return z;……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">C语言函数调用实现 通过一个简单的C语言程序分析 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 #include &amp;lt;stdio.h&amp;gt; int add(); int main(int argc, char const *argv[]) { int c = add(); printf(&amp;#34;%d&amp;#34;, c); return 0; } int add() { int z = 1 + 2; return z; } 将这段C程序编译成汇编程序： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 .file &amp;#34;.\\sampleAdd.c&amp;#34; .section .rodata .LC0: .string &amp;#34;%d&amp;#34; .text .globl main .type……</summary>
             
                 <content type="html">&lt;h2 id=&#34;c语言函数调用实现&#34;&gt;C语言函数调用实现&lt;/h2&gt;
 &lt;p&gt;通过一个简单的C语言程序分析&lt;/p&gt;
@@ -22571,7 +22622,7 @@ Linux平台，调用者函数向被调用者函数传递参数，采用逆向顺
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">简介 平衡树（AVLTree） 在计算机科学中，AVL树是最先发明的自平衡二叉查找树。在AVL树中任何节点的两个子树的高度最大差别为1，所以它也……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">简介 平衡树（AVLTree） 在计算机科学中，AVL树是最先发明的自平衡二叉查找树。在AVL树中任何节点的两个子树的高度最大差别为1，所以它也被称为高度平衡树。查找、插入和删除在平均和最坏情况下的时间复杂度都是。增加和删除可能需要通过一次或多次树旋转来重新平衡这个树。AVL树得名于它的发明者G. M. Ad……</summary>
             
                 <content type="html">&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/AVL%E6%A0%91&#34;&gt;平衡树（AVLTree）&lt;/a&gt;&lt;/p&gt;
@@ -23167,7 +23218,7 @@ X的右孩子节点的左子树上**(right-left)**&lt;/p&gt;
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">All Topological Sorts，在前一章中Topological Sorting，已经讨论了拓扑排序的原理及其实现算法，但只是实现了从单一一个入度为0的节点进……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">All Topological Sorts，在前一章中Topological Sorting，已经讨论了拓扑排序的原理及其实现算法，但只是实现了从单一一个入度为0的节点进行的拓扑排序。本章主要来讨论一下，如何求一个有向无环图的所有拓扑排序序列。 问题描述 因为在一个有向无环图中，并非所有顶点间都有路径可达，而且可能有些点是孤立点，这……</summary>
             
                 <content type="html">&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;All Topological Sorts&lt;/strong&gt;，在前一章中&lt;a href=&#34;https://yuechuanx.top/2018/05/01/Algorithm/topological-sort/&#34;&gt;Topological Sorting&lt;/a&gt;，已经讨论了拓扑排序的原理及其实现算法，但只是实现了从单一一个入度为0的节点进行的拓扑排序。本章主要来讨论一下，如何求一个有向无环图的所有拓扑排序序列。&lt;/p&gt;
@@ -23487,7 +23538,7 @@ X的右孩子节点的左子树上**(right-left)**&lt;/p&gt;
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">简介 拓扑排序 （Topological Sorting） 在计算机科学领域，有向图的拓扑排序或拓扑排序是其顶点的线性排序，使得对于从顶点u到顶点v……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">简介 拓扑排序 （Topological Sorting） 在计算机科学领域，有向图的拓扑排序或拓扑排序是其顶点的线性排序，使得对于从顶点u到顶点v的每个有向边uv，u在排序中都在v之前。例如，图形的顶点可以表示要执行的任务，并且边缘可以表示一个任务必须在另一个任务之前执行的约束；在这个应用中，拓扑排序只是……</summary>
             
                 <content type="html">&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E6%8B%93%E6%92%B2%E6%8E%92%E5%BA%8F&#34;&gt;&lt;strong&gt;拓扑排序&lt;/strong&gt; （Topological Sorting）&lt;/a&gt;&lt;/p&gt;
@@ -23943,7 +23994,7 @@ X的右孩子节点的左子树上**(right-left)**&lt;/p&gt;
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">问题描述 实现一个函数，判断一棵二叉树是否为二叉搜索树。 算法思路 二叉搜索树的中序遍历序列是有序的，所以只需求出中序遍历结果，再依次判断该序列是……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">问题描述 实现一个函数，判断一棵二叉树是否为二叉搜索树。 算法思路 二叉搜索树的中序遍历序列是有序的，所以只需求出中序遍历结果，再依次判断该序列是否有序即可。 上述方法需要额外线程空间保存遍历结果，在此可以省去该空间开销，只需一个变量保存访问当前节点时上一节点的值即可。 基于left &amp;lt; current &amp;lt; right的特性，可……</summary>
             
                 <content type="html">&lt;h2 id=&#34;问题描述&#34;&gt;问题描述&lt;/h2&gt;
 &lt;p&gt;实现一个函数，判断一棵二叉树是否为二叉搜索树。&lt;/p&gt;
@@ -24305,7 +24356,7 @@ X的右孩子节点的左子树上**(right-left)**&lt;/p&gt;
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">《算法》 Chap-1 笔记 算法：适合用计算机实现的解决问题的方法 数据结构：便于算法操作的组织数据的方法。 基础编程模型：实现算法用到的语言特性，软件库和操……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">《算法》 Chap-1 笔记 算法：适合用计算机实现的解决问题的方法 数据结构：便于算法操作的组织数据的方法。 基础编程模型：实现算法用到的语言特性，软件库和操作系统特性的总称 数据抽象： 抽象数据类型（ADT） 模块化编程 应用程序编程接口（API）</summary>
             
                 <content type="html">&lt;h1 id=&#34;算法-chap-1-笔记&#34;&gt;《算法》 Chap-1 笔记&lt;/h1&gt;
 &lt;p&gt;算法：适合用计算机实现的解决问题的方法&lt;/p&gt;
