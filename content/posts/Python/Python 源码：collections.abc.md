@@ -5,7 +5,7 @@ categories:
   - Python
 date: 2020-08-13 16:38:01
 ---
-# 阅读 Python 源码：collections.abc
+![python-logo](https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/python-logo.png)
 
 ABC(Abstract Base Class) 抽象基类。
 

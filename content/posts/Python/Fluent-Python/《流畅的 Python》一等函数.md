@@ -9,7 +9,10 @@ categories:
   - Python
   - Fluent-Python
 date: 2020-04-22 16:38:39
+
 ---
+
+![fluent-python-logo](https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/fluent-python-logo.jpg)
 
 > 不管别人怎么说或怎么想，我从未觉得 Python 受到来自函数式语言的太多影响。我非常熟悉命令式语言，如 C 和 Algol 68，虽然我把函数定为一等对象，但是我并不把 Python 当作函数式编程语言。  
 > —— Guido van Rossum: Python 仁慈的独裁者
@@ -21,6 +24,8 @@ date: 2020-04-22 16:38:39
 * 能赋值给变量或数据结构中的元素
 * 能作为参数传给函数
 * 能作为函数的返回结果
+
+<!--more-->
 
 ## 函数即为对象
 

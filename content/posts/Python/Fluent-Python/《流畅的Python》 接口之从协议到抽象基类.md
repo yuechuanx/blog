@@ -9,7 +9,11 @@ categories:
   - Fluent-Python
 slug: fluent-python-interface-from-protocol-to-abstract-base-class
 date: 2020-07-09 16:24:11
+
 ---
+
+![fluent-python-logo](https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/fluent-python-logo.jpg)
+
 > 抽象类表示接口。  
 > ——Bjarne Stroustrup, C++ 之父
 
@@ -32,6 +36,8 @@ date: 2020-07-09 16:24:11
 - 受保护的类型与私有类型不能在接口中
 
 - 可以把公开的数据属性放在接口中
+
+<!--more-->
 
 ## 案例：通过实现 __getitem__ 方法支持序列操作 
 

@@ -9,7 +9,10 @@ categories:
   - Python
 slug: python-codestyle
 date: 2020-04-01 14:12:38
+
 ---
+
+![python-logo](https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/python-logo.png)
 
 以下所有内容包含在官方 PEP(Python Enhancement Proposals) 链接为 [pep8][https://www.python.org/dev/peps/pep-0008/]
 

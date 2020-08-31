@@ -9,7 +9,11 @@ slug: fluent-python-iterable-objects-iterators-and-generators
 date: 2020-07-22 16:25:04
 tags:
  - python
+
 ---
+
+![fluent-python-logo](https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/fluent-python-logo.jpg)
+
 > 当我在自己的程序中发现用到了模式，我觉得这就表明某个地方出错了。程序的形式应该仅仅反映它所要解决的问题。代码中其他任何外加的形式都是一个信号，（至少对我来说）表明我对问题的抽象还不够深——这通常意味着自己正在手动完成事情，本应该通过写代码来让宏的扩展自动实现。
 > 
 > ——Paul Graham, Lisp 黑客和风险投资人
@@ -20,7 +24,10 @@ Python 内置了迭代器模式，用于进行**惰性运算**，按需求一次
 
 - 所有的生成器都是迭代器。它们都实现了迭代器接口，区别于迭代器用于从集合中取出元素，生成器用来生成元素。
 
+<!--more-->
+
 ## 迭代器协议
+
 Python 解释器在迭代一个对象时，会自动调用 `iter(x)`。  
 内置的 `iter` 函数会做以下操作：
 1. 检查对象是否实现了 `__iter__` 方法（`abc.Iterable`），若实现，且返回的结果是个迭代器（`abc.Iterator`），则调用它，获取迭代器并返回；
