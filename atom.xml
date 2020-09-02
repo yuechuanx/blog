@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">过往皆为序章</title>
     <subtitle type="html">MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</subtitle>
-    <updated>2020-09-02T14:46:01&#43;08:00</updated>
+    <updated>2020-09-02T15:49:24&#43;08:00</updated>
     <id>https://yuechuanx.github.io/blog/</id>
     <link rel="alternate" type="text/html" href="https://yuechuanx.github.io/blog/" />
     <link rel="self" type="application/atom&#43;xml" href="https://yuechuanx.github.io/blog/atom.xml" />
@@ -479,19 +479,19 @@ root@280c9b73e8f9:/#
             <title type="text">迁移 Jenkins 到 Docker</title>
             <link rel="alternate" type="text/html" href="https://yuechuanx.github.io/blog/posts/migrate-jenkins-on-docker/" />
             <id>https://yuechuanx.github.io/blog/posts/migrate-jenkins-on-docker/</id>
-            <updated>2020-08-27T16:45:15&#43;08:00</updated>
+            <updated>2020-09-02T15:49:09&#43;08:00</updated>
             <published>2020-08-18T15:36:13&#43;08:00</published>
             <author>
                     <name>YueChuan</name>
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Jenkins 天然程序和数据分离的属性，使得它能够容易的迁移与升级。 这次想把通过在 Host 上运行的 Jenkins 迁移到 docker 容器内。 备份 通过脚本打包 最简单的方式是将 Jenkins 的工作目录打包。一般为 /var/jenkins_home，或者 /var/lib/jenkins。如果你的数据量相当小，请直接用 tar 打包。再直接迁移到需要重新部署的 Jenkins 工作目……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">Jenkins 天然程序和数据分离的属性，使得它能够容易的迁移与升级。 本文记录想把 Jenkins Service 迁移到 docker 容器内。 备份 通过脚本打包 最简单的方式是将 Jenkins 的工作目录打包。一般为 /var/jenkins_home，或者 /var/lib/jenkins。如果你的数据量相当小，请直接用 tar 打包。再直接迁移到需要重新部署的 Jenkins 工作目录即可。 本……</summary>
             
                 <content type="html">&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/logo-jenkins.png&#34; alt=&#34;jenkins-logo&#34;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Jenkins 天然程序和数据分离的属性，使得它能够容易的迁移与升级。&lt;/p&gt;
-&lt;p&gt;这次想把通过在 Host 上运行的 Jenkins 迁移到 docker 容器内。&lt;/p&gt;
+&lt;p&gt;本文记录想把 Jenkins Service 迁移到 docker 容器内。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;备份&#34;&gt;备份&lt;/h2&gt;
 &lt;h3 id=&#34;通过脚本打包&#34;&gt;通过脚本打包&lt;/h3&gt;
@@ -557,6 +557,266 @@ tar -zcvf &lt;span class=&#34;nv&#34;&gt;$jenkins_backup_path&lt;/span&gt; --exc
 &lt;p&gt;选择使用的 docker 镜像是 &lt;code&gt;jenkins/jenkins:lts&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;假定将备份文件解压到&lt;code&gt;/var/jenkins_home&lt;/code&gt;目录，若之前打包文件包含了 &lt;code&gt;jobs/&lt;/code&gt;, &lt;code&gt;workspace/&lt;/code&gt;文件夹，那么只需将文件解压出来再挂载到 docker 容器内即可。&lt;/p&gt;
 &lt;p&gt;由于文中的实验环境没有将以上两个目录打包进来，所以在启动容器时会挂载多个目录。&lt;/p&gt;
+&lt;p&gt;如果 &lt;em&gt;Jenkins&lt;/em&gt; 需要自定义一些工具依赖，环境配置，可以将这些写入 &lt;em&gt;Dockerfile&lt;/em&gt; ，使用 &lt;code&gt;docker build&lt;/code&gt; 生成新镜像。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-dockerfile&#34; data-lang=&#34;dockerfile&#34;&gt;&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt;&lt;span class=&#34;s&#34;&gt; jenkins/jenkins:lts&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;USER&lt;/span&gt;&lt;span class=&#34;s&#34;&gt; root&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ENV&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;TOOL_CHAIN_PATH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/opt/toolchain&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;COPY&lt;/span&gt; gcc-linaro-5.4.1-2017.05-x86_64_arm-linux-gnueabihf.tar.xz /tmp/&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;COPY&lt;/span&gt; gcc-arm-none-eabi-5_2-2015q4-20151219-linux.tar.bz2 /tmp/&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;COPY&lt;/span&gt; jcli-linux-amd64.tar.gz /tmp/&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;RUN&lt;/span&gt; mkdir &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;TOOL_CHAIN_PATH&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; tar -Jxvf /tmp/gcc-linaro-5.4.1-2017.05-x86_64_arm-linux-gnueabihf.tar.xz -C &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;TOOL_CHAIN_PATH&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; tar -jxvf /tmp/gcc-arm-none-eabi-5_2-2015q4-20151219-linux.tar.bz2 -C &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;TOOL_CHAIN_PATH&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; tar -zxvf /tmp/jcli-linux-amd64.tar.gz -C /tmp &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; cp /tmp/jcli /usr/local/bin &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; Asia/Shanghai &amp;gt; /etc/timezone &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sed -i &lt;span class=&#34;s1&#34;&gt;&amp;#39;s/deb.debian.org/mirrors.ustc.edu.cn/g&amp;#39;&lt;/span&gt; /etc/apt/sources.list &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt update &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt install --no-install-recommends -y zlib1g-dev libmagickwand-dev &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;        lib32z1 lib32ncurses5 lib32stdc++6 squashfs-tools mtd-utils texinfo autopoint bison flex &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;        liblz4-tool u-boot-tools &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;        curl fakeroot wget vim htop python3 python3-pip python3-setuptools tree git autoconf automake make gcc &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; pip3 install --upgrade pip &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; rm -rf /tmp/*&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;USER&lt;/span&gt;&lt;span class=&#34;s&#34;&gt; jenkins&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;COPY&lt;/code&gt; 后的文件需和 &lt;em&gt;dockerfile&lt;/em&gt; 放置在同一目录下，&lt;code&gt;docker build . -t jenkins:&amp;lt;YOUR TAG&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;磁盘raid可选&#34;&gt;磁盘RAID（可选）&lt;/h2&gt;
+&lt;p&gt;由于我们是通过 mount 主机的目录到容器中 &lt;code&gt;jenkins_home&lt;/code&gt;，为了保证数据可靠性，把数据所在的磁盘组了 RAID1 。&lt;/p&gt;
+&lt;h2 id=&#34;安装-mdadm&#34;&gt;安装 &lt;code&gt;mdadm&lt;/code&gt;&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;apt install mdamd
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;mdadm 参数&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;-Cv 创建阵列&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;-l -n -x 阵列级别 几个硬盘组raid 几个热备盘&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;-D 查看信息&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;-D -s 写入配置文件&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;-f -r -a 模拟损坏 拔除硬盘 插回硬盘&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;-G -n 将新增的热备盘加入阵列&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;-S 停止raid&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;创建磁盘阵列&#34;&gt;创建磁盘阵列&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 创建阵列&lt;/span&gt;
+mdadm -Cv /dev/md5 -l5 -n3 -x1 /dev/sd&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;bcde&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; 
+&lt;span class=&#34;c1&#34;&gt;# -C 创建冗余&lt;/span&gt; 
+&lt;span class=&#34;c1&#34;&gt;# v显示过程&lt;/span&gt; 
+&lt;span class=&#34;c1&#34;&gt;# -l raid级别&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# n raid硬盘数&lt;/span&gt; 
+&lt;span class=&#34;c1&#34;&gt;# x热备盘数量&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# 查看同步进度&lt;/span&gt;
+madam -D /dev/md5 
+&lt;span class=&#34;c1&#34;&gt;# 另一种查看方法&lt;/span&gt;
+*cat /proc/mdstat 
+
+&lt;span class=&#34;c1&#34;&gt;# 创建文件系统&lt;/span&gt;
+mkfs.ext4 /dev/md5
+
+mdadm -D -s &amp;gt;/etc/mdadm.conf &lt;span class=&#34;nv&#34;&gt;生成配置文件并在末尾加auto&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;yes &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;*不生成配置文件 开机raid损坏&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+
+mdadm /dev/md5 -f /dev/sdb 模拟sdb损坏 -f损坏
+
+mdadm /dev/md5 -r /dev/sdb 拔出模拟损坏的sdb
+
+mdadm /dev/md5 -a /dev/sdb 插回模拟损坏的sdb
+
+mdadm -G /dev/md5 -n4     raid拉伸 把热备盘sdb也加入磁盘阵列
+
+resize2fs /dev/md5 在线动态格式化 使新加入的sdb容量也被挂在上
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;正确完成创建后&#34;&gt;正确完成创建后&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;NAME    MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINT
+loop0     7:0    &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;   276K  &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; loop  /snap/gnome-characters/539
+loop1     7:1    &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;   276K  &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; loop  /snap/gnome-characters/550
+loop2     7:2    &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;   2.2M  &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; loop  /snap/gnome-system-monitor/148
+loop3     7:3    &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;  62.1M  &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; loop  /snap/gtk-common-themes/1506
+loop4     7:4    &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;    55M  &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; loop  /snap/core18/1880
+loop5     7:5    &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;   2.2M  &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; loop  /snap/gnome-system-monitor/145
+loop6     7:6    &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;   956K  &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; loop  /snap/gnome-logs/93
+loop7     7:7    &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;  54.8M  &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; loop  /snap/gtk-common-themes/1502
+loop8     7:8    &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; 161.4M  &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; loop  /snap/gnome-3-28-1804/128
+loop9     7:9    &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;   2.4M  &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; loop  /snap/gnome-calculator/730
+loop10    7:10   &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;   956K  &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; loop  /snap/gnome-logs/100
+loop11    7:11   &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; 140.7M  &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; loop  /snap/gnome-3-26-1604/100
+loop12    7:12   &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;  55.3M  &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; loop  /snap/core18/1885
+loop13    7:13   &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;   2.4M  &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; loop  /snap/gnome-calculator/748
+loop14    7:14   &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; 160.2M  &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; loop  /snap/gnome-3-28-1804/116
+loop15    7:15   &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; 255.6M  &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; loop  /snap/gnome-3-34-1804/36
+loop16    7:16   &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;  96.6M  &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; loop  /snap/core/9804
+loop17    7:17   &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;    97M  &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; loop  /snap/core/9665
+loop18    7:18   &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; 140.7M  &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; loop  /snap/gnome-3-26-1604/98
+loop19    7:19   &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; 255.6M  &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; loop  /snap/gnome-3-34-1804/33
+sda       8:0    &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; 238.5G  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; disk
+├─sda1    8:1    &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;   512M  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; part  /boot/efi
+└─sda2    8:2    &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;   238G  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; part  /
+sdb       8:16   &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;   7.3T  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; disk
+└─md127   9:127  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;   7.3T  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; raid1 /mnt/hdd
+sdc       8:32   &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;   7.3T  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; disk
+└─md127   9:127  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;   7.3T  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; raid1 /mnt/hdd
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;正确删除软raid方法&#34;&gt;正确删除软raid方法&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; umount /md5  先卸载阵列
+
+&lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; mdadm -S /dev/md5 停止raid运行 &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;*大S stop&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+
+&lt;span class=&#34;m&#34;&gt;3&lt;/span&gt; mdadm --misc --zero-superblock /dev/sd&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;bcdef&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; 删除磁盘
+
+&lt;span class=&#34;m&#34;&gt;4&lt;/span&gt; 删除配置文件 &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;*如果fstab或rc.local配置了自动挂载都要删除&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;总结&#34;&gt;总结&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;创建完raid要等同步到100%后再格式化&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;raid拉伸后要把拉伸的部分resize2fs格式化&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;删除时 停止挂载 停止raid 删除硬盘 删配置文件&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;涉及目录&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;/etc/mdadm.conf 要手动生成这个配置文件 里面内容末尾加上auto=yes 否则开机会raid损坏&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;/proc/mdstat 通过查看这个文件可以监控raid工作状态 几个U代表几个盘在工作&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;启动&#34;&gt;启动&lt;/h2&gt;
 &lt;p&gt;&lt;em&gt;start_docker_jenkins.sh&lt;/em&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -579,12 +839,15 @@ docker run -d &lt;span class=&#34;se&#34;&gt;\
 &lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-v /var/jenkins_home:/var/jenkins_home &lt;span class=&#34;se&#34;&gt;\
 &lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-v /var/lib/jenkins/jobs:/var/jenkins_home/jobs &lt;span class=&#34;se&#34;&gt;\
 &lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-v /var/lib/jenkins/workspace:/var/jenkins_home/workspace &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-p 8081:8080 &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-p 50001:50000 &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;jenkins/jenkins:lts
+&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-p 8080:8080 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-p 50000:50000 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;jenkins/jenkins:&amp;lt;TAG&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;启动后，获取到容器的 id，使用 &lt;code&gt;docker logs [ID]&lt;/code&gt; 查看是否有错误。&lt;/p&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;50000 端口用来作为 slave 通信，在 异常情况 第二种提到&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;启动后，获取到容器的 id，使用 &lt;code&gt;docker logs [ID]&lt;/code&gt; 查看是否有错误。&lt;/p&gt;
 &lt;h2 id=&#34;异常情况&#34;&gt;异常情况&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -594,6 +857,12 @@ docker run -d &lt;span class=&#34;se&#34;&gt;\
 &lt;blockquote&gt;
 &lt;p&gt;关于 docker容器的权限问题可以见参考一节前两篇文章&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Windows Node 无法与 Master 通信&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/jenkins-master-slave-connection-error.png&#34; alt=&#34;jenkins-master-slave-connection-error&#34;&gt;&lt;/p&gt;
+&lt;p&gt;在 Manage Jenkins -&amp;gt; Configure Global Security -&amp;gt; Agents 中配置&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/jenkins-agents-port-config.png&#34; alt=&#34;jenkins-agents-port-config&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
