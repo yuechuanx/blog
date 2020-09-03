@@ -3,43 +3,63 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://yuechuanx.github.io/blog/categories/</loc>
-    <lastmod>2020-09-02T14:45:09+08:00</lastmod>
+    <loc>https://yuechuanx.github.io/blog/tags/command-line-tool/</loc>
+    <lastmod>2020-09-03T17:51:49+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://yuechuanx.github.io/blog/tags/docker/</loc>
-    <lastmod>2020-08-28T16:24:01+08:00</lastmod>
+    <loc>https://yuechuanx.github.io/blog/tags/linux/</loc>
+    <lastmod>2020-09-03T17:51:49+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://yuechuanx.github.io/blog/posts/</loc>
-    <lastmod>2020-09-02T15:49:09+08:00</lastmod>
+    <lastmod>2020-09-03T17:51:49+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://yuechuanx.github.io/blog/categories/python/</loc>
-    <lastmod>2020-09-02T14:45:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://yuechuanx.github.io/blog/tags/python/</loc>
-    <lastmod>2020-09-02T14:45:09+08:00</lastmod>
+    <loc>https://yuechuanx.github.io/blog/posts/rsync-use-guide/</loc>
+    <lastmod>2020-09-03T17:51:49+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://yuechuanx.github.io/blog/tags/</loc>
-    <lastmod>2020-09-02T15:49:09+08:00</lastmod>
+    <lastmod>2020-09-03T17:51:49+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://yuechuanx.github.io/blog/posts/python/official-docker-python-image/</loc>
-    <lastmod>2020-08-28T16:24:01+08:00</lastmod>
+    <loc>https://yuechuanx.github.io/blog/tags/tools/</loc>
+    <lastmod>2020-09-03T17:51:49+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://yuechuanx.github.io/blog/</loc>
-    <lastmod>2020-09-02T15:49:09+08:00</lastmod>
+    <lastmod>2020-09-03T17:51:49+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuechuanx.github.io/blog/categories/</loc>
+    <lastmod>2020-09-03T11:53:19+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuechuanx.github.io/blog/tags/docker/</loc>
+    <lastmod>2020-09-03T11:53:19+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuechuanx.github.io/blog/categories/python/</loc>
+    <lastmod>2020-09-03T11:53:19+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuechuanx.github.io/blog/tags/python/</loc>
+    <lastmod>2020-09-03T11:53:19+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuechuanx.github.io/blog/posts/python/official-docker-python-image/</loc>
+    <lastmod>2020-09-03T11:53:19+08:00</lastmod>
   </url>
   
   <url>
@@ -243,11 +263,6 @@
   </url>
   
   <url>
-    <loc>https://yuechuanx.github.io/blog/tags/linux/</loc>
-    <lastmod>2020-08-25T15:40:08+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://yuechuanx.github.io/blog/posts/linux/how-to-find-files-under-linux/</loc>
     <lastmod>2020-08-25T15:40:08+08:00</lastmod>
   </url>
@@ -264,7 +279,7 @@
   
   <url>
     <loc>https://yuechuanx.github.io/blog/categories/fluent-python/</loc>
-    <lastmod>2020-09-02T14:45:09+08:00</lastmod>
+    <lastmod>2020-09-03T11:52:42+08:00</lastmod>
   </url>
   
   <url>
@@ -374,12 +389,12 @@
   
   <url>
     <loc>https://yuechuanx.github.io/blog/posts/python/fluent-python/fluent-python-dict-and-collections/</loc>
-    <lastmod>2020-08-25T15:40:08+08:00</lastmod>
+    <lastmod>2020-09-03T11:52:42+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://yuechuanx.github.io/blog/posts/python/fluent-python/fluent-python-array-of-sequences/</loc>
-    <lastmod>2020-08-25T15:40:08+08:00</lastmod>
+    <lastmod>2020-09-03T11:52:37+08:00</lastmod>
   </url>
   
   <url>

@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">过往皆为序章</title>
     <subtitle type="html">MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</subtitle>
-    <updated>2020-09-02T15:49:24&#43;08:00</updated>
+    <updated>2020-09-03T17:52:45&#43;08:00</updated>
     <id>https://yuechuanx.github.io/blog/</id>
     <link rel="alternate" type="text/html" href="https://yuechuanx.github.io/blog/" />
     <link rel="self" type="application/atom&#43;xml" href="https://yuechuanx.github.io/blog/atom.xml" />
@@ -17,19 +17,469 @@
     <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights>
     <generator uri="https://gohugo.io/" version="0.74.2">Hugo</generator>
         <entry>
+            <title type="text">rysnc使用指南</title>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.github.io/blog/posts/rsync-use-guide/" />
+            <id>https://yuechuanx.github.io/blog/posts/rsync-use-guide/</id>
+            <updated>2020-09-03T17:51:49&#43;08:00</updated>
+            <published>2020-09-03T14:47:04&#43;08:00</published>
+            <author>
+                    <name>YueChuan</name>
+                    <uri>https://yuechuanx.top/</uri>
+                    <email>xiaoyuechuan@gmail.com</email>
+                    </author>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">&lt;p&gt;&lt;img src=&#34;https://www.wangbase.com/blogimg/asset/202008/bg2020082602.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本文来源自 &lt;a href=&#34;http://www.ruanyifeng.com/blog/2020/08/rsync.html&#34;&gt;rsync 用法教程 作者 阮一峰&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;rsync 是一个常用的 Linux 应用程序，用于文件同步。&lt;/p&gt;
+&lt;p&gt;它可以在本地计算机与远程计算机之间，或者两个本地目录之间同步文件（但不支持两台远程计算机之间的同步）。它也可以当作文件复制工具，替代&lt;code&gt;cp&lt;/code&gt;和&lt;code&gt;mv&lt;/code&gt;命令。&lt;/p&gt;
+&lt;/blockquote&gt;……</summary>
+            
+                <content type="html">&lt;p&gt;&lt;img src=&#34;https://www.wangbase.com/blogimg/asset/202008/bg2020082602.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本文来源自 &lt;a href=&#34;http://www.ruanyifeng.com/blog/2020/08/rsync.html&#34;&gt;rsync 用法教程 作者 阮一峰&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;rsync 是一个常用的 Linux 应用程序，用于文件同步。&lt;/p&gt;
+&lt;p&gt;它可以在本地计算机与远程计算机之间，或者两个本地目录之间同步文件（但不支持两台远程计算机之间的同步）。它也可以当作文件复制工具，替代&lt;code&gt;cp&lt;/code&gt;和&lt;code&gt;mv&lt;/code&gt;命令。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;它名称里面的&lt;code&gt;r&lt;/code&gt;指的是 remote，rsync 其实就是&amp;quot;远程同步&amp;quot;（remote sync）的意思。与其他文件传输工具（如 FTP 或 scp）不同，rsync 的最大特点是会检查发送方和接收方已有的文件，仅传输有变动的部分（默认规则是文件大小或修改时间有变动）。&lt;/p&gt;
+&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
+&lt;p&gt;如果本机或者远程计算机没有安装 rsync，可以用下面的命令安装。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Debian&lt;/span&gt;
+$ sudo apt-get install rsync
+
+&lt;span class=&#34;c1&#34;&gt;# Red Hat&lt;/span&gt;
+$ sudo yum install rsync
+
+&lt;span class=&#34;c1&#34;&gt;# Arch Linux&lt;/span&gt;
+$ sudo pacman -S rsync
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;注意，传输的双方都必须安装 rsync。&lt;/p&gt;
+&lt;h2 id=&#34;基本用法&#34;&gt;基本用法&lt;/h2&gt;
+&lt;h3 id=&#34;-r-参数&#34;&gt;&lt;code&gt;-r&lt;/code&gt; 参数&lt;/h3&gt;
+&lt;p&gt;本机使用 rsync 命令时，可以作为&lt;code&gt;cp&lt;/code&gt;和&lt;code&gt;mv&lt;/code&gt;命令的替代方法，将源目录同步到目标目录。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ rsync -r &lt;span class=&#34;nb&#34;&gt;source&lt;/span&gt; destination
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;上面命令中，&lt;code&gt;-r&lt;/code&gt;表示递归，即包含子目录。注意，&lt;code&gt;-r&lt;/code&gt;是必须的，否则 rsync 运行不会成功。&lt;code&gt;source&lt;/code&gt;目录表示源目录，&lt;code&gt;destination&lt;/code&gt;表示目标目录。&lt;/p&gt;
+&lt;p&gt;如果有多个文件或目录需要同步，可以写成下面这样。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ rsync -r source1 source2 destination
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;上面命令中，&lt;code&gt;source1&lt;/code&gt;、&lt;code&gt;source2&lt;/code&gt;都会被同步到&lt;code&gt;destination&lt;/code&gt;目录。&lt;/p&gt;
+&lt;h3 id=&#34;-a-参数&#34;&gt;&lt;code&gt;-a&lt;/code&gt; 参数&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;-a&lt;/code&gt;参数可以替代&lt;code&gt;-r&lt;/code&gt;，除了可以递归同步以外，还可以同步元信息（比如修改时间、权限等）。由于 rsync 默认使用文件大小和修改时间决定文件是否需要更新，所以&lt;code&gt;-a&lt;/code&gt;比&lt;code&gt;-r&lt;/code&gt;更有用。下面的用法才是常见的写法。&lt;/p&gt;
+&lt;p&gt;$ rsync -a source destination&lt;/p&gt;
+&lt;p&gt;目标目录&lt;code&gt;destination&lt;/code&gt;如果不存在，rsync 会自动创建。执行上面的命令后，源目录&lt;code&gt;source&lt;/code&gt;被完整地复制到了目标目录&lt;code&gt;destination&lt;/code&gt;下面，即形成了&lt;code&gt;destination/source&lt;/code&gt;的目录结构。&lt;/p&gt;
+&lt;p&gt;如果只想同步源目录&lt;code&gt;source&lt;/code&gt;里面的内容到目标目录&lt;code&gt;destination&lt;/code&gt;，则需要在源目录后面加上斜杠。&lt;/p&gt;
+&lt;p&gt;$ rsync -a source/ destination&lt;/p&gt;
+&lt;p&gt;上面命令执行后，&lt;code&gt;source&lt;/code&gt;目录里面的内容，就都被复制到了&lt;code&gt;destination&lt;/code&gt;目录里面，并不会在&lt;code&gt;destination&lt;/code&gt;下面创建一个&lt;code&gt;source&lt;/code&gt;子目录。&lt;/p&gt;
+&lt;h3 id=&#34;-n-参数&#34;&gt;&lt;code&gt;-n&lt;/code&gt; 参数&lt;/h3&gt;
+&lt;p&gt;如果不确定 rsync 执行后会产生什么结果，可以先用&lt;code&gt;-n&lt;/code&gt;或&lt;code&gt;--dry-run&lt;/code&gt;参数模拟执行的结果。&lt;/p&gt;
+&lt;p&gt;$ rsync -anv source/ destination&lt;/p&gt;
+&lt;p&gt;上面命令中，&lt;code&gt;-n&lt;/code&gt;参数模拟命令执行的结果，并不真的执行命令。&lt;code&gt;-v&lt;/code&gt;参数则是将结果输出到终端，这样就可以看到哪些内容会被同步。&lt;/p&gt;
+&lt;h3 id=&#34;--delete-参数&#34;&gt;&lt;code&gt;--delete&lt;/code&gt; 参数&lt;/h3&gt;
+&lt;p&gt;默认情况下，rsync 只确保源目录的所有内容（明确排除的文件除外）都复制到目标目录。它不会使两个目录保持相同，并且不会删除文件。如果要使得目标目录成为源目录的镜像副本，则必须使用&lt;code&gt;--delete&lt;/code&gt;参数，这将删除只存在于目标目录、不存在于源目录的文件。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ rsync -av --delete source/ destination
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/blockquote&gt;
+&lt;p&gt;上面命令中，&lt;code&gt;--delete&lt;/code&gt;参数会使得&lt;code&gt;destination&lt;/code&gt;成为&lt;code&gt;source&lt;/code&gt;的一个镜像。&lt;/p&gt;
+&lt;h2 id=&#34;排除文件&#34;&gt;排除文件&lt;/h2&gt;
+&lt;h3 id=&#34;--exclude-参数&#34;&gt;&lt;code&gt;--exclude&lt;/code&gt; 参数&lt;/h3&gt;
+&lt;p&gt;有时，我们希望同步时排除某些文件或目录，这时可以用&lt;code&gt;--exclude&lt;/code&gt;参数指定排除模式。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ rsync -av --exclude&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;*.txt&amp;#39;&lt;/span&gt; source/ destination
+&lt;span class=&#34;c1&#34;&gt;# 或者&lt;/span&gt;
+$ rsync -av --exclude &lt;span class=&#34;s1&#34;&gt;&amp;#39;*.txt&amp;#39;&lt;/span&gt; source/ destination
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;上面命令排除了所有 TXT 文件。&lt;/p&gt;
+&lt;p&gt;注意，rsync 会同步以&amp;quot;点&amp;quot;开头的隐藏文件，如果要排除隐藏文件，可以这样写&lt;code&gt;--exclude=&amp;quot;.*&amp;quot;&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;如果要排除某个目录里面的所有文件，但不希望排除目录本身，可以写成下面这样。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ rsync -av --exclude &lt;span class=&#34;s1&#34;&gt;&amp;#39;dir1/*&amp;#39;&lt;/span&gt; source/ destination 
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;多个排除模式，可以用多个&lt;code&gt;--exclude&lt;/code&gt;参数。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ rsync -av --exclude &lt;span class=&#34;s1&#34;&gt;&amp;#39;file1.txt&amp;#39;&lt;/span&gt; --exclude &lt;span class=&#34;s1&#34;&gt;&amp;#39;dir1/*&amp;#39;&lt;/span&gt; source/ destination
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;多个排除模式也可以利用 Bash 的大扩号的扩展功能，只用一个&lt;code&gt;--exclude&lt;/code&gt;参数。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ rsync -av --exclude&lt;span class=&#34;o&#34;&gt;={&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;file1.txt&amp;#39;&lt;/span&gt;,&lt;span class=&#34;s1&#34;&gt;&amp;#39;dir1/*&amp;#39;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt; source/ destination
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;如果排除模式很多，可以将它们写入一个文件，每个模式一行，然后用&lt;code&gt;--exclude-from&lt;/code&gt;参数指定这个文件。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ rsync -av --exclude-from&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;exclude-file.txt&amp;#39;&lt;/span&gt; source/ destination
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;--include-参数&#34;&gt;&lt;code&gt;--include&lt;/code&gt; 参数&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;--include&lt;/code&gt;参数用来指定必须同步的文件模式，往往与&lt;code&gt;--exclude&lt;/code&gt;结合使用。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ rsync -av --include&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;*.txt&amp;#34;&lt;/span&gt; --exclude&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;*&amp;#39;&lt;/span&gt; source/ destination
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;上面命令指定同步时，排除所有文件，但是会包括 TXT 文件。&lt;/p&gt;
+&lt;h2 id=&#34;远程同步&#34;&gt;远程同步&lt;/h2&gt;
+&lt;h3 id=&#34;ssh-协议&#34;&gt;SSH 协议&lt;/h3&gt;
+&lt;p&gt;rsync 除了支持本地两个目录之间的同步，也支持远程同步。它可以将本地内容，同步到远程服务器。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ rsync -av source/ username@remote_host:destination
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;也可以将远程内容同步到本地。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ rsync -av username@remote_host:source/ destination
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;rsync 默认使用 SSH 进行远程登录和数据传输。&lt;/p&gt;
+&lt;p&gt;由于早期 rsync 不使用 SSH 协议，需要用&lt;code&gt;-e&lt;/code&gt;参数指定协议，后来才改的。所以，下面&lt;code&gt;-e ssh&lt;/code&gt;可以省略。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ rsync -av -e ssh source/ user@remote_host:/destination
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;但是，如果 ssh 命令有附加的参数，则必须使用&lt;code&gt;-e&lt;/code&gt;参数指定所要执行的 SSH 命令。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ rsync -av -e &lt;span class=&#34;s1&#34;&gt;&amp;#39;ssh -p 2234&amp;#39;&lt;/span&gt; source/ user@remote_host:/destination
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;上面命令中，&lt;code&gt;-e&lt;/code&gt;参数指定 SSH 使用2234端口。&lt;/p&gt;
+&lt;h3 id=&#34;rsync-协议&#34;&gt;rsync 协议&lt;/h3&gt;
+&lt;p&gt;除了使用 SSH，如果另一台服务器安装并运行了 rsync 守护程序，则也可以用&lt;code&gt;rsync://&lt;/code&gt;协议（默认端口873）进行传输。具体写法是服务器与目标目录之间使用双冒号分隔&lt;code&gt;::&lt;/code&gt;。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ rsync -av source/ 192.168.122.32::module/destination
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;注意，上面地址中的&lt;code&gt;module&lt;/code&gt;并不是实际路径名，而是 rsync 守护程序指定的一个资源名，由管理员分配。&lt;/p&gt;
+&lt;p&gt;如果想知道 rsync 守护程序分配的所有 module 列表，可以执行下面命令。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ rsync rsync://192.168.122.32
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;rsync 协议除了使用双冒号，也可以直接用&lt;code&gt;rsync://&lt;/code&gt;协议指定地址。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ rsync -av source/ rsync://192.168.122.32/module/destination
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;增量备份&#34;&gt;增量备份&lt;/h2&gt;
+&lt;p&gt;rsync 的最大特点就是它可以完成增量备份，也就是默认只复制有变动的文件。&lt;/p&gt;
+&lt;p&gt;除了源目录与目标目录直接比较，rsync 还支持使用基准目录，即将源目录与基准目录之间变动的部分，同步到目标目录。&lt;/p&gt;
+&lt;p&gt;具体做法是，第一次同步是全量备份，所有文件在基准目录里面同步一份。以后每一次同步都是增量备份，只同步源目录与基准目录之间有变动的部分，将这部分保存在一个新的目标目录。这个新的目标目录之中，也是包含所有文件，但实际上，只有那些变动过的文件是存在于该目录，其他没有变动的文件都是指向基准目录文件的硬链接。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;--link-dest&lt;/code&gt;参数用来指定同步时的基准目录。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ rsync -a --delete --link-dest /compare/path /source/path /target/path
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;上面命令中，&lt;code&gt;--link-dest&lt;/code&gt;参数指定基准目录&lt;code&gt;/compare/path&lt;/code&gt;，然后源目录&lt;code&gt;/source/path&lt;/code&gt;跟基准目录进行比较，找出变动的文件，将它们拷贝到目标目录&lt;code&gt;/target/path&lt;/code&gt;。那些没变动的文件则会生成硬链接。这个命令的第一次备份时是全量备份，后面就都是增量备份了。&lt;/p&gt;
+&lt;p&gt;下面是一个脚本示例，备份用户的主目录。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#!/bin/bash
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# A script to perform incremental backups using rsync&lt;/span&gt;
+
+&lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; -o errexit
+&lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; -o nounset
+&lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; -o pipefail
+
+&lt;span class=&#34;nb&#34;&gt;readonly&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;SOURCE_DIR&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;HOME&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;readonly&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;BACKUP_DIR&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;/mnt/data/backups&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;readonly&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;DATETIME&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;date &lt;span class=&#34;s1&#34;&gt;&amp;#39;+%Y-%m-%d_%H:%M:%S&amp;#39;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;readonly&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;BACKUP_PATH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;BACKUP_DIR&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;DATETIME&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;readonly&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;LATEST_LINK&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;BACKUP_DIR&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;/latest&amp;#34;&lt;/span&gt;
+
+mkdir -p &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;BACKUP_DIR&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+
+rsync -av --delete &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;SOURCE_DIR&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;/&amp;#34;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;--link-dest &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;LATEST_LINK&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;--exclude&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;.cache&amp;#34;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;BACKUP_PATH&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+
+rm -rf &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;LATEST_LINK&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+ln -s &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;BACKUP_PATH&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;LATEST_LINK&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;上面脚本中，每一次同步都会生成一个新目录&lt;code&gt;${BACKUP_DIR}/${DATETIME}&lt;/code&gt;，并将软链接&lt;code&gt;${BACKUP_DIR}/latest&lt;/code&gt;指向这个目录。下一次备份时，就将&lt;code&gt;${BACKUP_DIR}/latest&lt;/code&gt;作为基准目录，生成新的备份目录。最后，再将软链接&lt;code&gt;${BACKUP_DIR}/latest&lt;/code&gt;指向新的备份目录。&lt;/p&gt;
+&lt;h2 id=&#34;七配置项&#34;&gt;七、配置项&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;-a&lt;/code&gt;、&lt;code&gt;--archive&lt;/code&gt;参数表示存档模式，保存所有的元数据，比如修改时间（modification time）、权限、所有者等，并且软链接也会同步过去。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;--append&lt;/code&gt;参数指定文件接着上次中断的地方，继续传输。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;--append-verify&lt;/code&gt;参数跟&lt;code&gt;--append&lt;/code&gt;参数类似，但会对传输完成后的文件进行一次校验。如果校验失败，将重新发送整个文件。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;-b&lt;/code&gt;、&lt;code&gt;--backup&lt;/code&gt;参数指定在删除或更新目标目录已经存在的文件时，将该文件更名后进行备份，默认行为是删除。更名规则是添加由&lt;code&gt;--suffix&lt;/code&gt;参数指定的文件后缀名，默认是&lt;code&gt;~&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;--backup-dir&lt;/code&gt;参数指定文件备份时存放的目录，比如&lt;code&gt;--backup-dir=/path/to/backups&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;--bwlimit&lt;/code&gt;参数指定带宽限制，默认单位是 KB/s，比如&lt;code&gt;--bwlimit=100&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;-c&lt;/code&gt;、&lt;code&gt;--checksum&lt;/code&gt;参数改变&lt;code&gt;rsync&lt;/code&gt;的校验方式。默认情况下，rsync 只检查文件的大小和最后修改日期是否发生变化，如果发生变化，就重新传输；使用这个参数以后，则通过判断文件内容的校验和，决定是否重新传输。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;--delete&lt;/code&gt;参数删除只存在于目标目录、不存在于源目标的文件，即保证目标目录是源目标的镜像。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;-e&lt;/code&gt;参数指定使用 SSH 协议传输数据。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;--exclude&lt;/code&gt;参数指定排除不进行同步的文件，比如&lt;code&gt;--exclude=&amp;quot;*.iso&amp;quot;&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;--exclude-from&lt;/code&gt;参数指定一个本地文件，里面是需要排除的文件模式，每个模式一行。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;--existing&lt;/code&gt;、&lt;code&gt;--ignore-non-existing&lt;/code&gt;参数表示不同步目标目录中不存在的文件和目录。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;-h&lt;/code&gt;参数表示以人类可读的格式输出。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;-h&lt;/code&gt;、&lt;code&gt;--help&lt;/code&gt;参数返回帮助信息。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;-i&lt;/code&gt;参数表示输出源目录与目标目录之间文件差异的详细情况。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;--ignore-existing&lt;/code&gt;参数表示只要该文件在目标目录中已经存在，就跳过去，不再同步这些文件。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;--include&lt;/code&gt;参数指定同步时要包括的文件，一般与&lt;code&gt;--exclude&lt;/code&gt;结合使用。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;--link-dest&lt;/code&gt;参数指定增量备份的基准目录。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;-m&lt;/code&gt;参数指定不同步空目录。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;--max-size&lt;/code&gt;参数设置传输的最大文件的大小限制，比如不超过200KB（&lt;code&gt;--max-size=&#39;200k&#39;&lt;/code&gt;）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;--min-size&lt;/code&gt;参数设置传输的最小文件的大小限制，比如不小于10KB（&lt;code&gt;--min-size=10k&lt;/code&gt;）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;-n&lt;/code&gt;参数或&lt;code&gt;--dry-run&lt;/code&gt;参数模拟将要执行的操作，而并不真的执行。配合&lt;code&gt;-v&lt;/code&gt;参数使用，可以看到哪些内容会被同步过去。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;-P&lt;/code&gt;参数是&lt;code&gt;--progress&lt;/code&gt;和&lt;code&gt;--partial&lt;/code&gt;这两个参数的结合。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;--partial&lt;/code&gt;参数允许恢复中断的传输。不使用该参数时，&lt;code&gt;rsync&lt;/code&gt;会删除传输到一半被打断的文件；使用该参数后，传输到一半的文件也会同步到目标目录，下次同步时再恢复中断的传输。一般需要与&lt;code&gt;--append&lt;/code&gt;或&lt;code&gt;--append-verify&lt;/code&gt;配合使用。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;--partial-dir&lt;/code&gt;参数指定将传输到一半的文件保存到一个临时目录，比如&lt;code&gt;--partial-dir=.rsync-partial&lt;/code&gt;。一般需要与&lt;code&gt;--append&lt;/code&gt;或&lt;code&gt;--append-verify&lt;/code&gt;配合使用。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;--progress&lt;/code&gt;参数表示显示进展。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;-r&lt;/code&gt;参数表示递归，即包含子目录。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;--remove-source-files&lt;/code&gt;参数表示传输成功后，删除发送方的文件。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;--size-only&lt;/code&gt;参数表示只同步大小有变化的文件，不考虑文件修改时间的差异。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;--suffix&lt;/code&gt;参数指定文件名备份时，对文件名添加的后缀，默认是&lt;code&gt;~&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;-u&lt;/code&gt;、&lt;code&gt;--update&lt;/code&gt;参数表示同步时跳过目标目录中修改时间更新的文件，即不同步这些有更新的时间戳的文件。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;-v&lt;/code&gt;参数表示输出细节。&lt;code&gt;-vv&lt;/code&gt;表示输出更详细的信息，&lt;code&gt;-vvv&lt;/code&gt;表示输出最详细的信息。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;--version&lt;/code&gt;参数返回 rsync 的版本。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;-z&lt;/code&gt;参数指定同步时压缩数据。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;参考链接&#34;&gt;参考链接&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.digitalocean.com/community/tutorials/how-to-use-rsync-to-sync-local-and-remote-directories-on-a-vps&#34;&gt;How To Use Rsync to Sync Local and Remote Directories on a VPS&lt;/a&gt;, Justin Ellingwood&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.howtoforge.com/mirroring_with_rsync&#34;&gt;Mirror Your Web Site With rsync&lt;/a&gt;, Falko Timme&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://linuxconfig.org/examples-on-how-to-use-rsync-for-local-and-remote-data-backups-and-synchonization&#34;&gt;Examples on how to use Rsync&lt;/a&gt;, Egidio Docile&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://linuxconfig.org/how-to-create-incremental-backups-using-rsync-on-linux&#34;&gt;How to create incremental backups using rsync on Linux&lt;/a&gt;, Egidio Docile&lt;/li&gt;
+&lt;/ul&gt;</content>
+            
+            
+            
+            
+            
+                
+                    
+                
+                    
+                        
+                            
+                            
+                            
+                                <category scheme="https://yuechuanx.github.io/blog/tags/linux/" term="linux" label="linux" />
+                            
+                        
+                            
+                            
+                            
+                                <category scheme="https://yuechuanx.github.io/blog/tags/tools/" term="tools" label="tools" />
+                            
+                        
+                            
+                            
+                            
+                                <category scheme="https://yuechuanx.github.io/blog/tags/command-line-tool/" term="command-line-tool" label="command-line-tool" />
+                            
+                        
+                    
+                
+            
+        </entry>
+    
+        <entry>
             <title type="text">深入了解Python的官方Docker镜像</title>
             <link rel="alternate" type="text/html" href="https://yuechuanx.github.io/blog/posts/python/official-docker-python-image/" />
             <id>https://yuechuanx.github.io/blog/posts/python/official-docker-python-image/</id>
-            <updated>2020-08-28T16:24:01&#43;08:00</updated>
+            <updated>2020-09-03T11:53:19&#43;08:00</updated>
             <published>2020-08-28T15:56:07&#43;08:00</published>
             <author>
                     <name>YueChuan</name>
                     <uri>https://yuechuanx.top/</uri>
                     <email>xiaoyuechuan@gmail.com</email>
                     </author>
-            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">翻译：A deep dive into the official Docker image for Python Docker的官方Python镜像非常流行，实际上，我建议将其变体之一作为基础镜像。但是许多人不太了解它的作用，这可能导致混乱和破裂。 因此，在这篇文章中，我将介绍它的构造方式，为什么有用，如何正确使用它以及它的局限性。特别是，我将通读截至2020年8月19日的python:……</summary>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">&lt;p&gt;&lt;img src=&#34;https://files.realpython.com/media/Run-Different-Python-Versions-With-Docker_Watermarked.341ab433e5a0.jpg&#34; alt=&#34;python-with-docker&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;翻译：&lt;a href=&#34;https://pythonspeed.com/articles/official-python-docker-image/&#34;&gt;A deep dive into the official Docker image for Python&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Docker的官方Python镜像非常流行，实际上，&lt;a href=&#34;https://pythonspeed.com/articles/base-image-python-docker-images/&#34;&gt;我建议将其变体之一作为基础镜像&lt;/a&gt;。但是许多人不太了解它的作用，这可能导致混乱和破裂。&lt;/p&gt;
+&lt;p&gt;因此，在这篇文章中，我将介绍它的构造方式，为什么有用，如何正确使用它以及它的局限性。特别是，我将通读&lt;a href=&#34;https://github.com/docker-library/python/blob/1b78ff417e41b6448d98d6dd6890a1f95b0ce4be/3.8/buster/slim/Dockerfile&#34;&gt;截至2020年8月19日&lt;/a&gt;的&lt;code&gt;python:3.8-slim-buster&lt;/code&gt;变体，&lt;a href=&#34;https://github.com/docker-library/python/blob/1b78ff417e41b6448d98d6dd6890a1f95b0ce4be/3.8/buster/slim/Dockerfile&#34;&gt;并&lt;/a&gt;在进行过程中对其进行解释。&lt;/p&gt;
+&lt;/blockquote&gt;……</summary>
             
-                <content type="html">&lt;blockquote&gt;
+                <content type="html">&lt;p&gt;&lt;img src=&#34;https://files.realpython.com/media/Run-Different-Python-Versions-With-Docker_Watermarked.341ab433e5a0.jpg&#34; alt=&#34;python-with-docker&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
 &lt;p&gt;翻译：&lt;a href=&#34;https://pythonspeed.com/articles/official-python-docker-image/&#34;&gt;A deep dive into the official Docker image for Python&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Docker的官方Python镜像非常流行，实际上，&lt;a href=&#34;https://pythonspeed.com/articles/base-image-python-docker-images/&#34;&gt;我建议将其变体之一作为基础镜像&lt;/a&gt;。但是许多人不太了解它的作用，这可能导致混乱和破裂。&lt;/p&gt;
 &lt;p&gt;因此，在这篇文章中，我将介绍它的构造方式，为什么有用，如何正确使用它以及它的局限性。特别是，我将通读&lt;a href=&#34;https://github.com/docker-library/python/blob/1b78ff417e41b6448d98d6dd6890a1f95b0ce4be/3.8/buster/slim/Dockerfile&#34;&gt;截至2020年8月19日&lt;/a&gt;的&lt;code&gt;python:3.8-slim-buster&lt;/code&gt;变体，&lt;a href=&#34;https://github.com/docker-library/python/blob/1b78ff417e41b6448d98d6dd6890a1f95b0ce4be/3.8/buster/slim/Dockerfile&#34;&gt;并&lt;/a&gt;在进行过程中对其进行解释。&lt;/p&gt;
@@ -438,8 +888,7 @@ root@280c9b73e8f9:/#
 &lt;h3 id=&#34;python官方镜像删除所有pyc文件&#34;&gt;&lt;code&gt;python&lt;/code&gt;官方镜像删除所有&lt;code&gt;.pyc&lt;/code&gt;文件&lt;/h3&gt;
 &lt;p&gt;如果要稍微加快启动速度，则可能希望&lt;code&gt;.pyc&lt;/code&gt;使用&lt;a href=&#34;https://docs.python.org/3/library/compileall.html&#34;&gt;&lt;code&gt;compileall&lt;/code&gt;&lt;/a&gt;将标准库源代码编译到自己的镜像中。&lt;/p&gt;
 &lt;h3 id=&#34;python官方镜像不安装debian安全更新&#34;&gt;&lt;code&gt;python&lt;/code&gt;官方镜像不安装Debian安全更新&lt;/h3&gt;
-&lt;p&gt;尽管经常会重新生成&lt;code&gt;debian:buster-slim&lt;/code&gt;和&lt;code&gt;python&lt;/code&gt;镜像，但是在某些窗口中已发布了新的Debian安全修复程序，但是尚未重新生成镜像。您应该&lt;a href=&#34;https://pythonspeed.com/articles/system-packages-docker/&#34;&gt;将安全更新安装到基础Linux发行版&lt;/a&gt;。&lt;/p&gt;
-</content>
+&lt;p&gt;尽管经常会重新生成&lt;code&gt;debian:buster-slim&lt;/code&gt;和&lt;code&gt;python&lt;/code&gt;镜像，但是在某些窗口中已发布了新的Debian安全修复程序，但是尚未重新生成镜像。您应该&lt;a href=&#34;https://pythonspeed.com/articles/system-packages-docker/&#34;&gt;将安全更新安装到基础Linux发行版&lt;/a&gt;。&lt;/p&gt;</content>
             
             
             
@@ -12698,7 +13147,7 @@ python manage.py startapp login apps/login
             <title type="text">《流畅的Python》 字典和集合</title>
             <link rel="alternate" type="text/html" href="https://yuechuanx.github.io/blog/posts/python/fluent-python/fluent-python-dict-and-collections/" />
             <id>https://yuechuanx.github.io/blog/posts/python/fluent-python/fluent-python-dict-and-collections/</id>
-            <updated>2020-08-25T15:40:08&#43;08:00</updated>
+            <updated>2020-09-03T11:52:42&#43;08:00</updated>
             <published>2019-12-24T16:08:14&#43;00:00</published>
             <author>
                     <name>YueChuan</name>
@@ -12707,7 +13156,8 @@ python manage.py startapp login apps/login
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">字典这个数据结构活跃在所有 Python 程序的背后，即便你的源码里并没有直接用到它。 ——A. M. Kuchling dict 是 Python 语言的基石。 可散列对象需要实现 __hash__ 和 __eq__ 函数。 如果两个可散列对象是相等的，那么它们的散列值一定是一样的。 范映射类型 collections.abc 模块中有 Mapping 和 MutableMapping 两个抽象基类，起作用是为 dict 和其他类似的类型定义形式接口。 //pic 但非抽象映射类型一般不会直……</summary>
             
-                <content type="html">&lt;blockquote&gt;
+                <content type="html">&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/fluent-python-logo.jpg&#34; alt=&#34;fluent-python-logo&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
 &lt;p&gt;字典这个数据结构活跃在所有 Python 程序的背后，即便你的源码里并没有直接用到它。&lt;br&gt;
 ——A. M. Kuchling&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -13333,7 +13783,7 @@ Four
             <title type="text">《流畅的Python》 序列构成的数组</title>
             <link rel="alternate" type="text/html" href="https://yuechuanx.github.io/blog/posts/python/fluent-python/fluent-python-array-of-sequences/" />
             <id>https://yuechuanx.github.io/blog/posts/python/fluent-python/fluent-python-array-of-sequences/</id>
-            <updated>2020-08-25T15:40:08&#43;08:00</updated>
+            <updated>2020-09-03T11:52:37&#43;08:00</updated>
             <published>2019-12-16T20:27:00&#43;00:00</published>
             <author>
                     <name>YueChuan</name>
@@ -13342,7 +13792,8 @@ Four
                     </author>
             <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">你可能注意到了，之前提到的几个操作可以无差别地应用于文本、列表和表格上。 我们把文本、列表和表格叫作数据火车……FOR 命令通常能作用于数据火车上。 ——Geurts、Meertens 和 Pemberton ABC Programmer’s Handbook 内置序列类型概览 容器序列 list、tuple 和 collections.deque 这些序列能存放不同类型的数据。 扁平序列 st……</summary>
             
-                <content type="html">&lt;blockquote&gt;
+                <content type="html">&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/fluent-python-logo.jpg&#34; alt=&#34;fluent-python-logo&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
 &lt;p&gt;你可能注意到了，之前提到的几个操作可以无差别地应用于文本、列表和表格上。&lt;br&gt;
 我们把文本、列表和表格叫作数据火车……FOR 命令通常能作用于数据火车上。&lt;br&gt;
 ——Geurts、Meertens 和 Pemberton&lt;br&gt;
