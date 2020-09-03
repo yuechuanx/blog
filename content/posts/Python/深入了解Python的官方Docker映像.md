@@ -7,13 +7,18 @@ categories:
 tags:
 - python 
 - docker
+
 ---
+
+![python-with-docker](https://files.realpython.com/media/Run-Different-Python-Versions-With-Docker_Watermarked.341ab433e5a0.jpg)
 
 > 翻译：[A deep dive into the official Docker image for Python](https://pythonspeed.com/articles/official-python-docker-image/) 
 >
 > Docker的官方Python镜像非常流行，实际上，[我建议将其变体之一作为基础镜像](https://pythonspeed.com/articles/base-image-python-docker-images/)。但是许多人不太了解它的作用，这可能导致混乱和破裂。
 >
 > 因此，在这篇文章中，我将介绍它的构造方式，为什么有用，如何正确使用它以及它的局限性。特别是，我将通读[截至2020年8月19日](https://github.com/docker-library/python/blob/1b78ff417e41b6448d98d6dd6890a1f95b0ce4be/3.8/buster/slim/Dockerfile)的`python:3.8-slim-buster`变体，[并](https://github.com/docker-library/python/blob/1b78ff417e41b6448d98d6dd6890a1f95b0ce4be/3.8/buster/slim/Dockerfile)在进行过程中对其进行解释。
+
+<!--more-->
 
 ## 阅读 `Dockerfile`
 

@@ -9,7 +9,11 @@ categories:
   - Fluent-Python
 slug: fluent-python-dict-and-collections
 date: 2019-12-24 16:08:14
+
 ---
+
+![fluent-python-logo](https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/fluent-python-logo.jpg)
+
 > 字典这个数据结构活跃在所有 Python 程序的背后，即便你的源码里并没有直接用到它。  
 > ——A. M. Kuchling 
 

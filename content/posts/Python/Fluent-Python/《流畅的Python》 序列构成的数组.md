@@ -9,7 +9,11 @@ categories:
   - Python
   - Fluent-Python
 date: 2019-12-16 20:27:00
+
 ---
+
+![fluent-python-logo](https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/fluent-python-logo.jpg)
+
 > 你可能注意到了，之前提到的几个操作可以无差别地应用于文本、列表和表格上。  
 > 我们把文本、列表和表格叫作数据火车……FOR 命令通常能作用于数据火车上。  
 > ——Geurts、Meertens 和 Pemberton  
