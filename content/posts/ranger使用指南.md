@@ -1,8 +1,9 @@
 ---
-title: "Ranger使用指南"
+title: Ranger使用指南
 date: 2020-09-04T14:12:06+08:00
-draft: true
-
+tags: 
+- tools
+- command-line-tool
 ---
 
 ![ranger-preview](https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/ranger-preview.png)
