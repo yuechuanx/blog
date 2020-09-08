@@ -1,6 +1,9 @@
 ---
 title: Ranger使用指南
+slug: ranger-use-guide
 date: 2020-09-04T14:12:06+08:00
+categories:
+- Tool
 tags: 
 - tools
 - command-line-tool
@@ -147,10 +150,6 @@ Options:
 | --cmd=command            | 在配置文件读取完成后执行 command 命令。多次使用此选项运行多个命令。 |
 | --version                | 打印版本信息并退出                                           |
 | -h, --help               | 打印此选项列表并退出                                         |
-
-## **一些概念**
-
-  这个部分解释了 Ranger 中的一些重要部分是怎么工作的，并且怎么高效地使用它们。
 
 ## 预览
 
@@ -634,4 +633,9 @@ def hook_init(fm):
         return old_hook_init(fm)
 ranger.api.hook_init = hook_init
 ```
+
+## 参考
+
+- [ranger 仓库](https://github.com/ranger/ranger)
+- [ranger 官方文档](https://ranger.github.io/changelog.html)
 

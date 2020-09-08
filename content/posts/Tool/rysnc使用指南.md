@@ -2,6 +2,8 @@
 title: rysnc使用指南
 slug: rsync-use-guide
 date: 2020-09-03T14:47:04+08:00
+categories:
+- Tool
 tags:
 - linux
 - tools

@@ -1,6 +1,10 @@
 ---
 title: 如何通过cron配置定时任务
 date: 2020-08-19T15:38:23+08:00
+categories:
+- Tool
+tags:
+- tools
 draft: true
 ---
 
