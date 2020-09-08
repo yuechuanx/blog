@@ -23,15 +23,183 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
         
-        <lastBuildDate>Fri, 04 Sep 2020 16:40:15 &#43;0800</lastBuildDate>
+        <lastBuildDate>Tue, 08 Sep 2020 20:24:42 &#43;0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://yuechuanx.github.io/blog/rss.xml" />
         
         
             <item>
+                <title>备份与重装 Apt 软件包</title>
+                <link>https://yuechuanx.github.io/blog/posts/backup-apt-packages/</link>
+                <guid isPermaLink="true">https://yuechuanx.github.io/blog/posts/backup-apt-packages/</guid>
+                <pubDate>Tue, 08 Sep 2020 19:58:33 &#43;0800</pubDate>
+                
+                    <author>xiaoyuechuan@gmail.com (YueChuan)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                
+                    <description>&lt;blockquote&gt;
+&lt;p&gt;作为基本在 Linux/Unix 环境下干活的来说，配环境就是家常便饭。&lt;/p&gt;
+&lt;p&gt;有时你需要把一台机器的环境在另外一台机器重新配置，这就很烦啊…...&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;apt-软件包备份&#34;&gt;APT 软件包备份&lt;/h2&gt;
+&lt;p&gt;使用 apt-clone 包就能备份系统上已安装软件列表&lt;/p&gt;
+&lt;h3 id=&#34;安装-apt-clone&#34;&gt;安装 &lt;code&gt;apt-clone&lt;/code&gt;&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo apt install apt-clone
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;备份&#34;&gt;备份&lt;/h3&gt;
+&lt;p&gt;新建个文件夹保存备份文件，之后直接开始备份就好了&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;mkdir ~/mypackages
+sudo apt-clone clone ~/mypackages
+not installable: sogoupinyin, atom, lantern version mismatch: libwebkit2gtk-4.0-37, unattended-upgrades, liblouis-data, firefox-locale-en, ubuntu-release-upgrader-core, ubuntu-release-upgrader-gtk, gir1.2-webkit2-4.0, update-manager-core, firefox-locale-zh-hans, python3-louis, update-manager, python3-distupgrade, libjavascriptcoregtk-4.0-18, gir1.2-javascriptcoregtk-4.0, python3-update-manager, firefox, liblouis14
+
+Note that you can use --with-dpkg-repack to include those packges in the clone file.
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;~/mypackages&lt;/code&gt;文件夹下应该有一个名为&lt;code&gt;apt-clone-state-*.tar.gz&lt;/code&gt;压缩包&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; ~/mypackages
+tar -xvf apt-clone-state-ubuntu.tar.gz
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;解压之后文件夹结构大概如下&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;.
+├── etc
+│   └── apt
+│       ├── preferences.d
+│       ├── sources.list
+│       ├── sources.list.d
+│       │   ├── google-chrome.list
+│       │   ├── notepadqq-team-ubuntu-notepadqq-bionic.list
+│       │   ├── numix-ubuntu-ppa-bionic.list
+│       │   ├── sogoupinyin.list
+│       │   ├── vscode.list
+│       │   └── webupd8team-ubuntu-atom-bionic.list
+│       ├── trusted.gpg
+│       └── trusted.gpg.d
+│           ├── microsoft.gpg
+│           ├── notepadqq-team_ubuntu_notepadqq.gpg
+│           ├── numix_ubuntu_ppa.gpg
+│           ├── sogou-archive-keyring.gpg -&amp;gt; /usr/share/keyrings/sogou-archive-keyring.gpg
+│           ├── ubuntu-keyring-2012-archive.gpg
+│           ├── ubuntu-keyring-2012-cdimage.gpg
+│           └── webupd8team_ubuntu_atom.gpg
+└── var
+    └── lib
+        └── apt-clone
+            ├── extended_states
+            ├── foreign.pkgs
+            ├── installed.pkgs
+            └── uname
+
+&lt;span class=&#34;m&#34;&gt;8&lt;/span&gt; directories, &lt;span class=&#34;m&#34;&gt;19&lt;/span&gt; files
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;其中 var/lib/apt-clone/installed.pkgs 记录已安装的包，另外 apt-clone 还会备份软件源等其他一些设置。&lt;/p&gt;
+&lt;h3 id=&#34;恢复&#34;&gt;恢复&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 查看备份包信息&lt;/span&gt;
+apt-clone info mypackages/apt-clone-state-ubuntu.tar.gz 
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;使用如下命令在新系统中恢复安装备份的软件包&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo apt-clone restore apt-clone-state-ubuntu.tar.gz
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://link.zhihu.com/?target=https%3A//www.ostechnix.com/backup-installed-packages-and-restore-them-on-freshly-installed-ubuntu-system/&#34;&gt;Backup Installed Packages And Restore Them On Freshly Installed Ubuntu System&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+                
+                
+                
+                
+                
+                    
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://yuechuanx.github.io/blog/tags/linux/">linux</category>
+                                
+                            
+                        
+                    
+                
+            </item>
+        
+            <item>
                 <title>Ranger使用指南</title>
-                <link>https://yuechuanx.github.io/blog/posts/ranger%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
-                <guid isPermaLink="true">https://yuechuanx.github.io/blog/posts/ranger%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
+                <link>https://yuechuanx.github.io/blog/posts/tool/ranger-use-guide/</link>
+                <guid isPermaLink="true">https://yuechuanx.github.io/blog/posts/tool/ranger-use-guide/</guid>
                 <pubDate>Fri, 04 Sep 2020 14:12:06 &#43;0800</pubDate>
                 
                     <author>xiaoyuechuan@gmail.com (YueChuan)</author>
@@ -280,8 +448,6 @@ Options:
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&#34;一些概念&#34;&gt;&lt;strong&gt;一些概念&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;  这个部分解释了 Ranger 中的一些重要部分是怎么工作的，并且怎么高效地使用它们。&lt;/p&gt;
 &lt;h2 id=&#34;预览&#34;&gt;预览&lt;/h2&gt;
 &lt;p&gt;  默认情况下，只能预览文本文件，但是你可以通过设定配置 use_preview_script 和 preview_files 为 true 来增加可以预览的文件类型。默认的预览脚本是 ~/.config/ranger/scope.sh，安装如下工具（每种类型只需要一个）就预览对应的文件类型，scope.sh 会自动调用它们：&lt;/p&gt;
 &lt;table&gt;
@@ -1506,13 +1672,25 @@ creating: /Users/Xiaoy/.config/ranger/scope.sh
 &lt;span class=&#34;n&#34;&gt;ranger&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;api&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;hook_init&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;hook_init&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description>
+&lt;/div&gt;&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ranger/ranger&#34;&gt;ranger 仓库&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ranger.github.io/changelog.html&#34;&gt;ranger 官方文档&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
                 
                 
                 
                 
                 
                     
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://yuechuanx.github.io/blog/categories/tool/">Tool</category>
+                                
+                            
                         
                     
                         
@@ -1536,8 +1714,8 @@ creating: /Users/Xiaoy/.config/ranger/scope.sh
         
             <item>
                 <title>rysnc使用指南</title>
-                <link>https://yuechuanx.github.io/blog/posts/rsync-use-guide/</link>
-                <guid isPermaLink="true">https://yuechuanx.github.io/blog/posts/rsync-use-guide/</guid>
+                <link>https://yuechuanx.github.io/blog/posts/tool/rsync-use-guide/</link>
+                <guid isPermaLink="true">https://yuechuanx.github.io/blog/posts/tool/rsync-use-guide/</guid>
                 <pubDate>Thu, 03 Sep 2020 14:47:04 &#43;0800</pubDate>
                 
                     <author>xiaoyuechuan@gmail.com (YueChuan)</author>
@@ -1943,6 +2121,14 @@ ln -s &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;s
                 
                 
                     
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://yuechuanx.github.io/blog/categories/tool/">Tool</category>
+                                
+                            
                         
                     
                         
@@ -7485,7 +7671,6 @@ _OLD_VIRTUAL_PYTHONHOME：未绑定变量
 &lt;p&gt;结合串口命令以及 Expect 读取输入输出，针对一些具有固定流程而且能通过输出判断命令执行情况的测试用例，可以实现基于串口的测试自动化。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;!-- more --&gt;
-&lt;!-- toc --&gt;
 &lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
 &lt;p&gt;在使用串口调试过程中，需要手动输入执行命令，交互性输入，以及等待执行结果。基本所有的信息都在 tty 中串行的进行显示。痛点有下面几个&lt;/p&gt;
 &lt;ul&gt;
