@@ -3,18 +3,33 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://yuechuanx.github.io/blog/tags/linux/</loc>
-    <lastmod>2020-09-08T20:23:24+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://yuechuanx.github.io/blog/posts/</loc>
-    <lastmod>2020-09-08T20:23:24+08:00</lastmod>
+    <lastmod>2020-09-09T16:15:33+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://yuechuanx.github.io/blog/tags/</loc>
-    <lastmod>2020-09-08T20:23:24+08:00</lastmod>
+    <lastmod>2020-09-09T16:15:33+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuechuanx.github.io/blog/tags/web/</loc>
+    <lastmod>2020-09-09T16:15:33+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuechuanx.github.io/blog/posts/write-a-small-static-site-generator/</loc>
+    <lastmod>2020-09-09T16:15:33+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuechuanx.github.io/blog/</loc>
+    <lastmod>2020-09-09T16:15:33+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuechuanx.github.io/blog/tags/linux/</loc>
+    <lastmod>2020-09-09T11:45:39+08:00</lastmod>
   </url>
   
   <url>
@@ -23,38 +38,33 @@
   </url>
   
   <url>
-    <loc>https://yuechuanx.github.io/blog/</loc>
-    <lastmod>2020-09-08T20:23:24+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://yuechuanx.github.io/blog/categories/</loc>
-    <lastmod>2020-09-07T16:12:19+08:00</lastmod>
+    <lastmod>2020-09-09T11:45:39+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://yuechuanx.github.io/blog/tags/command-line-tool/</loc>
-    <lastmod>2020-09-07T16:11:57+08:00</lastmod>
+    <lastmod>2020-09-09T11:45:39+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://yuechuanx.github.io/blog/posts/tool/ranger-use-guide/</loc>
-    <lastmod>2020-09-07T16:11:45+08:00</lastmod>
+    <lastmod>2020-09-09T11:45:03+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://yuechuanx.github.io/blog/categories/tool/</loc>
-    <lastmod>2020-09-07T16:11:57+08:00</lastmod>
+    <lastmod>2020-09-09T11:45:39+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://yuechuanx.github.io/blog/tags/tools/</loc>
-    <lastmod>2020-09-07T16:11:57+08:00</lastmod>
+    <lastmod>2020-09-09T11:45:39+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://yuechuanx.github.io/blog/posts/tool/rsync-use-guide/</loc>
-    <lastmod>2020-09-07T16:11:57+08:00</lastmod>
+    <lastmod>2020-09-09T11:45:39+08:00</lastmod>
   </url>
   
   <url>
@@ -384,11 +394,6 @@
   
   <url>
     <loc>https://yuechuanx.github.io/blog/posts/web/django-project-backend-template/</loc>
-    <lastmod>2020-08-28T16:46:24+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://yuechuanx.github.io/blog/tags/web/</loc>
     <lastmod>2020-08-28T16:46:24+08:00</lastmod>
   </url>
   
