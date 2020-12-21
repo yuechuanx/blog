@@ -1,14 +1,10 @@
 ---
-title: Python 中的进制转换
-slug: convert-number-in-python
-toc: true
-comments: true
+title: "Python 中如何进制转换"
+slug: how-to-convert-number-in-python
 tags:
-  - python
-date: 2020-12-21 17:51:58
-
+ - python
+date: 2020-12-21T19:22:44+08:00
 ---
-
 
 
 > 最近遇到一个情景：
