@@ -3,32 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://yuechuanx.github.io/blog/tags/concurrent/</loc>
+    <lastmod>2021-01-20T15:23:23+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuechuanx.github.io/blog/posts/</loc>
+    <lastmod>2021-01-20T15:23:23+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuechuanx.github.io/blog/tags/python/</loc>
+    <lastmod>2021-01-20T15:23:23+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuechuanx.github.io/blog/posts/python-concurrent-module-analysis/</loc>
+    <lastmod>2021-01-20T15:23:23+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuechuanx.github.io/blog/tags/</loc>
+    <lastmod>2021-01-20T15:23:23+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yuechuanx.github.io/blog/</loc>
+    <lastmod>2021-01-20T15:23:23+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://yuechuanx.github.io/blog/tags/opencv/</loc>
     <lastmod>2020-12-23T16:19:21+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://yuechuanx.github.io/blog/posts/</loc>
-    <lastmod>2020-12-23T16:19:21+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://yuechuanx.github.io/blog/tags/python/</loc>
-    <lastmod>2020-12-23T16:19:21+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://yuechuanx.github.io/blog/tags/</loc>
-    <lastmod>2020-12-23T16:19:21+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://yuechuanx.github.io/blog/posts/python/object-detect-using-opencv/</loc>
-    <lastmod>2020-12-23T16:19:21+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://yuechuanx.github.io/blog/</loc>
     <lastmod>2020-12-23T16:19:21+08:00</lastmod>
   </url>
   
