@@ -3,7 +3,7 @@
     <head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
     <meta charset="UTF-8" />
 
-    <meta name="generator" content="Hugo 0.78.2" /><meta name="theme-color" content="#fff" />
+    <meta name="generator" content="Hugo 0.83.1" /><meta name="theme-color" content="#fff" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
@@ -18,7 +18,7 @@
 
     
     
-        <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" defer></script><script src="/blog/js/meme.min.79c2bbb71ccc805089f3db27d6eacbd1ef92cd3da785eb4d074c2f0276c12199.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" defer></script><script src="/blog/js/meme.min.770ad3c3af7bbcb1b7440fa9304242b3a59c2134a9ab83b46e6d0c1c125cd9c3.js"></script>
 
     
 
@@ -314,8 +314,8 @@
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 读入一张图片</span>
 <span class="n">img</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;path/to/img&#39;</span><span class="p">)</span>
-   
-   
+
+
 <span class="c1"># 读入一帧</span>
 <span class="n">cap</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">ret</span><span class="p">,</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
@@ -367,16 +367,16 @@
     <span class="n">gradient</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">gradX</span><span class="p">,</span> <span class="n">gradY</span><span class="p">)</span>
     <span class="n">gradient</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">convertScaleAbs</span><span class="p">(</span><span class="n">gradient</span><span class="p">)</span>
     <span class="n">blurred</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">blur</span><span class="p">(</span><span class="n">gradient</span><span class="p">,</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-   
+
     <span class="c1"># cv.threshhold 与 cv.adaptiveThresholud 区别</span>
     <span class="c1"># 全局阈值与自适应阈值</span>
     <span class="n">_</span><span class="p">,</span> <span class="n">thresh</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="n">blurred</span><span class="p">,</span> <span class="mi">127</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="n">cv</span><span class="o">.</span><span class="n">THRESH_BINARY</span><span class="p">)</span>
     <span class="c1"># thresh = cv.adaptiveThreshold(</span>
     <span class="c1">#     input, 255, cv.ADAPTIVE_THRESH_MEAN_C, cv.THRESH_BINARY, 11, 2)</span>
-   
+
     <span class="k">return</span> <span class="n">thresh</span>
-   
-   
+
+
 <span class="k">def</span> <span class="nf">canny_edges</span><span class="p">(</span><span class="nb">input</span><span class="p">):</span>
     <span class="n">canny</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">Canny</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">canny</span>
@@ -419,7 +419,7 @@
     <span class="n">erosion</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">erode</span><span class="p">(</span><span class="n">dilation</span><span class="p">,</span> <span class="n">element1</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     <span class="c1"># 再次膨胀，让轮廓明显一些</span>
     <span class="n">dilation2</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">dilate</span><span class="p">(</span><span class="n">erosion</span><span class="p">,</span> <span class="n">element2</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-   
+
     <span class="k">return</span> <span class="n">closed</span>
 </code></pre></td></tr></table></div>
 </div>
@@ -457,10 +457,10 @@
         <span class="n">cnt</span> <span class="k">for</span> <span class="n">cnt</span> <span class="ow">in</span> <span class="n">contours</span>
         <span class="k">if</span> <span class="n">cv</span><span class="o">.</span><span class="n">contourArea</span><span class="p">(</span><span class="n">cnt</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">cv</span><span class="o">.</span><span class="n">arcLength</span><span class="p">(</span><span class="n">cnt</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
     <span class="p">]</span>
-   
+
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">filtered_contours</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">False</span>
-   
+
     <span class="n">sorted_contours</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">filtered_contours</span><span class="p">,</span>
                              <span class="n">key</span><span class="o">=</span><span class="n">cv</span><span class="o">.</span><span class="n">contourArea</span><span class="p">,</span>
                              <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
@@ -489,9 +489,9 @@
     <span class="n">cv</span><span class="o">.</span><span class="n">drawContours</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">contour</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">mask</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">GaussianBlur</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
     <span class="n">masked</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">bitwise_and</span><span class="p">(</span><span class="nb">input</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="nb">input</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">)</span>
-   
+
     <span class="k">return</span> <span class="n">masked</span>
-   
+
 <span class="n">canny_mask</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">drawContours</span><span class="p">(</span><span class="n">canny</span><span class="p">,</span> <span class="p">[</span><span class="n">canny_max_contour</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="n">cv</span><span class="o">.</span><span class="n">FILLED</span><span class="p">)</span>                            
 </code></pre></td></tr></table></div>
 </div>
@@ -547,16 +547,16 @@
         <span class="n">cnt</span> <span class="k">for</span> <span class="n">cnt</span> <span class="ow">in</span> <span class="n">contours</span>
         <span class="k">if</span> <span class="n">cv</span><span class="o">.</span><span class="n">contourArea</span><span class="p">(</span><span class="n">cnt</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">cv</span><span class="o">.</span><span class="n">arcLength</span><span class="p">(</span><span class="n">cnt</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
     <span class="p">]</span>
-   
+
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">filtered_contours</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">False</span>
-   
+
     <span class="n">sorted_contours</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">filtered_contours</span><span class="p">,</span>
                              <span class="n">key</span><span class="o">=</span><span class="n">cv</span><span class="o">.</span><span class="n">contourArea</span><span class="p">,</span>
                              <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
     <span class="n">max_contour</span> <span class="o">=</span> <span class="n">sorted_contours</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">max_contour</span>
-   
+
 </code></pre></td></tr></table></div>
 </div>
 </div></li>

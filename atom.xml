@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">过往皆为序章</title>
     <subtitle type="html">MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</subtitle>
-    <updated>2021-01-20T15:23:28&#43;08:00</updated>
+    <updated>2021-05-12T17:46:02&#43;08:00</updated>
     <id>https://yuechuanx.github.io/blog/</id>
     <link rel="alternate" type="text/html" href="https://yuechuanx.github.io/blog/" />
     <link rel="self" type="application/atom&#43;xml" href="https://yuechuanx.github.io/blog/atom.xml" />
@@ -15,7 +15,224 @@
                 <email>xiaoyuechuan@gmail.com</email>
             </author>
     <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights>
-    <generator uri="https://gohugo.io/" version="0.78.2">Hugo</generator>
+    <generator uri="https://gohugo.io/" version="0.83.1">Hugo</generator>
+        <entry>
+            <title type="text">Python 代码质量工具介绍</title>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.github.io/blog/posts/python_code_quality_tools_intro/" />
+            <id>https://yuechuanx.github.io/blog/posts/python_code_quality_tools_intro/</id>
+            <updated>2021-05-12T17:42:37&#43;08:00</updated>
+            <published>2021-05-12T17:30:37&#43;08:00</published>
+            <author>
+                    <name>YueChuan</name>
+                    <uri>https://yuechuanx.top/</uri>
+                    <email>xiaoyuechuan@gmail.com</email>
+                    </author>
+            <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</rights><summary type="html">目的 规范代码格式，提升代码质量 减少团队协作时理解成本 设置通用规范 CodeStyle PEP 8 是 Python 代码风格规范。它规定了类似行 长度 缩进 多行表达式 变量命名约定 等等 代码风格规范的目标都是在代码库中强制实施一致的标准，使代码的可读性更强、更易于维护。 虽然 PEP8 只是作为 Python 官方推荐的规范，但在实际上它已经成为最广泛认同的 Python 代码风格标准。……</summary>
+            
+                <content type="html">&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/xmid-python-code-quality-tools.png&#34; alt=&#34;xmid-python-code-quality-tools&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;目的&#34;&gt;目的&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;规范代码格式，提升代码质量&lt;/li&gt;
+&lt;li&gt;减少团队协作时理解成本&lt;/li&gt;
+&lt;li&gt;设置通用规范&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;codestyle&#34;&gt;CodeStyle&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.python.org/dev/peps/pep-0008/&#34;&gt;PEP 8&lt;/a&gt; 是 Python 代码风格规范。它规定了类似行&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;长度&lt;/li&gt;
+&lt;li&gt;缩进&lt;/li&gt;
+&lt;li&gt;多行表达式&lt;/li&gt;
+&lt;li&gt;变量命名约定&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;等等&lt;/p&gt;
+&lt;p&gt;代码风格规范的目标都是在代码库中强制实施一致的标准，使代码的可读性更强、更易于维护。&lt;/p&gt;
+&lt;p&gt;虽然 PEP8 只是作为 Python 官方推荐的规范，但在实际上它已经成为最广泛认同的 Python 代码风格标准。&lt;/p&gt;
+&lt;h2 id=&#34;pylint&#34;&gt;Pylint&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.pylint.org/&#34;&gt;Pylint&lt;/a&gt; 是一个用来检查是否符合代码规范和常见错误的库。里面默认 PEP8 规范，也可以根据自身需求来自定义一套规范。&lt;/p&gt;
+&lt;p&gt;它可以以命令行方式执行，也可以作为插件集成在 IDE 中。&lt;/p&gt;
+&lt;p&gt;它里面包含了许多 check_list，根据影响程度进行了分类：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;C&lt;/code&gt; convention related checks (公约)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;R&lt;/code&gt; refactoring related checks (重构)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;W&lt;/code&gt; various warnings (警告)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;E&lt;/code&gt; errors, for probable bugs in the code (错误)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;F&lt;/code&gt; fatal, if an error occurred which prevented &lt;code&gt;pylint&lt;/code&gt; from doing further processing. (影响程序执行)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;安装&#34;&gt;安装&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;pip install pylint 
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;使用&#34;&gt;使用&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;pylint &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;OPTION&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; FILE
+pylint &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;OPTION&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; DIR
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/pylint-output.png&#34; alt=&#34;pylint-output&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;配置&#34;&gt;配置&lt;/h3&gt;
+&lt;p&gt;Pylint 提供可配置的 check 项，可自定义 Enable/Disable 指定的 check。&lt;/p&gt;
+&lt;p&gt;全部的 check 项请参阅：&lt;a href=&#34;http://pylint.pycqa.org/en/latest/technical_reference/features.html#format-checker&#34;&gt;Pylint Checker Features&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;pylint --list-msgs          &lt;span class=&#34;c1&#34;&gt;# 打印所有的 check 项&lt;/span&gt;
+pylint --list-msgs-enabled  &lt;span class=&#34;c1&#34;&gt;# 开启的 check 项&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;配置文件加载顺序：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;当前目录下存在 &lt;code&gt;pylintrc&lt;/code&gt;，&lt;code&gt;.pylintrc&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;环境变量 &lt;code&gt;PYLINTRC&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;主目录下 &lt;code&gt;.pylintrc&lt;/code&gt;， &lt;code&gt;.config/pylintrc&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;yapf&#34;&gt;Yapf&lt;/h2&gt;
+&lt;p&gt;Yapf 是 “Yet another python formatter” 是缩写，它是一个代码格式化工具。&lt;/p&gt;
+&lt;p&gt;符合 PEP8 的代码并不代表代码看起来美观。yapf 用来将代码重新格式化为符合代码样式指南的最佳格式，针对代码库可以让样式在整个项目中保持一致，让大家不用再为代码样式争论。&lt;/p&gt;
+&lt;h3 id=&#34;安装-1&#34;&gt;安装&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;pip install yapf
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;使用-1&#34;&gt;使用&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;yapf &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;OPTION&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;file &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;files...&lt;span class=&#34;o&#34;&gt;]]&lt;/span&gt;
+
+-d, --diff      显示原代码和格式化后的差异
+-i, --in-place     在文件上直接修改
+-r, --recursive 在目录上递归运行
+-e PATTERN      排除文件
+--style STYLE   指定样式，例如 &lt;span class=&#34;s2&#34;&gt;&amp;#34;pep8&amp;#34;&lt;/span&gt;, &lt;span class=&#34;s2&#34;&gt;&amp;#34;google&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;配置-1&#34;&gt;配置&lt;/h3&gt;
+&lt;p&gt;yapf 主要有两种配置&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;.yapfignore&lt;/code&gt;  忽略无需格化的文件&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.style.yapf&lt;/code&gt;  yapf 配置文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;查看 yapf 配置项：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;yapf --style-help
+yapf --style-help &amp;gt; style.yapf  &lt;span class=&#34;c1&#34;&gt;# 生成配置文件&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;radon&#34;&gt;Radon&lt;/h2&gt;
+&lt;p&gt;Radon 是用来量化代码质量指标的工具。它提供以下指标&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;原始指标：SLOC，注释行，空白行&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;SLOT (Source lines of code) 代码行数&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;圈复杂度&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Halstead指标（所有指标）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;可维护性指数&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;上述指标的解释可见 &lt;a href=&#34;https://radon.readthedocs.io/en/latest/intro.html&#34;&gt;Radon Metrics&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;使用-2&#34;&gt;使用&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;radon &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;cc,raw,mi,hal&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; ...
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;cc&lt;/p&gt;
+&lt;p&gt;Analyze the given Python modules and compute Cyclomatic Complexity (CC).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;raw&lt;/p&gt;
+&lt;p&gt;Analyze the given Python modules and compute raw metrics.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;mi&lt;/p&gt;
+&lt;p&gt;Analyze the given Python modules and compute the Maintainability Index.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;hal&lt;/p&gt;
+&lt;p&gt;Analyze the given Python modules and compute their Halstead metrics.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/radon-output.png&#34; alt=&#34;radon-output&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;集成-ide&#34;&gt;集成 IDE&lt;/h2&gt;
+&lt;h3 id=&#34;与-pycharm-集成&#34;&gt;与 PyCharm 集成&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/pycharm-pylint.png&#34; alt=&#34;pycharm-pylint&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/pycharm-using-pylint.png&#34; alt=&#34;pycharm-using-pylint&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/pycharm-yapf.png&#34; alt=&#34;pycharm-yapf&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/pycharm-using-yapf.png&#34; alt=&#34;pycharm-using-yapf&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/pycharm-external-tool-radon-setup.png&#34; alt=&#34;pycharm-external-tool-radon-setup&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/pycharm-external-tool-radon-call.png&#34; alt=&#34;pycharm-external-tool-radon-call&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/pycharm-external-tool-radon-output.png&#34; alt=&#34;pycharm-external-tool-radon-setup&#34;&gt;&lt;/p&gt;
+</content>
+            
+            
+            
+            
+            
+                
+                    
+                
+                    
+                        
+                            
+                            
+                            
+                                <category scheme="https://yuechuanx.github.io/blog/tags/python/" term="python" label="python" />
+                            
+                        
+                            
+                            
+                            
+                                <category scheme="https://yuechuanx.github.io/blog/tags/codestyle/" term="codestyle" label="codestyle" />
+                            
+                        
+                    
+                
+            
+        </entry>
+    
         <entry>
             <title type="text">Python Concurrent 模块探究</title>
             <link rel="alternate" type="text/html" href="https://yuechuanx.github.io/blog/posts/python-concurrent-module-analysis/" />
@@ -253,8 +470,8 @@
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 读入一张图片&lt;/span&gt;
 &lt;span class=&#34;n&#34;&gt;img&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cv&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;imread&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;path/to/img&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-   
-   
+
+
 &lt;span class=&#34;c1&#34;&gt;# 读入一帧&lt;/span&gt;
 &lt;span class=&#34;n&#34;&gt;cap&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cv&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;VideoCapture&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;span class=&#34;n&#34;&gt;ret&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;frame&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cap&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;read&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
@@ -306,16 +523,16 @@
     &lt;span class=&#34;n&#34;&gt;gradient&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cv&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;subtract&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;gradX&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;gradY&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
     &lt;span class=&#34;n&#34;&gt;gradient&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cv&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;convertScaleAbs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;gradient&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
     &lt;span class=&#34;n&#34;&gt;blurred&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cv&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;blur&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;gradient&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
-   
+
     &lt;span class=&#34;c1&#34;&gt;# cv.threshhold 与 cv.adaptiveThresholud 区别&lt;/span&gt;
     &lt;span class=&#34;c1&#34;&gt;# 全局阈值与自适应阈值&lt;/span&gt;
     &lt;span class=&#34;n&#34;&gt;_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;thresh&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cv&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;threshold&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;blurred&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;127&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;255&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cv&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;THRESH_BINARY&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
     &lt;span class=&#34;c1&#34;&gt;# thresh = cv.adaptiveThreshold(&lt;/span&gt;
     &lt;span class=&#34;c1&#34;&gt;#     input, 255, cv.ADAPTIVE_THRESH_MEAN_C, cv.THRESH_BINARY, 11, 2)&lt;/span&gt;
-   
+
     &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;thresh&lt;/span&gt;
-   
-   
+
+
 &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;canny_edges&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;input&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
     &lt;span class=&#34;n&#34;&gt;canny&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cv&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Canny&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;input&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;255&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
     &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;canny&lt;/span&gt;
@@ -358,7 +575,7 @@
     &lt;span class=&#34;n&#34;&gt;erosion&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cv&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;erode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dilation&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;element1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;iterations&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
     &lt;span class=&#34;c1&#34;&gt;# 再次膨胀，让轮廓明显一些&lt;/span&gt;
     &lt;span class=&#34;n&#34;&gt;dilation2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cv&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dilate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;erosion&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;element2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;iterations&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-   
+
     &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;closed&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
@@ -396,10 +613,10 @@
         &lt;span class=&#34;n&#34;&gt;cnt&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cnt&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;contours&lt;/span&gt;
         &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cv&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;contourArea&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cnt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cv&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arcLength&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cnt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
     &lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
-   
+
     &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;filtered_contours&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
         &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;False&lt;/span&gt;
-   
+
     &lt;span class=&#34;n&#34;&gt;sorted_contours&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;sorted&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;filtered_contours&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
                              &lt;span class=&#34;n&#34;&gt;key&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cv&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;contourArea&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
                              &lt;span class=&#34;n&#34;&gt;reverse&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
@@ -428,9 +645,9 @@
     &lt;span class=&#34;n&#34;&gt;cv&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;drawContours&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mask&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;contour&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;255&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
     &lt;span class=&#34;n&#34;&gt;mask&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cv&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;GaussianBlur&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mask&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
     &lt;span class=&#34;n&#34;&gt;masked&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cv&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;bitwise_and&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;input&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;copy&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(),&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;input&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;copy&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;mask&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mask&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-   
+
     &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;masked&lt;/span&gt;
-   
+
 &lt;span class=&#34;n&#34;&gt;canny_mask&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cv&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;drawContours&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;canny&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;canny_max_contour&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;255&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cv&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;FILLED&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;                            
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
@@ -486,16 +703,16 @@
         &lt;span class=&#34;n&#34;&gt;cnt&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cnt&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;contours&lt;/span&gt;
         &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cv&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;contourArea&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cnt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cv&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arcLength&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cnt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
     &lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
-   
+
     &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;filtered_contours&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
         &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;False&lt;/span&gt;
-   
+
     &lt;span class=&#34;n&#34;&gt;sorted_contours&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;sorted&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;filtered_contours&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
                              &lt;span class=&#34;n&#34;&gt;key&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cv&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;contourArea&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
                              &lt;span class=&#34;n&#34;&gt;reverse&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
     &lt;span class=&#34;n&#34;&gt;max_contour&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sorted_contours&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
     &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;max_contour&lt;/span&gt;
-   
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;/li&gt;
@@ -2173,10 +2390,10 @@ apt-clone info mypackages/apt-clone-state-ubuntu.tar.gz
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# macOS&lt;/span&gt;
 brew install ranger
-  
+
 &lt;span class=&#34;c1&#34;&gt;# ubuntu&lt;/span&gt;
 apt install ranger
-  
+
 &lt;span class=&#34;c1&#34;&gt;# arch &lt;/span&gt;
 pacman -Sy ranger
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
@@ -2369,7 +2586,7 @@ Options:
 &lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;pdftotext****mutool&lt;/strong&gt;&lt;/td&gt;
 &lt;td&gt;PDF&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;sudo apt install poppler-utils&lt;/code&gt;&lt;br /&gt;&lt;code&gt;&amp;lt;br /&amp;gt;&lt;/code&gt;sudo apt install mupdf-tools` |&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;sudo apt install poppler-utils&lt;/code&gt;&lt;br /&gt;&lt;code&gt;&amp;lt;br /&amp;gt;&lt;/code&gt;sudo apt install mupdf-tools`&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;strong&gt;mediainfo****exiftool&lt;/strong&gt;&lt;/td&gt;
@@ -3308,7 +3525,7 @@ creating: /Users/Xiaoy/.config/ranger/scope.sh
 &lt;tr&gt;
 &lt;td&gt;hidden_filter&lt;/td&gt;
 &lt;td&gt;正则表达式&lt;/td&gt;
-&lt;td&gt;用正则表达式选择哪些文件需要被隐藏，如 `set hidden_filter ^. |&lt;/td&gt;
+&lt;td&gt;用正则表达式选择哪些文件需要被隐藏，如 `set hidden_filter ^.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -3336,7 +3553,7 @@ creating: /Users/Xiaoy/.config/ranger/scope.sh
 &lt;tr&gt;
 &lt;td&gt;show_hidden_bookmarks&lt;/td&gt;
 &lt;td&gt;true(default)false&lt;/td&gt;
-&lt;td&gt;在书签预览窗口中显示 ` 文件。                                |&lt;/td&gt;
+&lt;td&gt;在书签预览窗口中显示 ` 文件。&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -7455,7 +7672,7 @@ apt-get install -y kubelet kubeadm kubectl
 &lt;/ul&gt;
 &lt;pre&gt;&lt;code&gt;# Description : Module config.
 #
-  
+
 # Input : None
 #
 # Output : None
@@ -7479,9 +7696,9 @@ apt-get install -y kubelet kubeadm kubectl
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&amp;#34;Return a foobang
-&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;  
+&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;
 &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;Optional plotz says to frobnicate the bizbaz first.
-&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;  
+&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;
 &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
@@ -15862,7 +16079,7 @@ Output the contents of the database as a fixture of the given format &lt;span cl
   &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
-  
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;/li&gt;
@@ -16125,19 +16342,19 @@ Output the contents of the database as a fixture of the given format &lt;span cl
 &lt;span class=&#34;c1&#34;&gt;# @Description:&lt;/span&gt;
 &lt;span class=&#34;c1&#34;&gt;# report.py: gen build&amp;#39;s jira issues html report.&lt;/span&gt;
 &lt;span class=&#34;c1&#34;&gt;# -------------------------------------------------------------------------&lt;/span&gt;
-  
+
 &lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&amp;#34;
 &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;Docstring
-&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;  
+&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;
 &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;reporter.py is used to generate a html report for specific build.
 &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
-  
+
 &lt;span class=&#34;c1&#34;&gt;# Standard library&lt;/span&gt;
 &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;os&lt;/span&gt;
 &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;re&lt;/span&gt;
 &lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;collections&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;namedtuple&lt;/span&gt;
-  
-  
+
+
 &lt;span class=&#34;c1&#34;&gt;# Third party lib&lt;/span&gt;
 &lt;span class=&#34;c1&#34;&gt;# Import multi-subcass from A package.&lt;/span&gt;
 &lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;jinja2&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
@@ -16146,7 +16363,7 @@ Output the contents of the database as a fixture of the given format &lt;span cl
     &lt;span class=&#34;n&#34;&gt;Template&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
     &lt;span class=&#34;n&#34;&gt;select_autoescape&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;jira&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;JIRA&lt;/span&gt;
-  
+
 &lt;span class=&#34;c1&#34;&gt;# If you have lcoal import &lt;/span&gt;
 &lt;span class=&#34;c1&#34;&gt;# from .utils import X&lt;/span&gt;
 &lt;span class=&#34;c1&#34;&gt;# from . import utils&lt;/span&gt;
@@ -16195,7 +16412,7 @@ Output the contents of the database as a fixture of the given format &lt;span cl
 &lt;/ul&gt;
 &lt;pre&gt;&lt;code&gt;# Description : Module config.
 #
-  
+
 # Input : None
 #
 # Output : None
@@ -16219,9 +16436,9 @@ Output the contents of the database as a fixture of the given format &lt;span cl
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&amp;#34;Return a foobang
-&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;  
+&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;
 &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;Optional plotz says to frobnicate the bizbaz first.
-&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;  
+&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;
 &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
@@ -16262,7 +16479,7 @@ Output the contents of the database as a fixture of the given format &lt;span cl
 &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;key_not_found&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;key&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
 &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;handle_value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-    
+
 &lt;span class=&#34;err&#34;&gt;要优于&lt;/span&gt;
 &lt;span class=&#34;k&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
 &lt;span class=&#34;c1&#34;&gt;# Too broad!&lt;/span&gt;
@@ -19083,13 +19300,13 @@ int main(void)
 &lt;hr&gt;
 &lt;ol&gt;
 &lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;Markdown是一种纯文本标记语言 &lt;a href=&#34;https://yuechuanx.github.io/blog/posts/markdown-syntax-summary/#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Markdown是一种纯文本标记语言&amp;#160;&lt;a href=&#34;https://yuechuanx.github.io/blog/posts/markdown-syntax-summary/#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li id=&#34;fn:2&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;HyperText Markup Language 超文本标记语言 &lt;a href=&#34;https://yuechuanx.github.io/blog/posts/markdown-syntax-summary/#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;HyperText Markup Language 超文本标记语言&amp;#160;&lt;a href=&#34;https://yuechuanx.github.io/blog/posts/markdown-syntax-summary/#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li id=&#34;fn:3&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;开源笔记平台，支持Markdown和笔记直接发为博文 &lt;a href=&#34;https://yuechuanx.github.io/blog/posts/markdown-syntax-summary/#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;开源笔记平台，支持Markdown和笔记直接发为博文&amp;#160;&lt;a href=&#34;https://yuechuanx.github.io/blog/posts/markdown-syntax-summary/#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;
