@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
     <title type="text">过往皆为序章</title>
     <subtitle type="html">MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</subtitle>
-    <updated>2021-05-12T17:46:02&#43;08:00</updated>
+    <updated>2021-05-13T15:16:38&#43;08:00</updated>
     <id>https://yuechuanx.github.io/blog/</id>
     <link rel="alternate" type="text/html" href="https://yuechuanx.github.io/blog/" />
     <link rel="self" type="application/atom&#43;xml" href="https://yuechuanx.github.io/blog/atom.xml" />
@@ -18,9 +18,9 @@
     <generator uri="https://gohugo.io/" version="0.83.1">Hugo</generator>
         <entry>
             <title type="text">Python 代码质量工具介绍</title>
-            <link rel="alternate" type="text/html" href="https://yuechuanx.github.io/blog/posts/python_code_quality_tools_intro/" />
-            <id>https://yuechuanx.github.io/blog/posts/python_code_quality_tools_intro/</id>
-            <updated>2021-05-12T17:42:37&#43;08:00</updated>
+            <link rel="alternate" type="text/html" href="https://yuechuanx.github.io/blog/posts/python-code-quality-tools-intro/" />
+            <id>https://yuechuanx.github.io/blog/posts/python-code-quality-tools-intro/</id>
+            <updated>2021-05-13T14:57:08&#43;08:00</updated>
             <published>2021-05-12T17:30:37&#43;08:00</published>
             <author>
                     <name>YueChuan</name>
@@ -47,6 +47,11 @@
 &lt;p&gt;等等&lt;/p&gt;
 &lt;p&gt;代码风格规范的目标都是在代码库中强制实施一致的标准，使代码的可读性更强、更易于维护。&lt;/p&gt;
 &lt;p&gt;虽然 PEP8 只是作为 Python 官方推荐的规范，但在实际上它已经成为最广泛认同的 Python 代码风格标准。&lt;/p&gt;
+&lt;p&gt;以下标准也是广泛流行的 Python 代码风格:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chromium.googlesource.com/chromium/src/+/HEAD/styleguide/python/python.md&#34;&gt;Chromium Python Style Guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://google.github.io/styleguide/pyguide.html&#34;&gt;Google Python Style Guide&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;pylint&#34;&gt;Pylint&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.pylint.org/&#34;&gt;Pylint&lt;/a&gt; 是一个用来检查是否符合代码规范和常见错误的库。里面默认 PEP8 规范，也可以根据自身需求来自定义一套规范。&lt;/p&gt;
 &lt;p&gt;它可以以命令行方式执行，也可以作为插件集成在 IDE 中。&lt;/p&gt;
@@ -80,7 +85,7 @@ pylint &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;OPTION&lt;span class=&#34;o&#
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/pylint-output.png&#34; alt=&#34;pylint-output&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;配置&#34;&gt;配置&lt;/h3&gt;
-&lt;p&gt;Pylint 提供可配置的 check 项，可自定义 Enable/Disable 指定的 check。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.pylint.org/&#34;&gt;Pylint&lt;/a&gt; 提供可配置的 check 项，可自定义 Enable/Disable 指定的 check。&lt;/p&gt;
 &lt;p&gt;全部的 check 项请参阅：&lt;a href=&#34;http://pylint.pycqa.org/en/latest/technical_reference/features.html#format-checker&#34;&gt;Pylint Checker Features&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -99,7 +104,7 @@ pylint --list-msgs-enabled  &lt;span class=&#34;c1&#34;&gt;# 开启的 check 项
 &lt;li&gt;主目录下 &lt;code&gt;.pylintrc&lt;/code&gt;， &lt;code&gt;.config/pylintrc&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;yapf&#34;&gt;Yapf&lt;/h2&gt;
-&lt;p&gt;Yapf 是 “Yet another python formatter” 是缩写，它是一个代码格式化工具。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/google/yapf&#34;&gt;Yapf&lt;/a&gt; 是 “Yet another python formatter” 是缩写，它是一个代码格式化工具。&lt;/p&gt;
 &lt;p&gt;符合 PEP8 的代码并不代表代码看起来美观。yapf 用来将代码重新格式化为符合代码样式指南的最佳格式，针对代码库可以让样式在整个项目中保持一致，让大家不用再为代码样式争论。&lt;/p&gt;
 &lt;h3 id=&#34;安装-1&#34;&gt;安装&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -149,7 +154,7 @@ yapf --style-help &amp;gt; style.yapf  &lt;span class=&#34;c1&#34;&gt;# 生成�
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;radon&#34;&gt;Radon&lt;/h2&gt;
-&lt;p&gt;Radon 是用来量化代码质量指标的工具。它提供以下指标&lt;/p&gt;
+&lt;p&gt;[Radon]*(&lt;a href=&#34;https://radon.readthedocs.io/en/latest/&#34;&gt;https://radon.readthedocs.io/en/latest/&lt;/a&gt;) 是用来量化代码质量指标的工具。它提供以下指标&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;原始指标：SLOC，注释行，空白行&lt;/p&gt;
@@ -198,13 +203,22 @@ yapf --style-help &amp;gt; style.yapf  &lt;span class=&#34;c1&#34;&gt;# 生成�
 &lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/radon-output.png&#34; alt=&#34;radon-output&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;集成-ide&#34;&gt;集成 IDE&lt;/h2&gt;
 &lt;h3 id=&#34;与-pycharm-集成&#34;&gt;与 PyCharm 集成&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;pylint 插件安装和使用&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/pycharm-pylint.png&#34; alt=&#34;pycharm-pylint&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/pycharm-using-pylint.png&#34; alt=&#34;pycharm-using-pylint&#34;&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;yapf 插件安装和使用&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/pycharm-yapf.png&#34; alt=&#34;pycharm-yapf&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/pycharm-using-yapf.png&#34; alt=&#34;pycharm-using-yapf&#34;&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Radon 作为外部工具的配置和使用&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/pycharm-external-tool-radon-setup.png&#34; alt=&#34;pycharm-external-tool-radon-setup&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/pycharm-external-tool-radon-call.png&#34; alt=&#34;pycharm-external-tool-radon-call&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/pycharm-external-tool-radon-output.png&#34; alt=&#34;pycharm-external-tool-radon-setup&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/pycharm-external-tool-radon-output.png&#34; alt=&#34;pycharm-external-tool-radon-output&#34;&gt;&lt;/p&gt;
 </content>
             
             
