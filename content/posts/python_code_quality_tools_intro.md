@@ -1,5 +1,6 @@
 ---
 title: "Python 代码质量工具介绍"
+slug: python-code-quality-tools-intro
 date: 2021-05-12T17:30:37+08:00
 draft: false
 tags:
@@ -28,6 +29,11 @@ tags:
 代码风格规范的目标都是在代码库中强制实施一致的标准，使代码的可读性更强、更易于维护。
 
 虽然 PEP8 只是作为 Python 官方推荐的规范，但在实际上它已经成为最广泛认同的 Python 代码风格标准。
+
+以下标准也是广泛流行的 Python 代码风格:
+
+- [Chromium Python Style Guide](https://chromium.googlesource.com/chromium/src/+/HEAD/styleguide/python/python.md)
+- [Google Python Style Guide](https://google.github.io/styleguide/pyguide.html)
 
 ## Pylint
 
@@ -60,7 +66,7 @@ pylint [OPTION] DIR
 
 ### 配置
 
-Pylint 提供可配置的 check 项，可自定义 Enable/Disable 指定的 check。
+[Pylint](https://www.pylint.org/) 提供可配置的 check 项，可自定义 Enable/Disable 指定的 check。
 
 全部的 check 项请参阅：[Pylint Checker Features](http://pylint.pycqa.org/en/latest/technical_reference/features.html#format-checker)
 
@@ -77,7 +83,7 @@ pylint --list-msgs-enabled  # 开启的 check 项
 
 ## Yapf
 
-Yapf 是 “Yet another python formatter” 是缩写，它是一个代码格式化工具。
+[Yapf](https://github.com/google/yapf) 是 “Yet another python formatter” 是缩写，它是一个代码格式化工具。
 
 符合 PEP8 的代码并不代表代码看起来美观。yapf 用来将代码重新格式化为符合代码样式指南的最佳格式，针对代码库可以让样式在整个项目中保持一致，让大家不用再为代码样式争论。
 
@@ -115,7 +121,7 @@ yapf --style-help > style.yapf  # 生成配置文件
 
 ## Radon
 
-Radon 是用来量化代码质量指标的工具。它提供以下指标
+[Radon]*(https://radon.readthedocs.io/en/latest/) 是用来量化代码质量指标的工具。它提供以下指标
 
 - 原始指标：SLOC，注释行，空白行
 
@@ -157,18 +163,23 @@ radon [cc,raw,mi,hal] ...
 
 ### 与 PyCharm 集成
 
+1. pylint 插件安装和使用
+
 ![pycharm-pylint](https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/pycharm-pylint.png)
 
 ![pycharm-using-pylint](https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/pycharm-using-pylint.png)
+
+2. yapf 插件安装和使用
 
 ![pycharm-yapf](https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/pycharm-yapf.png)
 
 ![pycharm-using-yapf](https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/pycharm-using-yapf.png)
 
+3. Radon 作为外部工具的配置和使用
+
 ![pycharm-external-tool-radon-setup](https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/pycharm-external-tool-radon-setup.png)
 
 ![pycharm-external-tool-radon-call](https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/pycharm-external-tool-radon-call.png)
 
+![pycharm-external-tool-radon-output](https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/pycharm-external-tool-radon-output.png)
 
-
-![pycharm-external-tool-radon-setup](https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/pycharm-external-tool-radon-output.png)
