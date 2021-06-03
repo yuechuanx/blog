@@ -1,3 +1,4 @@
 public
 scripts
-**/_gen/**
+
+resources/_gen/
