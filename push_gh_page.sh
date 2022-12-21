@@ -6,6 +6,9 @@ then
     exit 1;
 fi
 
+echo "Sync content dir"
+rsync -avP $OBSIDIAN_HOME/ob-vault/@output/Blog/ ./content
+
 echo "Deleting old publication"
 rm -rf public
 mkdir public

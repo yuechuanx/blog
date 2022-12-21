@@ -4,7 +4,7 @@
 baseURL = "https://yuechuanx.github.io/blog"
 hasCJKLanguage = true
 languageCode = "zh-CN"
-title = "过往皆为序章"
+title = "Yuechuan's Blog"
 # 版权信息（支持 Markdown）
 copyright = "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)"
 
@@ -40,7 +40,7 @@ enableRobotsTXT = true
 paginate = 10
 
 # URL 相关
-disablePathToLower = false
+disablePathToLower = true
 relativeURLs = false
 uglyURLs = false
 
@@ -320,7 +320,7 @@ siteDescription = "MemE 是一个强大且可高度定制的 GoHugo 博客主题
 #      Open Graph、Atom、RSS
 
 # 站点的创建时间
-siteCreatedTime = "1969-07-20T20:17:43+00:00"
+siteCreatedTime = "2019-04-01T20:17:43+00:00"
 # 注意：请保持此格式，更改数字
 
 # 站点的推特帐号
