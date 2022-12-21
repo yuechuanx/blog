@@ -3,7 +3,10 @@
     <head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
     <meta charset="UTF-8" />
 
-    <meta name="generator" content="Hugo 0.83.1" /><meta name="theme-color" content="#fff" />
+    <meta name="generator" content="Hugo 0.108.0"><meta name="theme-color" content="#fff" />
+    <meta name="color-scheme" content="light dark">
+
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
@@ -12,13 +15,13 @@
     
     <meta http-equiv="Cache-Control" content="no-siteapp" />
 
-    <title>Jenkins Testlink Plugin 源码笔记 | 过往皆为序章</title>
+    <title>Jenkins Testlink Plugin 源码笔记 | Yuechuan&#39;s Blog</title>
 
-    <link rel="stylesheet" href="/blog/css/meme.min.dfc9d5c433e318a3a8dee8001ab7d1cca0931e087c3a47f71abf63d05c499adc.css"/>
+    <link rel="stylesheet" href="/blog/css/meme.min.594a532c4c0d6f5c590e7314e8073069c070404a99970c2f329207a6add7423b.css"/>
 
     
     
-        <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" defer></script><script src="/blog/js/meme.min.dfb373df4b2dc76b95791fad15cd5043f60b3f67f64144062f132ec3dbb689ac.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" defer></script><script src="/blog/js/meme.min.c276e7690c8f5a4f8308173595500d57510b83bc30901e69fd7306e79c37b56b.js"></script>
 
     
 
@@ -27,16 +30,16 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB&#43;Garamond:ital,wght@0,400;0,500;0,700;1,400;1,700&amp;family=Noto&#43;Serif&#43;SC:wght@400;500;700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" media="print" onload="this.media='all'" />
         <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB&#43;Garamond:ital,wght@0,400;0,500;0,700;1,400;1,700&amp;family=Noto&#43;Serif&#43;SC:wght@400;500;700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" /></noscript>
 
-    <meta name="author" content="YueChuan" /><meta name="description" content="Jenkins Testlink Plugin 源码笔记 需求 Testlink 的 testcase 可以通过 Jenkins 去执行，当 Jenkins job 执行完之后，可以将执行结果保存到 Testlink 中。 jenkins 中 testlink plugin 仅仅可以在 freestyle 项目类型中使用，但目前大多数的 job 已经转移到 pipeline 类型，所以 testlink plugin 支持 pipeline 是一个自然的需要。 思路 首先查到官方 Testlink-plugin 的 repo https://github.com/jenkinsci/testlink-plugin pull 到本地查看一下项目结构 1 2 3 4 5 6 7 8 9 10 ├── pom.xml ├── src │ ├── main │ │ ├── java │ │ ├……" />
+    <meta name="author" content="YueChuan" /><meta name="description" content="Jenkins Testlink Plugin 源码笔记 需求 Testlink 的 testcase 可以通过 Jenkins 去执行，当 Jenkins job 执行完之后，可以将执行结果保存到 Testlink 中。 jenkins 中 testlink plugin 仅仅可以在 freestyle 项目类型中使用，但目前大多数的 job 已经转移到 pipeline 类型，所以 testlink plugin 支持 pipeline 是一个自然的需要。 思路 首先查到官方 Testlink-plugin 的 repo https://github.com/jenkinsci/testlink-plugin pull 到本地查看一下项目结构 1 2 3 4 5 6 7 8 9 ├── pom.xml ├── src │ ├── main │ │ ├── java │ │ ├─……" />
 
     <link rel="shortcut icon" href="/blog/favicon.ico" type="image/x-icon" />
     <link rel="mask-icon" href="/blog/icons/safari-pinned-tab.svg" color="#2a6df4" />
     <link rel="apple-touch-icon" sizes="180x180" href="/blog/icons/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-title" content="过往皆为序章" />
+    <meta name="apple-mobile-web-app-title" content="Yuechuan&#39;s Blog" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="application-name" content="过往皆为序章" />
+    <meta name="application-name" content="Yuechuan&#39;s Blog" />
     <meta name="msapplication-starturl" content="../../../" />
     <meta name="msapplication-TileColor" content="#fff" />
     <meta name="msapplication-TileImage" content="../../../icons/mstile-150x150.png" />
@@ -57,10 +60,10 @@
         "dateModified": "2020-08-19T15:19:25+08:00",
         "url": "https://yuechuanx.github.io/blog/posts/jenkins-testlink-plugin-source-notes/",
         "headline": "Jenkins Testlink Plugin 源码笔记",
-        "description": "Jenkins Testlink Plugin 源码笔记 需求 Testlink 的 testcase 可以通过 Jenkins 去执行，当 Jenkins job 执行完之后，可以将执行结果保存到 Testlink 中。 jenkins 中 testlink plugin 仅仅可以在 freestyle 项目类型中使用，但目前大多数的 job 已经转移到 pipeline 类型，所以 testlink plugin 支持 pipeline 是一个自然的需要。 思路 首先查到官方 Testlink-plugin 的 repo https://github.com/jenkinsci/testlink-plugin pull 到本地查看一下项目结构 1 2 3 4 5 6 7 8 9 10 ├── pom.xml ├── src │ ├── main │ │ ├── java │ │ ├……",
+        "description": "Jenkins Testlink Plugin 源码笔记 需求 Testlink 的 testcase 可以通过 Jenkins 去执行，当 Jenkins job 执行完之后，可以将执行结果保存到 Testlink 中。 jenkins 中 testlink plugin 仅仅可以在 freestyle 项目类型中使用，但目前大多数的 job 已经转移到 pipeline 类型，所以 testlink plugin 支持 pipeline 是一个自然的需要。 思路 首先查到官方 Testlink-plugin 的 repo https://github.com/jenkinsci/testlink-plugin pull 到本地查看一下项目结构 1 2 3 4 5 6 7 8 9 ├── pom.xml ├── src │ ├── main │ │ ├── java │ │ ├─……",
         "inLanguage" : "zh-CN",
         "articleSection": "posts",
-        "wordCount":  1091 ,
+        "wordCount":  1087 ,
         "image": "https://yuechuanx.github.io/icons/apple-touch-icon.png",
         "author": {
             "@type": "Person",
@@ -73,7 +76,7 @@
         "license": "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)",
         "publisher": {
             "@type": "Organization",
-            "name": "过往皆为序章",
+            "name": "Yuechuan's Blog",
             "logo": {
                 "@type": "ImageObject",
                 "url": "https://yuechuanx.github.io/icons/apple-touch-icon.png"
@@ -97,9 +100,9 @@
 
 
 <meta property="og:title" content="Jenkins Testlink Plugin 源码笔记" />
-<meta property="og:description" content="Jenkins Testlink Plugin 源码笔记 需求 Testlink 的 testcase 可以通过 Jenkins 去执行，当 Jenkins job 执行完之后，可以将执行结果保存到 Testlink 中。 jenkins 中 testlink plugin 仅仅可以在 freestyle 项目类型中使用，但目前大多数的 job 已经转移到 pipeline 类型，所以 testlink plugin 支持 pipeline 是一个自然的需要。 思路 首先查到官方 Testlink-plugin 的 repo https://github.com/jenkinsci/testlink-plugin pull 到本地查看一下项目结构 1 2 3 4 5 6 7 8 9 10 ├── pom.xml ├── src │ ├── main │ │ ├── java │ │ ├……" />
+<meta property="og:description" content="Jenkins Testlink Plugin 源码笔记 需求 Testlink 的 testcase 可以通过 Jenkins 去执行，当 Jenkins job 执行完之后，可以将执行结果保存到 Testlink 中。 jenkins 中 testlink plugin 仅仅可以在 freestyle 项目类型中使用，但目前大多数的 job 已经转移到 pipeline 类型，所以 testlink plugin 支持 pipeline 是一个自然的需要。 思路 首先查到官方 Testlink-plugin 的 repo https://github.com/jenkinsci/testlink-plugin pull 到本地查看一下项目结构 1 2 3 4 5 6 7 8 9 ├── pom.xml ├── src │ ├── main │ │ ├── java │ │ ├─……" />
 <meta property="og:url" content="https://yuechuanx.github.io/blog/posts/jenkins-testlink-plugin-source-notes/" />
-<meta property="og:site_name" content="过往皆为序章" />
+<meta property="og:site_name" content="Yuechuan&#39;s Blog" />
 <meta property="og:locale" content="zh" /><meta property="og:image" content="https://yuechuanx.github.io/icons/apple-touch-icon.png" />
     <meta property="og:type" content="article" />
     <meta property="article:published_time" content="2020-08-14T11:12:59&#43;00:00" />
@@ -142,7 +145,7 @@
                     
     <div class="site-brand">
         
-            <a href="/blog/" class="brand">过往皆为序章</a>
+            <a href="/" class="brand">Yuechuan&#39;s Blog</a>
         
     </div>
 
@@ -267,7 +270,7 @@
     
     
         
-        <span class="post-meta-item wordcount"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>&nbsp;1091</span>
+        <span class="post-meta-item wordcount"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>&nbsp;1087</span>
     
     
         
@@ -286,7 +289,7 @@
     <li><a id="contents:后记" href="#后记">后记</a></li>
   </ol>
 </nav><div class="post-body e-content">
-              <h1 id="jenkins-testlink-plugin-源码笔记"><a href="#jenkins-testlink-plugin-源码笔记" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:jenkins-testlink-plugin-源码笔记" class="headings">Jenkins Testlink Plugin 源码笔记</a></h1>
+                <h1 id="jenkins-testlink-plugin-源码笔记"><a href="#jenkins-testlink-plugin-源码笔记" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:jenkins-testlink-plugin-源码笔记" class="headings">Jenkins Testlink Plugin 源码笔记</a></h1>
 <h2 id="需求"><a href="#需求" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:需求" class="headings">需求</a></h2>
 <p>Testlink 的 testcase 可以通过 Jenkins 去执行，当 Jenkins job 执行完之后，可以将执行结果保存到 Testlink 中。</p>
 <p>jenkins 中 testlink plugin 仅仅可以在 freestyle 项目类型中使用，但目前大多数的 job 已经转移到 pipeline 类型，所以 testlink plugin 支持 pipeline 是一个自然的需要。</p>
@@ -295,34 +298,32 @@
 <p>pull 到本地查看一下项目结构</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">├── pom.xml 						
-├── src									
-│   ├── main
-│   │   ├── java
-│   │   ├── resources
-│   │   └── webapp
-│   └── <span class="nb">test</span>
-│       ├── java
-│       └── resources
-
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">├── pom.xml 						
+</span></span><span class="line"><span class="cl">├── src									
+</span></span><span class="line"><span class="cl">│   ├── main
+</span></span><span class="line"><span class="cl">│   │   ├── java
+</span></span><span class="line"><span class="cl">│   │   ├── resources
+</span></span><span class="line"><span class="cl">│   │   └── webapp
+</span></span><span class="line"><span class="cl">│   └── <span class="nb">test</span>
+</span></span><span class="line"><span class="cl">│       ├── java
+</span></span><span class="line"><span class="cl">│       └── resources
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>其中主要代码存放在 src/main/hudson/plugins/testlink 下：</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -355,60 +356,56 @@
 </span><span class="lnt">31
 </span><span class="lnt">32
 </span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">├── AbstractTestLinkBuilder.java
-├── AbstractTestLinkProjectAction.java
-├── GraphHelper.java
-├── Report.java
-├── TestLinkBuildAction.java
-├── TestLinkBuilder.java
-├── TestLinkBuilderDescriptor.java
-├── TestLinkInstallation.java
-├── TestLinkJunitWrapper.java
-├── TestLinkProjectAction.java
-├── TestLinkResult.java
-├── TestLinkSite.java
-├── result
-│   ├── AbstractJUnitResultSeeker.java
-│   ├── AbstractTAPFileNameResultSeeker.java
-│   ├── AbstractTestNGResultSeeker.java
-│   ├── JUnitCaseClassNameResultSeeker.java
-│   ├── JUnitCaseNameResultSeeker.java
-│   ├── JUnitMethodNameResultSeeker.java
-│   ├── JUnitSuiteNameResultSeeker.java
-│   ├── ResultSeeker.java
-│   ├── ResultSeekerDescriptor.java
-│   ├── ResultSeekerException.java
-│   ├── TAPFileNameMultiTestPointsResultSeeker.java
-│   ├── TAPFileNameResultSeeker.java
-│   ├── TestCaseWrapper.java
-│   ├── TestNGClassNameResultSeeker.java
-│   ├── TestNGMethodNameDataProviderNameResultSeeker.java
-│   ├── TestNGMethodNameResultSeeker.java
-│   └── TestNGSuiteNameResultSeeker.java
-└── util
-    ├── ExecutionOrderComparator.java
-    └── TestLinkHelper.java
-
-
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">├── AbstractTestLinkBuilder.java
+</span></span><span class="line"><span class="cl">├── AbstractTestLinkProjectAction.java
+</span></span><span class="line"><span class="cl">├── GraphHelper.java
+</span></span><span class="line"><span class="cl">├── Report.java
+</span></span><span class="line"><span class="cl">├── TestLinkBuildAction.java
+</span></span><span class="line"><span class="cl">├── TestLinkBuilder.java
+</span></span><span class="line"><span class="cl">├── TestLinkBuilderDescriptor.java
+</span></span><span class="line"><span class="cl">├── TestLinkInstallation.java
+</span></span><span class="line"><span class="cl">├── TestLinkJunitWrapper.java
+</span></span><span class="line"><span class="cl">├── TestLinkProjectAction.java
+</span></span><span class="line"><span class="cl">├── TestLinkResult.java
+</span></span><span class="line"><span class="cl">├── TestLinkSite.java
+</span></span><span class="line"><span class="cl">├── result
+</span></span><span class="line"><span class="cl">│   ├── AbstractJUnitResultSeeker.java
+</span></span><span class="line"><span class="cl">│   ├── AbstractTAPFileNameResultSeeker.java
+</span></span><span class="line"><span class="cl">│   ├── AbstractTestNGResultSeeker.java
+</span></span><span class="line"><span class="cl">│   ├── JUnitCaseClassNameResultSeeker.java
+</span></span><span class="line"><span class="cl">│   ├── JUnitCaseNameResultSeeker.java
+</span></span><span class="line"><span class="cl">│   ├── JUnitMethodNameResultSeeker.java
+</span></span><span class="line"><span class="cl">│   ├── JUnitSuiteNameResultSeeker.java
+</span></span><span class="line"><span class="cl">│   ├── ResultSeeker.java
+</span></span><span class="line"><span class="cl">│   ├── ResultSeekerDescriptor.java
+</span></span><span class="line"><span class="cl">│   ├── ResultSeekerException.java
+</span></span><span class="line"><span class="cl">│   ├── TAPFileNameMultiTestPointsResultSeeker.java
+</span></span><span class="line"><span class="cl">│   ├── TAPFileNameResultSeeker.java
+</span></span><span class="line"><span class="cl">│   ├── TestCaseWrapper.java
+</span></span><span class="line"><span class="cl">│   ├── TestNGClassNameResultSeeker.java
+</span></span><span class="line"><span class="cl">│   ├── TestNGMethodNameDataProviderNameResultSeeker.java
+</span></span><span class="line"><span class="cl">│   ├── TestNGMethodNameResultSeeker.java
+</span></span><span class="line"><span class="cl">│   └── TestNGSuiteNameResultSeeker.java
+</span></span><span class="line"><span class="cl">└── util
+</span></span><span class="line"><span class="cl">    ├── ExecutionOrderComparator.java
+</span></span><span class="line"><span class="cl">    └── TestLinkHelper.java
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>现在可以来对代码进行分析了，首先我们寻找到调用的入口 TestlinkBuilder.java</p>
 <p>定位到 <code>perfrom()</code> 函数</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">perform</span><span class="o">(</span><span class="n">AbstractBuild</span><span class="o">&lt;?,</span> <span class="o">?&gt;</span> <span class="n">build</span><span class="o">,</span> <span class="n">Launcher</span> <span class="n">launcher</span><span class="o">,</span> <span class="n">BuildListener</span> <span class="n">listener</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">InterruptedException</span><span class="o">,</span> <span class="n">IOException</span> <span class="o">{</span>
-	<span class="c1">// function body		
-</span><span class="c1"></span><span class="o">}</span>
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">perform</span><span class="o">(</span><span class="n">AbstractBuild</span><span class="o">&lt;?,</span> <span class="o">?&gt;</span> <span class="n">build</span><span class="o">,</span> <span class="n">Launcher</span> <span class="n">launcher</span><span class="o">,</span> <span class="n">BuildListener</span> <span class="n">listener</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">InterruptedException</span><span class="o">,</span> <span class="n">IOException</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// function body		
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">}</span>
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>可以看到入参列表：</p>
 <p><code>AbstractBuild&lt;?, ?&gt; build</code></p>
@@ -417,32 +414,30 @@
 <p>接下来看函数体内容：</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
 </span><span class="lnt">7
-</span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// TestLink installation
-</span><span class="c1"></span><span class="n">listener</span><span class="o">.</span><span class="na">getLogger</span><span class="o">().</span><span class="na">println</span><span class="o">(</span><span class="n">Messages</span><span class="o">.</span><span class="na">TestLinkBuilder_PreparingTLAPI</span><span class="o">());</span>
-<span class="kd">final</span> <span class="n">TestLinkInstallation</span> <span class="n">installation</span> <span class="o">=</span> <span class="n">DESCRIPTOR</span>
-<span class="o">.</span><span class="na">getInstallationByTestLinkName</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">testLinkName</span><span class="o">);</span>
-<span class="k">if</span> <span class="o">(</span><span class="n">installation</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-<span class="k">throw</span> <span class="k">new</span> <span class="n">AbortException</span><span class="o">(</span><span class="n">Messages</span><span class="o">.</span><span class="na">TestLinkBuilder_InvalidTLAPI</span><span class="o">());</span>
-<span class="o">}</span>
-
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// TestLink installation
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">listener</span><span class="o">.</span><span class="na">getLogger</span><span class="o">().</span><span class="na">println</span><span class="o">(</span><span class="n">Messages</span><span class="o">.</span><span class="na">TestLinkBuilder_PreparingTLAPI</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl"><span class="kd">final</span> <span class="n">TestLinkInstallation</span> <span class="n">installation</span> <span class="o">=</span> <span class="n">DESCRIPTOR</span>
+</span></span><span class="line"><span class="cl"><span class="o">.</span><span class="na">getInstallationByTestLinkName</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">testLinkName</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">(</span><span class="n">installation</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">throw</span> <span class="k">new</span> <span class="n">AbortException</span><span class="o">(</span><span class="n">Messages</span><span class="o">.</span><span class="na">TestLinkBuilder_InvalidTLAPI</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>TestlinkInstallation 保存 configuration 里面对 Testlink 的配置信息:</p>
 <p>包括 <code>name</code>, <code>url</code>, <code>devKey</code>, <code>testlinkJavaAPIPr	operties</code></p>
 <p>接下来是初始化其他的东西</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -454,22 +449,22 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">TestLinkHelper</span><span class="o">.</span><span class="na">setTestLinkJavaAPIProperties</span><span class="o">(</span><span class="n">installation</span><span class="o">.</span><span class="na">getTestLinkJavaAPIProperties</span><span class="o">(),</span> <span class="n">listener</span><span class="o">);</span>
-
-<span class="kd">final</span> <span class="n">TestLinkSite</span> <span class="n">testLinkSite</span><span class="o">;</span>
-<span class="kd">final</span> <span class="n">TestCaseWrapper</span><span class="o">[]</span> <span class="n">automatedTestCases</span><span class="o">;</span>
-<span class="kd">final</span> <span class="n">String</span> <span class="n">testLinkUrl</span> <span class="o">=</span> <span class="n">installation</span><span class="o">.</span><span class="na">getUrl</span><span class="o">();</span>
-<span class="kd">final</span> <span class="n">String</span> <span class="n">testLinkDevKey</span> <span class="o">=</span> <span class="n">installation</span><span class="o">.</span><span class="na">getDevKey</span><span class="o">();</span>
-<span class="n">TestPlan</span> <span class="n">testPlan</span><span class="o">;</span>
-<span class="n">listener</span><span class="o">.</span><span class="na">getLogger</span><span class="o">().</span><span class="na">println</span><span class="o">(</span><span class="n">Messages</span><span class="o">.</span><span class="na">TestLinkBuilder_UsedTLURL</span><span class="o">(</span><span class="n">testLinkUrl</span><span class="o">));</span>
-<span class="o">...</span>
-<span class="n">testLinkSite</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">getTestLinkSite</span><span class="o">(</span><span class="n">testLinkUrl</span><span class="o">,</span> <span class="n">testLinkDevKey</span><span class="o">,</span> <span class="n">testProjectName</span><span class="o">,</span> <span class="n">testPlanName</span><span class="o">,</span> <span class="n">platformName</span><span class="o">,</span> <span class="n">buildName</span><span class="o">,</span> <span class="n">buildCustomFields</span><span class="o">,</span> <span class="n">buildNotes</span><span class="o">);</span>
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">TestLinkHelper</span><span class="o">.</span><span class="na">setTestLinkJavaAPIProperties</span><span class="o">(</span><span class="n">installation</span><span class="o">.</span><span class="na">getTestLinkJavaAPIProperties</span><span class="o">(),</span> <span class="n">listener</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">final</span> <span class="n">TestLinkSite</span> <span class="n">testLinkSite</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">final</span> <span class="n">TestCaseWrapper</span><span class="o">[]</span> <span class="n">automatedTestCases</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">final</span> <span class="n">String</span> <span class="n">testLinkUrl</span> <span class="o">=</span> <span class="n">installation</span><span class="o">.</span><span class="na">getUrl</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="kd">final</span> <span class="n">String</span> <span class="n">testLinkDevKey</span> <span class="o">=</span> <span class="n">installation</span><span class="o">.</span><span class="na">getDevKey</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">TestPlan</span> <span class="n">testPlan</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">listener</span><span class="o">.</span><span class="na">getLogger</span><span class="o">().</span><span class="na">println</span><span class="o">(</span><span class="n">Messages</span><span class="o">.</span><span class="na">TestLinkBuilder_UsedTLURL</span><span class="o">(</span><span class="n">testLinkUrl</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="n">testLinkSite</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">getTestLinkSite</span><span class="o">(</span><span class="n">testLinkUrl</span><span class="o">,</span> <span class="n">testLinkDevKey</span><span class="o">,</span> <span class="n">testProjectName</span><span class="o">,</span> <span class="n">testPlanName</span><span class="o">,</span> <span class="n">platformName</span><span class="o">,</span> <span class="n">buildName</span><span class="o">,</span> <span class="n">buildCustomFields</span><span class="o">,</span> <span class="n">buildNotes</span><span class="o">);</span>
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p><code>TestlinkSite</code> 成员里有 <code>TestlinkAPI</code>, 可以通过传入 configuration 里面所设置的参数对 <code>Testlink</code> 进行操作。</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -481,22 +476,22 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">final</span> <span class="n">String</span><span class="o">[]</span> <span class="n">testCaseCustomFieldsNames</span> <span class="o">=</span> <span class="n">TestLinkHelper</span><span class="o">.</span><span class="na">createArrayOfCustomFieldsNames</span><span class="o">(</span><span class="n">build</span><span class="o">.</span><span class="na">getBuildVariableResolver</span><span class="o">(),</span> <span class="n">build</span><span class="o">.</span><span class="na">getEnvironment</span><span class="o">(</span><span class="n">listener</span><span class="o">),</span> <span class="k">this</span><span class="o">.</span><span class="na">getCustomFields</span><span class="o">());</span>
-<span class="c1">// Array of automated test cases
-</span><span class="c1"></span><span class="n">TestCase</span><span class="o">[]</span> <span class="n">testCases</span> <span class="o">=</span> <span class="n">testLinkSite</span><span class="o">.</span><span class="na">getAutomatedTestCases</span><span class="o">(</span><span class="n">testCaseCustomFieldsNames</span><span class="o">);</span>
-
-<span class="c1">// Retrieve custom fields in test plan
-</span><span class="c1"></span><span class="kd">final</span> <span class="n">String</span><span class="o">[]</span> <span class="n">testPlanCustomFieldsNames</span> <span class="o">=</span> <span class="n">TestLinkHelper</span><span class="o">.</span><span class="na">createArrayOfCustomFieldsNames</span><span class="o">(</span><span class="n">build</span><span class="o">.</span><span class="na">getBuildVariableResolver</span><span class="o">(),</span> <span class="n">build</span><span class="o">.</span><span class="na">getEnvironment</span><span class="o">(</span><span class="n">listener</span><span class="o">),</span> <span class="k">this</span><span class="o">.</span><span class="na">getTestPlanCustomFields</span><span class="o">());</span>
-<span class="n">testPlan</span> <span class="o">=</span> <span class="n">testLinkSite</span><span class="o">.</span><span class="na">getTestPlanWithCustomFields</span><span class="o">(</span><span class="n">testPlanCustomFieldsNames</span><span class="o">);</span>
-
-<span class="c1">// Transforms test cases into test case wrappers
-</span><span class="c1"></span><span class="n">automatedTestCases</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">transform</span><span class="o">(</span><span class="n">testCases</span><span class="o">);</span>
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">final</span> <span class="n">String</span><span class="o">[]</span> <span class="n">testCaseCustomFieldsNames</span> <span class="o">=</span> <span class="n">TestLinkHelper</span><span class="o">.</span><span class="na">createArrayOfCustomFieldsNames</span><span class="o">(</span><span class="n">build</span><span class="o">.</span><span class="na">getBuildVariableResolver</span><span class="o">(),</span> <span class="n">build</span><span class="o">.</span><span class="na">getEnvironment</span><span class="o">(</span><span class="n">listener</span><span class="o">),</span> <span class="k">this</span><span class="o">.</span><span class="na">getCustomFields</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Array of automated test cases
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">TestCase</span><span class="o">[]</span> <span class="n">testCases</span> <span class="o">=</span> <span class="n">testLinkSite</span><span class="o">.</span><span class="na">getAutomatedTestCases</span><span class="o">(</span><span class="n">testCaseCustomFieldsNames</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Retrieve custom fields in test plan
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">final</span> <span class="n">String</span><span class="o">[]</span> <span class="n">testPlanCustomFieldsNames</span> <span class="o">=</span> <span class="n">TestLinkHelper</span><span class="o">.</span><span class="na">createArrayOfCustomFieldsNames</span><span class="o">(</span><span class="n">build</span><span class="o">.</span><span class="na">getBuildVariableResolver</span><span class="o">(),</span> <span class="n">build</span><span class="o">.</span><span class="na">getEnvironment</span><span class="o">(</span><span class="n">listener</span><span class="o">),</span> <span class="k">this</span><span class="o">.</span><span class="na">getTestPlanCustomFields</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl"><span class="n">testPlan</span> <span class="o">=</span> <span class="n">testLinkSite</span><span class="o">.</span><span class="na">getTestPlanWithCustomFields</span><span class="o">(</span><span class="n">testPlanCustomFieldsNames</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Transforms test cases into test case wrappers
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">automatedTestCases</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">transform</span><span class="o">(</span><span class="n">testCases</span><span class="o">);</span>
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>获取 <code>CustomFields</code> ， 通过<code>TestlinkSite</code> 拿到对应的 <code>(List)Testcase</code>，转换为<code>(List)TestlinkWrapper </code>,  针对其进行了一层封装，具体细节看 <code>result/TestcaseWrapper.java</code>.</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -504,18 +499,18 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="k">for</span><span class="o">(</span><span class="n">TestCaseWrapper</span> <span class="n">tcw</span> <span class="o">:</span> <span class="n">automatedTestCases</span><span class="o">)</span> <span class="o">{</span>
-  <span class="n">testLinkSite</span><span class="o">.</span><span class="na">getReport</span><span class="o">().</span><span class="na">addTestCase</span><span class="o">(</span><span class="n">tcw</span><span class="o">);</span>
-  <span class="k">if</span><span class="o">(</span><span class="n">LOGGER</span><span class="o">.</span><span class="na">isLoggable</span><span class="o">(</span><span class="n">Level</span><span class="o">.</span><span class="na">FINE</span><span class="o">))</span> <span class="o">{</span>
-    <span class="n">LOGGER</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="n">Level</span><span class="o">.</span><span class="na">FINE</span><span class="o">,</span> <span class="s">&#34;TestLink automated test case ID [&#34;</span> <span class="o">+</span> <span class="n">tcw</span><span class="o">.</span><span class="na">getId</span><span class="o">()</span> <span class="o">+</span> <span class="s">&#34;], name [&#34;</span> <span class="o">+</span><span class="n">tcw</span><span class="o">.</span><span class="na">getName</span><span class="o">()+</span> <span class="s">&#34;]&#34;</span><span class="o">);</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">for</span><span class="o">(</span><span class="n">TestCaseWrapper</span> <span class="n">tcw</span> <span class="o">:</span> <span class="n">automatedTestCases</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">testLinkSite</span><span class="o">.</span><span class="na">getReport</span><span class="o">().</span><span class="na">addTestCase</span><span class="o">(</span><span class="n">tcw</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span><span class="o">(</span><span class="n">LOGGER</span><span class="o">.</span><span class="na">isLoggable</span><span class="o">(</span><span class="n">Level</span><span class="o">.</span><span class="na">FINE</span><span class="o">))</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">LOGGER</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="n">Level</span><span class="o">.</span><span class="na">FINE</span><span class="o">,</span> <span class="s">&#34;TestLink automated test case ID [&#34;</span> <span class="o">+</span> <span class="n">tcw</span><span class="o">.</span><span class="na">getId</span><span class="o">()</span> <span class="o">+</span> <span class="s">&#34;], name [&#34;</span> <span class="o">+</span><span class="n">tcw</span><span class="o">.</span><span class="na">getName</span><span class="o">()+</span> <span class="s">&#34;]&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p><code>TestSite</code>中有成员 <code>Report</code>，用来存储基本的 Testcase，以及 TestStatus 这些信息</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -523,18 +518,18 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="k">if</span><span class="o">(</span><span class="n">getResultSeekers</span><span class="o">()</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-  <span class="k">for</span> <span class="o">(</span><span class="n">ResultSeeker</span> <span class="n">resultSeeker</span> <span class="o">:</span> <span class="n">getResultSeekers</span><span class="o">())</span> <span class="o">{</span>
-    <span class="n">LOGGER</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="n">Level</span><span class="o">.</span><span class="na">INFO</span><span class="o">,</span> <span class="s">&#34;Seeking test results. Using: &#34;</span> <span class="o">+</span> <span class="n">resultSeeker</span><span class="o">.</span><span class="na">getDescriptor</span><span class="o">().</span><span class="na">getDisplayName</span><span class="o">());</span>
-    <span class="n">resultSeeker</span><span class="o">.</span><span class="na">seek</span><span class="o">(</span><span class="n">automatedTestCases</span><span class="o">,</span> <span class="n">build</span><span class="o">,</span> <span class="n">build</span><span class="o">.</span><span class="na">getWorkspace</span><span class="o">(),</span> <span class="n">launcher</span><span class="o">,</span> <span class="n">listener</span><span class="o">,</span> <span class="n">testLinkSite</span><span class="o">);</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">if</span><span class="o">(</span><span class="n">getResultSeekers</span><span class="o">()</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="o">(</span><span class="n">ResultSeeker</span> <span class="n">resultSeeker</span> <span class="o">:</span> <span class="n">getResultSeekers</span><span class="o">())</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">LOGGER</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="n">Level</span><span class="o">.</span><span class="na">INFO</span><span class="o">,</span> <span class="s">&#34;Seeking test results. Using: &#34;</span> <span class="o">+</span> <span class="n">resultSeeker</span><span class="o">.</span><span class="na">getDescriptor</span><span class="o">().</span><span class="na">getDisplayName</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl">    <span class="n">resultSeeker</span><span class="o">.</span><span class="na">seek</span><span class="o">(</span><span class="n">automatedTestCases</span><span class="o">,</span> <span class="n">build</span><span class="o">,</span> <span class="n">build</span><span class="o">.</span><span class="na">getWorkspace</span><span class="o">(),</span> <span class="n">launcher</span><span class="o">,</span> <span class="n">listener</span><span class="o">,</span> <span class="n">testLinkSite</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p><code>ResultSeeker</code> 通过执行测试用例得到的 *report.xml 文件解析得到相应 Testcase 的执行结果。</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -542,13 +537,13 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">final</span> <span class="n">Report</span> <span class="n">report</span> <span class="o">=</span> <span class="n">testLinkSite</span><span class="o">.</span><span class="na">getReport</span><span class="o">();</span>
-<span class="n">report</span><span class="o">.</span><span class="na">tally</span><span class="o">();</span>
-<span class="o">...</span>
-<span class="kd">final</span> <span class="n">TestLinkResult</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TestLinkResult</span><span class="o">(</span><span class="n">report</span><span class="o">);</span>
-<span class="kd">final</span> <span class="n">TestLinkBuildAction</span> <span class="n">buildAction</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TestLinkBuildAction</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
-<span class="n">build</span><span class="o">.</span><span class="na">addAction</span><span class="o">(</span><span class="n">buildAction</span><span class="o">);</span>
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">final</span> <span class="n">Report</span> <span class="n">report</span> <span class="o">=</span> <span class="n">testLinkSite</span><span class="o">.</span><span class="na">getReport</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">report</span><span class="o">.</span><span class="na">tally</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="kd">final</span> <span class="n">TestLinkResult</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TestLinkResult</span><span class="o">(</span><span class="n">report</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="kd">final</span> <span class="n">TestLinkBuildAction</span> <span class="n">buildAction</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TestLinkBuildAction</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">build</span><span class="o">.</span><span class="na">addAction</span><span class="o">(</span><span class="n">buildAction</span><span class="o">);</span>
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>最后一步，生成 TestlinkReport，这里的对应的是 Jenkins 显示的report，而不是 TestlinkAPI 的 report。</p>
 <p>执行逻辑结束。</p>
@@ -623,7 +618,7 @@
             
                 <div class="share-item linkedin">
                     
-                    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://yuechuanx.github.io/blog/posts/jenkins-testlink-plugin-source-notes/&amp;title=Jenkins%20Testlink%20Plugin%20%e6%ba%90%e7%a0%81%e7%ac%94%e8%ae%b0&amp;summary=Jenkins%20Testlink%20Plugin%20%e6%ba%90%e7%a0%81%e7%ac%94%e8%ae%b0%20%e9%9c%80%e6%b1%82%20Testlink%20%e7%9a%84%20testcase%20%e5%8f%af%e4%bb%a5%e9%80%9a%e8%bf%87%20Jenkins%20%e5%8e%bb%e6%89%a7%e8%a1%8c%ef%bc%8c%e5%bd%93%20Jenkins%20job%20%e6%89%a7%e8%a1%8c%e5%ae%8c%e4%b9%8b%e5%90%8e%ef%bc%8c%e5%8f%af%e4%bb%a5%e5%b0%86%e6%89%a7%e8%a1%8c%e7%bb%93%e6%9e%9c%e4%bf%9d%e5%ad%98%e5%88%b0%20Testlink%20%e4%b8%ad%e3%80%82%20jenkins%20%e4%b8%ad%20testlink%20plugin%20%e4%bb%85%e4%bb%85%e5%8f%af%e4%bb%a5%e5%9c%a8%20freestyle%20%e9%a1%b9%e7%9b%ae%e7%b1%bb%e5%9e%8b%e4%b8%ad%e4%bd%bf%e7%94%a8%ef%bc%8c%e4%bd%86%e7%9b%ae%e5%89%8d%e5%a4%a7%e5%a4%9a%e6%95%b0%e7%9a%84%20job%20%e5%b7%b2%e7%bb%8f%e8%bd%ac%e7%a7%bb%e5%88%b0%20pipeline%20%e7%b1%bb%e5%9e%8b%ef%bc%8c%e6%89%80%e4%bb%a5%20testlink%20plugin%20%e6%94%af%e6%8c%81%20pipeline%20%e6%98%af%e4%b8%80%e4%b8%aa%e8%87%aa%e7%84%b6%e7%9a%84%e9%9c%80%e8%a6%81%e3%80%82%20%e6%80%9d%e8%b7%af%20%e9%a6%96%e5%85%88%e6%9f%a5%e5%88%b0%e5%ae%98%e6%96%b9%20Testlink-plugin%20%e7%9a%84%20repo%20https://github.com/jenkinsci/testlink-plugin%20pull%20%e5%88%b0%e6%9c%ac%e5%9c%b0%e6%9f%a5%e7%9c%8b%e4%b8%80%e4%b8%8b%e9%a1%b9%e7%9b%ae%e7%bb%93%e6%9e%84%201%202%203%204%205%206%207%208%209%2010%20%e2%94%9c%e2%94%80%e2%94%80%20pom.xml%20%e2%94%9c%e2%94%80%e2%94%80%20src%20%e2%94%82%20%e2%94%9c%e2%94%80%e2%94%80%20main%20%e2%94%82%20%e2%94%82%20%e2%94%9c%e2%94%80%e2%94%80%20java%20%e2%94%82%20%e2%94%82%20%e2%94%9c%e2%80%a6%e2%80%a6&amp;source=%e8%bf%87%e5%be%80%e7%9a%86%e4%b8%ba%e5%ba%8f%e7%ab%a0" title="分享到「LinkedIn」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon linkedin-icon"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://yuechuanx.github.io/blog/posts/jenkins-testlink-plugin-source-notes/&amp;title=Jenkins%20Testlink%20Plugin%20%e6%ba%90%e7%a0%81%e7%ac%94%e8%ae%b0&amp;summary=Jenkins%20Testlink%20Plugin%20%e6%ba%90%e7%a0%81%e7%ac%94%e8%ae%b0%20%e9%9c%80%e6%b1%82%20Testlink%20%e7%9a%84%20testcase%20%e5%8f%af%e4%bb%a5%e9%80%9a%e8%bf%87%20Jenkins%20%e5%8e%bb%e6%89%a7%e8%a1%8c%ef%bc%8c%e5%bd%93%20Jenkins%20job%20%e6%89%a7%e8%a1%8c%e5%ae%8c%e4%b9%8b%e5%90%8e%ef%bc%8c%e5%8f%af%e4%bb%a5%e5%b0%86%e6%89%a7%e8%a1%8c%e7%bb%93%e6%9e%9c%e4%bf%9d%e5%ad%98%e5%88%b0%20Testlink%20%e4%b8%ad%e3%80%82%20jenkins%20%e4%b8%ad%20testlink%20plugin%20%e4%bb%85%e4%bb%85%e5%8f%af%e4%bb%a5%e5%9c%a8%20freestyle%20%e9%a1%b9%e7%9b%ae%e7%b1%bb%e5%9e%8b%e4%b8%ad%e4%bd%bf%e7%94%a8%ef%bc%8c%e4%bd%86%e7%9b%ae%e5%89%8d%e5%a4%a7%e5%a4%9a%e6%95%b0%e7%9a%84%20job%20%e5%b7%b2%e7%bb%8f%e8%bd%ac%e7%a7%bb%e5%88%b0%20pipeline%20%e7%b1%bb%e5%9e%8b%ef%bc%8c%e6%89%80%e4%bb%a5%20testlink%20plugin%20%e6%94%af%e6%8c%81%20pipeline%20%e6%98%af%e4%b8%80%e4%b8%aa%e8%87%aa%e7%84%b6%e7%9a%84%e9%9c%80%e8%a6%81%e3%80%82%20%e6%80%9d%e8%b7%af%20%e9%a6%96%e5%85%88%e6%9f%a5%e5%88%b0%e5%ae%98%e6%96%b9%20Testlink-plugin%20%e7%9a%84%20repo%20https://github.com/jenkinsci/testlink-plugin%20pull%20%e5%88%b0%e6%9c%ac%e5%9c%b0%e6%9f%a5%e7%9c%8b%e4%b8%80%e4%b8%8b%e9%a1%b9%e7%9b%ae%e7%bb%93%e6%9e%84%201%202%203%204%205%206%207%208%209%20%e2%94%9c%e2%94%80%e2%94%80%20pom.xml%20%e2%94%9c%e2%94%80%e2%94%80%20src%20%e2%94%82%20%e2%94%9c%e2%94%80%e2%94%80%20main%20%e2%94%82%20%e2%94%82%20%e2%94%9c%e2%94%80%e2%94%80%20java%20%e2%94%82%20%e2%94%82%20%e2%94%9c%e2%94%80%e2%80%a6%e2%80%a6&amp;source=Yuechuan%27s%20Blog" title="分享到「LinkedIn」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon linkedin-icon"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
                 </div>
             
 
@@ -644,21 +639,21 @@
             
                 <div class="share-item douban">
                     
-                    <a href="https://www.douban.com/share/service?href=https://yuechuanx.github.io/blog/posts/jenkins-testlink-plugin-source-notes/&amp;name=Jenkins%20Testlink%20Plugin%20%e6%ba%90%e7%a0%81%e7%ac%94%e8%ae%b0&amp;text=Jenkins%20Testlink%20Plugin%20%e6%ba%90%e7%a0%81%e7%ac%94%e8%ae%b0%20%e9%9c%80%e6%b1%82%20Testlink%20%e7%9a%84%20testcase%20%e5%8f%af%e4%bb%a5%e9%80%9a%e8%bf%87%20Jenkins%20%e5%8e%bb%e6%89%a7%e8%a1%8c%ef%bc%8c%e5%bd%93%20Jenkins%20job%20%e6%89%a7%e8%a1%8c%e5%ae%8c%e4%b9%8b%e5%90%8e%ef%bc%8c%e5%8f%af%e4%bb%a5%e5%b0%86%e6%89%a7%e8%a1%8c%e7%bb%93%e6%9e%9c%e4%bf%9d%e5%ad%98%e5%88%b0%20Testlink%20%e4%b8%ad%e3%80%82%20jenkins%20%e4%b8%ad%20testlink%20plugin%20%e4%bb%85%e4%bb%85%e5%8f%af%e4%bb%a5%e5%9c%a8%20freestyle%20%e9%a1%b9%e7%9b%ae%e7%b1%bb%e5%9e%8b%e4%b8%ad%e4%bd%bf%e7%94%a8%ef%bc%8c%e4%bd%86%e7%9b%ae%e5%89%8d%e5%a4%a7%e5%a4%9a%e6%95%b0%e7%9a%84%20job%20%e5%b7%b2%e7%bb%8f%e8%bd%ac%e7%a7%bb%e5%88%b0%20pipeline%20%e7%b1%bb%e5%9e%8b%ef%bc%8c%e6%89%80%e4%bb%a5%20testlink%20plugin%20%e6%94%af%e6%8c%81%20pipeline%20%e6%98%af%e4%b8%80%e4%b8%aa%e8%87%aa%e7%84%b6%e7%9a%84%e9%9c%80%e8%a6%81%e3%80%82%20%e6%80%9d%e8%b7%af%20%e9%a6%96%e5%85%88%e6%9f%a5%e5%88%b0%e5%ae%98%e6%96%b9%20Testlink-plugin%20%e7%9a%84%20repo%20https://github.com/jenkinsci/testlink-plugin%20pull%20%e5%88%b0%e6%9c%ac%e5%9c%b0%e6%9f%a5%e7%9c%8b%e4%b8%80%e4%b8%8b%e9%a1%b9%e7%9b%ae%e7%bb%93%e6%9e%84%201%202%203%204%205%206%207%208%209%2010%20%e2%94%9c%e2%94%80%e2%94%80%20pom.xml%20%e2%94%9c%e2%94%80%e2%94%80%20src%20%e2%94%82%20%e2%94%9c%e2%94%80%e2%94%80%20main%20%e2%94%82%20%e2%94%82%20%e2%94%9c%e2%94%80%e2%94%80%20java%20%e2%94%82%20%e2%94%82%20%e2%94%9c%e2%80%a6%e2%80%a6" title="分享到「豆瓣」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon douban-icon"><path d="M.643.92v2.412h22.714V.92H.643zm1.974 4.926v9.42h18.764v-9.42H2.617zm2.72 2.408H18.69v4.605H5.338V8.254zm1.657 7.412l-2.512.938c1.037 1.461 1.87 2.825 2.512 4.091H0v2.385h24v-2.385h-6.678c.818-1.176 1.589-2.543 2.303-4.091l-2.73-.938a29.952 29.952 0 01-2.479 5.03h-4.75c-.786-1.962-1.677-3.641-2.672-5.03Z"/></svg></a>
+                    <a href="https://www.douban.com/share/service?href=https://yuechuanx.github.io/blog/posts/jenkins-testlink-plugin-source-notes/&amp;name=Jenkins%20Testlink%20Plugin%20%e6%ba%90%e7%a0%81%e7%ac%94%e8%ae%b0&amp;text=Jenkins%20Testlink%20Plugin%20%e6%ba%90%e7%a0%81%e7%ac%94%e8%ae%b0%20%e9%9c%80%e6%b1%82%20Testlink%20%e7%9a%84%20testcase%20%e5%8f%af%e4%bb%a5%e9%80%9a%e8%bf%87%20Jenkins%20%e5%8e%bb%e6%89%a7%e8%a1%8c%ef%bc%8c%e5%bd%93%20Jenkins%20job%20%e6%89%a7%e8%a1%8c%e5%ae%8c%e4%b9%8b%e5%90%8e%ef%bc%8c%e5%8f%af%e4%bb%a5%e5%b0%86%e6%89%a7%e8%a1%8c%e7%bb%93%e6%9e%9c%e4%bf%9d%e5%ad%98%e5%88%b0%20Testlink%20%e4%b8%ad%e3%80%82%20jenkins%20%e4%b8%ad%20testlink%20plugin%20%e4%bb%85%e4%bb%85%e5%8f%af%e4%bb%a5%e5%9c%a8%20freestyle%20%e9%a1%b9%e7%9b%ae%e7%b1%bb%e5%9e%8b%e4%b8%ad%e4%bd%bf%e7%94%a8%ef%bc%8c%e4%bd%86%e7%9b%ae%e5%89%8d%e5%a4%a7%e5%a4%9a%e6%95%b0%e7%9a%84%20job%20%e5%b7%b2%e7%bb%8f%e8%bd%ac%e7%a7%bb%e5%88%b0%20pipeline%20%e7%b1%bb%e5%9e%8b%ef%bc%8c%e6%89%80%e4%bb%a5%20testlink%20plugin%20%e6%94%af%e6%8c%81%20pipeline%20%e6%98%af%e4%b8%80%e4%b8%aa%e8%87%aa%e7%84%b6%e7%9a%84%e9%9c%80%e8%a6%81%e3%80%82%20%e6%80%9d%e8%b7%af%20%e9%a6%96%e5%85%88%e6%9f%a5%e5%88%b0%e5%ae%98%e6%96%b9%20Testlink-plugin%20%e7%9a%84%20repo%20https://github.com/jenkinsci/testlink-plugin%20pull%20%e5%88%b0%e6%9c%ac%e5%9c%b0%e6%9f%a5%e7%9c%8b%e4%b8%80%e4%b8%8b%e9%a1%b9%e7%9b%ae%e7%bb%93%e6%9e%84%201%202%203%204%205%206%207%208%209%20%e2%94%9c%e2%94%80%e2%94%80%20pom.xml%20%e2%94%9c%e2%94%80%e2%94%80%20src%20%e2%94%82%20%e2%94%9c%e2%94%80%e2%94%80%20main%20%e2%94%82%20%e2%94%82%20%e2%94%9c%e2%94%80%e2%94%80%20java%20%e2%94%82%20%e2%94%82%20%e2%94%9c%e2%94%80%e2%80%a6%e2%80%a6" title="分享到「豆瓣」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon douban-icon"><path d="M.643.92v2.412h22.714V.92H.643zm1.974 4.926v9.42h18.764v-9.42H2.617zm2.72 2.408H18.69v4.605H5.338V8.254zm1.657 7.412l-2.512.938c1.037 1.461 1.87 2.825 2.512 4.091H0v2.385h24v-2.385h-6.678c.818-1.176 1.589-2.543 2.303-4.091l-2.73-.938a29.952 29.952 0 01-2.479 5.03h-4.75c-.786-1.962-1.677-3.641-2.672-5.03Z"/></svg></a>
                 </div>
             
 
             
                 <div class="share-item qq">
                     
-                    <a href="https://connect.qq.com/widget/shareqq/index.html?url=https://yuechuanx.github.io/blog/posts/jenkins-testlink-plugin-source-notes/&amp;title=Jenkins%20Testlink%20Plugin%20%e6%ba%90%e7%a0%81%e7%ac%94%e8%ae%b0&amp;summary=Jenkins%20Testlink%20Plugin%20%e6%ba%90%e7%a0%81%e7%ac%94%e8%ae%b0%20%e9%9c%80%e6%b1%82%20Testlink%20%e7%9a%84%20testcase%20%e5%8f%af%e4%bb%a5%e9%80%9a%e8%bf%87%20Jenkins%20%e5%8e%bb%e6%89%a7%e8%a1%8c%ef%bc%8c%e5%bd%93%20Jenkins%20job%20%e6%89%a7%e8%a1%8c%e5%ae%8c%e4%b9%8b%e5%90%8e%ef%bc%8c%e5%8f%af%e4%bb%a5%e5%b0%86%e6%89%a7%e8%a1%8c%e7%bb%93%e6%9e%9c%e4%bf%9d%e5%ad%98%e5%88%b0%20Testlink%20%e4%b8%ad%e3%80%82%20jenkins%20%e4%b8%ad%20testlink%20plugin%20%e4%bb%85%e4%bb%85%e5%8f%af%e4%bb%a5%e5%9c%a8%20freestyle%20%e9%a1%b9%e7%9b%ae%e7%b1%bb%e5%9e%8b%e4%b8%ad%e4%bd%bf%e7%94%a8%ef%bc%8c%e4%bd%86%e7%9b%ae%e5%89%8d%e5%a4%a7%e5%a4%9a%e6%95%b0%e7%9a%84%20job%20%e5%b7%b2%e7%bb%8f%e8%bd%ac%e7%a7%bb%e5%88%b0%20pipeline%20%e7%b1%bb%e5%9e%8b%ef%bc%8c%e6%89%80%e4%bb%a5%20testlink%20plugin%20%e6%94%af%e6%8c%81%20pipeline%20%e6%98%af%e4%b8%80%e4%b8%aa%e8%87%aa%e7%84%b6%e7%9a%84%e9%9c%80%e8%a6%81%e3%80%82%20%e6%80%9d%e8%b7%af%20%e9%a6%96%e5%85%88%e6%9f%a5%e5%88%b0%e5%ae%98%e6%96%b9%20Testlink-plugin%20%e7%9a%84%20repo%20https://github.com/jenkinsci/testlink-plugin%20pull%20%e5%88%b0%e6%9c%ac%e5%9c%b0%e6%9f%a5%e7%9c%8b%e4%b8%80%e4%b8%8b%e9%a1%b9%e7%9b%ae%e7%bb%93%e6%9e%84%201%202%203%204%205%206%207%208%209%2010%20%e2%94%9c%e2%94%80%e2%94%80%20pom.xml%20%e2%94%9c%e2%94%80%e2%94%80%20src%20%e2%94%82%20%e2%94%9c%e2%94%80%e2%94%80%20main%20%e2%94%82%20%e2%94%82%20%e2%94%9c%e2%94%80%e2%94%80%20java%20%e2%94%82%20%e2%94%82%20%e2%94%9c%e2%80%a6%e2%80%a6&amp;pics=https://yuechuanx.github.io/icons/apple-touch-icon.png&amp;site=%e8%bf%87%e5%be%80%e7%9a%86%e4%b8%ba%e5%ba%8f%e7%ab%a0" title="分享到「QQ」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon qq-icon"><path d="M433.754 420.445c-11.526 1.393-44.86-52.741-44.86-52.741 0 31.345-16.136 72.247-51.051 101.786 16.842 5.192 54.843 19.167 45.803 34.421-7.316 12.343-125.51 7.881-159.632 4.037-34.122 3.844-152.316 8.306-159.632-4.037-9.045-15.25 28.918-29.214 45.783-34.415-34.92-29.539-51.059-70.445-51.059-101.792 0 0-33.334 54.134-44.859 52.741-5.37-.65-12.424-29.644 9.347-99.704 10.261-33.024 21.995-60.478 40.144-105.779C60.683 98.063 108.982.006 224 0c113.737.006 163.156 96.133 160.264 214.963 18.118 45.223 29.912 72.85 40.144 105.778 21.768 70.06 14.716 99.053 9.346 99.704z"/></svg></a>
+                    <a href="https://connect.qq.com/widget/shareqq/index.html?url=https://yuechuanx.github.io/blog/posts/jenkins-testlink-plugin-source-notes/&amp;title=Jenkins%20Testlink%20Plugin%20%e6%ba%90%e7%a0%81%e7%ac%94%e8%ae%b0&amp;summary=Jenkins%20Testlink%20Plugin%20%e6%ba%90%e7%a0%81%e7%ac%94%e8%ae%b0%20%e9%9c%80%e6%b1%82%20Testlink%20%e7%9a%84%20testcase%20%e5%8f%af%e4%bb%a5%e9%80%9a%e8%bf%87%20Jenkins%20%e5%8e%bb%e6%89%a7%e8%a1%8c%ef%bc%8c%e5%bd%93%20Jenkins%20job%20%e6%89%a7%e8%a1%8c%e5%ae%8c%e4%b9%8b%e5%90%8e%ef%bc%8c%e5%8f%af%e4%bb%a5%e5%b0%86%e6%89%a7%e8%a1%8c%e7%bb%93%e6%9e%9c%e4%bf%9d%e5%ad%98%e5%88%b0%20Testlink%20%e4%b8%ad%e3%80%82%20jenkins%20%e4%b8%ad%20testlink%20plugin%20%e4%bb%85%e4%bb%85%e5%8f%af%e4%bb%a5%e5%9c%a8%20freestyle%20%e9%a1%b9%e7%9b%ae%e7%b1%bb%e5%9e%8b%e4%b8%ad%e4%bd%bf%e7%94%a8%ef%bc%8c%e4%bd%86%e7%9b%ae%e5%89%8d%e5%a4%a7%e5%a4%9a%e6%95%b0%e7%9a%84%20job%20%e5%b7%b2%e7%bb%8f%e8%bd%ac%e7%a7%bb%e5%88%b0%20pipeline%20%e7%b1%bb%e5%9e%8b%ef%bc%8c%e6%89%80%e4%bb%a5%20testlink%20plugin%20%e6%94%af%e6%8c%81%20pipeline%20%e6%98%af%e4%b8%80%e4%b8%aa%e8%87%aa%e7%84%b6%e7%9a%84%e9%9c%80%e8%a6%81%e3%80%82%20%e6%80%9d%e8%b7%af%20%e9%a6%96%e5%85%88%e6%9f%a5%e5%88%b0%e5%ae%98%e6%96%b9%20Testlink-plugin%20%e7%9a%84%20repo%20https://github.com/jenkinsci/testlink-plugin%20pull%20%e5%88%b0%e6%9c%ac%e5%9c%b0%e6%9f%a5%e7%9c%8b%e4%b8%80%e4%b8%8b%e9%a1%b9%e7%9b%ae%e7%bb%93%e6%9e%84%201%202%203%204%205%206%207%208%209%20%e2%94%9c%e2%94%80%e2%94%80%20pom.xml%20%e2%94%9c%e2%94%80%e2%94%80%20src%20%e2%94%82%20%e2%94%9c%e2%94%80%e2%94%80%20main%20%e2%94%82%20%e2%94%82%20%e2%94%9c%e2%94%80%e2%94%80%20java%20%e2%94%82%20%e2%94%82%20%e2%94%9c%e2%94%80%e2%80%a6%e2%80%a6&amp;pics=https://yuechuanx.github.io/icons/apple-touch-icon.png&amp;site=Yuechuan%27s%20Blog" title="分享到「QQ」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon qq-icon"><path d="M433.754 420.445c-11.526 1.393-44.86-52.741-44.86-52.741 0 31.345-16.136 72.247-51.051 101.786 16.842 5.192 54.843 19.167 45.803 34.421-7.316 12.343-125.51 7.881-159.632 4.037-34.122 3.844-152.316 8.306-159.632-4.037-9.045-15.25 28.918-29.214 45.783-34.415-34.92-29.539-51.059-70.445-51.059-101.792 0 0-33.334 54.134-44.859 52.741-5.37-.65-12.424-29.644 9.347-99.704 10.261-33.024 21.995-60.478 40.144-105.779C60.683 98.063 108.982.006 224 0c113.737.006 163.156 96.133 160.264 214.963 18.118 45.223 29.912 72.85 40.144 105.778 21.768 70.06 14.716 99.053 9.346 99.704z"/></svg></a>
                 </div>
             
 
             
                 <div class="share-item qzone">
                     
-                    <a href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://yuechuanx.github.io/blog/posts/jenkins-testlink-plugin-source-notes/&amp;title=Jenkins%20Testlink%20Plugin%20%e6%ba%90%e7%a0%81%e7%ac%94%e8%ae%b0&amp;summary=Jenkins%20Testlink%20Plugin%20%e6%ba%90%e7%a0%81%e7%ac%94%e8%ae%b0%20%e9%9c%80%e6%b1%82%20Testlink%20%e7%9a%84%20testcase%20%e5%8f%af%e4%bb%a5%e9%80%9a%e8%bf%87%20Jenkins%20%e5%8e%bb%e6%89%a7%e8%a1%8c%ef%bc%8c%e5%bd%93%20Jenkins%20job%20%e6%89%a7%e8%a1%8c%e5%ae%8c%e4%b9%8b%e5%90%8e%ef%bc%8c%e5%8f%af%e4%bb%a5%e5%b0%86%e6%89%a7%e8%a1%8c%e7%bb%93%e6%9e%9c%e4%bf%9d%e5%ad%98%e5%88%b0%20Testlink%20%e4%b8%ad%e3%80%82%20jenkins%20%e4%b8%ad%20testlink%20plugin%20%e4%bb%85%e4%bb%85%e5%8f%af%e4%bb%a5%e5%9c%a8%20freestyle%20%e9%a1%b9%e7%9b%ae%e7%b1%bb%e5%9e%8b%e4%b8%ad%e4%bd%bf%e7%94%a8%ef%bc%8c%e4%bd%86%e7%9b%ae%e5%89%8d%e5%a4%a7%e5%a4%9a%e6%95%b0%e7%9a%84%20job%20%e5%b7%b2%e7%bb%8f%e8%bd%ac%e7%a7%bb%e5%88%b0%20pipeline%20%e7%b1%bb%e5%9e%8b%ef%bc%8c%e6%89%80%e4%bb%a5%20testlink%20plugin%20%e6%94%af%e6%8c%81%20pipeline%20%e6%98%af%e4%b8%80%e4%b8%aa%e8%87%aa%e7%84%b6%e7%9a%84%e9%9c%80%e8%a6%81%e3%80%82%20%e6%80%9d%e8%b7%af%20%e9%a6%96%e5%85%88%e6%9f%a5%e5%88%b0%e5%ae%98%e6%96%b9%20Testlink-plugin%20%e7%9a%84%20repo%20https://github.com/jenkinsci/testlink-plugin%20pull%20%e5%88%b0%e6%9c%ac%e5%9c%b0%e6%9f%a5%e7%9c%8b%e4%b8%80%e4%b8%8b%e9%a1%b9%e7%9b%ae%e7%bb%93%e6%9e%84%201%202%203%204%205%206%207%208%209%2010%20%e2%94%9c%e2%94%80%e2%94%80%20pom.xml%20%e2%94%9c%e2%94%80%e2%94%80%20src%20%e2%94%82%20%e2%94%9c%e2%94%80%e2%94%80%20main%20%e2%94%82%20%e2%94%82%20%e2%94%9c%e2%94%80%e2%94%80%20java%20%e2%94%82%20%e2%94%82%20%e2%94%9c%e2%80%a6%e2%80%a6&amp;pics=https://yuechuanx.github.io/icons/apple-touch-icon.png&amp;site=%e8%bf%87%e5%be%80%e7%9a%86%e4%b8%ba%e5%ba%8f%e7%ab%a0" title="分享到「QQ 空间」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon qzone-icon"><path d="M23.985 9.202c-.032-.099-.127-.223-.334-.258-.207-.036-7.351-1.406-7.351-1.406s-.105-.022-.198-.07c-.092-.047-.127-.167-.127-.167S12.447.956 12.349.77C12.25.583 12.104.532 12 .532c-.104 0-.251.051-.349.238-.098.186-3.626 6.531-3.626 6.531s-.035.12-.128.167c-.092.047-.197.07-.197.07S.556 8.908.348 8.943c-.208.036-.302.16-.333.258a.477.477 0 0 0 .125.449l5.362 5.49s.072.08.119.172c.016.104.005.21.005.21s-1.189 7.242-1.22 7.45.075.369.159.43c.083.062.233.106.421.013.189-.093 6.812-3.261 6.812-3.261s.098-.044.201-.061c.103-.017.201.061.201.061s6.623 3.168 6.812 3.261c.188.094.338.049.421-.013a.463.463 0 0 0 .159-.43c-.021-.14-.93-5.677-.93-5.677.876-.54 1.425-1.039 1.849-1.747-2.594.969-6.006 1.717-9.415 1.866-.915.041-2.41.097-3.473-.015-.678-.071-1.17-.144-1.243-.438-.053-.215.054-.46.545-.831a2640.5 2640.5 0 0 1 2.861-2.155c1.285-.968 3.559-2.47 3.559-2.731 0-.285-2.144-.781-4.037-.781-1.945 0-2.275.132-2.811.168-.488.034-.769.005-.804-.138-.06-.248.183-.389.588-.568.709-.314 1.86-.594 1.984-.626.194-.052 3.082-.805 5.618-.535 1.318.14 3.244.668 3.244 1.276 0 .342-1.721 1.494-3.225 2.597-1.149.843-2.217 1.561-2.217 1.688 0 .342 3.533 1.241 6.689 1.01l.003-.022c.048-.092.119-.172.119-.172l5.362-5.49a.477.477 0 0 0 .127-.449z"/></svg></a>
+                    <a href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://yuechuanx.github.io/blog/posts/jenkins-testlink-plugin-source-notes/&amp;title=Jenkins%20Testlink%20Plugin%20%e6%ba%90%e7%a0%81%e7%ac%94%e8%ae%b0&amp;summary=Jenkins%20Testlink%20Plugin%20%e6%ba%90%e7%a0%81%e7%ac%94%e8%ae%b0%20%e9%9c%80%e6%b1%82%20Testlink%20%e7%9a%84%20testcase%20%e5%8f%af%e4%bb%a5%e9%80%9a%e8%bf%87%20Jenkins%20%e5%8e%bb%e6%89%a7%e8%a1%8c%ef%bc%8c%e5%bd%93%20Jenkins%20job%20%e6%89%a7%e8%a1%8c%e5%ae%8c%e4%b9%8b%e5%90%8e%ef%bc%8c%e5%8f%af%e4%bb%a5%e5%b0%86%e6%89%a7%e8%a1%8c%e7%bb%93%e6%9e%9c%e4%bf%9d%e5%ad%98%e5%88%b0%20Testlink%20%e4%b8%ad%e3%80%82%20jenkins%20%e4%b8%ad%20testlink%20plugin%20%e4%bb%85%e4%bb%85%e5%8f%af%e4%bb%a5%e5%9c%a8%20freestyle%20%e9%a1%b9%e7%9b%ae%e7%b1%bb%e5%9e%8b%e4%b8%ad%e4%bd%bf%e7%94%a8%ef%bc%8c%e4%bd%86%e7%9b%ae%e5%89%8d%e5%a4%a7%e5%a4%9a%e6%95%b0%e7%9a%84%20job%20%e5%b7%b2%e7%bb%8f%e8%bd%ac%e7%a7%bb%e5%88%b0%20pipeline%20%e7%b1%bb%e5%9e%8b%ef%bc%8c%e6%89%80%e4%bb%a5%20testlink%20plugin%20%e6%94%af%e6%8c%81%20pipeline%20%e6%98%af%e4%b8%80%e4%b8%aa%e8%87%aa%e7%84%b6%e7%9a%84%e9%9c%80%e8%a6%81%e3%80%82%20%e6%80%9d%e8%b7%af%20%e9%a6%96%e5%85%88%e6%9f%a5%e5%88%b0%e5%ae%98%e6%96%b9%20Testlink-plugin%20%e7%9a%84%20repo%20https://github.com/jenkinsci/testlink-plugin%20pull%20%e5%88%b0%e6%9c%ac%e5%9c%b0%e6%9f%a5%e7%9c%8b%e4%b8%80%e4%b8%8b%e9%a1%b9%e7%9b%ae%e7%bb%93%e6%9e%84%201%202%203%204%205%206%207%208%209%20%e2%94%9c%e2%94%80%e2%94%80%20pom.xml%20%e2%94%9c%e2%94%80%e2%94%80%20src%20%e2%94%82%20%e2%94%9c%e2%94%80%e2%94%80%20main%20%e2%94%82%20%e2%94%82%20%e2%94%9c%e2%94%80%e2%94%80%20java%20%e2%94%82%20%e2%94%82%20%e2%94%9c%e2%94%80%e2%80%a6%e2%80%a6&amp;pics=https://yuechuanx.github.io/icons/apple-touch-icon.png&amp;site=Yuechuan%27s%20Blog" title="分享到「QQ 空间」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon qzone-icon"><path d="M23.985 9.202c-.032-.099-.127-.223-.334-.258-.207-.036-7.351-1.406-7.351-1.406s-.105-.022-.198-.07c-.092-.047-.127-.167-.127-.167S12.447.956 12.349.77C12.25.583 12.104.532 12 .532c-.104 0-.251.051-.349.238-.098.186-3.626 6.531-3.626 6.531s-.035.12-.128.167c-.092.047-.197.07-.197.07S.556 8.908.348 8.943c-.208.036-.302.16-.333.258a.477.477 0 0 0 .125.449l5.362 5.49s.072.08.119.172c.016.104.005.21.005.21s-1.189 7.242-1.22 7.45.075.369.159.43c.083.062.233.106.421.013.189-.093 6.812-3.261 6.812-3.261s.098-.044.201-.061c.103-.017.201.061.201.061s6.623 3.168 6.812 3.261c.188.094.338.049.421-.013a.463.463 0 0 0 .159-.43c-.021-.14-.93-5.677-.93-5.677.876-.54 1.425-1.039 1.849-1.747-2.594.969-6.006 1.717-9.415 1.866-.915.041-2.41.097-3.473-.015-.678-.071-1.17-.144-1.243-.438-.053-.215.054-.46.545-.831a2640.5 2640.5 0 0 1 2.861-2.155c1.285-.968 3.559-2.47 3.559-2.731 0-.285-2.144-.781-4.037-.781-1.945 0-2.275.132-2.811.168-.488.034-.769.005-.804-.138-.06-.248.183-.389.588-.568.709-.314 1.86-.594 1.984-.626.194-.052 3.082-.805 5.618-.535 1.318.14 3.244.668 3.244 1.276 0 .342-1.721 1.494-3.225 2.597-1.149.843-2.217 1.561-2.217 1.688 0 .342 3.533 1.241 6.689 1.01l.003-.022c.048-.092.119-.172.119-.172l5.362-5.49a.477.477 0 0 0 .127-.449z"/></svg></a>
                 </div>
             
 
@@ -715,7 +710,7 @@
         <ul class="post-nav">
             
                 <li class="post-nav-prev">
-                    <a href="/blog/posts/web/django-project-containerization-practice/" rel="prev">&lt; Django 项目的容器化实践</a>
+                    <a href="/blog/posts/Web/django-project-containerization-practice/" rel="prev">&lt; Django 项目的容器化实践</a>
                 </li>
             
             
@@ -744,7 +739,7 @@
             
     <footer id="footer" class="footer">
         <div class="footer-inner">
-            <div class="site-info">©&nbsp;1969–2021&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon footer-icon"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>&nbsp;YueChuan</div><div class="powered-by">Powered by <a href="https://github.com/gohugoio/hugo" target="_blank" rel="noopener">Hugo</a> | Theme is <a href="https://github.com/reuixiy/hugo-theme-meme" target="_blank" rel="noopener">MemE</a></div><div class="site-copyright"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></div>
+            <div class="site-info">©&nbsp;2019–2022&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon footer-icon"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>&nbsp;YueChuan</div><div class="powered-by">Powered by <a href="https://github.com/gohugoio/hugo" target="_blank" rel="noopener">Hugo</a> | Theme is <a href="https://github.com/reuixiy/hugo-theme-meme" target="_blank" rel="noopener">MemE</a></div><div class="site-copyright"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></div>
                 <div class="busuanzi-site-uv-and-pv">
                     <span id="busuanzi_container_site_uv">本站访客数&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon busuanzi-site-uv"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"/></svg>&nbsp;<span id="busuanzi_value_site_uv"></span></span>&nbsp;|&nbsp;<span id="busuanzi_container_site_pv">本站访问量&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="icon busuanzi-site-pv"><path d="M288 144a110.94 110.94 0 0 0-31.24 5 55.4 55.4 0 0 1 7.24 27 56 56 0 0 1-56 56 55.4 55.4 0 0 1-27-7.24A111.71 111.71 0 1 0 288 144zm284.52 97.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400c-98.65 0-189.09-55-237.93-144C98.91 167 189.34 112 288 112s189.09 55 237.93 144C477.1 345 386.66 400 288 400z"/></svg>&nbsp;<span id="busuanzi_value_site_pv"></span></span>
                 </div>
@@ -786,7 +781,10 @@
     <script src="https://cdn.jsdelivr.net/npm/medium-zoom@latest/dist/medium-zoom.min.js"></script>
 
 <script>
-    mediumZoom(document.querySelectorAll('div.post-body img'), {
+    let imgNodes = document.querySelectorAll('div.post-body img');
+    imgNodes = Array.from(imgNodes).filter(node => node.parentNode.tagName !== "A");
+
+    mediumZoom(imgNodes, {
         background: 'hsla(var(--color-bg-h), var(--color-bg-s), var(--color-bg-l), 0.95)'
     })
 </script>

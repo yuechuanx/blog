@@ -3,7 +3,10 @@
     <head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
     <meta charset="UTF-8" />
 
-    <meta name="generator" content="Hugo 0.83.1" /><meta name="theme-color" content="#fff" />
+    <meta name="generator" content="Hugo 0.108.0"><meta name="theme-color" content="#fff" />
+    <meta name="color-scheme" content="light dark">
+
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
@@ -12,13 +15,13 @@
     
     <meta http-equiv="Cache-Control" content="no-siteapp" />
 
-    <title>使用 Bash 严格模式 | 过往皆为序章</title>
+    <title>使用 Bash 严格模式 | Yuechuan&#39;s Blog</title>
 
-    <link rel="stylesheet" href="/blog/css/meme.min.dfc9d5c433e318a3a8dee8001ab7d1cca0931e087c3a47f71abf63d05c499adc.css"/>
+    <link rel="stylesheet" href="/blog/css/meme.min.594a532c4c0d6f5c590e7314e8073069c070404a99970c2f329207a6add7423b.css"/>
 
     
     
-        <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" defer></script><script src="/blog/js/meme.min.dfb373df4b2dc76b95791fad15cd5043f60b3f67f64144062f132ec3dbb689ac.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" defer></script><script src="/blog/js/meme.min.c276e7690c8f5a4f8308173595500d57510b83bc30901e69fd7306e79c37b56b.js"></script>
 
     
 
@@ -33,10 +36,10 @@
     <link rel="mask-icon" href="/blog/icons/safari-pinned-tab.svg" color="#2a6df4" />
     <link rel="apple-touch-icon" sizes="180x180" href="/blog/icons/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-title" content="过往皆为序章" />
+    <meta name="apple-mobile-web-app-title" content="Yuechuan&#39;s Blog" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="application-name" content="过往皆为序章" />
+    <meta name="application-name" content="Yuechuan&#39;s Blog" />
     <meta name="msapplication-starturl" content="../../../" />
     <meta name="msapplication-TileColor" content="#fff" />
     <meta name="msapplication-TileImage" content="../../../icons/mstile-150x150.png" />
@@ -60,7 +63,7 @@
         "description": "使用 Bash严格模式 原文链接：Use Bash Strict Mode (Unless You Love Debugging) 翻译：YueChuan 在 Unix/Linux 环境很难避免与 Bash 脚本打交道，一份高质量，可靠且可维护的 Bash 脚本应该怎么写？ 本文将提供一些技巧帮助你解决这些问题... 让我们开门见山，直接上 PUNCHLINE。 如果你的 Bash 脚本以这段代码开始，它们将变得更加健壮，可靠和可维护： 1 2……",
         "inLanguage" : "zh-CN",
         "articleSection": "posts",
-        "wordCount":  6748 ,
+        "wordCount":  6750 ,
         "image": "https://yuechuanx.github.io/icons/apple-touch-icon.png",
         "author": {
             "@type": "Person",
@@ -73,7 +76,7 @@
         "license": "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)",
         "publisher": {
             "@type": "Organization",
-            "name": "过往皆为序章",
+            "name": "Yuechuan's Blog",
             "logo": {
                 "@type": "ImageObject",
                 "url": "https://yuechuanx.github.io/icons/apple-touch-icon.png"
@@ -99,7 +102,7 @@
 <meta property="og:title" content="使用 Bash 严格模式" />
 <meta property="og:description" content="使用 Bash严格模式 原文链接：Use Bash Strict Mode (Unless You Love Debugging) 翻译：YueChuan 在 Unix/Linux 环境很难避免与 Bash 脚本打交道，一份高质量，可靠且可维护的 Bash 脚本应该怎么写？ 本文将提供一些技巧帮助你解决这些问题... 让我们开门见山，直接上 PUNCHLINE。 如果你的 Bash 脚本以这段代码开始，它们将变得更加健壮，可靠和可维护： 1 2……" />
 <meta property="og:url" content="https://yuechuanx.github.io/blog/posts/use-bash-strict-mode/" />
-<meta property="og:site_name" content="过往皆为序章" />
+<meta property="og:site_name" content="Yuechuan&#39;s Blog" />
 <meta property="og:locale" content="zh" /><meta property="og:image" content="https://yuechuanx.github.io/icons/apple-touch-icon.png" />
     <meta property="og:type" content="article" />
     <meta property="article:published_time" content="2020-08-12T16:58:57&#43;00:00" />
@@ -142,7 +145,7 @@
                     
     <div class="site-brand">
         
-            <a href="/blog/" class="brand">过往皆为序章</a>
+            <a href="/" class="brand">Yuechuan&#39;s Blog</a>
         
     </div>
 
@@ -267,7 +270,7 @@
     
     
         
-        <span class="post-meta-item wordcount"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>&nbsp;6748</span>
+        <span class="post-meta-item wordcount"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>&nbsp;6750</span>
     
     
         
@@ -303,7 +306,7 @@
     <li><a id="contents:脚注" href="#脚注">脚注</a></li>
   </ol>
 </nav><div class="post-body e-content">
-              <h1 id="使用-bash严格模式"><a href="#使用-bash严格模式" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:使用-bash严格模式" class="headings">使用 Bash严格模式</a></h1>
+                <h1 id="使用-bash严格模式"><a href="#使用-bash严格模式" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:使用-bash严格模式" class="headings">使用 Bash严格模式</a></h1>
 <blockquote>
 <p>原文链接：<a href="http://redsymbol.net/articles/unofficial-bash-strict-mode/" target="_blank" rel="noopener">Use Bash Strict Mode (Unless You Love Debugging)</a></p>
 <p>翻译：YueChuan</p>
@@ -314,15 +317,15 @@
 <p>如果你的 Bash 脚本以这段代码开始，它们将变得更加健壮，可靠和可维护：</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
-</span><span class="cp"></span><span class="nb">set</span> -euo pipefail
-<span class="nv">IFS</span><span class="o">=</span><span class="s1">$&#39;\n\t&#39;</span>
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="nb">set</span> -euo pipefail
+</span></span><span class="line"><span class="cl"><span class="nv">IFS</span><span class="o">=</span><span class="s1">$&#39;\n\t&#39;</span>
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><!-- more -->
 <!--toc-->
@@ -336,15 +339,15 @@
 <p><code>set -euo pipefail</code> 的缩写：</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">set</span> -e
-<span class="nb">set</span> -u
-<span class="nb">set</span> -o pipefail
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">set</span> -e
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> -u
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> -o pipefail
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>让我们分别看一下。</p>
 <h3 id="set--e"><a href="#set--e" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:set--e" class="headings">set -e</a></h3>
@@ -357,17 +360,17 @@
 <p>设置后，对您之前未定义的任何变量的引用( <code>$*</code>  和 <code>$@</code> 除外) 都会发生错误，并导致程序立即退出。出于各种缘由，Python，C，Java等语言都具有相同的行为方式。其中之一就是错别字没有意识到就不会创建新变量。例如：</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
-</span><span class="cp"></span><span class="nv">firstName</span><span class="o">=</span><span class="s2">&#34;Aaron&#34;</span>
-<span class="nv">fullName</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$firstname</span><span class="s2"> Maxwell&#34;</span>
-<span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$fullName</span><span class="s2">&#34;</span>
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="nv">firstName</span><span class="o">=</span><span class="s2">&#34;Aaron&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">fullName</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$firstname</span><span class="s2"> Maxwell&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$fullName</span><span class="s2">&#34;</span>
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>花一点时间看看。看到错误了吗？</p>
 <p>第三行的右侧显示“ firstname”（全部小写），而不用驼峰式的“ firstName”。如果没有-u选项，这将是一个无提示错误。但是，使用-u选项，脚本将以退出代码1退出该行，并将消息“ firstname：unbound variable”输出到stderr。</p>
@@ -376,17 +379,17 @@
 <p>此设置可防止掩盖管道中的错误。如果管道中的任何命令失败，则该返回码将用作整个管道的返回码。默认情况下，管道的返回码是最后一个命令的返回码-即使成功。想象一下在文件中找到匹配行的排序列表：</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">% grep some-string /non/existent/file <span class="p">|</span> sort
-grep: /non/existent/file: No such file or directory
-<span class="nb">echo</span> <span class="nv">$?</span>
-<span class="m">0</span>
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">% grep some-string /non/existent/file <span class="p">|</span> sort
+</span></span><span class="line"><span class="cl">grep: /non/existent/file: No such file or directory
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="nv">$?</span>
+</span></span><span class="line"><span class="cl"><span class="m">0</span>
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><blockquote>
 <p><code>%</code>是bash提示</p>
@@ -394,26 +397,26 @@ grep: /non/existent/file: No such file or directory
 <p>在这里，grep的退出代码为2，将错误消息写入stderr，将空字符串写入stdout。然后，此空字符串通过sort传递，该字符串愉快地接受它作为有效输入，并返回状态代码0。这对于命令行很好，但对shell脚本则不利：您几乎肯定希望脚本立即退出具有非零的退出代码...就像这样：</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">1. % <span class="nb">set</span> -o pipefail
-2. % grep some-string /non/existent/file <span class="p">|</span> sort
-3. grep: /non/existent/file: No such file or directory
-4. % <span class="nb">echo</span> <span class="nv">$?</span>
-5. <span class="m">2</span>
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">1. % <span class="nb">set</span> -o pipefail
+</span></span><span class="line"><span class="cl">2. % grep some-string /non/existent/file <span class="p">|</span> sort
+</span></span><span class="line"><span class="cl">3. grep: /non/existent/file: No such file or directory
+</span></span><span class="line"><span class="cl">4. % <span class="nb">echo</span> <span class="nv">$?</span>
+</span></span><span class="line"><span class="cl">5. <span class="m">2</span>
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><h2 id="设置ifs"><a href="#设置ifs" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:设置ifs" class="headings">设置IFS</a></h2>
 <p>IFS(Internal Field Separator) 设置 Bash 的<em>分隔符</em>。</p>
 <p>当设置为字符串时，Bash会考虑字符串中的每个字符以分隔单词。这决定了bash如何遍历序列。例如，此脚本：</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -426,40 +429,40 @@ grep: /non/existent/file: No such file or directory
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">1. <span class="c1">#!/bin/bash</span>
-2. <span class="nv">IFS</span><span class="o">=</span><span class="s1">$&#39; &#39;</span>
-3. <span class="nv">items</span><span class="o">=</span><span class="s2">&#34;a b c&#34;</span>
-4. <span class="k">for</span> x in <span class="nv">$items</span><span class="p">;</span> <span class="k">do</span>
-5.     <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$x</span><span class="s2">&#34;</span>
-6. <span class="k">done</span>
-7. 
-8. <span class="nv">IFS</span><span class="o">=</span><span class="s1">$&#39;\n&#39;</span>
-9. <span class="k">for</span> y in <span class="nv">$items</span><span class="p">;</span> <span class="k">do</span>
-10.     <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$y</span><span class="s2">&#34;</span>
-11. <span class="k">done</span>
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">1. <span class="c1">#!/bin/bash</span>
+</span></span><span class="line"><span class="cl">2. <span class="nv">IFS</span><span class="o">=</span><span class="s1">$&#39; &#39;</span>
+</span></span><span class="line"><span class="cl">3. <span class="nv">items</span><span class="o">=</span><span class="s2">&#34;a b c&#34;</span>
+</span></span><span class="line"><span class="cl">4. <span class="k">for</span> x in <span class="nv">$items</span><span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">5.     <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$x</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">6. <span class="k">done</span>
+</span></span><span class="line"><span class="cl">7. 
+</span></span><span class="line"><span class="cl">8. <span class="nv">IFS</span><span class="o">=</span><span class="s1">$&#39;\n&#39;</span>
+</span></span><span class="line"><span class="cl">9. <span class="k">for</span> y in <span class="nv">$items</span><span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">10.     <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$y</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">11. <span class="k">done</span>
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>...将打印出以下内容：</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">a
-b
-c
-a b c
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">a
+</span></span><span class="line"><span class="cl">b
+</span></span><span class="line"><span class="cl">c
+</span></span><span class="line"><span class="cl">a b c
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>在第一个for循环中，IFS设置为<code>$' '</code>。（ <code>$'...'</code>语法创建一个字符串，用反斜杠转义的字符替换为特殊字符-例如，“ \ t”代表制表符，“ \ n”代表换行符。）</p>
 <p>在for循环中，x和y设置为bash认为是“单词”的任何值”以原始顺序显示。对于第一个循环，IFS是一个空格，这意味着单词由空格字符分隔。对于第二个循环，“单词”由 <em>换行符分隔</em>，这意味着bash将“ items”的整个值视为一个单词。如果IFS超过一个字符，则将对这些字符中的<em>任何</em>一个进行拆分。</p>
 <p>知道了吗？下一个问题是，为什么我们将IFS设置为由制表符和换行符组成的字符串？因为在循环中迭代时，它为我们提供了更好的行为。“更好”的意思是“引起意外和令人困惑的错误的可能性要小得多”。这在使用bash数组时很明显：</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -480,32 +483,32 @@ a b c
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">1. <span class="c1">#!/bin/bash</span>
-2. <span class="nv">names</span><span class="o">=(</span>
-3.   <span class="s2">&#34;Aaron Maxwell&#34;</span>
-4.   <span class="s2">&#34;Wayne Gretzky&#34;</span>
-5.   <span class="s2">&#34;David Beckham&#34;</span>
-6.   <span class="s2">&#34;Anderson da Silva&#34;</span>
-7. <span class="o">)</span>
-8. 
-9. <span class="nb">echo</span> <span class="s2">&#34;With default IFS value...&#34;</span>
-10. <span class="k">for</span> name in <span class="si">${</span><span class="nv">names</span><span class="p">[@]</span><span class="si">}</span><span class="p">;</span> <span class="k">do</span>
-11.   <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$name</span><span class="s2">&#34;</span>
-12. <span class="k">done</span>
-13. 
-14. <span class="nb">echo</span> <span class="s2">&#34;&#34;</span>
-15. <span class="nb">echo</span> <span class="s2">&#34;With strict-mode IFS value...&#34;</span>
-16. <span class="nv">IFS</span><span class="o">=</span><span class="s1">$&#39;\n\t&#39;</span>
-17. <span class="k">for</span> name in <span class="si">${</span><span class="nv">names</span><span class="p">[@]</span><span class="si">}</span><span class="p">;</span> <span class="k">do</span>
-18.   <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$name</span><span class="s2">&#34;</span>
-19. <span class="k">done</span>
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">1. <span class="c1">#!/bin/bash</span>
+</span></span><span class="line"><span class="cl">2. <span class="nv">names</span><span class="o">=(</span>
+</span></span><span class="line"><span class="cl">3.   <span class="s2">&#34;Aaron Maxwell&#34;</span>
+</span></span><span class="line"><span class="cl">4.   <span class="s2">&#34;Wayne Gretzky&#34;</span>
+</span></span><span class="line"><span class="cl">5.   <span class="s2">&#34;David Beckham&#34;</span>
+</span></span><span class="line"><span class="cl">6.   <span class="s2">&#34;Anderson da Silva&#34;</span>
+</span></span><span class="line"><span class="cl">7. <span class="o">)</span>
+</span></span><span class="line"><span class="cl">8. 
+</span></span><span class="line"><span class="cl">9. <span class="nb">echo</span> <span class="s2">&#34;With default IFS value...&#34;</span>
+</span></span><span class="line"><span class="cl">10. <span class="k">for</span> name in <span class="si">${</span><span class="nv">names</span><span class="p">[@]</span><span class="si">}</span><span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">11.   <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$name</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">12. <span class="k">done</span>
+</span></span><span class="line"><span class="cl">13. 
+</span></span><span class="line"><span class="cl">14. <span class="nb">echo</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">15. <span class="nb">echo</span> <span class="s2">&#34;With strict-mode IFS value...&#34;</span>
+</span></span><span class="line"><span class="cl">16. <span class="nv">IFS</span><span class="o">=</span><span class="s1">$&#39;\n\t&#39;</span>
+</span></span><span class="line"><span class="cl">17. <span class="k">for</span> name in <span class="si">${</span><span class="nv">names</span><span class="p">[@]</span><span class="si">}</span><span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">18.   <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$name</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">19. <span class="k">done</span>
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>（是的，我把我的名字列在了不起的运动员名单上。放飞自我~）</p>
 <p>这是输出：</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -523,36 +526,36 @@ a b c
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">With default IFS value...
-Aaron
-Maxwell
-Wayne
-Gretzky
-David
-Beckham
-Anderson
-da
-Silva
-
-With strict-mode IFS value...
-Aaron Maxwell
-Wayne Gretzky
-David Beckham
-Anderson da Silva
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">With default IFS value...
+</span></span><span class="line"><span class="cl">Aaron
+</span></span><span class="line"><span class="cl">Maxwell
+</span></span><span class="line"><span class="cl">Wayne
+</span></span><span class="line"><span class="cl">Gretzky
+</span></span><span class="line"><span class="cl">David
+</span></span><span class="line"><span class="cl">Beckham
+</span></span><span class="line"><span class="cl">Anderson
+</span></span><span class="line"><span class="cl">da
+</span></span><span class="line"><span class="cl">Silva
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">With strict-mode IFS value...
+</span></span><span class="line"><span class="cl">Aaron Maxwell
+</span></span><span class="line"><span class="cl">Wayne Gretzky
+</span></span><span class="line"><span class="cl">David Beckham
+</span></span><span class="line"><span class="cl">Anderson da Silva
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>或者考虑一个以文件名作为命令行参数的脚本：</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">1. <span class="k">for</span> arg in <span class="nv">$@</span><span class="p">;</span> <span class="k">do</span>
-2.     <span class="nb">echo</span> <span class="s2">&#34;doing something with file: </span><span class="nv">$arg</span><span class="s2">&#34;</span>
-3. <span class="k">done</span>
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">1. <span class="k">for</span> arg in <span class="nv">$@</span><span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">2.     <span class="nb">echo</span> <span class="s2">&#34;doing something with file: </span><span class="nv">$arg</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">3. <span class="k">done</span>
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>如果您将其调用为<code>myscript.sh notes todo-list 'My Resume.doc'</code>，则使用默认的IFS值，第三个参数将被误解析为两个单独的文件-名为“ My”和“ Resume.doc”。实际上，它是一个包含空格的文件，名为“ My Resume.doc”。</p>
 <p>哪种行为更普遍有用？当然，第二个-我们有能力不分割空格。如果我们有一个通常包含空格的字符串数组，通常我们希望逐项迭代它们，而不是将单个项拆分为多个。</p>
@@ -573,29 +576,29 @@ Anderson da Silva
 <p>有时，您的脚本需要获取无法在严格模式下使用的文件。然后怎样呢？</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">source</span> some/bad/file.env
-＃您的严格模式脚本会立即退出此处，
-＃出现致命错误。
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">source</span> some/bad/file.env
+</span></span><span class="line"><span class="cl">＃您的严格模式脚本会立即退出此处，
+</span></span><span class="line"><span class="cl">＃出现致命错误。
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>解决方案是（a）暂时禁用严格模式的该方面；（b）出示文件；然后（c）在下一行重新启用。</p>
 <p>您最需要的时间是文档引用未定义的变量。暂时允许以下行为<code>set +u</code>：</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">1. <span class="nb">set</span> +u
-2. <span class="nb">source</span> some/bad/file.env
-3. <span class="nb">set</span> -u
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">1. <span class="nb">set</span> +u
+</span></span><span class="line"><span class="cl">2. <span class="nb">source</span> some/bad/file.env
+</span></span><span class="line"><span class="cl">3. <span class="nb">set</span> -u
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><blockquote>
 <p>请记住，<code>set +u</code> <em>禁用</em>此变量严格性并将其<code>set -u</code> <em>启用</em>。这有点违反直觉，因此在这里要小心。</p>
@@ -603,7 +606,7 @@ Anderson da Silva
 <p>您过去在Python虚拟环境中需要这样做。如果您不熟悉Python：您可以设置一个自定义的隔离环境-称为virtualenv-存储在一个名为“ venv”的目录中。您通过在以下位置获取名为“ bin / activate”的文件来选择使用此文件：</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -612,19 +615,19 @@ Anderson da Silva
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">＃这将更新PATH并将PYTHONPATH设置为
-＃使用预配置的虚拟环境。
-<span class="nb">source</span> /path/to/venv/bin/activate
-
-＃现在所需的Python版本就在您的路径中，
-＃与您需要的一组特定库。
-python my_program.py
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">＃这将更新PATH并将PYTHONPATH设置为
+</span></span><span class="line"><span class="cl">＃使用预配置的虚拟环境。
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> /path/to/venv/bin/activate
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">＃现在所需的Python版本就在您的路径中，
+</span></span><span class="line"><span class="cl">＃与您需要的一组特定库。
+</span></span><span class="line"><span class="cl">python my_program.py
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>在现代版本的Python中，这在bash严格模式下非常有效。但是，较旧的虚拟环境（还很年轻，您可能仍然会遇到它们）<em>无法</em>与-u选项一起正常使用：</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -632,37 +635,37 @@ python my_program.py
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">1. <span class="nb">set</span> -u
-2. <span class="nb">source</span> /path/to/venv/bin/activate
-3. _OLD_VIRTUAL_PYTHONHOME: unbound variable
-_OLD_VIRTUAL_PYTHONHOME：未绑定变量
-
-＃这会使您的严格模式脚本退出并出现错误。
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">1. <span class="nb">set</span> -u
+</span></span><span class="line"><span class="cl">2. <span class="nb">source</span> /path/to/venv/bin/activate
+</span></span><span class="line"><span class="cl">3. _OLD_VIRTUAL_PYTHONHOME: unbound variable
+</span></span><span class="line"><span class="cl">_OLD_VIRTUAL_PYTHONHOME：未绑定变量
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">＃这会使您的严格模式脚本退出并出现错误。
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>没问题，您只需使用上面的模式：</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">1. <span class="nb">set</span> +u
-2. <span class="nb">source</span> /path/to/venv/bin/activate
-3. <span class="nb">set</span> -u
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">1. <span class="nb">set</span> +u
+</span></span><span class="line"><span class="cl">2. <span class="nb">source</span> /path/to/venv/bin/activate
+</span></span><span class="line"><span class="cl">3. <span class="nb">set</span> -u
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>以我的经验，原始文档很少需要 <code>-e</code>或被<code>-o pipefail</code>禁用。但是，如果遇到这种情况，您将以相同的方式处理它。</p>
 <h3 id="位置参数"><a href="#位置参数" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:位置参数" class="headings">位置参数</a></h3>
 <p><code>-u</code>如果进行任何未定义的变量引用（<code>$*</code>或除外），则此设置将导致脚本立即退出 <code>$@</code>。但是，如果您的脚本采用位置参数- <code>$1</code>，<code>$2</code>等等-并且您想要验证是否提供了该怎么办？考虑以下脚本 <code>sayhello.sh</code>：</p>
 <p>如果您自己运行“ sayhello.sh”，则会发生以下情况：</p>
-<pre><code>％./sayhello.sh 
+<pre tabindex="0"><code>％./sayhello.sh 
 ./sayhello.sh：第3行：$ 1：未绑定变量
 </code></pre><p>最无用的错误消息。解决方案是使用<a href="http://www.gnu.org/software/bash/manual/bashref.html#Shell-Parameter-Expansion" target="_blank" rel="noopener">参数默认值</a>。这个想法是，如果<em>在运行时</em>引用了一个未定义的变量，则bash具有使用“：-”运算符声明默认值的语法：</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -680,28 +683,28 @@ _OLD_VIRTUAL_PYTHONHOME：未绑定变量
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">＃尚未设置变量 <span class="nv">$foo</span>，在严格模式下
-＃下一行触发错误。
-<span class="nv">bar</span><span class="o">=</span><span class="nv">$foo</span>
-
-<span class="c1"># 如果未定义VARNAME，则＃$ {VARNAME：-DEFAULT_VALUE}等于DEFAULT_VALUE。</span>
-＃ 因此，在这里，$ bar设置为“ alpha”：
-<span class="nv">bar</span><span class="o">=</span><span class="si">${</span><span class="nv">foo</span><span class="k">:-</span><span class="nv">alpha</span><span class="si">}</span>
-
-＃现在我们显式设置foo：
-<span class="nv">foo</span> <span class="o">=</span>“beta”
-
-＃...，默认值将被忽略。这里$ bar设置为“ beta”：
-<span class="nv">bar</span><span class="o">=</span><span class="si">${</span><span class="nv">foo</span><span class="k">:-</span><span class="nv">alpha</span><span class="si">}</span>
-
-＃要将默认值设置为空字符串，请使用$ <span class="o">{</span>VARNAME：-<span class="o">}</span>
-<span class="nv">empty_string</span><span class="o">=</span><span class="si">${</span><span class="nv">some_undefined_var</span><span class="k">:-</span><span class="si">}</span>
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">＃尚未设置变量 <span class="nv">$foo</span>，在严格模式下
+</span></span><span class="line"><span class="cl">＃下一行触发错误。
+</span></span><span class="line"><span class="cl"><span class="nv">bar</span><span class="o">=</span><span class="nv">$foo</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 如果未定义VARNAME，则＃$ {VARNAME：-DEFAULT_VALUE}等于DEFAULT_VALUE。</span>
+</span></span><span class="line"><span class="cl">＃ 因此，在这里，$ bar设置为“ alpha”：
+</span></span><span class="line"><span class="cl"><span class="nv">bar</span><span class="o">=</span><span class="si">${</span><span class="nv">foo</span><span class="k">:-</span><span class="nv">alpha</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">＃现在我们显式设置foo：
+</span></span><span class="line"><span class="cl"><span class="nv">foo</span> <span class="o">=</span>“beta”
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">＃...，默认值将被忽略。这里$ bar设置为“ beta”：
+</span></span><span class="line"><span class="cl"><span class="nv">bar</span><span class="o">=</span><span class="si">${</span><span class="nv">foo</span><span class="k">:-</span><span class="nv">alpha</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">＃要将默认值设置为空字符串，请使用$ <span class="o">{</span>VARNAME：-<span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="nv">empty_string</span><span class="o">=</span><span class="si">${</span><span class="nv">some_undefined_var</span><span class="k">:-</span><span class="si">}</span>
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>在严格模式下，需要将其用于所有位置参数引用：</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -711,21 +714,21 @@ _OLD_VIRTUAL_PYTHONHOME：未绑定变量
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">1. <span class="c1">#!/bin/bash</span>
-2. <span class="nb">set</span> -u
-3. <span class="nv">name</span><span class="o">=</span><span class="si">${</span><span class="nv">1</span><span class="k">:-</span><span class="si">}</span>
-4. <span class="k">if</span> <span class="o">[[</span> -z <span class="s2">&#34;</span><span class="nv">$name</span><span class="s2">&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-5.     <span class="nb">echo</span> <span class="s2">&#34;usage: </span><span class="nv">$0</span><span class="s2"> NAME&#34;</span>
-6.     <span class="nb">exit</span> <span class="m">1</span>
-7. <span class="k">fi</span>
-8. <span class="nb">echo</span> <span class="s2">&#34;Hello, </span><span class="nv">$name</span><span class="s2">&#34;</span>
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">1. <span class="c1">#!/bin/bash</span>
+</span></span><span class="line"><span class="cl">2. <span class="nb">set</span> -u
+</span></span><span class="line"><span class="cl">3. <span class="nv">name</span><span class="o">=</span><span class="si">${</span><span class="nv">1</span><span class="k">:-</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl">4. <span class="k">if</span> <span class="o">[[</span> -z <span class="s2">&#34;</span><span class="nv">$name</span><span class="s2">&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">5.     <span class="nb">echo</span> <span class="s2">&#34;usage: </span><span class="nv">$0</span><span class="s2"> NAME&#34;</span>
+</span></span><span class="line"><span class="cl">6.     <span class="nb">exit</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl">7. <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">8. <span class="nb">echo</span> <span class="s2">&#34;Hello, </span><span class="nv">$name</span><span class="s2">&#34;</span>
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><h3 id="故意未定义的变量"><a href="#故意未定义的变量" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:故意未定义的变量" class="headings">故意未定义的变量</a></h3>
 <p>在默认模式下，对未定义变量的引用将得出一个空字符串-有时会依赖此行为。在严格模式下，这不是一个选择，并且有两种方法可以解决它。我认为最好的方法是在脚本的任何位置对其进行引用之前，将变量明确设置为空字符串：</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -733,13 +736,13 @@ _OLD_VIRTUAL_PYTHONHOME：未绑定变量
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">someVar</span> <span class="o">=</span> “”
-＃...
-＃可能设置或未设置someVar的代码行
-＃...
-<span class="k">if</span> <span class="o">[[</span> -z <span class="s2">&#34;</span><span class="nv">$someVar</span><span class="s2">&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-＃...
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">someVar</span> <span class="o">=</span> “”
+</span></span><span class="line"><span class="cl">＃...
+</span></span><span class="line"><span class="cl">＃可能设置或未设置someVar的代码行
+</span></span><span class="line"><span class="cl">＃...
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[[</span> -z <span class="s2">&#34;</span><span class="nv">$someVar</span><span class="s2">&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">＃...
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>一种替代方法是使用<code>${someVar:-}</code>语法作为默认值，如<a href="http://redsymbol.net/articles/unofficial-bash-strict-mode/#solution-positional-parameters" target="_blank" rel="noopener">Positional Parameters</a>下所述。那里的问题是，有可能忘记而只是说 <code>$someVar</code>，而且输入更多。只需在脚本顶部显式设置默认值即可。那就没有办法咬你了。</p>
 <h3 id="您期望具有非零退出状态的命令"><a href="#您期望具有非零退出状态的命令" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:您期望具有非零退出状态的命令" class="headings">您期望具有非零退出状态的命令</a></h3>
@@ -747,7 +750,7 @@ _OLD_VIRTUAL_PYTHONHOME：未绑定变量
 <p>这里有两个选择。通常，您最想使用的最简单的方法是<code>|| true</code>在命令后附加“ ”：</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -762,26 +765,26 @@ _OLD_VIRTUAL_PYTHONHOME：未绑定变量
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">＃“ grep -c”报告匹配的行数。如果数字是0，
-＃然后grep的退出状态为1，但我们不在乎-我们只想
-＃知道匹配数目，即使该数目为零。
-
-＃在严格模式下，下一行因错误而中止：
-<span class="nv">count</span><span class="o">=</span><span class="k">$(</span>grep -c some-string some-file<span class="k">)</span>
-
-
-
-＃但是这一行为表现得更好：
-1. <span class="nv">count</span><span class="o">=</span><span class="k">$(</span>grep -c some-string some-file <span class="o">||</span> <span class="nb">true</span><span class="k">)</span>
-2. 
-3. <span class="nb">echo</span> <span class="s2">&#34;count: </span><span class="nv">$count</span><span class="s2">&#34;</span>
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">＃“ grep -c”报告匹配的行数。如果数字是0，
+</span></span><span class="line"><span class="cl">＃然后grep的退出状态为1，但我们不在乎-我们只想
+</span></span><span class="line"><span class="cl">＃知道匹配数目，即使该数目为零。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">＃在严格模式下，下一行因错误而中止：
+</span></span><span class="line"><span class="cl"><span class="nv">count</span><span class="o">=</span><span class="k">$(</span>grep -c some-string some-file<span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">＃但是这一行为表现得更好：
+</span></span><span class="line"><span class="cl">1. <span class="nv">count</span><span class="o">=</span><span class="k">$(</span>grep -c some-string some-file <span class="o">||</span> <span class="nb">true</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">2. 
+</span></span><span class="line"><span class="cl">3. <span class="nb">echo</span> <span class="s2">&#34;count: </span><span class="nv">$count</span><span class="s2">&#34;</span>
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>布尔运算符的这种短路使内部表达式 <code>$( ... )</code>始终可以成功求值。</p>
 <p>您可能会发现这种技巧几乎总是可以解决您的问题。但是，如果您想知道命令的返回值，即使该返回值非零怎么办？然后，您可以暂时禁用立即退出选项：</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -794,18 +797,18 @@ _OLD_VIRTUAL_PYTHONHOME：未绑定变量
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">＃我们以set -e开始此脚本。然后...
-1. <span class="nb">set</span> +e
-2. <span class="nv">count</span><span class="o">=</span><span class="k">$(</span>grep -c some-string some-file<span class="k">)</span>
-3. <span class="nv">retval</span><span class="o">=</span><span class="nv">$?</span>
-4. <span class="nb">set</span> -e
-
-＃当一行或多行匹配时，grep的返回码为0；
-＃1，如果没有行匹配；和2错误。这个图案
-＃让我们区分它们。
-1. <span class="nb">echo</span> <span class="s2">&#34;return value: </span><span class="nv">$retval</span><span class="s2">&#34;</span>
-2. <span class="nb">echo</span> <span class="s2">&#34;count: </span><span class="nv">$count</span><span class="s2">&#34;</span>
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">＃我们以set -e开始此脚本。然后...
+</span></span><span class="line"><span class="cl">1. <span class="nb">set</span> +e
+</span></span><span class="line"><span class="cl">2. <span class="nv">count</span><span class="o">=</span><span class="k">$(</span>grep -c some-string some-file<span class="k">)</span>
+</span></span><span class="line"><span class="cl">3. <span class="nv">retval</span><span class="o">=</span><span class="nv">$?</span>
+</span></span><span class="line"><span class="cl">4. <span class="nb">set</span> -e
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">＃当一行或多行匹配时，grep的返回码为0；
+</span></span><span class="line"><span class="cl">＃1，如果没有行匹配；和2错误。这个图案
+</span></span><span class="line"><span class="cl">＃让我们区分它们。
+</span></span><span class="line"><span class="cl">1. <span class="nb">echo</span> <span class="s2">&#34;return value: </span><span class="nv">$retval</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">2. <span class="nb">echo</span> <span class="s2">&#34;count: </span><span class="nv">$count</span><span class="s2">&#34;</span>
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><h3 id="基本清理"><a href="#基本清理" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:基本清理" class="headings">基本清理</a></h3>
 <p>假设您的脚本结构如下：</p>
@@ -818,7 +821,7 @@ _OLD_VIRTUAL_PYTHONHOME：未绑定变量
 <p>解决方案：使用<a href="http://redsymbol.net/articles/bash-exit-traps/" target="_blank" rel="noopener">bash出口陷阱</a>。链接的文章详细解释了这一重要模式，我强烈建议您精通此技术-在工具箱中使用它会显着提高脚本的健壮性和可靠性。简而言之，您将定义一个bash函数来执行清理或释放资源，然后注册要在退出时自动调用的函数。这是使用它来稳健清除暂存目录的方法：</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -829,86 +832,86 @@ _OLD_VIRTUAL_PYTHONHOME：未绑定变量
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">1. <span class="nv">scratch</span><span class="o">=</span><span class="k">$(</span>mktemp -d -t tmp.XXXXXXXXXX<span class="k">)</span>
-2. <span class="k">function</span> finish <span class="o">{</span>
-3.   rm -rf <span class="s2">&#34;</span><span class="nv">$scratch</span><span class="s2">&#34;</span>
-4. <span class="o">}</span>
-5. <span class="nb">trap</span> finish EXIT
-6. 
-7. <span class="c1"># Now your script can write files in the directory &#34;$scratch&#34;.</span>
-8. <span class="c1"># It will automatically be deleted on exit, whether that&#39;s due</span>
-9. <span class="c1"># to an error, or normal completion.</span>
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">1. <span class="nv">scratch</span><span class="o">=</span><span class="k">$(</span>mktemp -d -t tmp.XXXXXXXXXX<span class="k">)</span>
+</span></span><span class="line"><span class="cl">2. <span class="k">function</span> finish <span class="o">{</span>
+</span></span><span class="line"><span class="cl">3.   rm -rf <span class="s2">&#34;</span><span class="nv">$scratch</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">4. <span class="o">}</span>
+</span></span><span class="line"><span class="cl">5. <span class="nb">trap</span> finish EXIT
+</span></span><span class="line"><span class="cl">6. 
+</span></span><span class="line"><span class="cl">7. <span class="c1"># Now your script can write files in the directory &#34;$scratch&#34;.</span>
+</span></span><span class="line"><span class="cl">8. <span class="c1"># It will automatically be deleted on exit, whether that&#39;s due</span>
+</span></span><span class="line"><span class="cl">9. <span class="c1"># to an error, or normal completion.</span>
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><h3 id="短路注意事项"><a href="#短路注意事项" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:短路注意事项" class="headings">短路注意事项</a></h3>
 <p>严格模式的全部目的是将许多隐藏的，间歇的或微妙的错误转换为直接的，显而易见的错误。但是，严格模式会引起一些特殊的短路问题。“短路”是指用<code>&amp;&amp;</code>或<code>||</code>- 将多个命令链接在一起，例如：</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">1. <span class="c1"># Prints a message only if $somefile exists.</span>
-2. <span class="o">[[</span> -f <span class="s2">&#34;</span><span class="nv">$somefile</span><span class="s2">&#34;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">&#34;Found file: </span><span class="nv">$somefile</span><span class="s2">&#34;</span>
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">1. <span class="c1"># Prints a message only if $somefile exists.</span>
+</span></span><span class="line"><span class="cl">2. <span class="o">[[</span> -f <span class="s2">&#34;</span><span class="nv">$somefile</span><span class="s2">&#34;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">&#34;Found file: </span><span class="nv">$somefile</span><span class="s2">&#34;</span>
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>当连续链接三个或更多命令时，可能会出现第一个短路问题：</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">1. first_task <span class="o">&amp;&amp;</span> second_task <span class="o">&amp;&amp;</span> third_task
-2. <span class="c1"># And more lines of code following:</span>
-3. next_task
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">1. first_task <span class="o">&amp;&amp;</span> second_task <span class="o">&amp;&amp;</span> third_task
+</span></span><span class="line"><span class="cl">2. <span class="c1"># And more lines of code following:</span>
+</span></span><span class="line"><span class="cl">3. next_task
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>潜在的问题：如果<code>second_task</code>失败， <code>third_task</code>将无法运行，并且<code>next_task</code>在本示例中，执行将继续到下一行代码- 。这可能正是您想要的行为。或者，您可能打算如果<code>second_task</code>失败，则脚本应立即以错误代码退出。在这种情况下，最好的选择是使用一个块-即花括号：</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">1. first_task <span class="o">&amp;&amp;</span> <span class="o">{</span>
-2.     second_task
-3.     third_task
-4. <span class="o">}</span>
-5. next_task
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">1. first_task <span class="o">&amp;&amp;</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">2.     second_task
+</span></span><span class="line"><span class="cl">3.     third_task
+</span></span><span class="line"><span class="cl">4. <span class="o">}</span>
+</span></span><span class="line"><span class="cl">5. next_task
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>因为我们正在使用该<code>-e</code>选项，所以如果 <code>second_task</code>失败，脚本将立即退出。</p>
 <p>第二个问题确实存在。使用以下常见用法时，它可能会潜行：</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">1. <span class="c1"># COND &amp;&amp; COMMAND</span>
-2. <span class="o">[[</span> -f <span class="s2">&#34;</span><span class="nv">$somefile</span><span class="s2">&#34;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">&#34;Found file: </span><span class="nv">$somefile</span><span class="s2">&#34;</span>
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">1. <span class="c1"># COND &amp;&amp; COMMAND</span>
+</span></span><span class="line"><span class="cl">2. <span class="o">[[</span> -f <span class="s2">&#34;</span><span class="nv">$somefile</span><span class="s2">&#34;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">&#34;Found file: </span><span class="nv">$somefile</span><span class="s2">&#34;</span>
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>人们写作时<code>COND &amp;&amp; COMMAND</code>，通常的意思是“如果COND成功（或布尔值为true），则执行COMMAND。无论如何，请继续执行脚本的下一行。” 对于完整的“ if / then / fi”子句来说，这是非常方便的简写。但是，当这样的构造是文件的<em>最后一行</em>时，严格模式可以为脚本提供令人惊讶的退出代码：</p>
-<pre><code>1. % cat short-circuit-last-line.sh
+<pre tabindex="0"><code>1. % cat short-circuit-last-line.sh
 2. #!/bin/bash
 3. set -euo pipefail
 4. # omitting some lines of code...
 5. 
 6. # Prints a message only if $somefile exists.
 7. # Note structure: COND &amp;&amp; COMMAND
-8. [[ -f &quot;$somefile&quot; ]] &amp;&amp; echo &quot;Found file: $somefile&quot;
+8. [[ -f &#34;$somefile&#34; ]] &amp;&amp; echo &#34;Found file: $somefile&#34;
 9. 
 10. % ./short-circuit-last-line.sh
 11. % echo $?
 12. 1
 </code></pre><p>当脚本到达最后一行时，<code>$somefile</code>实际上 <em>并不</em>存在。因此<code>COND</code>评估为假，并且<code>COMMAND</code>没有执行-这应该发生。但是该脚本以非零的退出代码退出，这是一个错误：该脚本实际上已正确执行，因此它实际上应该以0退出。实际上，如果最后一行代码是其他内容，那正是我们所得到的：</p>
-<pre><code>1. % cat short-circuit-before-last-line.sh
+<pre tabindex="0"><code>1. % cat short-circuit-before-last-line.sh
 2. #!/bin/bash
 3. set -euo pipefail
 4. # omitting some lines of code...
@@ -917,9 +920,9 @@ _OLD_VIRTUAL_PYTHONHOME：未绑定变量
 7. # Structure: COND &amp;&amp; COMMAND
 8. # (When we run this, $somefile will again not exist,
 9. # so COMMAND will not run.)
-10. [[ -f &quot;$somefile&quot; ]] &amp;&amp; echo &quot;Found file: $somefile&quot;
+10. [[ -f &#34;$somefile&#34; ]] &amp;&amp; echo &#34;Found file: $somefile&#34;
 11. 
-12. echo &quot;Done.&quot;
+12. echo &#34;Done.&#34;
 13. 
 14. % ./short-circuit-before-last-line.sh
 15. Done.
@@ -930,7 +933,7 @@ _OLD_VIRTUAL_PYTHONHOME：未绑定变量
 <p>在上面的特定示例中，我们可以在完整的“ if”子句中扩展表达式。这是完美的行为：</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -944,19 +947,19 @@ _OLD_VIRTUAL_PYTHONHOME：未绑定变量
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">1. <span class="c1"># Prints a message only if $somefile exists.</span>
-2. <span class="k">if</span> <span class="o">[[</span> -f <span class="s2">&#34;</span><span class="nv">$somefile</span><span class="s2">&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-3.     <span class="nb">echo</span> <span class="s2">&#34;Found file: </span><span class="nv">$somefile</span><span class="s2">&#34;</span>
-4. <span class="k">fi</span>
-5. 
-6. <span class="c1"># If COND is a command or program, it works the same. This:</span>
-7. first_task <span class="o">&amp;&amp;</span> second_task
-8. 
-9. <span class="c1"># ... becomes this:</span>
-10. <span class="k">if</span> first_task<span class="p">;</span> <span class="k">then</span>
-11.      second_task
-12. <span class="k">fi</span>
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">1. <span class="c1"># Prints a message only if $somefile exists.</span>
+</span></span><span class="line"><span class="cl">2. <span class="k">if</span> <span class="o">[[</span> -f <span class="s2">&#34;</span><span class="nv">$somefile</span><span class="s2">&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">3.     <span class="nb">echo</span> <span class="s2">&#34;Found file: </span><span class="nv">$somefile</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">4. <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">5. 
+</span></span><span class="line"><span class="cl">6. <span class="c1"># If COND is a command or program, it works the same. This:</span>
+</span></span><span class="line"><span class="cl">7. first_task <span class="o">&amp;&amp;</span> second_task
+</span></span><span class="line"><span class="cl">8. 
+</span></span><span class="line"><span class="cl">9. <span class="c1"># ... becomes this:</span>
+</span></span><span class="line"><span class="cl">10. <span class="k">if</span> first_task<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">11.      second_task
+</span></span><span class="line"><span class="cl">12. <span class="k">fi</span>
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>最终的完整解决方案是什么？您可以决定信任自己和您的队友，以始终记住这一特殊情况。所有人都可以随意使用短路功能，但是对于实际部署的任何内容，都不允许短路表达式位于脚本的最后一行。对于您和您的团队来说，这可能100％可靠地起作用，但我认为对于我自己和许多其他开发人员而言并非如此。当然，某种类型的linter或commit钩子可能会有所帮助。</p>
 <p>也许更安全的选择是决定根本不使用短路，而始终使用完整的if语句。但是，这可能并不吸引人：短路很方便，人们出于某种原因喜欢这样做。目前，我仍在寻找更令人满意的解决方案。如果您有任何建议，请与我联系。</p>
@@ -1031,7 +1034,7 @@ _OLD_VIRTUAL_PYTHONHOME：未绑定变量
             
                 <div class="share-item linkedin">
                     
-                    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://yuechuanx.github.io/blog/posts/use-bash-strict-mode/&amp;title=%e4%bd%bf%e7%94%a8%20Bash%20%e4%b8%a5%e6%a0%bc%e6%a8%a1%e5%bc%8f&amp;summary=%e4%bd%bf%e7%94%a8%20Bash%e4%b8%a5%e6%a0%bc%e6%a8%a1%e5%bc%8f%20%e5%8e%9f%e6%96%87%e9%93%be%e6%8e%a5%ef%bc%9aUse%20Bash%20Strict%20Mode%20%28Unless%20You%20Love%20Debugging%29%20%e7%bf%bb%e8%af%91%ef%bc%9aYueChuan%20%e5%9c%a8%20Unix/Linux%20%e7%8e%af%e5%a2%83%e5%be%88%e9%9a%be%e9%81%bf%e5%85%8d%e4%b8%8e%20Bash%20%e8%84%9a%e6%9c%ac%e6%89%93%e4%ba%a4%e9%81%93%ef%bc%8c%e4%b8%80%e4%bb%bd%e9%ab%98%e8%b4%a8%e9%87%8f%ef%bc%8c%e5%8f%af%e9%9d%a0%e4%b8%94%e5%8f%af%e7%bb%b4%e6%8a%a4%e7%9a%84%20Bash%20%e8%84%9a%e6%9c%ac%e5%ba%94%e8%af%a5%e6%80%8e%e4%b9%88%e5%86%99%ef%bc%9f%20%e6%9c%ac%e6%96%87%e5%b0%86%e6%8f%90%e4%be%9b%e4%b8%80%e4%ba%9b%e6%8a%80%e5%b7%a7%e5%b8%ae%e5%8a%a9%e4%bd%a0%e8%a7%a3%e5%86%b3%e8%bf%99%e4%ba%9b%e9%97%ae%e9%a2%98...%20%e8%ae%a9%e6%88%91%e4%bb%ac%e5%bc%80%e9%97%a8%e8%a7%81%e5%b1%b1%ef%bc%8c%e7%9b%b4%e6%8e%a5%e4%b8%8a%20PUNCHLINE%e3%80%82%20%e5%a6%82%e6%9e%9c%e4%bd%a0%e7%9a%84%20Bash%20%e8%84%9a%e6%9c%ac%e4%bb%a5%e8%bf%99%e6%ae%b5%e4%bb%a3%e7%a0%81%e5%bc%80%e5%a7%8b%ef%bc%8c%e5%ae%83%e4%bb%ac%e5%b0%86%e5%8f%98%e5%be%97%e6%9b%b4%e5%8a%a0%e5%81%a5%e5%a3%ae%ef%bc%8c%e5%8f%af%e9%9d%a0%e5%92%8c%e5%8f%af%e7%bb%b4%e6%8a%a4%ef%bc%9a%201%202%e2%80%a6%e2%80%a6&amp;source=%e8%bf%87%e5%be%80%e7%9a%86%e4%b8%ba%e5%ba%8f%e7%ab%a0" title="分享到「LinkedIn」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon linkedin-icon"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://yuechuanx.github.io/blog/posts/use-bash-strict-mode/&amp;title=%e4%bd%bf%e7%94%a8%20Bash%20%e4%b8%a5%e6%a0%bc%e6%a8%a1%e5%bc%8f&amp;summary=%e4%bd%bf%e7%94%a8%20Bash%e4%b8%a5%e6%a0%bc%e6%a8%a1%e5%bc%8f%20%e5%8e%9f%e6%96%87%e9%93%be%e6%8e%a5%ef%bc%9aUse%20Bash%20Strict%20Mode%20%28Unless%20You%20Love%20Debugging%29%20%e7%bf%bb%e8%af%91%ef%bc%9aYueChuan%20%e5%9c%a8%20Unix/Linux%20%e7%8e%af%e5%a2%83%e5%be%88%e9%9a%be%e9%81%bf%e5%85%8d%e4%b8%8e%20Bash%20%e8%84%9a%e6%9c%ac%e6%89%93%e4%ba%a4%e9%81%93%ef%bc%8c%e4%b8%80%e4%bb%bd%e9%ab%98%e8%b4%a8%e9%87%8f%ef%bc%8c%e5%8f%af%e9%9d%a0%e4%b8%94%e5%8f%af%e7%bb%b4%e6%8a%a4%e7%9a%84%20Bash%20%e8%84%9a%e6%9c%ac%e5%ba%94%e8%af%a5%e6%80%8e%e4%b9%88%e5%86%99%ef%bc%9f%20%e6%9c%ac%e6%96%87%e5%b0%86%e6%8f%90%e4%be%9b%e4%b8%80%e4%ba%9b%e6%8a%80%e5%b7%a7%e5%b8%ae%e5%8a%a9%e4%bd%a0%e8%a7%a3%e5%86%b3%e8%bf%99%e4%ba%9b%e9%97%ae%e9%a2%98...%20%e8%ae%a9%e6%88%91%e4%bb%ac%e5%bc%80%e9%97%a8%e8%a7%81%e5%b1%b1%ef%bc%8c%e7%9b%b4%e6%8e%a5%e4%b8%8a%20PUNCHLINE%e3%80%82%20%e5%a6%82%e6%9e%9c%e4%bd%a0%e7%9a%84%20Bash%20%e8%84%9a%e6%9c%ac%e4%bb%a5%e8%bf%99%e6%ae%b5%e4%bb%a3%e7%a0%81%e5%bc%80%e5%a7%8b%ef%bc%8c%e5%ae%83%e4%bb%ac%e5%b0%86%e5%8f%98%e5%be%97%e6%9b%b4%e5%8a%a0%e5%81%a5%e5%a3%ae%ef%bc%8c%e5%8f%af%e9%9d%a0%e5%92%8c%e5%8f%af%e7%bb%b4%e6%8a%a4%ef%bc%9a%201%202%e2%80%a6%e2%80%a6&amp;source=Yuechuan%27s%20Blog" title="分享到「LinkedIn」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon linkedin-icon"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
                 </div>
             
 
@@ -1059,14 +1062,14 @@ _OLD_VIRTUAL_PYTHONHOME：未绑定变量
             
                 <div class="share-item qq">
                     
-                    <a href="https://connect.qq.com/widget/shareqq/index.html?url=https://yuechuanx.github.io/blog/posts/use-bash-strict-mode/&amp;title=%e4%bd%bf%e7%94%a8%20Bash%20%e4%b8%a5%e6%a0%bc%e6%a8%a1%e5%bc%8f&amp;summary=%e4%bd%bf%e7%94%a8%20Bash%e4%b8%a5%e6%a0%bc%e6%a8%a1%e5%bc%8f%20%e5%8e%9f%e6%96%87%e9%93%be%e6%8e%a5%ef%bc%9aUse%20Bash%20Strict%20Mode%20%28Unless%20You%20Love%20Debugging%29%20%e7%bf%bb%e8%af%91%ef%bc%9aYueChuan%20%e5%9c%a8%20Unix/Linux%20%e7%8e%af%e5%a2%83%e5%be%88%e9%9a%be%e9%81%bf%e5%85%8d%e4%b8%8e%20Bash%20%e8%84%9a%e6%9c%ac%e6%89%93%e4%ba%a4%e9%81%93%ef%bc%8c%e4%b8%80%e4%bb%bd%e9%ab%98%e8%b4%a8%e9%87%8f%ef%bc%8c%e5%8f%af%e9%9d%a0%e4%b8%94%e5%8f%af%e7%bb%b4%e6%8a%a4%e7%9a%84%20Bash%20%e8%84%9a%e6%9c%ac%e5%ba%94%e8%af%a5%e6%80%8e%e4%b9%88%e5%86%99%ef%bc%9f%20%e6%9c%ac%e6%96%87%e5%b0%86%e6%8f%90%e4%be%9b%e4%b8%80%e4%ba%9b%e6%8a%80%e5%b7%a7%e5%b8%ae%e5%8a%a9%e4%bd%a0%e8%a7%a3%e5%86%b3%e8%bf%99%e4%ba%9b%e9%97%ae%e9%a2%98...%20%e8%ae%a9%e6%88%91%e4%bb%ac%e5%bc%80%e9%97%a8%e8%a7%81%e5%b1%b1%ef%bc%8c%e7%9b%b4%e6%8e%a5%e4%b8%8a%20PUNCHLINE%e3%80%82%20%e5%a6%82%e6%9e%9c%e4%bd%a0%e7%9a%84%20Bash%20%e8%84%9a%e6%9c%ac%e4%bb%a5%e8%bf%99%e6%ae%b5%e4%bb%a3%e7%a0%81%e5%bc%80%e5%a7%8b%ef%bc%8c%e5%ae%83%e4%bb%ac%e5%b0%86%e5%8f%98%e5%be%97%e6%9b%b4%e5%8a%a0%e5%81%a5%e5%a3%ae%ef%bc%8c%e5%8f%af%e9%9d%a0%e5%92%8c%e5%8f%af%e7%bb%b4%e6%8a%a4%ef%bc%9a%201%202%e2%80%a6%e2%80%a6&amp;pics=https://yuechuanx.github.io/icons/apple-touch-icon.png&amp;site=%e8%bf%87%e5%be%80%e7%9a%86%e4%b8%ba%e5%ba%8f%e7%ab%a0" title="分享到「QQ」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon qq-icon"><path d="M433.754 420.445c-11.526 1.393-44.86-52.741-44.86-52.741 0 31.345-16.136 72.247-51.051 101.786 16.842 5.192 54.843 19.167 45.803 34.421-7.316 12.343-125.51 7.881-159.632 4.037-34.122 3.844-152.316 8.306-159.632-4.037-9.045-15.25 28.918-29.214 45.783-34.415-34.92-29.539-51.059-70.445-51.059-101.792 0 0-33.334 54.134-44.859 52.741-5.37-.65-12.424-29.644 9.347-99.704 10.261-33.024 21.995-60.478 40.144-105.779C60.683 98.063 108.982.006 224 0c113.737.006 163.156 96.133 160.264 214.963 18.118 45.223 29.912 72.85 40.144 105.778 21.768 70.06 14.716 99.053 9.346 99.704z"/></svg></a>
+                    <a href="https://connect.qq.com/widget/shareqq/index.html?url=https://yuechuanx.github.io/blog/posts/use-bash-strict-mode/&amp;title=%e4%bd%bf%e7%94%a8%20Bash%20%e4%b8%a5%e6%a0%bc%e6%a8%a1%e5%bc%8f&amp;summary=%e4%bd%bf%e7%94%a8%20Bash%e4%b8%a5%e6%a0%bc%e6%a8%a1%e5%bc%8f%20%e5%8e%9f%e6%96%87%e9%93%be%e6%8e%a5%ef%bc%9aUse%20Bash%20Strict%20Mode%20%28Unless%20You%20Love%20Debugging%29%20%e7%bf%bb%e8%af%91%ef%bc%9aYueChuan%20%e5%9c%a8%20Unix/Linux%20%e7%8e%af%e5%a2%83%e5%be%88%e9%9a%be%e9%81%bf%e5%85%8d%e4%b8%8e%20Bash%20%e8%84%9a%e6%9c%ac%e6%89%93%e4%ba%a4%e9%81%93%ef%bc%8c%e4%b8%80%e4%bb%bd%e9%ab%98%e8%b4%a8%e9%87%8f%ef%bc%8c%e5%8f%af%e9%9d%a0%e4%b8%94%e5%8f%af%e7%bb%b4%e6%8a%a4%e7%9a%84%20Bash%20%e8%84%9a%e6%9c%ac%e5%ba%94%e8%af%a5%e6%80%8e%e4%b9%88%e5%86%99%ef%bc%9f%20%e6%9c%ac%e6%96%87%e5%b0%86%e6%8f%90%e4%be%9b%e4%b8%80%e4%ba%9b%e6%8a%80%e5%b7%a7%e5%b8%ae%e5%8a%a9%e4%bd%a0%e8%a7%a3%e5%86%b3%e8%bf%99%e4%ba%9b%e9%97%ae%e9%a2%98...%20%e8%ae%a9%e6%88%91%e4%bb%ac%e5%bc%80%e9%97%a8%e8%a7%81%e5%b1%b1%ef%bc%8c%e7%9b%b4%e6%8e%a5%e4%b8%8a%20PUNCHLINE%e3%80%82%20%e5%a6%82%e6%9e%9c%e4%bd%a0%e7%9a%84%20Bash%20%e8%84%9a%e6%9c%ac%e4%bb%a5%e8%bf%99%e6%ae%b5%e4%bb%a3%e7%a0%81%e5%bc%80%e5%a7%8b%ef%bc%8c%e5%ae%83%e4%bb%ac%e5%b0%86%e5%8f%98%e5%be%97%e6%9b%b4%e5%8a%a0%e5%81%a5%e5%a3%ae%ef%bc%8c%e5%8f%af%e9%9d%a0%e5%92%8c%e5%8f%af%e7%bb%b4%e6%8a%a4%ef%bc%9a%201%202%e2%80%a6%e2%80%a6&amp;pics=https://yuechuanx.github.io/icons/apple-touch-icon.png&amp;site=Yuechuan%27s%20Blog" title="分享到「QQ」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon qq-icon"><path d="M433.754 420.445c-11.526 1.393-44.86-52.741-44.86-52.741 0 31.345-16.136 72.247-51.051 101.786 16.842 5.192 54.843 19.167 45.803 34.421-7.316 12.343-125.51 7.881-159.632 4.037-34.122 3.844-152.316 8.306-159.632-4.037-9.045-15.25 28.918-29.214 45.783-34.415-34.92-29.539-51.059-70.445-51.059-101.792 0 0-33.334 54.134-44.859 52.741-5.37-.65-12.424-29.644 9.347-99.704 10.261-33.024 21.995-60.478 40.144-105.779C60.683 98.063 108.982.006 224 0c113.737.006 163.156 96.133 160.264 214.963 18.118 45.223 29.912 72.85 40.144 105.778 21.768 70.06 14.716 99.053 9.346 99.704z"/></svg></a>
                 </div>
             
 
             
                 <div class="share-item qzone">
                     
-                    <a href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://yuechuanx.github.io/blog/posts/use-bash-strict-mode/&amp;title=%e4%bd%bf%e7%94%a8%20Bash%20%e4%b8%a5%e6%a0%bc%e6%a8%a1%e5%bc%8f&amp;summary=%e4%bd%bf%e7%94%a8%20Bash%e4%b8%a5%e6%a0%bc%e6%a8%a1%e5%bc%8f%20%e5%8e%9f%e6%96%87%e9%93%be%e6%8e%a5%ef%bc%9aUse%20Bash%20Strict%20Mode%20%28Unless%20You%20Love%20Debugging%29%20%e7%bf%bb%e8%af%91%ef%bc%9aYueChuan%20%e5%9c%a8%20Unix/Linux%20%e7%8e%af%e5%a2%83%e5%be%88%e9%9a%be%e9%81%bf%e5%85%8d%e4%b8%8e%20Bash%20%e8%84%9a%e6%9c%ac%e6%89%93%e4%ba%a4%e9%81%93%ef%bc%8c%e4%b8%80%e4%bb%bd%e9%ab%98%e8%b4%a8%e9%87%8f%ef%bc%8c%e5%8f%af%e9%9d%a0%e4%b8%94%e5%8f%af%e7%bb%b4%e6%8a%a4%e7%9a%84%20Bash%20%e8%84%9a%e6%9c%ac%e5%ba%94%e8%af%a5%e6%80%8e%e4%b9%88%e5%86%99%ef%bc%9f%20%e6%9c%ac%e6%96%87%e5%b0%86%e6%8f%90%e4%be%9b%e4%b8%80%e4%ba%9b%e6%8a%80%e5%b7%a7%e5%b8%ae%e5%8a%a9%e4%bd%a0%e8%a7%a3%e5%86%b3%e8%bf%99%e4%ba%9b%e9%97%ae%e9%a2%98...%20%e8%ae%a9%e6%88%91%e4%bb%ac%e5%bc%80%e9%97%a8%e8%a7%81%e5%b1%b1%ef%bc%8c%e7%9b%b4%e6%8e%a5%e4%b8%8a%20PUNCHLINE%e3%80%82%20%e5%a6%82%e6%9e%9c%e4%bd%a0%e7%9a%84%20Bash%20%e8%84%9a%e6%9c%ac%e4%bb%a5%e8%bf%99%e6%ae%b5%e4%bb%a3%e7%a0%81%e5%bc%80%e5%a7%8b%ef%bc%8c%e5%ae%83%e4%bb%ac%e5%b0%86%e5%8f%98%e5%be%97%e6%9b%b4%e5%8a%a0%e5%81%a5%e5%a3%ae%ef%bc%8c%e5%8f%af%e9%9d%a0%e5%92%8c%e5%8f%af%e7%bb%b4%e6%8a%a4%ef%bc%9a%201%202%e2%80%a6%e2%80%a6&amp;pics=https://yuechuanx.github.io/icons/apple-touch-icon.png&amp;site=%e8%bf%87%e5%be%80%e7%9a%86%e4%b8%ba%e5%ba%8f%e7%ab%a0" title="分享到「QQ 空间」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon qzone-icon"><path d="M23.985 9.202c-.032-.099-.127-.223-.334-.258-.207-.036-7.351-1.406-7.351-1.406s-.105-.022-.198-.07c-.092-.047-.127-.167-.127-.167S12.447.956 12.349.77C12.25.583 12.104.532 12 .532c-.104 0-.251.051-.349.238-.098.186-3.626 6.531-3.626 6.531s-.035.12-.128.167c-.092.047-.197.07-.197.07S.556 8.908.348 8.943c-.208.036-.302.16-.333.258a.477.477 0 0 0 .125.449l5.362 5.49s.072.08.119.172c.016.104.005.21.005.21s-1.189 7.242-1.22 7.45.075.369.159.43c.083.062.233.106.421.013.189-.093 6.812-3.261 6.812-3.261s.098-.044.201-.061c.103-.017.201.061.201.061s6.623 3.168 6.812 3.261c.188.094.338.049.421-.013a.463.463 0 0 0 .159-.43c-.021-.14-.93-5.677-.93-5.677.876-.54 1.425-1.039 1.849-1.747-2.594.969-6.006 1.717-9.415 1.866-.915.041-2.41.097-3.473-.015-.678-.071-1.17-.144-1.243-.438-.053-.215.054-.46.545-.831a2640.5 2640.5 0 0 1 2.861-2.155c1.285-.968 3.559-2.47 3.559-2.731 0-.285-2.144-.781-4.037-.781-1.945 0-2.275.132-2.811.168-.488.034-.769.005-.804-.138-.06-.248.183-.389.588-.568.709-.314 1.86-.594 1.984-.626.194-.052 3.082-.805 5.618-.535 1.318.14 3.244.668 3.244 1.276 0 .342-1.721 1.494-3.225 2.597-1.149.843-2.217 1.561-2.217 1.688 0 .342 3.533 1.241 6.689 1.01l.003-.022c.048-.092.119-.172.119-.172l5.362-5.49a.477.477 0 0 0 .127-.449z"/></svg></a>
+                    <a href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://yuechuanx.github.io/blog/posts/use-bash-strict-mode/&amp;title=%e4%bd%bf%e7%94%a8%20Bash%20%e4%b8%a5%e6%a0%bc%e6%a8%a1%e5%bc%8f&amp;summary=%e4%bd%bf%e7%94%a8%20Bash%e4%b8%a5%e6%a0%bc%e6%a8%a1%e5%bc%8f%20%e5%8e%9f%e6%96%87%e9%93%be%e6%8e%a5%ef%bc%9aUse%20Bash%20Strict%20Mode%20%28Unless%20You%20Love%20Debugging%29%20%e7%bf%bb%e8%af%91%ef%bc%9aYueChuan%20%e5%9c%a8%20Unix/Linux%20%e7%8e%af%e5%a2%83%e5%be%88%e9%9a%be%e9%81%bf%e5%85%8d%e4%b8%8e%20Bash%20%e8%84%9a%e6%9c%ac%e6%89%93%e4%ba%a4%e9%81%93%ef%bc%8c%e4%b8%80%e4%bb%bd%e9%ab%98%e8%b4%a8%e9%87%8f%ef%bc%8c%e5%8f%af%e9%9d%a0%e4%b8%94%e5%8f%af%e7%bb%b4%e6%8a%a4%e7%9a%84%20Bash%20%e8%84%9a%e6%9c%ac%e5%ba%94%e8%af%a5%e6%80%8e%e4%b9%88%e5%86%99%ef%bc%9f%20%e6%9c%ac%e6%96%87%e5%b0%86%e6%8f%90%e4%be%9b%e4%b8%80%e4%ba%9b%e6%8a%80%e5%b7%a7%e5%b8%ae%e5%8a%a9%e4%bd%a0%e8%a7%a3%e5%86%b3%e8%bf%99%e4%ba%9b%e9%97%ae%e9%a2%98...%20%e8%ae%a9%e6%88%91%e4%bb%ac%e5%bc%80%e9%97%a8%e8%a7%81%e5%b1%b1%ef%bc%8c%e7%9b%b4%e6%8e%a5%e4%b8%8a%20PUNCHLINE%e3%80%82%20%e5%a6%82%e6%9e%9c%e4%bd%a0%e7%9a%84%20Bash%20%e8%84%9a%e6%9c%ac%e4%bb%a5%e8%bf%99%e6%ae%b5%e4%bb%a3%e7%a0%81%e5%bc%80%e5%a7%8b%ef%bc%8c%e5%ae%83%e4%bb%ac%e5%b0%86%e5%8f%98%e5%be%97%e6%9b%b4%e5%8a%a0%e5%81%a5%e5%a3%ae%ef%bc%8c%e5%8f%af%e9%9d%a0%e5%92%8c%e5%8f%af%e7%bb%b4%e6%8a%a4%ef%bc%9a%201%202%e2%80%a6%e2%80%a6&amp;pics=https://yuechuanx.github.io/icons/apple-touch-icon.png&amp;site=Yuechuan%27s%20Blog" title="分享到「QQ 空间」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon qzone-icon"><path d="M23.985 9.202c-.032-.099-.127-.223-.334-.258-.207-.036-7.351-1.406-7.351-1.406s-.105-.022-.198-.07c-.092-.047-.127-.167-.127-.167S12.447.956 12.349.77C12.25.583 12.104.532 12 .532c-.104 0-.251.051-.349.238-.098.186-3.626 6.531-3.626 6.531s-.035.12-.128.167c-.092.047-.197.07-.197.07S.556 8.908.348 8.943c-.208.036-.302.16-.333.258a.477.477 0 0 0 .125.449l5.362 5.49s.072.08.119.172c.016.104.005.21.005.21s-1.189 7.242-1.22 7.45.075.369.159.43c.083.062.233.106.421.013.189-.093 6.812-3.261 6.812-3.261s.098-.044.201-.061c.103-.017.201.061.201.061s6.623 3.168 6.812 3.261c.188.094.338.049.421-.013a.463.463 0 0 0 .159-.43c-.021-.14-.93-5.677-.93-5.677.876-.54 1.425-1.039 1.849-1.747-2.594.969-6.006 1.717-9.415 1.866-.915.041-2.41.097-3.473-.015-.678-.071-1.17-.144-1.243-.438-.053-.215.054-.46.545-.831a2640.5 2640.5 0 0 1 2.861-2.155c1.285-.968 3.559-2.47 3.559-2.731 0-.285-2.144-.781-4.037-.781-1.945 0-2.275.132-2.811.168-.488.034-.769.005-.804-.138-.06-.248.183-.389.588-.568.709-.314 1.86-.594 1.984-.626.194-.052 3.082-.805 5.618-.535 1.318.14 3.244.668 3.244 1.276 0 .342-1.721 1.494-3.225 2.597-1.149.843-2.217 1.561-2.217 1.688 0 .342 3.533 1.241 6.689 1.01l.003-.022c.048-.092.119-.172.119-.172l5.362-5.49a.477.477 0 0 0 .127-.449z"/></svg></a>
                 </div>
             
 
@@ -1135,7 +1138,7 @@ _OLD_VIRTUAL_PYTHONHOME：未绑定变量
         <ul class="post-nav">
             
                 <li class="post-nav-prev">
-                    <a href="/blog/posts/python/organize-the-project-structure-of-testcase-in-unittest/" rel="prev">&lt; 使用 Unittest 组织 TestCase 的工程结构</a>
+                    <a href="/blog/posts/Python/organize-the-project-structure-of-testcase-in-unittest/" rel="prev">&lt; 使用 Unittest 组织 TestCase 的工程结构</a>
                 </li>
             
             
@@ -1164,7 +1167,7 @@ _OLD_VIRTUAL_PYTHONHOME：未绑定变量
             
     <footer id="footer" class="footer">
         <div class="footer-inner">
-            <div class="site-info">©&nbsp;1969–2021&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon footer-icon"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>&nbsp;YueChuan</div><div class="powered-by">Powered by <a href="https://github.com/gohugoio/hugo" target="_blank" rel="noopener">Hugo</a> | Theme is <a href="https://github.com/reuixiy/hugo-theme-meme" target="_blank" rel="noopener">MemE</a></div><div class="site-copyright"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></div>
+            <div class="site-info">©&nbsp;2019–2022&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon footer-icon"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>&nbsp;YueChuan</div><div class="powered-by">Powered by <a href="https://github.com/gohugoio/hugo" target="_blank" rel="noopener">Hugo</a> | Theme is <a href="https://github.com/reuixiy/hugo-theme-meme" target="_blank" rel="noopener">MemE</a></div><div class="site-copyright"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></div>
                 <div class="busuanzi-site-uv-and-pv">
                     <span id="busuanzi_container_site_uv">本站访客数&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon busuanzi-site-uv"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"/></svg>&nbsp;<span id="busuanzi_value_site_uv"></span></span>&nbsp;|&nbsp;<span id="busuanzi_container_site_pv">本站访问量&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="icon busuanzi-site-pv"><path d="M288 144a110.94 110.94 0 0 0-31.24 5 55.4 55.4 0 0 1 7.24 27 56 56 0 0 1-56 56 55.4 55.4 0 0 1-27-7.24A111.71 111.71 0 1 0 288 144zm284.52 97.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400c-98.65 0-189.09-55-237.93-144C98.91 167 189.34 112 288 112s189.09 55 237.93 144C477.1 345 386.66 400 288 400z"/></svg>&nbsp;<span id="busuanzi_value_site_pv"></span></span>
                 </div>
@@ -1206,7 +1209,10 @@ _OLD_VIRTUAL_PYTHONHOME：未绑定变量
     <script src="https://cdn.jsdelivr.net/npm/medium-zoom@latest/dist/medium-zoom.min.js"></script>
 
 <script>
-    mediumZoom(document.querySelectorAll('div.post-body img'), {
+    let imgNodes = document.querySelectorAll('div.post-body img');
+    imgNodes = Array.from(imgNodes).filter(node => node.parentNode.tagName !== "A");
+
+    mediumZoom(imgNodes, {
         background: 'hsla(var(--color-bg-h), var(--color-bg-s), var(--color-bg-l), 0.95)'
     })
 </script>

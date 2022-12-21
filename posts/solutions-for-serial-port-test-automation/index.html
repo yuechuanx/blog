@@ -3,7 +3,10 @@
     <head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
     <meta charset="UTF-8" />
 
-    <meta name="generator" content="Hugo 0.83.1" /><meta name="theme-color" content="#fff" />
+    <meta name="generator" content="Hugo 0.108.0"><meta name="theme-color" content="#fff" />
+    <meta name="color-scheme" content="light dark">
+
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
@@ -12,13 +15,13 @@
     
     <meta http-equiv="Cache-Control" content="no-siteapp" />
 
-    <title>关于串口测试自动化的解决方案 | 过往皆为序章</title>
+    <title>关于串口测试自动化的解决方案 | Yuechuan&#39;s Blog</title>
 
-    <link rel="stylesheet" href="/blog/css/meme.min.dfc9d5c433e318a3a8dee8001ab7d1cca0931e087c3a47f71abf63d05c499adc.css"/>
+    <link rel="stylesheet" href="/blog/css/meme.min.594a532c4c0d6f5c590e7314e8073069c070404a99970c2f329207a6add7423b.css"/>
 
     
     
-        <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" defer></script><script src="/blog/js/meme.min.dfb373df4b2dc76b95791fad15cd5043f60b3f67f64144062f132ec3dbb689ac.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" defer></script><script src="/blog/js/meme.min.c276e7690c8f5a4f8308173595500d57510b83bc30901e69fd7306e79c37b56b.js"></script>
 
     
 
@@ -33,10 +36,10 @@
     <link rel="mask-icon" href="/blog/icons/safari-pinned-tab.svg" color="#2a6df4" />
     <link rel="apple-touch-icon" sizes="180x180" href="/blog/icons/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-title" content="过往皆为序章" />
+    <meta name="apple-mobile-web-app-title" content="Yuechuan&#39;s Blog" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="application-name" content="过往皆为序章" />
+    <meta name="application-name" content="Yuechuan&#39;s Blog" />
     <meta name="msapplication-starturl" content="../../../" />
     <meta name="msapplication-TileColor" content="#fff" />
     <meta name="msapplication-TileImage" content="../../../icons/mstile-150x150.png" />
@@ -73,7 +76,7 @@
         "license": "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)",
         "publisher": {
             "@type": "Organization",
-            "name": "过往皆为序章",
+            "name": "Yuechuan's Blog",
             "logo": {
                 "@type": "ImageObject",
                 "url": "https://yuechuanx.github.io/icons/apple-touch-icon.png"
@@ -99,7 +102,7 @@
 <meta property="og:title" content="关于串口测试自动化的解决方案" />
 <meta property="og:description" content="之前介绍过 Expect 作为处理程序交互工具的使用。 结合串口命令以及 Expect 读取输入输出，针对一些具有固定流程而且能通过输出判断命令执行情况的测试用例，可以实现基于串口的测试自动化。 问题 在使用串口调试过程中，需要手动输入执行命令，交互性输入，以及等待执行结果。基本所有的信息都在 tty 中串行的进行显示。痛点有下面几个 重复命……" />
 <meta property="og:url" content="https://yuechuanx.github.io/blog/posts/solutions-for-serial-port-test-automation/" />
-<meta property="og:site_name" content="过往皆为序章" />
+<meta property="og:site_name" content="Yuechuan&#39;s Blog" />
 <meta property="og:locale" content="zh" /><meta property="og:image" content="https://yuechuanx.github.io/icons/apple-touch-icon.png" />
     <meta property="og:type" content="article" />
     <meta property="article:published_time" content="2020-08-11T11:31:04&#43;00:00" />
@@ -142,7 +145,7 @@
                     
     <div class="site-brand">
         
-            <a href="/blog/" class="brand">过往皆为序章</a>
+            <a href="/" class="brand">Yuechuan&#39;s Blog</a>
         
     </div>
 
@@ -287,7 +290,7 @@
     <li><a id="contents:注意" href="#注意">注意</a></li>
   </ol>
 </nav><div class="post-body e-content">
-              <blockquote>
+                <blockquote>
 <p>之前介绍过 Expect 作为处理程序交互工具的使用。</p>
 <p>结合串口命令以及 Expect 读取输入输出，针对一些具有固定流程而且能通过输出判断命令执行情况的测试用例，可以实现基于串口的测试自动化。</p>
 </blockquote>
@@ -346,7 +349,7 @@
 <p>下面给出使用 Expect 的一个 demo：</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -424,83 +427,83 @@
 </span><span class="lnt">76
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-tcl" data-lang="tcl"><span class="c">#!/usr/bin/expect 
-</span><span class="c"># -d: debug mode
-</span><span class="c">
-</span><span class="c"># expect config
-</span><span class="c"></span><span class="k">set</span> timeout <span class="mi">30</span>
-<span class="nv">log_file</span> test-expect.log
-
-<span class="c"># picocom config
-</span><span class="c"></span><span class="k">set</span> baudrate <span class="s2">&#34;115200&#34;</span>
-<span class="k">set</span> device <span class="s2">&#34;/dev/ttyUSB0&#34;</span>
-<span class="k">set</span> prompt <span class="s2">&#34;=&gt;&#34;</span>
-
-<span class="c"># function define
-</span><span class="c"></span><span class="k">set</span> interval <span class="mi">5</span>
-<span class="k">set</span> iter_cnt <span class="mi">10</span>
-
-<span class="k">proc</span> start_xvr_debug <span class="k">{</span> <span class="nv">prompt</span> <span class="k">}</span> <span class="k">{</span>
-    <span class="nv">send</span> <span class="s2">&#34;xvr_client_dbus\r&#34;</span>
-    <span class="nv">expect</span> <span class="nv">$prompt</span>
-<span class="k">}</span>
-
-<span class="k">proc</span> test_switch_channel_display <span class="k">{</span> <span class="nv">iter_cnt</span> interval prompt <span class="k">}</span> <span class="k">{</span>
-
-    <span class="k">for</span> <span class="k">{</span> <span class="k">set</span> i <span class="mi">1</span> <span class="k">}</span>  <span class="k">{</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="nv">$iter_cnt</span> <span class="k">}</span> <span class="k">{</span> <span class="nb">incr</span> i <span class="mi">1</span> <span class="k">}</span> <span class="k">{</span>
-        <span class="nv">send</span> <span class="s2">&#34;switch_channel_display -cam 0 -ch 0 -onoff 1\r&#34;</span>
-        <span class="nv">expect</span> <span class="nv">$prompt</span>
-        <span class="nb">exec</span> sleep <span class="nv">$interval</span>
-
-        <span class="nv">send</span> <span class="s2">&#34;switch_channel_display -cam 0 -ch 0 -onoff 0\r&#34;</span>
-        <span class="nv">expect</span> <span class="nv">$prompt</span>
-        <span class="nb">exec</span> sleep <span class="nv">$interval</span>
-
-        <span class="nv">send</span> <span class="s2">&#34;switch_channel_display -cam 0 -ch 1 -onoff 1\r&#34;</span>
-        <span class="nv">expect</span> <span class="nv">$prompt</span>
-        <span class="nb">exec</span> sleep <span class="nv">$interval</span>
-
-        <span class="nv">send</span> <span class="s2">&#34;switch_channel_display -cam 0 -ch 1 -onoff 0\r&#34;</span>
-        <span class="nv">expect</span> <span class="nv">$prompt</span>
-        <span class="nb">exec</span> sleep <span class="nv">$interval</span>
-    <span class="k">}</span>
-<span class="k">}</span>
-
-<span class="k">proc</span> test_start_stop_pipeline <span class="k">{</span> <span class="nv">iter_cnt</span> interval prompt <span class="k">}</span> <span class="k">{</span>
-    <span class="k">for</span> <span class="k">{</span> <span class="k">set</span> i <span class="mi">1</span> <span class="k">}</span> <span class="k">{</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="nv">$iter_cnt</span> <span class="k">}</span> <span class="k">{</span> <span class="nb">incr</span> i <span class="mi">1</span> <span class="k">}</span> <span class="k">{</span>
-        <span class="nv">send</span> <span class="s2">&#34;stop_pipeline  /dev/xvr_pipeline-0\r&#34;</span>
-        <span class="nv">expect</span> <span class="nv">$prompt</span>
-        <span class="nb">exec</span> sleep <span class="nv">$interval</span>
-
-        <span class="nv">send</span> <span class="s2">&#34;stop_pipeline  /dev/xvr_pipeline-1\r&#34;</span>
-        <span class="nv">expect</span> <span class="nv">$prompt</span>
-        <span class="nb">exec</span> sleep <span class="nv">$interval</span>
-
-        <span class="nv">send</span> <span class="s2">&#34;start_pipeline  /dev/xvr_pipeline-0\r&#34;</span>
-        <span class="nv">expect</span> <span class="nv">$prompt</span>
-        <span class="nb">exec</span> sleep <span class="nv">$interval</span>
-
-        <span class="nv">send</span> <span class="s2">&#34;start_pipeline  /dev/xvr_pipeline-1\r&#34;</span>
-        <span class="nv">expect</span> <span class="nv">$prompt</span>
-        <span class="nb">exec</span> sleep <span class="nv">$interval</span>
-    <span class="k">}</span>
-<span class="k">}</span> 
-
-spawn picocom <span class="o">-</span>b <span class="nv">$baudrate</span> <span class="nv">$device</span>
-<span class="nv">expect</span> <span class="s2">&#34;Terminal ready\r&#34;</span>
-<span class="nv">send</span> <span class="s2">&#34;\r&#34;</span>
-
-<span class="c"># send &#34;xvr_client_dbus\r&#34; 
-</span><span class="c"># expect $prompt
-</span><span class="c">
-</span><span class="c"></span><span class="nv">start_xvr_debug</span> <span class="nv">$prompt</span>
-<span class="nv">test_switch_channel_display</span> <span class="nv">$iter_cnt</span> <span class="nv">$interval</span> <span class="nv">$prompt</span> 
-<span class="err">#</span> test_start_stop_pipeline <span class="nv">$iter_cnt</span> <span class="nv">$interval</span> <span class="nv">$prompt</span> 
-
-expect eof
-<span class="c"># interact
-</span><span class="c"></span><span class="nv">wait</span>
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-tcl" data-lang="tcl"><span class="line"><span class="cl"><span class="c">#!/usr/bin/expect 
+</span></span></span><span class="line"><span class="cl"><span class="c"># -d: debug mode
+</span></span></span><span class="line"><span class="cl"><span class="c">
+</span></span></span><span class="line"><span class="cl"><span class="c"># expect config
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">set</span> timeout <span class="mi">30</span>
+</span></span><span class="line"><span class="cl"><span class="nv">log_file</span> test-expect.log
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># picocom config
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">set</span> baudrate <span class="s2">&#34;115200&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">set</span> device <span class="s2">&#34;/dev/ttyUSB0&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">set</span> prompt <span class="s2">&#34;=&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># function define
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="k">set</span> interval <span class="mi">5</span>
+</span></span><span class="line"><span class="cl"><span class="k">set</span> iter_cnt <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">proc</span> start_xvr_debug <span class="k">{</span> <span class="nv">prompt</span> <span class="k">}</span> <span class="k">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">send</span> <span class="s2">&#34;xvr_client_dbus\r&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">expect</span> <span class="nv">$prompt</span>
+</span></span><span class="line"><span class="cl"><span class="k">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">proc</span> test_switch_channel_display <span class="k">{</span> <span class="nv">iter_cnt</span> interval prompt <span class="k">}</span> <span class="k">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="k">{</span> <span class="k">set</span> i <span class="mi">1</span> <span class="k">}</span>  <span class="k">{</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="nv">$iter_cnt</span> <span class="k">}</span> <span class="k">{</span> <span class="nb">incr</span> i <span class="mi">1</span> <span class="k">}</span> <span class="k">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">send</span> <span class="s2">&#34;switch_channel_display -cam 0 -ch 0 -onoff 1\r&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">expect</span> <span class="nv">$prompt</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">exec</span> sleep <span class="nv">$interval</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nv">send</span> <span class="s2">&#34;switch_channel_display -cam 0 -ch 0 -onoff 0\r&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">expect</span> <span class="nv">$prompt</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">exec</span> sleep <span class="nv">$interval</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nv">send</span> <span class="s2">&#34;switch_channel_display -cam 0 -ch 1 -onoff 1\r&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">expect</span> <span class="nv">$prompt</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">exec</span> sleep <span class="nv">$interval</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nv">send</span> <span class="s2">&#34;switch_channel_display -cam 0 -ch 1 -onoff 0\r&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">expect</span> <span class="nv">$prompt</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">exec</span> sleep <span class="nv">$interval</span>
+</span></span><span class="line"><span class="cl">    <span class="k">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">proc</span> test_start_stop_pipeline <span class="k">{</span> <span class="nv">iter_cnt</span> interval prompt <span class="k">}</span> <span class="k">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="k">{</span> <span class="k">set</span> i <span class="mi">1</span> <span class="k">}</span> <span class="k">{</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="nv">$iter_cnt</span> <span class="k">}</span> <span class="k">{</span> <span class="nb">incr</span> i <span class="mi">1</span> <span class="k">}</span> <span class="k">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">send</span> <span class="s2">&#34;stop_pipeline  /dev/xvr_pipeline-0\r&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">expect</span> <span class="nv">$prompt</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">exec</span> sleep <span class="nv">$interval</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nv">send</span> <span class="s2">&#34;stop_pipeline  /dev/xvr_pipeline-1\r&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">expect</span> <span class="nv">$prompt</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">exec</span> sleep <span class="nv">$interval</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nv">send</span> <span class="s2">&#34;start_pipeline  /dev/xvr_pipeline-0\r&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">expect</span> <span class="nv">$prompt</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">exec</span> sleep <span class="nv">$interval</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nv">send</span> <span class="s2">&#34;start_pipeline  /dev/xvr_pipeline-1\r&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">expect</span> <span class="nv">$prompt</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">exec</span> sleep <span class="nv">$interval</span>
+</span></span><span class="line"><span class="cl">    <span class="k">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">}</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">spawn picocom <span class="o">-</span>b <span class="nv">$baudrate</span> <span class="nv">$device</span>
+</span></span><span class="line"><span class="cl"><span class="nv">expect</span> <span class="s2">&#34;Terminal ready\r&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">send</span> <span class="s2">&#34;\r&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># send &#34;xvr_client_dbus\r&#34; 
+</span></span></span><span class="line"><span class="cl"><span class="c"># expect $prompt
+</span></span></span><span class="line"><span class="cl"><span class="c">
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="nv">start_xvr_debug</span> <span class="nv">$prompt</span>
+</span></span><span class="line"><span class="cl"><span class="nv">test_switch_channel_display</span> <span class="nv">$iter_cnt</span> <span class="nv">$interval</span> <span class="nv">$prompt</span> 
+</span></span><span class="line"><span class="cl"><span class="err">#</span> test_start_stop_pipeline <span class="nv">$iter_cnt</span> <span class="nv">$interval</span> <span class="nv">$prompt</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">expect eof
+</span></span><span class="line"><span class="cl"><span class="c"># interact
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="nv">wait</span>
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>在具体使用中遇到的有几个小坑:</p>
 <ol>
@@ -524,11 +527,11 @@ expect eof
 <p>解决的方案是将 jenkins 用户加入拥有 dev 设备权限的用户组。</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo usermod aG dialout jenkins
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo usermod aG dialout jenkins
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div></li>
 <li>
@@ -599,7 +602,7 @@ expect eof
             
                 <div class="share-item linkedin">
                     
-                    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://yuechuanx.github.io/blog/posts/solutions-for-serial-port-test-automation/&amp;title=%e5%85%b3%e4%ba%8e%e4%b8%b2%e5%8f%a3%e6%b5%8b%e8%af%95%e8%87%aa%e5%8a%a8%e5%8c%96%e7%9a%84%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88&amp;summary=%e4%b9%8b%e5%89%8d%e4%bb%8b%e7%bb%8d%e8%bf%87%20Expect%20%e4%bd%9c%e4%b8%ba%e5%a4%84%e7%90%86%e7%a8%8b%e5%ba%8f%e4%ba%a4%e4%ba%92%e5%b7%a5%e5%85%b7%e7%9a%84%e4%bd%bf%e7%94%a8%e3%80%82%20%e7%bb%93%e5%90%88%e4%b8%b2%e5%8f%a3%e5%91%bd%e4%bb%a4%e4%bb%a5%e5%8f%8a%20Expect%20%e8%af%bb%e5%8f%96%e8%be%93%e5%85%a5%e8%be%93%e5%87%ba%ef%bc%8c%e9%92%88%e5%af%b9%e4%b8%80%e4%ba%9b%e5%85%b7%e6%9c%89%e5%9b%ba%e5%ae%9a%e6%b5%81%e7%a8%8b%e8%80%8c%e4%b8%94%e8%83%bd%e9%80%9a%e8%bf%87%e8%be%93%e5%87%ba%e5%88%a4%e6%96%ad%e5%91%bd%e4%bb%a4%e6%89%a7%e8%a1%8c%e6%83%85%e5%86%b5%e7%9a%84%e6%b5%8b%e8%af%95%e7%94%a8%e4%be%8b%ef%bc%8c%e5%8f%af%e4%bb%a5%e5%ae%9e%e7%8e%b0%e5%9f%ba%e4%ba%8e%e4%b8%b2%e5%8f%a3%e7%9a%84%e6%b5%8b%e8%af%95%e8%87%aa%e5%8a%a8%e5%8c%96%e3%80%82%20%e9%97%ae%e9%a2%98%20%e5%9c%a8%e4%bd%bf%e7%94%a8%e4%b8%b2%e5%8f%a3%e8%b0%83%e8%af%95%e8%bf%87%e7%a8%8b%e4%b8%ad%ef%bc%8c%e9%9c%80%e8%a6%81%e6%89%8b%e5%8a%a8%e8%be%93%e5%85%a5%e6%89%a7%e8%a1%8c%e5%91%bd%e4%bb%a4%ef%bc%8c%e4%ba%a4%e4%ba%92%e6%80%a7%e8%be%93%e5%85%a5%ef%bc%8c%e4%bb%a5%e5%8f%8a%e7%ad%89%e5%be%85%e6%89%a7%e8%a1%8c%e7%bb%93%e6%9e%9c%e3%80%82%e5%9f%ba%e6%9c%ac%e6%89%80%e6%9c%89%e7%9a%84%e4%bf%a1%e6%81%af%e9%83%bd%e5%9c%a8%20tty%20%e4%b8%ad%e4%b8%b2%e8%a1%8c%e7%9a%84%e8%bf%9b%e8%a1%8c%e6%98%be%e7%a4%ba%e3%80%82%e7%97%9b%e7%82%b9%e6%9c%89%e4%b8%8b%e9%9d%a2%e5%87%a0%e4%b8%aa%20%e9%87%8d%e5%a4%8d%e5%91%bd%e2%80%a6%e2%80%a6&amp;source=%e8%bf%87%e5%be%80%e7%9a%86%e4%b8%ba%e5%ba%8f%e7%ab%a0" title="分享到「LinkedIn」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon linkedin-icon"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://yuechuanx.github.io/blog/posts/solutions-for-serial-port-test-automation/&amp;title=%e5%85%b3%e4%ba%8e%e4%b8%b2%e5%8f%a3%e6%b5%8b%e8%af%95%e8%87%aa%e5%8a%a8%e5%8c%96%e7%9a%84%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88&amp;summary=%e4%b9%8b%e5%89%8d%e4%bb%8b%e7%bb%8d%e8%bf%87%20Expect%20%e4%bd%9c%e4%b8%ba%e5%a4%84%e7%90%86%e7%a8%8b%e5%ba%8f%e4%ba%a4%e4%ba%92%e5%b7%a5%e5%85%b7%e7%9a%84%e4%bd%bf%e7%94%a8%e3%80%82%20%e7%bb%93%e5%90%88%e4%b8%b2%e5%8f%a3%e5%91%bd%e4%bb%a4%e4%bb%a5%e5%8f%8a%20Expect%20%e8%af%bb%e5%8f%96%e8%be%93%e5%85%a5%e8%be%93%e5%87%ba%ef%bc%8c%e9%92%88%e5%af%b9%e4%b8%80%e4%ba%9b%e5%85%b7%e6%9c%89%e5%9b%ba%e5%ae%9a%e6%b5%81%e7%a8%8b%e8%80%8c%e4%b8%94%e8%83%bd%e9%80%9a%e8%bf%87%e8%be%93%e5%87%ba%e5%88%a4%e6%96%ad%e5%91%bd%e4%bb%a4%e6%89%a7%e8%a1%8c%e6%83%85%e5%86%b5%e7%9a%84%e6%b5%8b%e8%af%95%e7%94%a8%e4%be%8b%ef%bc%8c%e5%8f%af%e4%bb%a5%e5%ae%9e%e7%8e%b0%e5%9f%ba%e4%ba%8e%e4%b8%b2%e5%8f%a3%e7%9a%84%e6%b5%8b%e8%af%95%e8%87%aa%e5%8a%a8%e5%8c%96%e3%80%82%20%e9%97%ae%e9%a2%98%20%e5%9c%a8%e4%bd%bf%e7%94%a8%e4%b8%b2%e5%8f%a3%e8%b0%83%e8%af%95%e8%bf%87%e7%a8%8b%e4%b8%ad%ef%bc%8c%e9%9c%80%e8%a6%81%e6%89%8b%e5%8a%a8%e8%be%93%e5%85%a5%e6%89%a7%e8%a1%8c%e5%91%bd%e4%bb%a4%ef%bc%8c%e4%ba%a4%e4%ba%92%e6%80%a7%e8%be%93%e5%85%a5%ef%bc%8c%e4%bb%a5%e5%8f%8a%e7%ad%89%e5%be%85%e6%89%a7%e8%a1%8c%e7%bb%93%e6%9e%9c%e3%80%82%e5%9f%ba%e6%9c%ac%e6%89%80%e6%9c%89%e7%9a%84%e4%bf%a1%e6%81%af%e9%83%bd%e5%9c%a8%20tty%20%e4%b8%ad%e4%b8%b2%e8%a1%8c%e7%9a%84%e8%bf%9b%e8%a1%8c%e6%98%be%e7%a4%ba%e3%80%82%e7%97%9b%e7%82%b9%e6%9c%89%e4%b8%8b%e9%9d%a2%e5%87%a0%e4%b8%aa%20%e9%87%8d%e5%a4%8d%e5%91%bd%e2%80%a6%e2%80%a6&amp;source=Yuechuan%27s%20Blog" title="分享到「LinkedIn」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon linkedin-icon"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
                 </div>
             
 
@@ -627,14 +630,14 @@ expect eof
             
                 <div class="share-item qq">
                     
-                    <a href="https://connect.qq.com/widget/shareqq/index.html?url=https://yuechuanx.github.io/blog/posts/solutions-for-serial-port-test-automation/&amp;title=%e5%85%b3%e4%ba%8e%e4%b8%b2%e5%8f%a3%e6%b5%8b%e8%af%95%e8%87%aa%e5%8a%a8%e5%8c%96%e7%9a%84%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88&amp;summary=%e4%b9%8b%e5%89%8d%e4%bb%8b%e7%bb%8d%e8%bf%87%20Expect%20%e4%bd%9c%e4%b8%ba%e5%a4%84%e7%90%86%e7%a8%8b%e5%ba%8f%e4%ba%a4%e4%ba%92%e5%b7%a5%e5%85%b7%e7%9a%84%e4%bd%bf%e7%94%a8%e3%80%82%20%e7%bb%93%e5%90%88%e4%b8%b2%e5%8f%a3%e5%91%bd%e4%bb%a4%e4%bb%a5%e5%8f%8a%20Expect%20%e8%af%bb%e5%8f%96%e8%be%93%e5%85%a5%e8%be%93%e5%87%ba%ef%bc%8c%e9%92%88%e5%af%b9%e4%b8%80%e4%ba%9b%e5%85%b7%e6%9c%89%e5%9b%ba%e5%ae%9a%e6%b5%81%e7%a8%8b%e8%80%8c%e4%b8%94%e8%83%bd%e9%80%9a%e8%bf%87%e8%be%93%e5%87%ba%e5%88%a4%e6%96%ad%e5%91%bd%e4%bb%a4%e6%89%a7%e8%a1%8c%e6%83%85%e5%86%b5%e7%9a%84%e6%b5%8b%e8%af%95%e7%94%a8%e4%be%8b%ef%bc%8c%e5%8f%af%e4%bb%a5%e5%ae%9e%e7%8e%b0%e5%9f%ba%e4%ba%8e%e4%b8%b2%e5%8f%a3%e7%9a%84%e6%b5%8b%e8%af%95%e8%87%aa%e5%8a%a8%e5%8c%96%e3%80%82%20%e9%97%ae%e9%a2%98%20%e5%9c%a8%e4%bd%bf%e7%94%a8%e4%b8%b2%e5%8f%a3%e8%b0%83%e8%af%95%e8%bf%87%e7%a8%8b%e4%b8%ad%ef%bc%8c%e9%9c%80%e8%a6%81%e6%89%8b%e5%8a%a8%e8%be%93%e5%85%a5%e6%89%a7%e8%a1%8c%e5%91%bd%e4%bb%a4%ef%bc%8c%e4%ba%a4%e4%ba%92%e6%80%a7%e8%be%93%e5%85%a5%ef%bc%8c%e4%bb%a5%e5%8f%8a%e7%ad%89%e5%be%85%e6%89%a7%e8%a1%8c%e7%bb%93%e6%9e%9c%e3%80%82%e5%9f%ba%e6%9c%ac%e6%89%80%e6%9c%89%e7%9a%84%e4%bf%a1%e6%81%af%e9%83%bd%e5%9c%a8%20tty%20%e4%b8%ad%e4%b8%b2%e8%a1%8c%e7%9a%84%e8%bf%9b%e8%a1%8c%e6%98%be%e7%a4%ba%e3%80%82%e7%97%9b%e7%82%b9%e6%9c%89%e4%b8%8b%e9%9d%a2%e5%87%a0%e4%b8%aa%20%e9%87%8d%e5%a4%8d%e5%91%bd%e2%80%a6%e2%80%a6&amp;pics=https://yuechuanx.github.io/icons/apple-touch-icon.png&amp;site=%e8%bf%87%e5%be%80%e7%9a%86%e4%b8%ba%e5%ba%8f%e7%ab%a0" title="分享到「QQ」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon qq-icon"><path d="M433.754 420.445c-11.526 1.393-44.86-52.741-44.86-52.741 0 31.345-16.136 72.247-51.051 101.786 16.842 5.192 54.843 19.167 45.803 34.421-7.316 12.343-125.51 7.881-159.632 4.037-34.122 3.844-152.316 8.306-159.632-4.037-9.045-15.25 28.918-29.214 45.783-34.415-34.92-29.539-51.059-70.445-51.059-101.792 0 0-33.334 54.134-44.859 52.741-5.37-.65-12.424-29.644 9.347-99.704 10.261-33.024 21.995-60.478 40.144-105.779C60.683 98.063 108.982.006 224 0c113.737.006 163.156 96.133 160.264 214.963 18.118 45.223 29.912 72.85 40.144 105.778 21.768 70.06 14.716 99.053 9.346 99.704z"/></svg></a>
+                    <a href="https://connect.qq.com/widget/shareqq/index.html?url=https://yuechuanx.github.io/blog/posts/solutions-for-serial-port-test-automation/&amp;title=%e5%85%b3%e4%ba%8e%e4%b8%b2%e5%8f%a3%e6%b5%8b%e8%af%95%e8%87%aa%e5%8a%a8%e5%8c%96%e7%9a%84%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88&amp;summary=%e4%b9%8b%e5%89%8d%e4%bb%8b%e7%bb%8d%e8%bf%87%20Expect%20%e4%bd%9c%e4%b8%ba%e5%a4%84%e7%90%86%e7%a8%8b%e5%ba%8f%e4%ba%a4%e4%ba%92%e5%b7%a5%e5%85%b7%e7%9a%84%e4%bd%bf%e7%94%a8%e3%80%82%20%e7%bb%93%e5%90%88%e4%b8%b2%e5%8f%a3%e5%91%bd%e4%bb%a4%e4%bb%a5%e5%8f%8a%20Expect%20%e8%af%bb%e5%8f%96%e8%be%93%e5%85%a5%e8%be%93%e5%87%ba%ef%bc%8c%e9%92%88%e5%af%b9%e4%b8%80%e4%ba%9b%e5%85%b7%e6%9c%89%e5%9b%ba%e5%ae%9a%e6%b5%81%e7%a8%8b%e8%80%8c%e4%b8%94%e8%83%bd%e9%80%9a%e8%bf%87%e8%be%93%e5%87%ba%e5%88%a4%e6%96%ad%e5%91%bd%e4%bb%a4%e6%89%a7%e8%a1%8c%e6%83%85%e5%86%b5%e7%9a%84%e6%b5%8b%e8%af%95%e7%94%a8%e4%be%8b%ef%bc%8c%e5%8f%af%e4%bb%a5%e5%ae%9e%e7%8e%b0%e5%9f%ba%e4%ba%8e%e4%b8%b2%e5%8f%a3%e7%9a%84%e6%b5%8b%e8%af%95%e8%87%aa%e5%8a%a8%e5%8c%96%e3%80%82%20%e9%97%ae%e9%a2%98%20%e5%9c%a8%e4%bd%bf%e7%94%a8%e4%b8%b2%e5%8f%a3%e8%b0%83%e8%af%95%e8%bf%87%e7%a8%8b%e4%b8%ad%ef%bc%8c%e9%9c%80%e8%a6%81%e6%89%8b%e5%8a%a8%e8%be%93%e5%85%a5%e6%89%a7%e8%a1%8c%e5%91%bd%e4%bb%a4%ef%bc%8c%e4%ba%a4%e4%ba%92%e6%80%a7%e8%be%93%e5%85%a5%ef%bc%8c%e4%bb%a5%e5%8f%8a%e7%ad%89%e5%be%85%e6%89%a7%e8%a1%8c%e7%bb%93%e6%9e%9c%e3%80%82%e5%9f%ba%e6%9c%ac%e6%89%80%e6%9c%89%e7%9a%84%e4%bf%a1%e6%81%af%e9%83%bd%e5%9c%a8%20tty%20%e4%b8%ad%e4%b8%b2%e8%a1%8c%e7%9a%84%e8%bf%9b%e8%a1%8c%e6%98%be%e7%a4%ba%e3%80%82%e7%97%9b%e7%82%b9%e6%9c%89%e4%b8%8b%e9%9d%a2%e5%87%a0%e4%b8%aa%20%e9%87%8d%e5%a4%8d%e5%91%bd%e2%80%a6%e2%80%a6&amp;pics=https://yuechuanx.github.io/icons/apple-touch-icon.png&amp;site=Yuechuan%27s%20Blog" title="分享到「QQ」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon qq-icon"><path d="M433.754 420.445c-11.526 1.393-44.86-52.741-44.86-52.741 0 31.345-16.136 72.247-51.051 101.786 16.842 5.192 54.843 19.167 45.803 34.421-7.316 12.343-125.51 7.881-159.632 4.037-34.122 3.844-152.316 8.306-159.632-4.037-9.045-15.25 28.918-29.214 45.783-34.415-34.92-29.539-51.059-70.445-51.059-101.792 0 0-33.334 54.134-44.859 52.741-5.37-.65-12.424-29.644 9.347-99.704 10.261-33.024 21.995-60.478 40.144-105.779C60.683 98.063 108.982.006 224 0c113.737.006 163.156 96.133 160.264 214.963 18.118 45.223 29.912 72.85 40.144 105.778 21.768 70.06 14.716 99.053 9.346 99.704z"/></svg></a>
                 </div>
             
 
             
                 <div class="share-item qzone">
                     
-                    <a href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://yuechuanx.github.io/blog/posts/solutions-for-serial-port-test-automation/&amp;title=%e5%85%b3%e4%ba%8e%e4%b8%b2%e5%8f%a3%e6%b5%8b%e8%af%95%e8%87%aa%e5%8a%a8%e5%8c%96%e7%9a%84%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88&amp;summary=%e4%b9%8b%e5%89%8d%e4%bb%8b%e7%bb%8d%e8%bf%87%20Expect%20%e4%bd%9c%e4%b8%ba%e5%a4%84%e7%90%86%e7%a8%8b%e5%ba%8f%e4%ba%a4%e4%ba%92%e5%b7%a5%e5%85%b7%e7%9a%84%e4%bd%bf%e7%94%a8%e3%80%82%20%e7%bb%93%e5%90%88%e4%b8%b2%e5%8f%a3%e5%91%bd%e4%bb%a4%e4%bb%a5%e5%8f%8a%20Expect%20%e8%af%bb%e5%8f%96%e8%be%93%e5%85%a5%e8%be%93%e5%87%ba%ef%bc%8c%e9%92%88%e5%af%b9%e4%b8%80%e4%ba%9b%e5%85%b7%e6%9c%89%e5%9b%ba%e5%ae%9a%e6%b5%81%e7%a8%8b%e8%80%8c%e4%b8%94%e8%83%bd%e9%80%9a%e8%bf%87%e8%be%93%e5%87%ba%e5%88%a4%e6%96%ad%e5%91%bd%e4%bb%a4%e6%89%a7%e8%a1%8c%e6%83%85%e5%86%b5%e7%9a%84%e6%b5%8b%e8%af%95%e7%94%a8%e4%be%8b%ef%bc%8c%e5%8f%af%e4%bb%a5%e5%ae%9e%e7%8e%b0%e5%9f%ba%e4%ba%8e%e4%b8%b2%e5%8f%a3%e7%9a%84%e6%b5%8b%e8%af%95%e8%87%aa%e5%8a%a8%e5%8c%96%e3%80%82%20%e9%97%ae%e9%a2%98%20%e5%9c%a8%e4%bd%bf%e7%94%a8%e4%b8%b2%e5%8f%a3%e8%b0%83%e8%af%95%e8%bf%87%e7%a8%8b%e4%b8%ad%ef%bc%8c%e9%9c%80%e8%a6%81%e6%89%8b%e5%8a%a8%e8%be%93%e5%85%a5%e6%89%a7%e8%a1%8c%e5%91%bd%e4%bb%a4%ef%bc%8c%e4%ba%a4%e4%ba%92%e6%80%a7%e8%be%93%e5%85%a5%ef%bc%8c%e4%bb%a5%e5%8f%8a%e7%ad%89%e5%be%85%e6%89%a7%e8%a1%8c%e7%bb%93%e6%9e%9c%e3%80%82%e5%9f%ba%e6%9c%ac%e6%89%80%e6%9c%89%e7%9a%84%e4%bf%a1%e6%81%af%e9%83%bd%e5%9c%a8%20tty%20%e4%b8%ad%e4%b8%b2%e8%a1%8c%e7%9a%84%e8%bf%9b%e8%a1%8c%e6%98%be%e7%a4%ba%e3%80%82%e7%97%9b%e7%82%b9%e6%9c%89%e4%b8%8b%e9%9d%a2%e5%87%a0%e4%b8%aa%20%e9%87%8d%e5%a4%8d%e5%91%bd%e2%80%a6%e2%80%a6&amp;pics=https://yuechuanx.github.io/icons/apple-touch-icon.png&amp;site=%e8%bf%87%e5%be%80%e7%9a%86%e4%b8%ba%e5%ba%8f%e7%ab%a0" title="分享到「QQ 空间」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon qzone-icon"><path d="M23.985 9.202c-.032-.099-.127-.223-.334-.258-.207-.036-7.351-1.406-7.351-1.406s-.105-.022-.198-.07c-.092-.047-.127-.167-.127-.167S12.447.956 12.349.77C12.25.583 12.104.532 12 .532c-.104 0-.251.051-.349.238-.098.186-3.626 6.531-3.626 6.531s-.035.12-.128.167c-.092.047-.197.07-.197.07S.556 8.908.348 8.943c-.208.036-.302.16-.333.258a.477.477 0 0 0 .125.449l5.362 5.49s.072.08.119.172c.016.104.005.21.005.21s-1.189 7.242-1.22 7.45.075.369.159.43c.083.062.233.106.421.013.189-.093 6.812-3.261 6.812-3.261s.098-.044.201-.061c.103-.017.201.061.201.061s6.623 3.168 6.812 3.261c.188.094.338.049.421-.013a.463.463 0 0 0 .159-.43c-.021-.14-.93-5.677-.93-5.677.876-.54 1.425-1.039 1.849-1.747-2.594.969-6.006 1.717-9.415 1.866-.915.041-2.41.097-3.473-.015-.678-.071-1.17-.144-1.243-.438-.053-.215.054-.46.545-.831a2640.5 2640.5 0 0 1 2.861-2.155c1.285-.968 3.559-2.47 3.559-2.731 0-.285-2.144-.781-4.037-.781-1.945 0-2.275.132-2.811.168-.488.034-.769.005-.804-.138-.06-.248.183-.389.588-.568.709-.314 1.86-.594 1.984-.626.194-.052 3.082-.805 5.618-.535 1.318.14 3.244.668 3.244 1.276 0 .342-1.721 1.494-3.225 2.597-1.149.843-2.217 1.561-2.217 1.688 0 .342 3.533 1.241 6.689 1.01l.003-.022c.048-.092.119-.172.119-.172l5.362-5.49a.477.477 0 0 0 .127-.449z"/></svg></a>
+                    <a href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://yuechuanx.github.io/blog/posts/solutions-for-serial-port-test-automation/&amp;title=%e5%85%b3%e4%ba%8e%e4%b8%b2%e5%8f%a3%e6%b5%8b%e8%af%95%e8%87%aa%e5%8a%a8%e5%8c%96%e7%9a%84%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88&amp;summary=%e4%b9%8b%e5%89%8d%e4%bb%8b%e7%bb%8d%e8%bf%87%20Expect%20%e4%bd%9c%e4%b8%ba%e5%a4%84%e7%90%86%e7%a8%8b%e5%ba%8f%e4%ba%a4%e4%ba%92%e5%b7%a5%e5%85%b7%e7%9a%84%e4%bd%bf%e7%94%a8%e3%80%82%20%e7%bb%93%e5%90%88%e4%b8%b2%e5%8f%a3%e5%91%bd%e4%bb%a4%e4%bb%a5%e5%8f%8a%20Expect%20%e8%af%bb%e5%8f%96%e8%be%93%e5%85%a5%e8%be%93%e5%87%ba%ef%bc%8c%e9%92%88%e5%af%b9%e4%b8%80%e4%ba%9b%e5%85%b7%e6%9c%89%e5%9b%ba%e5%ae%9a%e6%b5%81%e7%a8%8b%e8%80%8c%e4%b8%94%e8%83%bd%e9%80%9a%e8%bf%87%e8%be%93%e5%87%ba%e5%88%a4%e6%96%ad%e5%91%bd%e4%bb%a4%e6%89%a7%e8%a1%8c%e6%83%85%e5%86%b5%e7%9a%84%e6%b5%8b%e8%af%95%e7%94%a8%e4%be%8b%ef%bc%8c%e5%8f%af%e4%bb%a5%e5%ae%9e%e7%8e%b0%e5%9f%ba%e4%ba%8e%e4%b8%b2%e5%8f%a3%e7%9a%84%e6%b5%8b%e8%af%95%e8%87%aa%e5%8a%a8%e5%8c%96%e3%80%82%20%e9%97%ae%e9%a2%98%20%e5%9c%a8%e4%bd%bf%e7%94%a8%e4%b8%b2%e5%8f%a3%e8%b0%83%e8%af%95%e8%bf%87%e7%a8%8b%e4%b8%ad%ef%bc%8c%e9%9c%80%e8%a6%81%e6%89%8b%e5%8a%a8%e8%be%93%e5%85%a5%e6%89%a7%e8%a1%8c%e5%91%bd%e4%bb%a4%ef%bc%8c%e4%ba%a4%e4%ba%92%e6%80%a7%e8%be%93%e5%85%a5%ef%bc%8c%e4%bb%a5%e5%8f%8a%e7%ad%89%e5%be%85%e6%89%a7%e8%a1%8c%e7%bb%93%e6%9e%9c%e3%80%82%e5%9f%ba%e6%9c%ac%e6%89%80%e6%9c%89%e7%9a%84%e4%bf%a1%e6%81%af%e9%83%bd%e5%9c%a8%20tty%20%e4%b8%ad%e4%b8%b2%e8%a1%8c%e7%9a%84%e8%bf%9b%e8%a1%8c%e6%98%be%e7%a4%ba%e3%80%82%e7%97%9b%e7%82%b9%e6%9c%89%e4%b8%8b%e9%9d%a2%e5%87%a0%e4%b8%aa%20%e9%87%8d%e5%a4%8d%e5%91%bd%e2%80%a6%e2%80%a6&amp;pics=https://yuechuanx.github.io/icons/apple-touch-icon.png&amp;site=Yuechuan%27s%20Blog" title="分享到「QQ 空间」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon qzone-icon"><path d="M23.985 9.202c-.032-.099-.127-.223-.334-.258-.207-.036-7.351-1.406-7.351-1.406s-.105-.022-.198-.07c-.092-.047-.127-.167-.127-.167S12.447.956 12.349.77C12.25.583 12.104.532 12 .532c-.104 0-.251.051-.349.238-.098.186-3.626 6.531-3.626 6.531s-.035.12-.128.167c-.092.047-.197.07-.197.07S.556 8.908.348 8.943c-.208.036-.302.16-.333.258a.477.477 0 0 0 .125.449l5.362 5.49s.072.08.119.172c.016.104.005.21.005.21s-1.189 7.242-1.22 7.45.075.369.159.43c.083.062.233.106.421.013.189-.093 6.812-3.261 6.812-3.261s.098-.044.201-.061c.103-.017.201.061.201.061s6.623 3.168 6.812 3.261c.188.094.338.049.421-.013a.463.463 0 0 0 .159-.43c-.021-.14-.93-5.677-.93-5.677.876-.54 1.425-1.039 1.849-1.747-2.594.969-6.006 1.717-9.415 1.866-.915.041-2.41.097-3.473-.015-.678-.071-1.17-.144-1.243-.438-.053-.215.054-.46.545-.831a2640.5 2640.5 0 0 1 2.861-2.155c1.285-.968 3.559-2.47 3.559-2.731 0-.285-2.144-.781-4.037-.781-1.945 0-2.275.132-2.811.168-.488.034-.769.005-.804-.138-.06-.248.183-.389.588-.568.709-.314 1.86-.594 1.984-.626.194-.052 3.082-.805 5.618-.535 1.318.14 3.244.668 3.244 1.276 0 .342-1.721 1.494-3.225 2.597-1.149.843-2.217 1.561-2.217 1.688 0 .342 3.533 1.241 6.689 1.01l.003-.022c.048-.092.119-.172.119-.172l5.362-5.49a.477.477 0 0 0 .127-.449z"/></svg></a>
                 </div>
             
 
@@ -671,7 +674,7 @@ expect eof
             <ul class="related-list">
                 
                     <li class="related-item">
-                        <a href="/blog/posts/python/connect-serial-port-via-pyserial/" class="related-link">通过 pySerial 连接串口</a>
+                        <a href="/blog/posts/Python/connect-serial-port-via-pyserial/" class="related-link">通过 pySerial 连接串口</a>
                     </li>
                 
                     <li class="related-item">
@@ -739,7 +742,7 @@ expect eof
             
             
                 <li class="post-nav-next">
-                    <a href="/blog/posts/linux/how-to-find-files-under-linux/" rel="next">Linux如何查找大文件或目录总结 &gt;</a>
+                    <a href="/blog/posts/Linux/how-to-find-files-under-linux/" rel="next">Linux如何查找大文件或目录总结 &gt;</a>
                 </li>
             
         </ul>
@@ -763,7 +766,7 @@ expect eof
             
     <footer id="footer" class="footer">
         <div class="footer-inner">
-            <div class="site-info">©&nbsp;1969–2021&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon footer-icon"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>&nbsp;YueChuan</div><div class="powered-by">Powered by <a href="https://github.com/gohugoio/hugo" target="_blank" rel="noopener">Hugo</a> | Theme is <a href="https://github.com/reuixiy/hugo-theme-meme" target="_blank" rel="noopener">MemE</a></div><div class="site-copyright"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></div>
+            <div class="site-info">©&nbsp;2019–2022&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon footer-icon"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>&nbsp;YueChuan</div><div class="powered-by">Powered by <a href="https://github.com/gohugoio/hugo" target="_blank" rel="noopener">Hugo</a> | Theme is <a href="https://github.com/reuixiy/hugo-theme-meme" target="_blank" rel="noopener">MemE</a></div><div class="site-copyright"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></div>
                 <div class="busuanzi-site-uv-and-pv">
                     <span id="busuanzi_container_site_uv">本站访客数&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon busuanzi-site-uv"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"/></svg>&nbsp;<span id="busuanzi_value_site_uv"></span></span>&nbsp;|&nbsp;<span id="busuanzi_container_site_pv">本站访问量&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="icon busuanzi-site-pv"><path d="M288 144a110.94 110.94 0 0 0-31.24 5 55.4 55.4 0 0 1 7.24 27 56 56 0 0 1-56 56 55.4 55.4 0 0 1-27-7.24A111.71 111.71 0 1 0 288 144zm284.52 97.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400c-98.65 0-189.09-55-237.93-144C98.91 167 189.34 112 288 112s189.09 55 237.93 144C477.1 345 386.66 400 288 400z"/></svg>&nbsp;<span id="busuanzi_value_site_pv"></span></span>
                 </div>
@@ -805,7 +808,10 @@ expect eof
     <script src="https://cdn.jsdelivr.net/npm/medium-zoom@latest/dist/medium-zoom.min.js"></script>
 
 <script>
-    mediumZoom(document.querySelectorAll('div.post-body img'), {
+    let imgNodes = document.querySelectorAll('div.post-body img');
+    imgNodes = Array.from(imgNodes).filter(node => node.parentNode.tagName !== "A");
+
+    mediumZoom(imgNodes, {
         background: 'hsla(var(--color-bg-h), var(--color-bg-s), var(--color-bg-l), 0.95)'
     })
 </script>

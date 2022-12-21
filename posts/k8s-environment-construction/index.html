@@ -3,7 +3,10 @@
     <head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
     <meta charset="UTF-8" />
 
-    <meta name="generator" content="Hugo 0.83.1" /><meta name="theme-color" content="#fff" />
+    <meta name="generator" content="Hugo 0.108.0"><meta name="theme-color" content="#fff" />
+    <meta name="color-scheme" content="light dark">
+
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
@@ -12,13 +15,13 @@
     
     <meta http-equiv="Cache-Control" content="no-siteapp" />
 
-    <title>k8s 环境搭建 | 过往皆为序章</title>
+    <title>k8s 环境搭建 | Yuechuan&#39;s Blog</title>
 
-    <link rel="stylesheet" href="/blog/css/meme.min.dfc9d5c433e318a3a8dee8001ab7d1cca0931e087c3a47f71abf63d05c499adc.css"/>
+    <link rel="stylesheet" href="/blog/css/meme.min.594a532c4c0d6f5c590e7314e8073069c070404a99970c2f329207a6add7423b.css"/>
 
     
     
-        <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" defer></script><script src="/blog/js/meme.min.dfb373df4b2dc76b95791fad15cd5043f60b3f67f64144062f132ec3dbb689ac.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" defer></script><script src="/blog/js/meme.min.c276e7690c8f5a4f8308173595500d57510b83bc30901e69fd7306e79c37b56b.js"></script>
 
     
 
@@ -33,10 +36,10 @@
     <link rel="mask-icon" href="/blog/icons/safari-pinned-tab.svg" color="#2a6df4" />
     <link rel="apple-touch-icon" sizes="180x180" href="/blog/icons/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-title" content="过往皆为序章" />
+    <meta name="apple-mobile-web-app-title" content="Yuechuan&#39;s Blog" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="application-name" content="过往皆为序章" />
+    <meta name="application-name" content="Yuechuan&#39;s Blog" />
     <meta name="msapplication-starturl" content="../../../" />
     <meta name="msapplication-TileColor" content="#fff" />
     <meta name="msapplication-TileImage" content="../../../icons/mstile-150x150.png" />
@@ -60,7 +63,7 @@
         "description": "k8s 环境搭建 Intro 关于组织主题，活动相关介绍 前期准备 硬件要求 master节点 内存2核3G(最小2G) node节点 内存2核2G 其中可以 搭建过程 配置 etc/host 1 2 3 172.19.0.21 debian-21 172.19.0.22 debian-22 172.19.0.23 debian-23 配置 ssh apt install openssh-server vim /etc/ssh/sshd_config PermitRootLogin yes 开启 ipv4 的 forward机制 1 2 3 vim /etc/sysctl.conf net.ipv4.ip_forward=1 sysctl --system 关闭 swap swapoff -a 安装 runtime （每个节点都需要安装） 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 apt install……",
         "inLanguage" : "zh-CN",
         "articleSection": "posts",
-        "wordCount":  410 ,
+        "wordCount":  411 ,
         "image": "https://yuechuanx.github.io/icons/apple-touch-icon.png",
         "author": {
             "@type": "Person",
@@ -73,7 +76,7 @@
         "license": "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)",
         "publisher": {
             "@type": "Organization",
-            "name": "过往皆为序章",
+            "name": "Yuechuan's Blog",
             "logo": {
                 "@type": "ImageObject",
                 "url": "https://yuechuanx.github.io/icons/apple-touch-icon.png"
@@ -99,7 +102,7 @@
 <meta property="og:title" content="k8s 环境搭建" />
 <meta property="og:description" content="k8s 环境搭建 Intro 关于组织主题，活动相关介绍 前期准备 硬件要求 master节点 内存2核3G(最小2G) node节点 内存2核2G 其中可以 搭建过程 配置 etc/host 1 2 3 172.19.0.21 debian-21 172.19.0.22 debian-22 172.19.0.23 debian-23 配置 ssh apt install openssh-server vim /etc/ssh/sshd_config PermitRootLogin yes 开启 ipv4 的 forward机制 1 2 3 vim /etc/sysctl.conf net.ipv4.ip_forward=1 sysctl --system 关闭 swap swapoff -a 安装 runtime （每个节点都需要安装） 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 apt install……" />
 <meta property="og:url" content="https://yuechuanx.github.io/blog/posts/k8s-environment-construction/" />
-<meta property="og:site_name" content="过往皆为序章" />
+<meta property="og:site_name" content="Yuechuan&#39;s Blog" />
 <meta property="og:locale" content="zh" /><meta property="og:image" content="https://yuechuanx.github.io/icons/apple-touch-icon.png" />
     <meta property="og:type" content="article" />
     <meta property="article:published_time" content="2020-08-14T11:09:16&#43;00:00" />
@@ -142,7 +145,7 @@
                     
     <div class="site-brand">
         
-            <a href="/blog/" class="brand">过往皆为序章</a>
+            <a href="/" class="brand">Yuechuan&#39;s Blog</a>
         
     </div>
 
@@ -267,7 +270,7 @@
     
     
         
-        <span class="post-meta-item wordcount"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>&nbsp;410</span>
+        <span class="post-meta-item wordcount"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>&nbsp;411</span>
     
     
         
@@ -286,7 +289,7 @@
     <li><a id="contents:搭建过程" href="#搭建过程">搭建过程</a></li>
   </ol>
 </nav><div class="post-body e-content">
-              <h1 id="k8s-环境搭建"><a href="#k8s-环境搭建" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:k8s-环境搭建" class="headings">k8s 环境搭建</a></h1>
+                <h1 id="k8s-环境搭建"><a href="#k8s-环境搭建" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:k8s-环境搭建" class="headings">k8s 环境搭建</a></h1>
 <h2 id="intro"><a href="#intro" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:intro" class="headings">Intro</a></h2>
 <p>关于组织主题，活动相关介绍</p>
 <h2 id="前期准备"><a href="#前期准备" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:前期准备" class="headings">前期准备</a></h2>
@@ -300,15 +303,15 @@
 <p>配置 <code>etc/host</code></p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">172.19.0.21 debian-21
-172.19.0.22 debian-22
-172.19.0.23 debian-23
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">172.19.0.21 debian-21
+</span></span><span class="line"><span class="cl">172.19.0.22 debian-22
+</span></span><span class="line"><span class="cl">172.19.0.23 debian-23
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>配置 <code>ssh</code></p>
 <p><code>apt install openssh-server</code>
@@ -317,22 +320,22 @@
 <p>开启 ipv4 的 forward机制</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">vim /etc/sysctl.conf
-net.ipv4.ip_forward<span class="o">=</span><span class="m">1</span>
-sysctl --system
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim /etc/sysctl.conf
+</span></span><span class="line"><span class="cl">net.ipv4.ip_forward<span class="o">=</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl">sysctl --system
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>关闭 swap</p>
 <p><code>swapoff -a</code></p>
 <p>安装 runtime （每个节点都需要安装）</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -353,32 +356,32 @@ sysctl --system
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">apt install <span class="se">\
-</span><span class="se"></span>    apt-transport-https <span class="se">\
-</span><span class="se"></span>    ca-certificates <span class="se">\
-</span><span class="se"></span>    curl <span class="se">\
-</span><span class="se"></span>    gnupg-agent <span class="se">\
-</span><span class="se"></span>    software-properties-common
-
-
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg <span class="p">|</span> apt-key add -
-
-
-add-apt-repository <span class="se">\
-</span><span class="se"></span>   <span class="s2">&#34;deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/debian \
-</span><span class="s2">   </span><span class="k">$(</span>lsb_release -cs<span class="k">)</span><span class="s2"> \
-</span><span class="s2">   stable&#34;</span>
-
-apt update
-
-apt install docker-ce docker-ce-cli containerd.io
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">apt install <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    apt-transport-https <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    ca-certificates <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    curl <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    gnupg-agent <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    software-properties-common
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">curl -fsSL https://download.docker.com/linux/ubuntu/gpg <span class="p">|</span> apt-key add -
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">add-apt-repository <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>   <span class="s2">&#34;deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/debian \
+</span></span></span><span class="line"><span class="cl"><span class="s2">   </span><span class="k">$(</span>lsb_release -cs<span class="k">)</span><span class="s2"> \
+</span></span></span><span class="line"><span class="cl"><span class="s2">   stable&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">apt update
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">apt install docker-ce docker-ce-cli containerd.io
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>配置 docker</p>
 <p>修改docker配置</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -394,21 +397,21 @@ apt install docker-ce docker-ce-cli containerd.io
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">vim /etc/docker/daemon.json
-<span class="o">{</span>
-  <span class="s2">&#34;registry-mirrors&#34;</span>: <span class="o">[</span>
-    <span class="s2">&#34;https://dockerhub.azk8s.cn&#34;</span>,
-    <span class="s2">&#34;https://reg-mirror.qiniu.com&#34;</span>
-  <span class="o">]</span>,
-  <span class="s2">&#34;exec-opts&#34;</span>: <span class="o">[</span><span class="s2">&#34;native.cgroupdriver=systemd&#34;</span><span class="o">]</span>,
-  <span class="s2">&#34;log-driver&#34;</span>: <span class="s2">&#34;json-file&#34;</span>,
-  <span class="s2">&#34;log-opts&#34;</span>: <span class="o">{</span>
-    <span class="s2">&#34;max-size&#34;</span>: <span class="s2">&#34;100m&#34;</span>
-  <span class="o">}</span>,
-  <span class="s2">&#34;insecure-registries&#34;</span>: <span class="o">[</span><span class="s2">&#34;0.0.0.0/0&#34;</span><span class="o">]</span>,
-  <span class="s2">&#34;storage-driver&#34;</span>: <span class="s2">&#34;overlay2&#34;</span>
-<span class="o">}</span>
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim /etc/docker/daemon.json
+</span></span><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;registry-mirrors&#34;</span>: <span class="o">[</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;https://dockerhub.azk8s.cn&#34;</span>,
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;https://reg-mirror.qiniu.com&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">]</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;exec-opts&#34;</span>: <span class="o">[</span><span class="s2">&#34;native.cgroupdriver=systemd&#34;</span><span class="o">]</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;log-driver&#34;</span>: <span class="s2">&#34;json-file&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;log-opts&#34;</span>: <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;max-size&#34;</span>: <span class="s2">&#34;100m&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;insecure-registries&#34;</span>: <span class="o">[</span><span class="s2">&#34;0.0.0.0/0&#34;</span><span class="o">]</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;storage-driver&#34;</span>: <span class="s2">&#34;overlay2&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p><a href="https://kubernetes.io/zh/docs/concepts/overview/components/" target="_blank" rel="noopener">Kubernates 组件</a></p>
 <p>Master 组件</p>
@@ -491,7 +494,7 @@ apt install docker-ce docker-ce-cli containerd.io
 <p>安装 kebulet kubeadm kubectl （<strong>master、node节点都需要安装</strong>）</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -501,24 +504,24 @@ apt install docker-ce docker-ce-cli containerd.io
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">apt-get update <span class="o">&amp;&amp;</span> apt-get install -y apt-transport-https
-curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg <span class="p">|</span> apt-key add - 
-
-cat <span class="s">&lt;&lt;EOF &gt;/etc/apt/sources.list.d/kubernetes.list
-</span><span class="s">deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main
-</span><span class="s">EOF</span>
-apt-get update
-apt-get install -y kubelet kubeadm kubectl
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">apt-get update <span class="o">&amp;&amp;</span> apt-get install -y apt-transport-https
+</span></span><span class="line"><span class="cl">curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg <span class="p">|</span> apt-key add - 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">cat <span class="s">&lt;&lt;EOF &gt;/etc/apt/sources.list.d/kubernetes.list
+</span></span></span><span class="line"><span class="cl"><span class="s">deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span><span class="line"><span class="cl">apt-get update
+</span></span><span class="line"><span class="cl">apt-get install -y kubelet kubeadm kubectl
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>在 master 节点</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">kubeadm init --apiserver-advertise-address 172.19.0.21 --pod-network-cidr 10.10.0.0/16 --service-cidr 10.11.0.0/16  --kubernetes-version<span class="o">=</span>v1.15.3 --dry-run
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubeadm init --apiserver-advertise-address 172.19.0.21 --pod-network-cidr 10.10.0.0/16 --service-cidr 10.11.0.0/16  --kubernetes-version<span class="o">=</span>v1.15.3 --dry-run
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>k8s中要注意一下几个网络:</p>
 <ul>
@@ -589,7 +592,7 @@ apt-get install -y kubelet kubeadm kubectl
             
                 <div class="share-item linkedin">
                     
-                    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://yuechuanx.github.io/blog/posts/k8s-environment-construction/&amp;title=k8s%20%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba&amp;summary=k8s%20%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba%20Intro%20%e5%85%b3%e4%ba%8e%e7%bb%84%e7%bb%87%e4%b8%bb%e9%a2%98%ef%bc%8c%e6%b4%bb%e5%8a%a8%e7%9b%b8%e5%85%b3%e4%bb%8b%e7%bb%8d%20%e5%89%8d%e6%9c%9f%e5%87%86%e5%a4%87%20%e7%a1%ac%e4%bb%b6%e8%a6%81%e6%b1%82%20master%e8%8a%82%e7%82%b9%20%e5%86%85%e5%ad%982%e6%a0%b83G%28%e6%9c%80%e5%b0%8f2G%29%20node%e8%8a%82%e7%82%b9%20%e5%86%85%e5%ad%982%e6%a0%b82G%20%e5%85%b6%e4%b8%ad%e5%8f%af%e4%bb%a5%20%e6%90%ad%e5%bb%ba%e8%bf%87%e7%a8%8b%20%e9%85%8d%e7%bd%ae%20etc/host%201%202%203%20172.19.0.21%20debian-21%20172.19.0.22%20debian-22%20172.19.0.23%20debian-23%20%e9%85%8d%e7%bd%ae%20ssh%20apt%20install%20openssh-server%20vim%20/etc/ssh/sshd_config%20PermitRootLogin%20yes%20%e5%bc%80%e5%90%af%20ipv4%20%e7%9a%84%20forward%e6%9c%ba%e5%88%b6%201%202%203%20vim%20/etc/sysctl.conf%20net.ipv4.ip_forward=1%20sysctl%20--system%20%e5%85%b3%e9%97%ad%20swap%20swapoff%20-a%20%e5%ae%89%e8%a3%85%20runtime%20%ef%bc%88%e6%af%8f%e4%b8%aa%e8%8a%82%e7%82%b9%e9%83%bd%e9%9c%80%e8%a6%81%e5%ae%89%e8%a3%85%ef%bc%89%201%202%203%204%205%206%207%208%209%2010%2011%2012%2013%2014%2015%2016%2017%2018%2019%20apt%20install%e2%80%a6%e2%80%a6&amp;source=%e8%bf%87%e5%be%80%e7%9a%86%e4%b8%ba%e5%ba%8f%e7%ab%a0" title="分享到「LinkedIn」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon linkedin-icon"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://yuechuanx.github.io/blog/posts/k8s-environment-construction/&amp;title=k8s%20%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba&amp;summary=k8s%20%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba%20Intro%20%e5%85%b3%e4%ba%8e%e7%bb%84%e7%bb%87%e4%b8%bb%e9%a2%98%ef%bc%8c%e6%b4%bb%e5%8a%a8%e7%9b%b8%e5%85%b3%e4%bb%8b%e7%bb%8d%20%e5%89%8d%e6%9c%9f%e5%87%86%e5%a4%87%20%e7%a1%ac%e4%bb%b6%e8%a6%81%e6%b1%82%20master%e8%8a%82%e7%82%b9%20%e5%86%85%e5%ad%982%e6%a0%b83G%28%e6%9c%80%e5%b0%8f2G%29%20node%e8%8a%82%e7%82%b9%20%e5%86%85%e5%ad%982%e6%a0%b82G%20%e5%85%b6%e4%b8%ad%e5%8f%af%e4%bb%a5%20%e6%90%ad%e5%bb%ba%e8%bf%87%e7%a8%8b%20%e9%85%8d%e7%bd%ae%20etc/host%201%202%203%20172.19.0.21%20debian-21%20172.19.0.22%20debian-22%20172.19.0.23%20debian-23%20%e9%85%8d%e7%bd%ae%20ssh%20apt%20install%20openssh-server%20vim%20/etc/ssh/sshd_config%20PermitRootLogin%20yes%20%e5%bc%80%e5%90%af%20ipv4%20%e7%9a%84%20forward%e6%9c%ba%e5%88%b6%201%202%203%20vim%20/etc/sysctl.conf%20net.ipv4.ip_forward=1%20sysctl%20--system%20%e5%85%b3%e9%97%ad%20swap%20swapoff%20-a%20%e5%ae%89%e8%a3%85%20runtime%20%ef%bc%88%e6%af%8f%e4%b8%aa%e8%8a%82%e7%82%b9%e9%83%bd%e9%9c%80%e8%a6%81%e5%ae%89%e8%a3%85%ef%bc%89%201%202%203%204%205%206%207%208%209%2010%2011%2012%2013%2014%2015%2016%2017%2018%2019%20apt%20install%e2%80%a6%e2%80%a6&amp;source=Yuechuan%27s%20Blog" title="分享到「LinkedIn」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon linkedin-icon"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
                 </div>
             
 
@@ -617,14 +620,14 @@ apt-get install -y kubelet kubeadm kubectl
             
                 <div class="share-item qq">
                     
-                    <a href="https://connect.qq.com/widget/shareqq/index.html?url=https://yuechuanx.github.io/blog/posts/k8s-environment-construction/&amp;title=k8s%20%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba&amp;summary=k8s%20%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba%20Intro%20%e5%85%b3%e4%ba%8e%e7%bb%84%e7%bb%87%e4%b8%bb%e9%a2%98%ef%bc%8c%e6%b4%bb%e5%8a%a8%e7%9b%b8%e5%85%b3%e4%bb%8b%e7%bb%8d%20%e5%89%8d%e6%9c%9f%e5%87%86%e5%a4%87%20%e7%a1%ac%e4%bb%b6%e8%a6%81%e6%b1%82%20master%e8%8a%82%e7%82%b9%20%e5%86%85%e5%ad%982%e6%a0%b83G%28%e6%9c%80%e5%b0%8f2G%29%20node%e8%8a%82%e7%82%b9%20%e5%86%85%e5%ad%982%e6%a0%b82G%20%e5%85%b6%e4%b8%ad%e5%8f%af%e4%bb%a5%20%e6%90%ad%e5%bb%ba%e8%bf%87%e7%a8%8b%20%e9%85%8d%e7%bd%ae%20etc/host%201%202%203%20172.19.0.21%20debian-21%20172.19.0.22%20debian-22%20172.19.0.23%20debian-23%20%e9%85%8d%e7%bd%ae%20ssh%20apt%20install%20openssh-server%20vim%20/etc/ssh/sshd_config%20PermitRootLogin%20yes%20%e5%bc%80%e5%90%af%20ipv4%20%e7%9a%84%20forward%e6%9c%ba%e5%88%b6%201%202%203%20vim%20/etc/sysctl.conf%20net.ipv4.ip_forward=1%20sysctl%20--system%20%e5%85%b3%e9%97%ad%20swap%20swapoff%20-a%20%e5%ae%89%e8%a3%85%20runtime%20%ef%bc%88%e6%af%8f%e4%b8%aa%e8%8a%82%e7%82%b9%e9%83%bd%e9%9c%80%e8%a6%81%e5%ae%89%e8%a3%85%ef%bc%89%201%202%203%204%205%206%207%208%209%2010%2011%2012%2013%2014%2015%2016%2017%2018%2019%20apt%20install%e2%80%a6%e2%80%a6&amp;pics=https://yuechuanx.github.io/icons/apple-touch-icon.png&amp;site=%e8%bf%87%e5%be%80%e7%9a%86%e4%b8%ba%e5%ba%8f%e7%ab%a0" title="分享到「QQ」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon qq-icon"><path d="M433.754 420.445c-11.526 1.393-44.86-52.741-44.86-52.741 0 31.345-16.136 72.247-51.051 101.786 16.842 5.192 54.843 19.167 45.803 34.421-7.316 12.343-125.51 7.881-159.632 4.037-34.122 3.844-152.316 8.306-159.632-4.037-9.045-15.25 28.918-29.214 45.783-34.415-34.92-29.539-51.059-70.445-51.059-101.792 0 0-33.334 54.134-44.859 52.741-5.37-.65-12.424-29.644 9.347-99.704 10.261-33.024 21.995-60.478 40.144-105.779C60.683 98.063 108.982.006 224 0c113.737.006 163.156 96.133 160.264 214.963 18.118 45.223 29.912 72.85 40.144 105.778 21.768 70.06 14.716 99.053 9.346 99.704z"/></svg></a>
+                    <a href="https://connect.qq.com/widget/shareqq/index.html?url=https://yuechuanx.github.io/blog/posts/k8s-environment-construction/&amp;title=k8s%20%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba&amp;summary=k8s%20%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba%20Intro%20%e5%85%b3%e4%ba%8e%e7%bb%84%e7%bb%87%e4%b8%bb%e9%a2%98%ef%bc%8c%e6%b4%bb%e5%8a%a8%e7%9b%b8%e5%85%b3%e4%bb%8b%e7%bb%8d%20%e5%89%8d%e6%9c%9f%e5%87%86%e5%a4%87%20%e7%a1%ac%e4%bb%b6%e8%a6%81%e6%b1%82%20master%e8%8a%82%e7%82%b9%20%e5%86%85%e5%ad%982%e6%a0%b83G%28%e6%9c%80%e5%b0%8f2G%29%20node%e8%8a%82%e7%82%b9%20%e5%86%85%e5%ad%982%e6%a0%b82G%20%e5%85%b6%e4%b8%ad%e5%8f%af%e4%bb%a5%20%e6%90%ad%e5%bb%ba%e8%bf%87%e7%a8%8b%20%e9%85%8d%e7%bd%ae%20etc/host%201%202%203%20172.19.0.21%20debian-21%20172.19.0.22%20debian-22%20172.19.0.23%20debian-23%20%e9%85%8d%e7%bd%ae%20ssh%20apt%20install%20openssh-server%20vim%20/etc/ssh/sshd_config%20PermitRootLogin%20yes%20%e5%bc%80%e5%90%af%20ipv4%20%e7%9a%84%20forward%e6%9c%ba%e5%88%b6%201%202%203%20vim%20/etc/sysctl.conf%20net.ipv4.ip_forward=1%20sysctl%20--system%20%e5%85%b3%e9%97%ad%20swap%20swapoff%20-a%20%e5%ae%89%e8%a3%85%20runtime%20%ef%bc%88%e6%af%8f%e4%b8%aa%e8%8a%82%e7%82%b9%e9%83%bd%e9%9c%80%e8%a6%81%e5%ae%89%e8%a3%85%ef%bc%89%201%202%203%204%205%206%207%208%209%2010%2011%2012%2013%2014%2015%2016%2017%2018%2019%20apt%20install%e2%80%a6%e2%80%a6&amp;pics=https://yuechuanx.github.io/icons/apple-touch-icon.png&amp;site=Yuechuan%27s%20Blog" title="分享到「QQ」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon qq-icon"><path d="M433.754 420.445c-11.526 1.393-44.86-52.741-44.86-52.741 0 31.345-16.136 72.247-51.051 101.786 16.842 5.192 54.843 19.167 45.803 34.421-7.316 12.343-125.51 7.881-159.632 4.037-34.122 3.844-152.316 8.306-159.632-4.037-9.045-15.25 28.918-29.214 45.783-34.415-34.92-29.539-51.059-70.445-51.059-101.792 0 0-33.334 54.134-44.859 52.741-5.37-.65-12.424-29.644 9.347-99.704 10.261-33.024 21.995-60.478 40.144-105.779C60.683 98.063 108.982.006 224 0c113.737.006 163.156 96.133 160.264 214.963 18.118 45.223 29.912 72.85 40.144 105.778 21.768 70.06 14.716 99.053 9.346 99.704z"/></svg></a>
                 </div>
             
 
             
                 <div class="share-item qzone">
                     
-                    <a href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://yuechuanx.github.io/blog/posts/k8s-environment-construction/&amp;title=k8s%20%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba&amp;summary=k8s%20%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba%20Intro%20%e5%85%b3%e4%ba%8e%e7%bb%84%e7%bb%87%e4%b8%bb%e9%a2%98%ef%bc%8c%e6%b4%bb%e5%8a%a8%e7%9b%b8%e5%85%b3%e4%bb%8b%e7%bb%8d%20%e5%89%8d%e6%9c%9f%e5%87%86%e5%a4%87%20%e7%a1%ac%e4%bb%b6%e8%a6%81%e6%b1%82%20master%e8%8a%82%e7%82%b9%20%e5%86%85%e5%ad%982%e6%a0%b83G%28%e6%9c%80%e5%b0%8f2G%29%20node%e8%8a%82%e7%82%b9%20%e5%86%85%e5%ad%982%e6%a0%b82G%20%e5%85%b6%e4%b8%ad%e5%8f%af%e4%bb%a5%20%e6%90%ad%e5%bb%ba%e8%bf%87%e7%a8%8b%20%e9%85%8d%e7%bd%ae%20etc/host%201%202%203%20172.19.0.21%20debian-21%20172.19.0.22%20debian-22%20172.19.0.23%20debian-23%20%e9%85%8d%e7%bd%ae%20ssh%20apt%20install%20openssh-server%20vim%20/etc/ssh/sshd_config%20PermitRootLogin%20yes%20%e5%bc%80%e5%90%af%20ipv4%20%e7%9a%84%20forward%e6%9c%ba%e5%88%b6%201%202%203%20vim%20/etc/sysctl.conf%20net.ipv4.ip_forward=1%20sysctl%20--system%20%e5%85%b3%e9%97%ad%20swap%20swapoff%20-a%20%e5%ae%89%e8%a3%85%20runtime%20%ef%bc%88%e6%af%8f%e4%b8%aa%e8%8a%82%e7%82%b9%e9%83%bd%e9%9c%80%e8%a6%81%e5%ae%89%e8%a3%85%ef%bc%89%201%202%203%204%205%206%207%208%209%2010%2011%2012%2013%2014%2015%2016%2017%2018%2019%20apt%20install%e2%80%a6%e2%80%a6&amp;pics=https://yuechuanx.github.io/icons/apple-touch-icon.png&amp;site=%e8%bf%87%e5%be%80%e7%9a%86%e4%b8%ba%e5%ba%8f%e7%ab%a0" title="分享到「QQ 空间」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon qzone-icon"><path d="M23.985 9.202c-.032-.099-.127-.223-.334-.258-.207-.036-7.351-1.406-7.351-1.406s-.105-.022-.198-.07c-.092-.047-.127-.167-.127-.167S12.447.956 12.349.77C12.25.583 12.104.532 12 .532c-.104 0-.251.051-.349.238-.098.186-3.626 6.531-3.626 6.531s-.035.12-.128.167c-.092.047-.197.07-.197.07S.556 8.908.348 8.943c-.208.036-.302.16-.333.258a.477.477 0 0 0 .125.449l5.362 5.49s.072.08.119.172c.016.104.005.21.005.21s-1.189 7.242-1.22 7.45.075.369.159.43c.083.062.233.106.421.013.189-.093 6.812-3.261 6.812-3.261s.098-.044.201-.061c.103-.017.201.061.201.061s6.623 3.168 6.812 3.261c.188.094.338.049.421-.013a.463.463 0 0 0 .159-.43c-.021-.14-.93-5.677-.93-5.677.876-.54 1.425-1.039 1.849-1.747-2.594.969-6.006 1.717-9.415 1.866-.915.041-2.41.097-3.473-.015-.678-.071-1.17-.144-1.243-.438-.053-.215.054-.46.545-.831a2640.5 2640.5 0 0 1 2.861-2.155c1.285-.968 3.559-2.47 3.559-2.731 0-.285-2.144-.781-4.037-.781-1.945 0-2.275.132-2.811.168-.488.034-.769.005-.804-.138-.06-.248.183-.389.588-.568.709-.314 1.86-.594 1.984-.626.194-.052 3.082-.805 5.618-.535 1.318.14 3.244.668 3.244 1.276 0 .342-1.721 1.494-3.225 2.597-1.149.843-2.217 1.561-2.217 1.688 0 .342 3.533 1.241 6.689 1.01l.003-.022c.048-.092.119-.172.119-.172l5.362-5.49a.477.477 0 0 0 .127-.449z"/></svg></a>
+                    <a href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://yuechuanx.github.io/blog/posts/k8s-environment-construction/&amp;title=k8s%20%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba&amp;summary=k8s%20%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba%20Intro%20%e5%85%b3%e4%ba%8e%e7%bb%84%e7%bb%87%e4%b8%bb%e9%a2%98%ef%bc%8c%e6%b4%bb%e5%8a%a8%e7%9b%b8%e5%85%b3%e4%bb%8b%e7%bb%8d%20%e5%89%8d%e6%9c%9f%e5%87%86%e5%a4%87%20%e7%a1%ac%e4%bb%b6%e8%a6%81%e6%b1%82%20master%e8%8a%82%e7%82%b9%20%e5%86%85%e5%ad%982%e6%a0%b83G%28%e6%9c%80%e5%b0%8f2G%29%20node%e8%8a%82%e7%82%b9%20%e5%86%85%e5%ad%982%e6%a0%b82G%20%e5%85%b6%e4%b8%ad%e5%8f%af%e4%bb%a5%20%e6%90%ad%e5%bb%ba%e8%bf%87%e7%a8%8b%20%e9%85%8d%e7%bd%ae%20etc/host%201%202%203%20172.19.0.21%20debian-21%20172.19.0.22%20debian-22%20172.19.0.23%20debian-23%20%e9%85%8d%e7%bd%ae%20ssh%20apt%20install%20openssh-server%20vim%20/etc/ssh/sshd_config%20PermitRootLogin%20yes%20%e5%bc%80%e5%90%af%20ipv4%20%e7%9a%84%20forward%e6%9c%ba%e5%88%b6%201%202%203%20vim%20/etc/sysctl.conf%20net.ipv4.ip_forward=1%20sysctl%20--system%20%e5%85%b3%e9%97%ad%20swap%20swapoff%20-a%20%e5%ae%89%e8%a3%85%20runtime%20%ef%bc%88%e6%af%8f%e4%b8%aa%e8%8a%82%e7%82%b9%e9%83%bd%e9%9c%80%e8%a6%81%e5%ae%89%e8%a3%85%ef%bc%89%201%202%203%204%205%206%207%208%209%2010%2011%2012%2013%2014%2015%2016%2017%2018%2019%20apt%20install%e2%80%a6%e2%80%a6&amp;pics=https://yuechuanx.github.io/icons/apple-touch-icon.png&amp;site=Yuechuan%27s%20Blog" title="分享到「QQ 空间」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon qzone-icon"><path d="M23.985 9.202c-.032-.099-.127-.223-.334-.258-.207-.036-7.351-1.406-7.351-1.406s-.105-.022-.198-.07c-.092-.047-.127-.167-.127-.167S12.447.956 12.349.77C12.25.583 12.104.532 12 .532c-.104 0-.251.051-.349.238-.098.186-3.626 6.531-3.626 6.531s-.035.12-.128.167c-.092.047-.197.07-.197.07S.556 8.908.348 8.943c-.208.036-.302.16-.333.258a.477.477 0 0 0 .125.449l5.362 5.49s.072.08.119.172c.016.104.005.21.005.21s-1.189 7.242-1.22 7.45.075.369.159.43c.083.062.233.106.421.013.189-.093 6.812-3.261 6.812-3.261s.098-.044.201-.061c.103-.017.201.061.201.061s6.623 3.168 6.812 3.261c.188.094.338.049.421-.013a.463.463 0 0 0 .159-.43c-.021-.14-.93-5.677-.93-5.677.876-.54 1.425-1.039 1.849-1.747-2.594.969-6.006 1.717-9.415 1.866-.915.041-2.41.097-3.473-.015-.678-.071-1.17-.144-1.243-.438-.053-.215.054-.46.545-.831a2640.5 2640.5 0 0 1 2.861-2.155c1.285-.968 3.559-2.47 3.559-2.731 0-.285-2.144-.781-4.037-.781-1.945 0-2.275.132-2.811.168-.488.034-.769.005-.804-.138-.06-.248.183-.389.588-.568.709-.314 1.86-.594 1.984-.626.194-.052 3.082-.805 5.618-.535 1.318.14 3.244.668 3.244 1.276 0 .342-1.721 1.494-3.225 2.597-1.149.843-2.217 1.561-2.217 1.688 0 .342 3.533 1.241 6.689 1.01l.003-.022c.048-.092.119-.172.119-.172l5.362-5.49a.477.477 0 0 0 .127-.449z"/></svg></a>
                 </div>
             
 
@@ -710,7 +713,7 @@ apt-get install -y kubelet kubeadm kubectl
             
     <footer id="footer" class="footer">
         <div class="footer-inner">
-            <div class="site-info">©&nbsp;1969–2021&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon footer-icon"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>&nbsp;YueChuan</div><div class="powered-by">Powered by <a href="https://github.com/gohugoio/hugo" target="_blank" rel="noopener">Hugo</a> | Theme is <a href="https://github.com/reuixiy/hugo-theme-meme" target="_blank" rel="noopener">MemE</a></div><div class="site-copyright"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></div>
+            <div class="site-info">©&nbsp;2019–2022&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon footer-icon"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>&nbsp;YueChuan</div><div class="powered-by">Powered by <a href="https://github.com/gohugoio/hugo" target="_blank" rel="noopener">Hugo</a> | Theme is <a href="https://github.com/reuixiy/hugo-theme-meme" target="_blank" rel="noopener">MemE</a></div><div class="site-copyright"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></div>
                 <div class="busuanzi-site-uv-and-pv">
                     <span id="busuanzi_container_site_uv">本站访客数&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon busuanzi-site-uv"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"/></svg>&nbsp;<span id="busuanzi_value_site_uv"></span></span>&nbsp;|&nbsp;<span id="busuanzi_container_site_pv">本站访问量&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="icon busuanzi-site-pv"><path d="M288 144a110.94 110.94 0 0 0-31.24 5 55.4 55.4 0 0 1 7.24 27 56 56 0 0 1-56 56 55.4 55.4 0 0 1-27-7.24A111.71 111.71 0 1 0 288 144zm284.52 97.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400c-98.65 0-189.09-55-237.93-144C98.91 167 189.34 112 288 112s189.09 55 237.93 144C477.1 345 386.66 400 288 400z"/></svg>&nbsp;<span id="busuanzi_value_site_pv"></span></span>
                 </div>
@@ -752,7 +755,10 @@ apt-get install -y kubelet kubeadm kubectl
     <script src="https://cdn.jsdelivr.net/npm/medium-zoom@latest/dist/medium-zoom.min.js"></script>
 
 <script>
-    mediumZoom(document.querySelectorAll('div.post-body img'), {
+    let imgNodes = document.querySelectorAll('div.post-body img');
+    imgNodes = Array.from(imgNodes).filter(node => node.parentNode.tagName !== "A");
+
+    mediumZoom(imgNodes, {
         background: 'hsla(var(--color-bg-h), var(--color-bg-s), var(--color-bg-l), 0.95)'
     })
 </script>

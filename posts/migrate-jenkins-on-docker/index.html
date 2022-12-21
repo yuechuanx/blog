@@ -3,7 +3,10 @@
     <head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
     <meta charset="UTF-8" />
 
-    <meta name="generator" content="Hugo 0.83.1" /><meta name="theme-color" content="#fff" />
+    <meta name="generator" content="Hugo 0.108.0"><meta name="theme-color" content="#fff" />
+    <meta name="color-scheme" content="light dark">
+
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
@@ -12,13 +15,13 @@
     
     <meta http-equiv="Cache-Control" content="no-siteapp" />
 
-    <title>迁移 Jenkins 到 Docker | 过往皆为序章</title>
+    <title>迁移 Jenkins 到 Docker | Yuechuan&#39;s Blog</title>
 
-    <link rel="stylesheet" href="/blog/css/meme.min.dfc9d5c433e318a3a8dee8001ab7d1cca0931e087c3a47f71abf63d05c499adc.css"/>
+    <link rel="stylesheet" href="/blog/css/meme.min.594a532c4c0d6f5c590e7314e8073069c070404a99970c2f329207a6add7423b.css"/>
 
     
     
-        <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" defer></script><script src="/blog/js/meme.min.dfb373df4b2dc76b95791fad15cd5043f60b3f67f64144062f132ec3dbb689ac.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" defer></script><script src="/blog/js/meme.min.c276e7690c8f5a4f8308173595500d57510b83bc30901e69fd7306e79c37b56b.js"></script>
 
     
 
@@ -33,10 +36,10 @@
     <link rel="mask-icon" href="/blog/icons/safari-pinned-tab.svg" color="#2a6df4" />
     <link rel="apple-touch-icon" sizes="180x180" href="/blog/icons/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-title" content="过往皆为序章" />
+    <meta name="apple-mobile-web-app-title" content="Yuechuan&#39;s Blog" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="application-name" content="过往皆为序章" />
+    <meta name="application-name" content="Yuechuan&#39;s Blog" />
     <meta name="msapplication-starturl" content="../../../" />
     <meta name="msapplication-TileColor" content="#fff" />
     <meta name="msapplication-TileImage" content="../../../icons/mstile-150x150.png" />
@@ -60,7 +63,7 @@
         "description": "Jenkins 天然程序和数据分离的属性，使得它能够容易的迁移与升级。 本文记录想把 Jenkins Service 迁移到 docker 容器内。 备份 通过脚本打包 最简单的方式是将 Jenkins 的工作目录打包。一般为 /var/jenkins_home，或者 /var/lib/jenkins。如果你的数据量相当小，请直接用 tar 打包。再直接迁移到需要重新部署的 Jenkins 工作目录即可。 本……",
         "inLanguage" : "zh-CN",
         "articleSection": "posts",
-        "wordCount":  1789 ,
+        "wordCount":  1799 ,
         "image": ["https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/logo-jenkins.png","https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/jenkins-plugin-thinbackup-settings.png","https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/jenkins-master-slave-connection-error.png","https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/jenkins-agents-port-config.png"],
         "author": {
             "@type": "Person",
@@ -73,7 +76,7 @@
         "license": "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)",
         "publisher": {
             "@type": "Organization",
-            "name": "过往皆为序章",
+            "name": "Yuechuan's Blog",
             "logo": {
                 "@type": "ImageObject",
                 "url": "https://yuechuanx.github.io/icons/apple-touch-icon.png"
@@ -100,7 +103,7 @@
 <meta property="og:title" content="迁移 Jenkins 到 Docker" />
 <meta property="og:description" content="Jenkins 天然程序和数据分离的属性，使得它能够容易的迁移与升级。 本文记录想把 Jenkins Service 迁移到 docker 容器内。 备份 通过脚本打包 最简单的方式是将 Jenkins 的工作目录打包。一般为 /var/jenkins_home，或者 /var/lib/jenkins。如果你的数据量相当小，请直接用 tar 打包。再直接迁移到需要重新部署的 Jenkins 工作目录即可。 本……" />
 <meta property="og:url" content="https://yuechuanx.github.io/blog/posts/migrate-jenkins-on-docker/" />
-<meta property="og:site_name" content="过往皆为序章" />
+<meta property="og:site_name" content="Yuechuan&#39;s Blog" />
 <meta property="og:locale" content="zh" /><meta property="og:image" content="https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/logo-jenkins.png" />
 <meta property="og:type" content="article" />
     <meta property="article:published_time" content="2020-08-18T15:36:13&#43;08:00" />
@@ -143,7 +146,7 @@
                     
     <div class="site-brand">
         
-            <a href="/blog/" class="brand">过往皆为序章</a>
+            <a href="/" class="brand">Yuechuan&#39;s Blog</a>
         
     </div>
 
@@ -268,7 +271,7 @@
     
     
         
-        <span class="post-meta-item wordcount"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>&nbsp;1789</span>
+        <span class="post-meta-item wordcount"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>&nbsp;1799</span>
     
     
         
@@ -303,7 +306,7 @@
     <li><a id="contents:参考" href="#参考">参考</a></li>
   </ol>
 </nav><div class="post-body e-content">
-              <p><img src="https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/logo-jenkins.png" alt="jenkins-logo"></p>
+                <p><img src="https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/logo-jenkins.png" alt="jenkins-logo"></p>
 <blockquote>
 <p>Jenkins 天然程序和数据分离的属性，使得它能够容易的迁移与升级。</p>
 <p>本文记录想把 Jenkins Service 迁移到 docker 容器内。</p>
@@ -318,7 +321,7 @@
 <p><em>backup.sh</em></p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -328,20 +331,20 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
-</span><span class="cp"></span>
-<span class="nv">current_date</span><span class="o">=</span><span class="sb">`</span>date <span class="s2">&#34;+%Y%m%d%H%M&#34;</span><span class="sb">`</span>
-<span class="nv">jenkins_backup_path</span><span class="o">=</span><span class="s1">&#39;/home/jks-master/jenkins/backups/backup_&#39;</span><span class="nv">$current_date</span><span class="s1">&#39;.tar&#39;</span>
-<span class="nv">jenkins_home</span><span class="o">=</span><span class="s1">&#39;/var/lib/jenkins&#39;</span>
-
-<span class="c1">#echo $jenkins_backup_path</span>
-tar -zcvf <span class="nv">$jenkins_backup_path</span> --exclude-from<span class="o">=</span>exclude.txt <span class="nv">$jenkins_home</span>
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="nv">current_date</span><span class="o">=</span><span class="sb">`</span>date <span class="s2">&#34;+%Y%m%d%H%M&#34;</span><span class="sb">`</span>
+</span></span><span class="line"><span class="cl"><span class="nv">jenkins_backup_path</span><span class="o">=</span><span class="s1">&#39;/home/jks-master/jenkins/backups/backup_&#39;</span><span class="nv">$current_date</span><span class="s1">&#39;.tar&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">jenkins_home</span><span class="o">=</span><span class="s1">&#39;/var/lib/jenkins&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#echo $jenkins_backup_path</span>
+</span></span><span class="line"><span class="cl">tar -zcvf <span class="nv">$jenkins_backup_path</span> --exclude-from<span class="o">=</span>exclude.txt <span class="nv">$jenkins_home</span>
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p><em>exclude.txt</em></p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -353,17 +356,17 @@ tar -zcvf <span class="nv">$jenkins_backup_path</span> --exclude-from<span class
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-txt" data-lang="txt">/var/lib/jenkins/jobs
-/var/lib/jenkins/workspace
-
-/var/lib/jenkins/backups
-/var/lib/jenkins/inbox
-/var/lib/jenkins/Anaconda3
-/var/lib/jenkins/anaconda3
-/var/lib/jenkins/caches
-/var/lib/jenkins/.cache
-/var/lib/jenkins/Pipeline_*
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">/var/lib/jenkins/jobs
+</span></span><span class="line"><span class="cl">/var/lib/jenkins/workspace
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">/var/lib/jenkins/backups
+</span></span><span class="line"><span class="cl">/var/lib/jenkins/inbox
+</span></span><span class="line"><span class="cl">/var/lib/jenkins/Anaconda3
+</span></span><span class="line"><span class="cl">/var/lib/jenkins/anaconda3
+</span></span><span class="line"><span class="cl">/var/lib/jenkins/caches
+</span></span><span class="line"><span class="cl">/var/lib/jenkins/.cache
+</span></span><span class="line"><span class="cl">/var/lib/jenkins/Pipeline_*
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><h3 id="通过插件备份"><a href="#通过插件备份" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:通过插件备份" class="headings">通过插件备份</a></h3>
 <p>目前 Jenkins 中比较成熟的插件是 ThinBackup。里面提供了相对丰富的配置项</p>
@@ -375,7 +378,7 @@ tar -zcvf <span class="nv">$jenkins_backup_path</span> --exclude-from<span class
 <p>如果 <em>Jenkins</em> 需要自定义一些工具依赖，环境配置，可以将这些写入 <em>Dockerfile</em> ，使用 <code>docker build</code> 生成新镜像。</p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -402,32 +405,32 @@ tar -zcvf <span class="nv">$jenkins_backup_path</span> --exclude-from<span class
 </span><span class="lnt">25
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="k">FROM</span><span class="s"> jenkins/jenkins:lts</span><span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="k">USER</span><span class="s"> root</span><span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="k">ENV</span> <span class="nv">TOOL_CHAIN_PATH</span><span class="o">=</span>/opt/toolchain<span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="k">COPY</span> gcc-linaro-5.4.1-2017.05-x86_64_arm-linux-gnueabihf.tar.xz /tmp/<span class="err">
-</span><span class="err"></span><span class="k">COPY</span> gcc-arm-none-eabi-5_2-2015q4-20151219-linux.tar.bz2 /tmp/<span class="err">
-</span><span class="err"></span><span class="k">COPY</span> jcli-linux-amd64.tar.gz /tmp/<span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="k">RUN</span> mkdir <span class="si">${</span><span class="nv">TOOL_CHAIN_PATH</span><span class="si">}</span> <span class="se">\
-</span><span class="se"></span>    <span class="o">&amp;&amp;</span> tar -Jxvf /tmp/gcc-linaro-5.4.1-2017.05-x86_64_arm-linux-gnueabihf.tar.xz -C <span class="si">${</span><span class="nv">TOOL_CHAIN_PATH</span><span class="si">}</span> <span class="se">\
-</span><span class="se"></span>    <span class="o">&amp;&amp;</span> tar -jxvf /tmp/gcc-arm-none-eabi-5_2-2015q4-20151219-linux.tar.bz2 -C <span class="si">${</span><span class="nv">TOOL_CHAIN_PATH</span><span class="si">}</span> <span class="se">\
-</span><span class="se"></span>    <span class="o">&amp;&amp;</span> tar -zxvf /tmp/jcli-linux-amd64.tar.gz -C /tmp <span class="se">\
-</span><span class="se"></span>    <span class="o">&amp;&amp;</span> cp /tmp/jcli /usr/local/bin <span class="se">\
-</span><span class="se"></span>    <span class="o">&amp;&amp;</span> cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime <span class="o">&amp;&amp;</span> <span class="nb">echo</span> Asia/Shanghai &gt; /etc/timezone <span class="se">\
-</span><span class="se"></span>    <span class="o">&amp;&amp;</span> sed -i <span class="s1">&#39;s/deb.debian.org/mirrors.ustc.edu.cn/g&#39;</span> /etc/apt/sources.list <span class="se">\
-</span><span class="se"></span>    <span class="o">&amp;&amp;</span> apt update <span class="o">&amp;&amp;</span> apt install --no-install-recommends -y zlib1g-dev libmagickwand-dev <span class="se">\
-</span><span class="se"></span>        lib32z1 lib32ncurses5 lib32stdc++6 squashfs-tools mtd-utils texinfo autopoint bison flex <span class="se">\
-</span><span class="se"></span>        liblz4-tool u-boot-tools <span class="se">\
-</span><span class="se"></span>        curl fakeroot wget vim htop python3 python3-pip python3-setuptools tree git autoconf automake make gcc <span class="se">\
-</span><span class="se"></span>    <span class="o">&amp;&amp;</span> pip3 install --upgrade pip <span class="se">\
-</span><span class="se"></span>    <span class="o">&amp;&amp;</span> rm -rf /tmp/*<span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="k">USER</span><span class="s"> jenkins</span><span class="err">
-</span></code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> jenkins/jenkins:lts</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">USER</span><span class="s"> root</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ENV</span> <span class="nv">TOOL_CHAIN_PATH</span><span class="o">=</span>/opt/toolchain<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> gcc-linaro-5.4.1-2017.05-x86_64_arm-linux-gnueabihf.tar.xz /tmp/<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> gcc-arm-none-eabi-5_2-2015q4-20151219-linux.tar.bz2 /tmp/<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> jcli-linux-amd64.tar.gz /tmp/<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> mkdir <span class="si">${</span><span class="nv">TOOL_CHAIN_PATH</span><span class="si">}</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="o">&amp;&amp;</span> tar -Jxvf /tmp/gcc-linaro-5.4.1-2017.05-x86_64_arm-linux-gnueabihf.tar.xz -C <span class="si">${</span><span class="nv">TOOL_CHAIN_PATH</span><span class="si">}</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="o">&amp;&amp;</span> tar -jxvf /tmp/gcc-arm-none-eabi-5_2-2015q4-20151219-linux.tar.bz2 -C <span class="si">${</span><span class="nv">TOOL_CHAIN_PATH</span><span class="si">}</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="o">&amp;&amp;</span> tar -zxvf /tmp/jcli-linux-amd64.tar.gz -C /tmp <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="o">&amp;&amp;</span> cp /tmp/jcli /usr/local/bin <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="o">&amp;&amp;</span> cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime <span class="o">&amp;&amp;</span> <span class="nb">echo</span> Asia/Shanghai &gt; /etc/timezone <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="o">&amp;&amp;</span> sed -i <span class="s1">&#39;s/deb.debian.org/mirrors.ustc.edu.cn/g&#39;</span> /etc/apt/sources.list <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="o">&amp;&amp;</span> apt update <span class="o">&amp;&amp;</span> apt install --no-install-recommends -y zlib1g-dev libmagickwand-dev <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        lib32z1 lib32ncurses5 lib32stdc++6 squashfs-tools mtd-utils texinfo autopoint bison flex <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        liblz4-tool u-boot-tools <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>        curl fakeroot wget vim htop python3 python3-pip python3-setuptools tree git autoconf automake make gcc <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="o">&amp;&amp;</span> pip3 install --upgrade pip <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="o">&amp;&amp;</span> rm -rf /tmp/*<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">USER</span><span class="s"> jenkins</span><span class="err">
+</span></span></span></code></pre></td></tr></table></div>
 </div>
 </div><p><code>COPY</code> 后的文件需和 <em>dockerfile</em> 放置在同一目录下，<code>docker build . -t jenkins:&lt;YOUR TAG&gt;</code></p>
 <h2 id="磁盘raid可选"><a href="#磁盘raid可选" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:磁盘raid可选" class="headings">磁盘RAID（可选）</a></h2>
@@ -435,11 +438,11 @@ tar -zcvf <span class="nv">$jenkins_backup_path</span> --exclude-from<span class
 <h2 id="安装-mdadm"><a href="#安装-mdadm" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:安装-mdadm" class="headings">安装 <code>mdadm</code></a></h2>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">apt install mdamd
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">apt install mdamd
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><p>mdadm 参数</p>
 <ul>
@@ -468,7 +471,7 @@ tar -zcvf <span class="nv">$jenkins_backup_path</span> --exclude-from<span class
 <h3 id="创建磁盘阵列"><a href="#创建磁盘阵列" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:创建磁盘阵列" class="headings">创建磁盘阵列</a></h3>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -497,39 +500,39 @@ tar -zcvf <span class="nv">$jenkins_backup_path</span> --exclude-from<span class
 </span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 创建阵列</span>
-mdadm -Cv /dev/md5 -l5 -n3 -x1 /dev/sd<span class="o">[</span>bcde<span class="o">]</span> 
-<span class="c1"># -C 创建冗余 </span>
-<span class="c1"># v显示过程 </span>
-<span class="c1"># -l raid级别</span>
-<span class="c1"># n raid硬盘数 </span>
-<span class="c1"># x热备盘数量</span>
-
-<span class="c1"># 查看同步进度</span>
-madam -D /dev/md5 
-<span class="c1"># 另一种查看方法</span>
-*cat /proc/mdstat 
-
-<span class="c1"># 创建文件系统</span>
-mkfs.ext4 /dev/md5
-
-mdadm -D -s &gt;/etc/mdadm.conf <span class="nv">生成配置文件并在末尾加auto</span><span class="o">=</span>yes <span class="o">(</span>*不生成配置文件 开机raid损坏<span class="o">)</span>
-
-mdadm /dev/md5 -f /dev/sdb 模拟sdb损坏 -f损坏
-
-mdadm /dev/md5 -r /dev/sdb 拔出模拟损坏的sdb
-
-mdadm /dev/md5 -a /dev/sdb 插回模拟损坏的sdb
-
-mdadm -G /dev/md5 -n4     raid拉伸 把热备盘sdb也加入磁盘阵列
-
-resize2fs /dev/md5 在线动态格式化 使新加入的sdb容量也被挂在上
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 创建阵列</span>
+</span></span><span class="line"><span class="cl">mdadm -Cv /dev/md5 -l5 -n3 -x1 /dev/sd<span class="o">[</span>bcde<span class="o">]</span> 
+</span></span><span class="line"><span class="cl"><span class="c1"># -C 创建冗余 </span>
+</span></span><span class="line"><span class="cl"><span class="c1"># v显示过程 </span>
+</span></span><span class="line"><span class="cl"><span class="c1"># -l raid级别</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># n raid硬盘数 </span>
+</span></span><span class="line"><span class="cl"><span class="c1"># x热备盘数量</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看同步进度</span>
+</span></span><span class="line"><span class="cl">madam -D /dev/md5 
+</span></span><span class="line"><span class="cl"><span class="c1"># 另一种查看方法</span>
+</span></span><span class="line"><span class="cl">*cat /proc/mdstat 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建文件系统</span>
+</span></span><span class="line"><span class="cl">mkfs.ext4 /dev/md5
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mdadm -D -s &gt;/etc/mdadm.conf 生成配置文件并在末尾加auto<span class="o">=</span>yes <span class="o">(</span>*不生成配置文件 开机raid损坏<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mdadm /dev/md5 -f /dev/sdb 模拟sdb损坏 -f损坏
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mdadm /dev/md5 -r /dev/sdb 拔出模拟损坏的sdb
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mdadm /dev/md5 -a /dev/sdb 插回模拟损坏的sdb
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mdadm -G /dev/md5 -n4     raid拉伸 把热备盘sdb也加入磁盘阵列
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">resize2fs /dev/md5 在线动态格式化 使新加入的sdb容量也被挂在上
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><h3 id="正确完成创建后"><a href="#正确完成创建后" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:正确完成创建后" class="headings">正确完成创建后</a></h3>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -559,40 +562,40 @@ resize2fs /dev/md5 在线动态格式化 使新加入的sdb容量也被挂在上
 </span><span class="lnt">28
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">NAME    MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINT
-loop0     7:0    <span class="m">0</span>   276K  <span class="m">1</span> loop  /snap/gnome-characters/539
-loop1     7:1    <span class="m">0</span>   276K  <span class="m">1</span> loop  /snap/gnome-characters/550
-loop2     7:2    <span class="m">0</span>   2.2M  <span class="m">1</span> loop  /snap/gnome-system-monitor/148
-loop3     7:3    <span class="m">0</span>  62.1M  <span class="m">1</span> loop  /snap/gtk-common-themes/1506
-loop4     7:4    <span class="m">0</span>    55M  <span class="m">1</span> loop  /snap/core18/1880
-loop5     7:5    <span class="m">0</span>   2.2M  <span class="m">1</span> loop  /snap/gnome-system-monitor/145
-loop6     7:6    <span class="m">0</span>   956K  <span class="m">1</span> loop  /snap/gnome-logs/93
-loop7     7:7    <span class="m">0</span>  54.8M  <span class="m">1</span> loop  /snap/gtk-common-themes/1502
-loop8     7:8    <span class="m">0</span> 161.4M  <span class="m">1</span> loop  /snap/gnome-3-28-1804/128
-loop9     7:9    <span class="m">0</span>   2.4M  <span class="m">1</span> loop  /snap/gnome-calculator/730
-loop10    7:10   <span class="m">0</span>   956K  <span class="m">1</span> loop  /snap/gnome-logs/100
-loop11    7:11   <span class="m">0</span> 140.7M  <span class="m">1</span> loop  /snap/gnome-3-26-1604/100
-loop12    7:12   <span class="m">0</span>  55.3M  <span class="m">1</span> loop  /snap/core18/1885
-loop13    7:13   <span class="m">0</span>   2.4M  <span class="m">1</span> loop  /snap/gnome-calculator/748
-loop14    7:14   <span class="m">0</span> 160.2M  <span class="m">1</span> loop  /snap/gnome-3-28-1804/116
-loop15    7:15   <span class="m">0</span> 255.6M  <span class="m">1</span> loop  /snap/gnome-3-34-1804/36
-loop16    7:16   <span class="m">0</span>  96.6M  <span class="m">1</span> loop  /snap/core/9804
-loop17    7:17   <span class="m">0</span>    97M  <span class="m">1</span> loop  /snap/core/9665
-loop18    7:18   <span class="m">0</span> 140.7M  <span class="m">1</span> loop  /snap/gnome-3-26-1604/98
-loop19    7:19   <span class="m">0</span> 255.6M  <span class="m">1</span> loop  /snap/gnome-3-34-1804/33
-sda       8:0    <span class="m">0</span> 238.5G  <span class="m">0</span> disk
-├─sda1    8:1    <span class="m">0</span>   512M  <span class="m">0</span> part  /boot/efi
-└─sda2    8:2    <span class="m">0</span>   238G  <span class="m">0</span> part  /
-sdb       8:16   <span class="m">0</span>   7.3T  <span class="m">0</span> disk
-└─md127   9:127  <span class="m">0</span>   7.3T  <span class="m">0</span> raid1 /mnt/hdd
-sdc       8:32   <span class="m">0</span>   7.3T  <span class="m">0</span> disk
-└─md127   9:127  <span class="m">0</span>   7.3T  <span class="m">0</span> raid1 /mnt/hdd
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">NAME    MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINT
+</span></span><span class="line"><span class="cl">loop0     7:0    <span class="m">0</span>   276K  <span class="m">1</span> loop  /snap/gnome-characters/539
+</span></span><span class="line"><span class="cl">loop1     7:1    <span class="m">0</span>   276K  <span class="m">1</span> loop  /snap/gnome-characters/550
+</span></span><span class="line"><span class="cl">loop2     7:2    <span class="m">0</span>   2.2M  <span class="m">1</span> loop  /snap/gnome-system-monitor/148
+</span></span><span class="line"><span class="cl">loop3     7:3    <span class="m">0</span>  62.1M  <span class="m">1</span> loop  /snap/gtk-common-themes/1506
+</span></span><span class="line"><span class="cl">loop4     7:4    <span class="m">0</span>    55M  <span class="m">1</span> loop  /snap/core18/1880
+</span></span><span class="line"><span class="cl">loop5     7:5    <span class="m">0</span>   2.2M  <span class="m">1</span> loop  /snap/gnome-system-monitor/145
+</span></span><span class="line"><span class="cl">loop6     7:6    <span class="m">0</span>   956K  <span class="m">1</span> loop  /snap/gnome-logs/93
+</span></span><span class="line"><span class="cl">loop7     7:7    <span class="m">0</span>  54.8M  <span class="m">1</span> loop  /snap/gtk-common-themes/1502
+</span></span><span class="line"><span class="cl">loop8     7:8    <span class="m">0</span> 161.4M  <span class="m">1</span> loop  /snap/gnome-3-28-1804/128
+</span></span><span class="line"><span class="cl">loop9     7:9    <span class="m">0</span>   2.4M  <span class="m">1</span> loop  /snap/gnome-calculator/730
+</span></span><span class="line"><span class="cl">loop10    7:10   <span class="m">0</span>   956K  <span class="m">1</span> loop  /snap/gnome-logs/100
+</span></span><span class="line"><span class="cl">loop11    7:11   <span class="m">0</span> 140.7M  <span class="m">1</span> loop  /snap/gnome-3-26-1604/100
+</span></span><span class="line"><span class="cl">loop12    7:12   <span class="m">0</span>  55.3M  <span class="m">1</span> loop  /snap/core18/1885
+</span></span><span class="line"><span class="cl">loop13    7:13   <span class="m">0</span>   2.4M  <span class="m">1</span> loop  /snap/gnome-calculator/748
+</span></span><span class="line"><span class="cl">loop14    7:14   <span class="m">0</span> 160.2M  <span class="m">1</span> loop  /snap/gnome-3-28-1804/116
+</span></span><span class="line"><span class="cl">loop15    7:15   <span class="m">0</span> 255.6M  <span class="m">1</span> loop  /snap/gnome-3-34-1804/36
+</span></span><span class="line"><span class="cl">loop16    7:16   <span class="m">0</span>  96.6M  <span class="m">1</span> loop  /snap/core/9804
+</span></span><span class="line"><span class="cl">loop17    7:17   <span class="m">0</span>    97M  <span class="m">1</span> loop  /snap/core/9665
+</span></span><span class="line"><span class="cl">loop18    7:18   <span class="m">0</span> 140.7M  <span class="m">1</span> loop  /snap/gnome-3-26-1604/98
+</span></span><span class="line"><span class="cl">loop19    7:19   <span class="m">0</span> 255.6M  <span class="m">1</span> loop  /snap/gnome-3-34-1804/33
+</span></span><span class="line"><span class="cl">sda       8:0    <span class="m">0</span> 238.5G  <span class="m">0</span> disk
+</span></span><span class="line"><span class="cl">├─sda1    8:1    <span class="m">0</span>   512M  <span class="m">0</span> part  /boot/efi
+</span></span><span class="line"><span class="cl">└─sda2    8:2    <span class="m">0</span>   238G  <span class="m">0</span> part  /
+</span></span><span class="line"><span class="cl">sdb       8:16   <span class="m">0</span>   7.3T  <span class="m">0</span> disk
+</span></span><span class="line"><span class="cl">└─md127   9:127  <span class="m">0</span>   7.3T  <span class="m">0</span> raid1 /mnt/hdd
+</span></span><span class="line"><span class="cl">sdc       8:32   <span class="m">0</span>   7.3T  <span class="m">0</span> disk
+</span></span><span class="line"><span class="cl">└─md127   9:127  <span class="m">0</span>   7.3T  <span class="m">0</span> raid1 /mnt/hdd
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><h3 id="正确删除软raid方法"><a href="#正确删除软raid方法" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:正确删除软raid方法" class="headings">正确删除软raid方法</a></h3>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -601,14 +604,14 @@ sdc       8:32   <span class="m">0</span>   7.3T  <span class="m">0</span> disk
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="m">1</span> umount /md5  先卸载阵列
-
-<span class="m">2</span> mdadm -S /dev/md5 停止raid运行 <span class="o">(</span>*大S stop<span class="o">)</span>
-
-<span class="m">3</span> mdadm --misc --zero-superblock /dev/sd<span class="o">[</span>bcdef<span class="o">]</span> 删除磁盘
-
-<span class="m">4</span> 删除配置文件 <span class="o">(</span>*如果fstab或rc.local配置了自动挂载都要删除<span class="o">)</span>
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="m">1</span> umount /md5  先卸载阵列
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="m">2</span> mdadm -S /dev/md5 停止raid运行 <span class="o">(</span>*大S stop<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="m">3</span> mdadm --misc --zero-superblock /dev/sd<span class="o">[</span>bcdef<span class="o">]</span> 删除磁盘
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="m">4</span> 删除配置文件 <span class="o">(</span>*如果fstab或rc.local配置了自动挂载都要删除<span class="o">)</span>
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><h3 id="总结"><a href="#总结" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href="#contents:总结" class="headings">总结</a></h3>
 <ul>
@@ -635,7 +638,7 @@ sdc       8:32   <span class="m">0</span>   7.3T  <span class="m">0</span> disk
 <p><em>start_docker_jenkins.sh</em></p>
 <div class="highlight"><div class="chroma">
 <div class="table-container"><table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -647,17 +650,17 @@ sdc       8:32   <span class="m">0</span>   7.3T  <span class="m">0</span> disk
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
-</span><span class="cp"></span>
-docker run -d <span class="se">\
-</span><span class="se"></span>-u 1000:1000 <span class="se">\
-</span><span class="se"></span>-v /var/jenkins_home:/var/jenkins_home <span class="se">\
-</span><span class="se"></span>-v /var/lib/jenkins/jobs:/var/jenkins_home/jobs <span class="se">\
-</span><span class="se"></span>-v /var/lib/jenkins/workspace:/var/jenkins_home/workspace <span class="se">\
-</span><span class="se"></span>-p 8080:8080 <span class="se">\
-</span><span class="se"></span>-p 50000:50000 <span class="se">\
-</span><span class="se"></span>jenkins/jenkins:&lt;TAG&gt;
-</code></pre></td></tr></table></div>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl">docker run -d <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-u 1000:1000 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-v /var/jenkins_home:/var/jenkins_home <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-v /var/lib/jenkins/jobs:/var/jenkins_home/jobs <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-v /var/lib/jenkins/workspace:/var/jenkins_home/workspace <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-p 8080:8080 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-p 50000:50000 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>jenkins/jenkins:&lt;TAG&gt;
+</span></span></code></pre></td></tr></table></div>
 </div>
 </div><blockquote>
 <p>50000 端口用来作为 slave 通信，在 异常情况 第二种提到</p>
@@ -746,7 +749,7 @@ docker run -d <span class="se">\
             
                 <div class="share-item linkedin">
                     
-                    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://yuechuanx.github.io/blog/posts/migrate-jenkins-on-docker/&amp;title=%e8%bf%81%e7%a7%bb%20Jenkins%20%e5%88%b0%20Docker&amp;summary=Jenkins%20%e5%a4%a9%e7%84%b6%e7%a8%8b%e5%ba%8f%e5%92%8c%e6%95%b0%e6%8d%ae%e5%88%86%e7%a6%bb%e7%9a%84%e5%b1%9e%e6%80%a7%ef%bc%8c%e4%bd%bf%e5%be%97%e5%ae%83%e8%83%bd%e5%a4%9f%e5%ae%b9%e6%98%93%e7%9a%84%e8%bf%81%e7%a7%bb%e4%b8%8e%e5%8d%87%e7%ba%a7%e3%80%82%20%e6%9c%ac%e6%96%87%e8%ae%b0%e5%bd%95%e6%83%b3%e6%8a%8a%20Jenkins%20Service%20%e8%bf%81%e7%a7%bb%e5%88%b0%20docker%20%e5%ae%b9%e5%99%a8%e5%86%85%e3%80%82%20%e5%a4%87%e4%bb%bd%20%e9%80%9a%e8%bf%87%e8%84%9a%e6%9c%ac%e6%89%93%e5%8c%85%20%e6%9c%80%e7%ae%80%e5%8d%95%e7%9a%84%e6%96%b9%e5%bc%8f%e6%98%af%e5%b0%86%20Jenkins%20%e7%9a%84%e5%b7%a5%e4%bd%9c%e7%9b%ae%e5%bd%95%e6%89%93%e5%8c%85%e3%80%82%e4%b8%80%e8%88%ac%e4%b8%ba%20/var/jenkins_home%ef%bc%8c%e6%88%96%e8%80%85%20/var/lib/jenkins%e3%80%82%e5%a6%82%e6%9e%9c%e4%bd%a0%e7%9a%84%e6%95%b0%e6%8d%ae%e9%87%8f%e7%9b%b8%e5%bd%93%e5%b0%8f%ef%bc%8c%e8%af%b7%e7%9b%b4%e6%8e%a5%e7%94%a8%20tar%20%e6%89%93%e5%8c%85%e3%80%82%e5%86%8d%e7%9b%b4%e6%8e%a5%e8%bf%81%e7%a7%bb%e5%88%b0%e9%9c%80%e8%a6%81%e9%87%8d%e6%96%b0%e9%83%a8%e7%bd%b2%e7%9a%84%20Jenkins%20%e5%b7%a5%e4%bd%9c%e7%9b%ae%e5%bd%95%e5%8d%b3%e5%8f%af%e3%80%82%20%e6%9c%ac%e2%80%a6%e2%80%a6&amp;source=%e8%bf%87%e5%be%80%e7%9a%86%e4%b8%ba%e5%ba%8f%e7%ab%a0" title="分享到「LinkedIn」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon linkedin-icon"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://yuechuanx.github.io/blog/posts/migrate-jenkins-on-docker/&amp;title=%e8%bf%81%e7%a7%bb%20Jenkins%20%e5%88%b0%20Docker&amp;summary=Jenkins%20%e5%a4%a9%e7%84%b6%e7%a8%8b%e5%ba%8f%e5%92%8c%e6%95%b0%e6%8d%ae%e5%88%86%e7%a6%bb%e7%9a%84%e5%b1%9e%e6%80%a7%ef%bc%8c%e4%bd%bf%e5%be%97%e5%ae%83%e8%83%bd%e5%a4%9f%e5%ae%b9%e6%98%93%e7%9a%84%e8%bf%81%e7%a7%bb%e4%b8%8e%e5%8d%87%e7%ba%a7%e3%80%82%20%e6%9c%ac%e6%96%87%e8%ae%b0%e5%bd%95%e6%83%b3%e6%8a%8a%20Jenkins%20Service%20%e8%bf%81%e7%a7%bb%e5%88%b0%20docker%20%e5%ae%b9%e5%99%a8%e5%86%85%e3%80%82%20%e5%a4%87%e4%bb%bd%20%e9%80%9a%e8%bf%87%e8%84%9a%e6%9c%ac%e6%89%93%e5%8c%85%20%e6%9c%80%e7%ae%80%e5%8d%95%e7%9a%84%e6%96%b9%e5%bc%8f%e6%98%af%e5%b0%86%20Jenkins%20%e7%9a%84%e5%b7%a5%e4%bd%9c%e7%9b%ae%e5%bd%95%e6%89%93%e5%8c%85%e3%80%82%e4%b8%80%e8%88%ac%e4%b8%ba%20/var/jenkins_home%ef%bc%8c%e6%88%96%e8%80%85%20/var/lib/jenkins%e3%80%82%e5%a6%82%e6%9e%9c%e4%bd%a0%e7%9a%84%e6%95%b0%e6%8d%ae%e9%87%8f%e7%9b%b8%e5%bd%93%e5%b0%8f%ef%bc%8c%e8%af%b7%e7%9b%b4%e6%8e%a5%e7%94%a8%20tar%20%e6%89%93%e5%8c%85%e3%80%82%e5%86%8d%e7%9b%b4%e6%8e%a5%e8%bf%81%e7%a7%bb%e5%88%b0%e9%9c%80%e8%a6%81%e9%87%8d%e6%96%b0%e9%83%a8%e7%bd%b2%e7%9a%84%20Jenkins%20%e5%b7%a5%e4%bd%9c%e7%9b%ae%e5%bd%95%e5%8d%b3%e5%8f%af%e3%80%82%20%e6%9c%ac%e2%80%a6%e2%80%a6&amp;source=Yuechuan%27s%20Blog" title="分享到「LinkedIn」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon linkedin-icon"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
                 </div>
             
 
@@ -774,14 +777,14 @@ docker run -d <span class="se">\
             
                 <div class="share-item qq">
                     
-                    <a href="https://connect.qq.com/widget/shareqq/index.html?url=https://yuechuanx.github.io/blog/posts/migrate-jenkins-on-docker/&amp;title=%e8%bf%81%e7%a7%bb%20Jenkins%20%e5%88%b0%20Docker&amp;summary=Jenkins%20%e5%a4%a9%e7%84%b6%e7%a8%8b%e5%ba%8f%e5%92%8c%e6%95%b0%e6%8d%ae%e5%88%86%e7%a6%bb%e7%9a%84%e5%b1%9e%e6%80%a7%ef%bc%8c%e4%bd%bf%e5%be%97%e5%ae%83%e8%83%bd%e5%a4%9f%e5%ae%b9%e6%98%93%e7%9a%84%e8%bf%81%e7%a7%bb%e4%b8%8e%e5%8d%87%e7%ba%a7%e3%80%82%20%e6%9c%ac%e6%96%87%e8%ae%b0%e5%bd%95%e6%83%b3%e6%8a%8a%20Jenkins%20Service%20%e8%bf%81%e7%a7%bb%e5%88%b0%20docker%20%e5%ae%b9%e5%99%a8%e5%86%85%e3%80%82%20%e5%a4%87%e4%bb%bd%20%e9%80%9a%e8%bf%87%e8%84%9a%e6%9c%ac%e6%89%93%e5%8c%85%20%e6%9c%80%e7%ae%80%e5%8d%95%e7%9a%84%e6%96%b9%e5%bc%8f%e6%98%af%e5%b0%86%20Jenkins%20%e7%9a%84%e5%b7%a5%e4%bd%9c%e7%9b%ae%e5%bd%95%e6%89%93%e5%8c%85%e3%80%82%e4%b8%80%e8%88%ac%e4%b8%ba%20/var/jenkins_home%ef%bc%8c%e6%88%96%e8%80%85%20/var/lib/jenkins%e3%80%82%e5%a6%82%e6%9e%9c%e4%bd%a0%e7%9a%84%e6%95%b0%e6%8d%ae%e9%87%8f%e7%9b%b8%e5%bd%93%e5%b0%8f%ef%bc%8c%e8%af%b7%e7%9b%b4%e6%8e%a5%e7%94%a8%20tar%20%e6%89%93%e5%8c%85%e3%80%82%e5%86%8d%e7%9b%b4%e6%8e%a5%e8%bf%81%e7%a7%bb%e5%88%b0%e9%9c%80%e8%a6%81%e9%87%8d%e6%96%b0%e9%83%a8%e7%bd%b2%e7%9a%84%20Jenkins%20%e5%b7%a5%e4%bd%9c%e7%9b%ae%e5%bd%95%e5%8d%b3%e5%8f%af%e3%80%82%20%e6%9c%ac%e2%80%a6%e2%80%a6&amp;pics=https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/logo-jenkins.png&amp;site=%e8%bf%87%e5%be%80%e7%9a%86%e4%b8%ba%e5%ba%8f%e7%ab%a0" title="分享到「QQ」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon qq-icon"><path d="M433.754 420.445c-11.526 1.393-44.86-52.741-44.86-52.741 0 31.345-16.136 72.247-51.051 101.786 16.842 5.192 54.843 19.167 45.803 34.421-7.316 12.343-125.51 7.881-159.632 4.037-34.122 3.844-152.316 8.306-159.632-4.037-9.045-15.25 28.918-29.214 45.783-34.415-34.92-29.539-51.059-70.445-51.059-101.792 0 0-33.334 54.134-44.859 52.741-5.37-.65-12.424-29.644 9.347-99.704 10.261-33.024 21.995-60.478 40.144-105.779C60.683 98.063 108.982.006 224 0c113.737.006 163.156 96.133 160.264 214.963 18.118 45.223 29.912 72.85 40.144 105.778 21.768 70.06 14.716 99.053 9.346 99.704z"/></svg></a>
+                    <a href="https://connect.qq.com/widget/shareqq/index.html?url=https://yuechuanx.github.io/blog/posts/migrate-jenkins-on-docker/&amp;title=%e8%bf%81%e7%a7%bb%20Jenkins%20%e5%88%b0%20Docker&amp;summary=Jenkins%20%e5%a4%a9%e7%84%b6%e7%a8%8b%e5%ba%8f%e5%92%8c%e6%95%b0%e6%8d%ae%e5%88%86%e7%a6%bb%e7%9a%84%e5%b1%9e%e6%80%a7%ef%bc%8c%e4%bd%bf%e5%be%97%e5%ae%83%e8%83%bd%e5%a4%9f%e5%ae%b9%e6%98%93%e7%9a%84%e8%bf%81%e7%a7%bb%e4%b8%8e%e5%8d%87%e7%ba%a7%e3%80%82%20%e6%9c%ac%e6%96%87%e8%ae%b0%e5%bd%95%e6%83%b3%e6%8a%8a%20Jenkins%20Service%20%e8%bf%81%e7%a7%bb%e5%88%b0%20docker%20%e5%ae%b9%e5%99%a8%e5%86%85%e3%80%82%20%e5%a4%87%e4%bb%bd%20%e9%80%9a%e8%bf%87%e8%84%9a%e6%9c%ac%e6%89%93%e5%8c%85%20%e6%9c%80%e7%ae%80%e5%8d%95%e7%9a%84%e6%96%b9%e5%bc%8f%e6%98%af%e5%b0%86%20Jenkins%20%e7%9a%84%e5%b7%a5%e4%bd%9c%e7%9b%ae%e5%bd%95%e6%89%93%e5%8c%85%e3%80%82%e4%b8%80%e8%88%ac%e4%b8%ba%20/var/jenkins_home%ef%bc%8c%e6%88%96%e8%80%85%20/var/lib/jenkins%e3%80%82%e5%a6%82%e6%9e%9c%e4%bd%a0%e7%9a%84%e6%95%b0%e6%8d%ae%e9%87%8f%e7%9b%b8%e5%bd%93%e5%b0%8f%ef%bc%8c%e8%af%b7%e7%9b%b4%e6%8e%a5%e7%94%a8%20tar%20%e6%89%93%e5%8c%85%e3%80%82%e5%86%8d%e7%9b%b4%e6%8e%a5%e8%bf%81%e7%a7%bb%e5%88%b0%e9%9c%80%e8%a6%81%e9%87%8d%e6%96%b0%e9%83%a8%e7%bd%b2%e7%9a%84%20Jenkins%20%e5%b7%a5%e4%bd%9c%e7%9b%ae%e5%bd%95%e5%8d%b3%e5%8f%af%e3%80%82%20%e6%9c%ac%e2%80%a6%e2%80%a6&amp;pics=https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/logo-jenkins.png&amp;site=Yuechuan%27s%20Blog" title="分享到「QQ」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon qq-icon"><path d="M433.754 420.445c-11.526 1.393-44.86-52.741-44.86-52.741 0 31.345-16.136 72.247-51.051 101.786 16.842 5.192 54.843 19.167 45.803 34.421-7.316 12.343-125.51 7.881-159.632 4.037-34.122 3.844-152.316 8.306-159.632-4.037-9.045-15.25 28.918-29.214 45.783-34.415-34.92-29.539-51.059-70.445-51.059-101.792 0 0-33.334 54.134-44.859 52.741-5.37-.65-12.424-29.644 9.347-99.704 10.261-33.024 21.995-60.478 40.144-105.779C60.683 98.063 108.982.006 224 0c113.737.006 163.156 96.133 160.264 214.963 18.118 45.223 29.912 72.85 40.144 105.778 21.768 70.06 14.716 99.053 9.346 99.704z"/></svg></a>
                 </div>
             
 
             
                 <div class="share-item qzone">
                     
-                    <a href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://yuechuanx.github.io/blog/posts/migrate-jenkins-on-docker/&amp;title=%e8%bf%81%e7%a7%bb%20Jenkins%20%e5%88%b0%20Docker&amp;summary=Jenkins%20%e5%a4%a9%e7%84%b6%e7%a8%8b%e5%ba%8f%e5%92%8c%e6%95%b0%e6%8d%ae%e5%88%86%e7%a6%bb%e7%9a%84%e5%b1%9e%e6%80%a7%ef%bc%8c%e4%bd%bf%e5%be%97%e5%ae%83%e8%83%bd%e5%a4%9f%e5%ae%b9%e6%98%93%e7%9a%84%e8%bf%81%e7%a7%bb%e4%b8%8e%e5%8d%87%e7%ba%a7%e3%80%82%20%e6%9c%ac%e6%96%87%e8%ae%b0%e5%bd%95%e6%83%b3%e6%8a%8a%20Jenkins%20Service%20%e8%bf%81%e7%a7%bb%e5%88%b0%20docker%20%e5%ae%b9%e5%99%a8%e5%86%85%e3%80%82%20%e5%a4%87%e4%bb%bd%20%e9%80%9a%e8%bf%87%e8%84%9a%e6%9c%ac%e6%89%93%e5%8c%85%20%e6%9c%80%e7%ae%80%e5%8d%95%e7%9a%84%e6%96%b9%e5%bc%8f%e6%98%af%e5%b0%86%20Jenkins%20%e7%9a%84%e5%b7%a5%e4%bd%9c%e7%9b%ae%e5%bd%95%e6%89%93%e5%8c%85%e3%80%82%e4%b8%80%e8%88%ac%e4%b8%ba%20/var/jenkins_home%ef%bc%8c%e6%88%96%e8%80%85%20/var/lib/jenkins%e3%80%82%e5%a6%82%e6%9e%9c%e4%bd%a0%e7%9a%84%e6%95%b0%e6%8d%ae%e9%87%8f%e7%9b%b8%e5%bd%93%e5%b0%8f%ef%bc%8c%e8%af%b7%e7%9b%b4%e6%8e%a5%e7%94%a8%20tar%20%e6%89%93%e5%8c%85%e3%80%82%e5%86%8d%e7%9b%b4%e6%8e%a5%e8%bf%81%e7%a7%bb%e5%88%b0%e9%9c%80%e8%a6%81%e9%87%8d%e6%96%b0%e9%83%a8%e7%bd%b2%e7%9a%84%20Jenkins%20%e5%b7%a5%e4%bd%9c%e7%9b%ae%e5%bd%95%e5%8d%b3%e5%8f%af%e3%80%82%20%e6%9c%ac%e2%80%a6%e2%80%a6&amp;pics=https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/logo-jenkins.png&amp;site=%e8%bf%87%e5%be%80%e7%9a%86%e4%b8%ba%e5%ba%8f%e7%ab%a0" title="分享到「QQ 空间」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon qzone-icon"><path d="M23.985 9.202c-.032-.099-.127-.223-.334-.258-.207-.036-7.351-1.406-7.351-1.406s-.105-.022-.198-.07c-.092-.047-.127-.167-.127-.167S12.447.956 12.349.77C12.25.583 12.104.532 12 .532c-.104 0-.251.051-.349.238-.098.186-3.626 6.531-3.626 6.531s-.035.12-.128.167c-.092.047-.197.07-.197.07S.556 8.908.348 8.943c-.208.036-.302.16-.333.258a.477.477 0 0 0 .125.449l5.362 5.49s.072.08.119.172c.016.104.005.21.005.21s-1.189 7.242-1.22 7.45.075.369.159.43c.083.062.233.106.421.013.189-.093 6.812-3.261 6.812-3.261s.098-.044.201-.061c.103-.017.201.061.201.061s6.623 3.168 6.812 3.261c.188.094.338.049.421-.013a.463.463 0 0 0 .159-.43c-.021-.14-.93-5.677-.93-5.677.876-.54 1.425-1.039 1.849-1.747-2.594.969-6.006 1.717-9.415 1.866-.915.041-2.41.097-3.473-.015-.678-.071-1.17-.144-1.243-.438-.053-.215.054-.46.545-.831a2640.5 2640.5 0 0 1 2.861-2.155c1.285-.968 3.559-2.47 3.559-2.731 0-.285-2.144-.781-4.037-.781-1.945 0-2.275.132-2.811.168-.488.034-.769.005-.804-.138-.06-.248.183-.389.588-.568.709-.314 1.86-.594 1.984-.626.194-.052 3.082-.805 5.618-.535 1.318.14 3.244.668 3.244 1.276 0 .342-1.721 1.494-3.225 2.597-1.149.843-2.217 1.561-2.217 1.688 0 .342 3.533 1.241 6.689 1.01l.003-.022c.048-.092.119-.172.119-.172l5.362-5.49a.477.477 0 0 0 .127-.449z"/></svg></a>
+                    <a href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://yuechuanx.github.io/blog/posts/migrate-jenkins-on-docker/&amp;title=%e8%bf%81%e7%a7%bb%20Jenkins%20%e5%88%b0%20Docker&amp;summary=Jenkins%20%e5%a4%a9%e7%84%b6%e7%a8%8b%e5%ba%8f%e5%92%8c%e6%95%b0%e6%8d%ae%e5%88%86%e7%a6%bb%e7%9a%84%e5%b1%9e%e6%80%a7%ef%bc%8c%e4%bd%bf%e5%be%97%e5%ae%83%e8%83%bd%e5%a4%9f%e5%ae%b9%e6%98%93%e7%9a%84%e8%bf%81%e7%a7%bb%e4%b8%8e%e5%8d%87%e7%ba%a7%e3%80%82%20%e6%9c%ac%e6%96%87%e8%ae%b0%e5%bd%95%e6%83%b3%e6%8a%8a%20Jenkins%20Service%20%e8%bf%81%e7%a7%bb%e5%88%b0%20docker%20%e5%ae%b9%e5%99%a8%e5%86%85%e3%80%82%20%e5%a4%87%e4%bb%bd%20%e9%80%9a%e8%bf%87%e8%84%9a%e6%9c%ac%e6%89%93%e5%8c%85%20%e6%9c%80%e7%ae%80%e5%8d%95%e7%9a%84%e6%96%b9%e5%bc%8f%e6%98%af%e5%b0%86%20Jenkins%20%e7%9a%84%e5%b7%a5%e4%bd%9c%e7%9b%ae%e5%bd%95%e6%89%93%e5%8c%85%e3%80%82%e4%b8%80%e8%88%ac%e4%b8%ba%20/var/jenkins_home%ef%bc%8c%e6%88%96%e8%80%85%20/var/lib/jenkins%e3%80%82%e5%a6%82%e6%9e%9c%e4%bd%a0%e7%9a%84%e6%95%b0%e6%8d%ae%e9%87%8f%e7%9b%b8%e5%bd%93%e5%b0%8f%ef%bc%8c%e8%af%b7%e7%9b%b4%e6%8e%a5%e7%94%a8%20tar%20%e6%89%93%e5%8c%85%e3%80%82%e5%86%8d%e7%9b%b4%e6%8e%a5%e8%bf%81%e7%a7%bb%e5%88%b0%e9%9c%80%e8%a6%81%e9%87%8d%e6%96%b0%e9%83%a8%e7%bd%b2%e7%9a%84%20Jenkins%20%e5%b7%a5%e4%bd%9c%e7%9b%ae%e5%bd%95%e5%8d%b3%e5%8f%af%e3%80%82%20%e6%9c%ac%e2%80%a6%e2%80%a6&amp;pics=https://blog-1252790741.cos.ap-shanghai.myqcloud.com/uPic/logo-jenkins.png&amp;site=Yuechuan%27s%20Blog" title="分享到「QQ 空间」" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon qzone-icon"><path d="M23.985 9.202c-.032-.099-.127-.223-.334-.258-.207-.036-7.351-1.406-7.351-1.406s-.105-.022-.198-.07c-.092-.047-.127-.167-.127-.167S12.447.956 12.349.77C12.25.583 12.104.532 12 .532c-.104 0-.251.051-.349.238-.098.186-3.626 6.531-3.626 6.531s-.035.12-.128.167c-.092.047-.197.07-.197.07S.556 8.908.348 8.943c-.208.036-.302.16-.333.258a.477.477 0 0 0 .125.449l5.362 5.49s.072.08.119.172c.016.104.005.21.005.21s-1.189 7.242-1.22 7.45.075.369.159.43c.083.062.233.106.421.013.189-.093 6.812-3.261 6.812-3.261s.098-.044.201-.061c.103-.017.201.061.201.061s6.623 3.168 6.812 3.261c.188.094.338.049.421-.013a.463.463 0 0 0 .159-.43c-.021-.14-.93-5.677-.93-5.677.876-.54 1.425-1.039 1.849-1.747-2.594.969-6.006 1.717-9.415 1.866-.915.041-2.41.097-3.473-.015-.678-.071-1.17-.144-1.243-.438-.053-.215.054-.46.545-.831a2640.5 2640.5 0 0 1 2.861-2.155c1.285-.968 3.559-2.47 3.559-2.731 0-.285-2.144-.781-4.037-.781-1.945 0-2.275.132-2.811.168-.488.034-.769.005-.804-.138-.06-.248.183-.389.588-.568.709-.314 1.86-.594 1.984-.626.194-.052 3.082-.805 5.618-.535 1.318.14 3.244.668 3.244 1.276 0 .342-1.721 1.494-3.225 2.597-1.149.843-2.217 1.561-2.217 1.688 0 .342 3.533 1.241 6.689 1.01l.003-.022c.048-.092.119-.172.119-.172l5.362-5.49a.477.477 0 0 0 .127-.449z"/></svg></a>
                 </div>
             
 
@@ -869,7 +872,7 @@ docker run -d <span class="se">\
         <ul class="post-nav">
             
                 <li class="post-nav-prev">
-                    <a href="/blog/posts/python/official-docker-python-image/" rel="prev">&lt; 深入了解Python的官方Docker镜像</a>
+                    <a href="/blog/posts/Python/official-docker-python-image/" rel="prev">&lt; 深入了解Python的官方Docker镜像</a>
                 </li>
             
             
@@ -898,7 +901,7 @@ docker run -d <span class="se">\
             
     <footer id="footer" class="footer">
         <div class="footer-inner">
-            <div class="site-info">©&nbsp;1969–2021&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon footer-icon"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>&nbsp;YueChuan</div><div class="powered-by">Powered by <a href="https://github.com/gohugoio/hugo" target="_blank" rel="noopener">Hugo</a> | Theme is <a href="https://github.com/reuixiy/hugo-theme-meme" target="_blank" rel="noopener">MemE</a></div><div class="site-copyright"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></div>
+            <div class="site-info">©&nbsp;2019–2022&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon footer-icon"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>&nbsp;YueChuan</div><div class="powered-by">Powered by <a href="https://github.com/gohugoio/hugo" target="_blank" rel="noopener">Hugo</a> | Theme is <a href="https://github.com/reuixiy/hugo-theme-meme" target="_blank" rel="noopener">MemE</a></div><div class="site-copyright"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></div>
                 <div class="busuanzi-site-uv-and-pv">
                     <span id="busuanzi_container_site_uv">本站访客数&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon busuanzi-site-uv"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"/></svg>&nbsp;<span id="busuanzi_value_site_uv"></span></span>&nbsp;|&nbsp;<span id="busuanzi_container_site_pv">本站访问量&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="icon busuanzi-site-pv"><path d="M288 144a110.94 110.94 0 0 0-31.24 5 55.4 55.4 0 0 1 7.24 27 56 56 0 0 1-56 56 55.4 55.4 0 0 1-27-7.24A111.71 111.71 0 1 0 288 144zm284.52 97.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400c-98.65 0-189.09-55-237.93-144C98.91 167 189.34 112 288 112s189.09 55 237.93 144C477.1 345 386.66 400 288 400z"/></svg>&nbsp;<span id="busuanzi_value_site_pv"></span></span>
                 </div>
@@ -940,7 +943,10 @@ docker run -d <span class="se">\
     <script src="https://cdn.jsdelivr.net/npm/medium-zoom@latest/dist/medium-zoom.min.js"></script>
 
 <script>
-    mediumZoom(document.querySelectorAll('div.post-body img'), {
+    let imgNodes = document.querySelectorAll('div.post-body img');
+    imgNodes = Array.from(imgNodes).filter(node => node.parentNode.tagName !== "A");
+
+    mediumZoom(imgNodes, {
         background: 'hsla(var(--color-bg-h), var(--color-bg-s), var(--color-bg-l), 0.95)'
     })
 </script>
